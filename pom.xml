@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>de.muehlencord.pfadmin</groupId>
+  <artifactId>primefaces-admin</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.5.0-SNAPSHOT</version>
+  </parent>
+
+  <modules>
+    <module>primefaces-admin-showcase</module>
+    <module>primefaces-admin-template</module>
+  </modules>
+
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- dependency versions -->
+    <!--    <jakarta.faces-api.version>4.0.1</jakarta.faces-api.version>-->
+    <jakarta.jakartaee-web-api.version>10.0.0</jakarta.jakartaee-web-api.version>
+
+    <omnifaces.version>4.6.1</omnifaces.version>
+    <joinfaces.version>5.5.0-m3</joinfaces.version>
+    <primefaces.version>15.0.3</primefaces.version>
+
+
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- imports -->
+      <dependency>
+        <groupId>org.joinfaces</groupId>
+        <artifactId>joinfaces-bom</artifactId>
+        <version>${joinfaces.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.joinfaces</groupId>
+        <artifactId>joinfaces-dependencies</artifactId>
+        <version>${joinfaces.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- project dependencies -->
+      <dependency>
+        <groupId>de.muehlencord.pfadmin</groupId>
+        <artifactId>primefaces-admin-template</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+
+      <!--      Mojarra-->
+      <!--
+            <dependency>
+              <groupId>jakarta.faces</groupId>
+              <artifactId>jakarta.faces-api</artifactId>
+              <version>${jakarta.faces-api.version}</version>
+            </dependency>
+            -->
+<!--      <dependency>
+        <groupId>jakarta.platform</groupId>
+        <artifactId>jakarta.jakartaee-web-api</artifactId>
+        <version>${jakarta.jakartaee-web-api.version}</version>
+        <scope>provided</scope>
+      </dependency>-->
+
+<!--      <dependency>
+        <groupId>org.omnifaces</groupId>
+        <artifactId>omnifaces</artifactId>
+        <version>${omnifaces.version}</version>
+      </dependency>-->
+<!--      <dependency>
+        <groupId>org.primefaces</groupId>
+        <artifactId>primefaces</artifactId>
+        <version>${primefaces.version}</version>
+      </dependency>-->
+    </dependencies>
+  </dependencyManagement>
+
+</project>
