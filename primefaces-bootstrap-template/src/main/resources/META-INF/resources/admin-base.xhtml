@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets"
+>
+
+<h:head>
+  <ui:insert name="metadata"/>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+  <h:outputStylesheet library="css" name="primefaces-bootstrap.css"/>
+  <h:outputStylesheet library="css" name="bootstrap-icons.min.css"/>
+<!--  <link rel="stylesheet" href="#{request.contextPath}/css/bootstrap-icons.min.css"/>-->
+<!--  <h:outputStylesheet href="https://cdn.jsdelivr.net/np)m/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>-->
+<!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>-->
+  <ui:insert name="head"/>
+  <ui:insert name="head-end"/>
+</h:head>
+
+<h:body>
+  <ui:insert name="body-begin"/>
+  <div class="d-flex flex-column min-vh-100">
+
+    <!-- Topbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand d-lg-none" href="#"><ui:insert name="logo-mini"/></a>
+        <a class="navbar-brand d-none d-lg-block" href="#"><ui:insert name="logo-lg"/></a>
+
+        <ui:fragment rendered="#{pfbsConfig.enableSlideMenu}">
+          <button class="btn btn-outline-light me-2" type="button" id="sidebarToggle">
+            ☰
+          </button>
+        </ui:fragment>
+
+        <div class="collapse navbar-collapse" id="topMenu">
+          <ui:insert name="top-menu"/>
+        </div>
+      </div>
+    </nav>
+
+    <!-- with left menu -->
+    <ui:fragment rendered="#{pfbsConfig.enableSlideMenu}">
+      <div class="container-fluid flex-grow-1">
+        <div class="row flex-nowrap">
+          <!-- Sidebar -->
+          <div id="sidebar" class="col-auto col-md-3 col-lg-2 px-3 bg-light sidebar">
+            <ui:insert name="menu"/>
+          </div>
+
+          <!-- Main Content -->
+          <main class="col ps-md-4 py-4 main-content">
+            <ui:insert name="body"/>
+            <ui:insert name="content-end"/>
+          </main>
+        </div>
+      </div>
+    </ui:fragment>
+
+    <!-- without left menu -->
+    <ui:fragment rendered="#{!pfbsConfig.enableSlideMenu}">
+      <div class="container-fluid flex-grow-1">
+        <div class="row flex-nowrap">
+          <!-- Main Content -->
+          <main class="col ps-md-4 py-4 main-content">
+            <ui:insert name="body"/>
+            <ui:insert name="content-end"/>
+          </main>
+        </div>
+      </div>
+    </ui:fragment>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3 mt-auto">
+      <ui:insert name="footer"/>
+    </footer>
+
+  </div>
+
+
+  <h:outputScript library="js" name="bootstrap.bundle.min.js" />
+  <h:outputScript library="js" name="primefaces-bootstrap.js" />
+
+  <script>
+      const sidebar = document.getElementById('sidebar');
+      const toggleBtn = document.getElementById('sidebarToggle');
+
+      toggleBtn.addEventListener('click', () => {
+          sidebar.classList.toggle('collapsed');
+      });
+  </script>
+
+  <ui:insert name="body-end"/>
+</h:body>
+</html>

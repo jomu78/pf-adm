@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>de.muehlencord.pfadmin</groupId>
-  <artifactId>primefaces-admin</artifactId>
+  <groupId>de.muehlencord.pfbs</groupId>
+  <artifactId>primefaces-bootstrap</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -16,8 +16,10 @@
   </parent>
 
   <modules>
-    <module>primefaces-admin-showcase</module>
-    <module>primefaces-admin-template</module>
+    <module>primefaces-bootstrap-showcase</module>
+    <module>primefaces-bootstrap-template</module>
+    <module>primefaces-bootstrap-spring-boot-starter</module>
+    <module>primefaces-bootstrap-spring-boot-autoconfigure</module>
   </modules>
 
   <properties>
@@ -35,6 +37,14 @@
 
 
   </properties>
+
+  <repositories>
+    <repository>
+      <id>repository.spring.milestone</id>
+      <name>Spring Milestone Repository</name>
+      <url>https://repo.spring.io/milestone</url>
+    </repository>
+  </repositories>
 
   <dependencyManagement>
     <dependencies>
@@ -56,12 +66,20 @@
 
       <!-- project dependencies -->
       <dependency>
-        <groupId>de.muehlencord.pfadmin</groupId>
-        <artifactId>primefaces-admin-template</artifactId>
+        <groupId>de.muehlencord.pfbs</groupId>
+        <artifactId>primefaces-bootstrap-template</artifactId>
         <version>${project.version}</version>
       </dependency>
-
-
+      <dependency>
+        <groupId>de.muehlencord.pfbs</groupId>
+        <artifactId>primefaces-bootstrap-spring-boot-autoconfigure</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.muehlencord.pfbs</groupId>
+        <artifactId>primefaces-bootstrap-spring-boot-starter</artifactId>
+        <version>${project.version}</version>
+      </dependency>
       <!--      Mojarra-->
       <!--
             <dependency>
@@ -70,12 +88,12 @@
               <version>${jakarta.faces-api.version}</version>
             </dependency>
             -->
-<!--      <dependency>
+      <dependency>
         <groupId>jakarta.platform</groupId>
         <artifactId>jakarta.jakartaee-web-api</artifactId>
         <version>${jakarta.jakartaee-web-api.version}</version>
         <scope>provided</scope>
-      </dependency>-->
+      </dependency>
 
 <!--      <dependency>
         <groupId>org.omnifaces</groupId>

@@ -1,0 +1,4 @@
+server:
+  shutdown: graceful
+pfbs:
+  enable-slide-menu: true
