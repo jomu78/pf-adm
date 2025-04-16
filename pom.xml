@@ -34,8 +34,6 @@
     <omnifaces.version>4.6.1</omnifaces.version>
     <joinfaces.version>5.5.0-m3</joinfaces.version>
     <primefaces.version>15.0.3</primefaces.version>
-
-
   </properties>
 
   <repositories>
@@ -63,6 +61,12 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <dependency>
+        <groupId>org.primefaces</groupId>
+        <artifactId>primefaces</artifactId>
+        <version>${primefaces.version}</version>
+        <classifier>jakarta</classifier>
+      </dependency>
 
       <!-- project dependencies -->
       <dependency>
@@ -80,31 +84,12 @@
         <artifactId>primefaces-bootstrap-spring-boot-starter</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <!--      Mojarra-->
-      <!--
-            <dependency>
-              <groupId>jakarta.faces</groupId>
-              <artifactId>jakarta.faces-api</artifactId>
-              <version>${jakarta.faces-api.version}</version>
-            </dependency>
-            -->
       <dependency>
         <groupId>jakarta.platform</groupId>
         <artifactId>jakarta.jakartaee-web-api</artifactId>
         <version>${jakarta.jakartaee-web-api.version}</version>
         <scope>provided</scope>
       </dependency>
-
-<!--      <dependency>
-        <groupId>org.omnifaces</groupId>
-        <artifactId>omnifaces</artifactId>
-        <version>${omnifaces.version}</version>
-      </dependency>-->
-<!--      <dependency>
-        <groupId>org.primefaces</groupId>
-        <artifactId>primefaces</artifactId>
-        <version>${primefaces.version}</version>
-      </dependency>-->
     </dependencies>
   </dependencyManagement>
 
