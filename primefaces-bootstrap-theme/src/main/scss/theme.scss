@@ -1,0 +1,15 @@
+// import own variables
+@import './variables';
+
+// import bootstrap
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/variables-dark";
+@import "bootstrap/mixins";
+@import "bootstrap/buttons";
+@import "bootstrap/button-group";
+
+
+// own adjustments
+@import "buttons";
+

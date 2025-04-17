@@ -20,6 +20,7 @@
     <module>primefaces-bootstrap-template</module>
     <module>primefaces-bootstrap-spring-boot-starter</module>
     <module>primefaces-bootstrap-spring-boot-autoconfigure</module>
+    <module>primefaces-bootstrap-theme</module>
   </modules>
 
   <properties>
@@ -34,6 +35,7 @@
     <omnifaces.version>4.6.1</omnifaces.version>
     <joinfaces.version>5.5.0-m3</joinfaces.version>
     <primefaces.version>15.0.3</primefaces.version>
+<!--    <primefaces.version>15.0.4-SNAPSHOT</primefaces.version>-->
   </properties>
 
   <repositories>
@@ -67,8 +69,18 @@
         <version>${primefaces.version}</version>
         <classifier>jakarta</classifier>
       </dependency>
+      <dependency>
+        <groupId>org.primefaces</groupId>
+        <artifactId>primefaces-themes</artifactId>
+        <version>${primefaces.version}</version>
+      </dependency>
 
       <!-- project dependencies -->
+      <dependency>
+        <groupId>de.muehlencord.pfbs</groupId>
+        <artifactId>primefaces-bootstrap-theme</artifactId>
+        <version>${project.version}</version>
+      </dependency>
       <dependency>
         <groupId>de.muehlencord.pfbs</groupId>
         <artifactId>primefaces-bootstrap-template</artifactId>

@@ -1,0 +1,46 @@
+
+.ui-button {
+  @extend .btn;
+
+  &.btn-default {
+    @extend .btn-default
+  }
+
+  &.btn-primary {
+    @extend .btn-primary
+  }
+
+  &.btn-success {
+    @extend .btn-success
+  }
+
+  &.btn-info {
+    @extend .btn-info
+  }
+
+  &.btn-warning {
+    @extend .btn-warning
+  }
+
+  &.btn-danger {
+    @extend .btn-danger
+  }
+
+  &.btn-fatal {
+    @extend .btn-fatal
+  }
+
+  &.btn-teal {
+    @extend .btn-teal
+  }
+
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
