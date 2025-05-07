@@ -1,5 +1,7 @@
 server:
   shutdown: graceful
+  servlet:
+    context-path: /showcase
 pfbs:
   enable-slide-menu: true
 joinfaces:

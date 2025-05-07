@@ -105,4 +105,40 @@
     </dependencies>
   </dependencyManagement>
 
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>io.fabric8</groupId>
+          <artifactId>docker-maven-plugin</artifactId>
+          <configuration>
+            <images>
+              <image>
+                <name>jomu78/${project.artifactId}:${project.version}</name>
+                <build>
+                  <dockerFile>${project.basedir}/Dockerfile</dockerFile>
+                  <tags>
+                    <tag>latest</tag>
+                  </tags>
+                  <buildOptions>
+                    <forcerm>1</forcerm>
+                  </buildOptions>
+                  <args>
+                    <JAR_FILE>target/${project.build.finalName}-starter.jar</JAR_FILE>
+                  </args>
+                  <buildx>
+                    <platforms>
+                      <platform>linux/amd64</platform>
+                      <platform>linux/arm64</platform>
+                    </platforms>
+                  </buildx>
+                </build>
+              </image>
+            </images>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
 </project>

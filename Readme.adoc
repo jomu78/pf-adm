@@ -1,0 +1,66 @@
+= primefaces-bootstrap
+:page-layout: base
+:source-language: java
+:icons: font
+:linkattrs:
+:sectanchors:
+:sectlink:
+:numbered:
+:doctype: book
+:toc: preamble
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+
+== Features
+
+== Usage
+
+=== Template
+=== Theme
+=== Showcase
+==== Demo
+IMPORTANT: currently there is no demo available, put planned.
+
+==== Running from source
+
+The project is based on Java 21 and maven 3.9.x.
+
+----
+git clone <TBD>
+cd primefaces-bootstrap
+mvn clean install
+cd primefaces-bootstrap-showcase
+java -jar target/primefaces-bootstrap-showcase-<version>-starter.jar
+----
+Access the showcase on http://localhost:8080/showcase
+
+
+==== Running from Docker
+There is a docker image available.
+
+----
+docker run -p 8080:8080 jomu78/primefaces-bootstrap-showcase
+----
+Access the showcase on http://localhost:8080/showcase
+
+IMPORTANT: The image is not yet publicly available.
+
+==== Creating docker image
+To create the docker image locally, run the following commands.
+
+----
+git clone <TBD>
+cd primefaces-bootstrap
+mvn clean install
+cd primefaces-bootstrap-showcase
+mvn docker:build
+----
+
+
+
+== Configuration
+
+
