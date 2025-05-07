@@ -27,7 +27,7 @@
 
           <div class="col-sm-12 col-md-3">
             <p:commandButton value="With Icon" id="withIcon" actionListener="#{buttonMB.buttonAction}"
-                             update="growl" icon="fa fa-floppy-o" styleClass="btn-danger btn-block"
+                             update="growl" icon="pi pi-save" styleClass="btn-danger btn-block"
                              ignoreAutoUpdate="true"/>
           </div>
 
@@ -43,13 +43,13 @@
 
           <div class="col-sm-12 col-md-3 ui-fluid">
             <p:commandButton actionListener="#{buttonMB.buttonAction}" id="iconOnly" update="growl"
-                             icon="fa fa-floppy-o" title="Icon Only" styleClass="btn-warning"
+                             icon="pi pi-save" title="Icon Only" styleClass="btn-warning"
                              ignoreAutoUpdate="true"/>
           </div>
 
           <div class="col-sm-12 col-md-3">
             <p:splitButton value="Save" actionListener="#{buttonMB.save}" update="growl"
-                           icon="fa fa-floppy-o" ignoreAutoUpdate="true"
+                           icon="pi pi-save" ignoreAutoUpdate="true"
                            styleClass="btn-success btn-block">
               <p:menuitem value="Update" actionListener="#{buttonMB.update}" update="growl" ignoreAutoUpdate="true"
                           icon="fa fa-refresh"/>

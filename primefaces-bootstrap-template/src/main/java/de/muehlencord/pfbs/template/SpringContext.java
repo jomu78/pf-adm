@@ -5,10 +5,10 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 /**
- * TODO Add a short description of the class
+ * applicationContextAware SpringContext
  *
  * @author Joern Muehlencord, 2025-04-15
- * @since TODO - add version
+ * @since 0.1.0
  */
 @Component
 public class SpringContext implements ApplicationContextAware {

@@ -13,10 +13,10 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * TODO Add a short description of the class
+ * Configure Spring MVC
  *
  * @author Joern Muehlencord, 2025-04-14
- * @since TODO - add version
+ * @since 0.1.0
  */
 @Configuration
 public class WebMvcConfiguration implements WebMvcConfigurer {

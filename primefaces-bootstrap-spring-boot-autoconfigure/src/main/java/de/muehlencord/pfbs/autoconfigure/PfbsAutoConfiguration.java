@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * TODO Add a short description of the class
+ * configure
  *
  * @author Joern Muehlencord, 2025-04-15
- * @since TODO - add version
+ * @since 0.1.0
  */
 @AutoConfiguration
 @ComponentScan(basePackages = {"de.muehlencord.pfbs"})

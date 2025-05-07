@@ -6,10 +6,10 @@ import jakarta.inject.Named;
 import java.io.Serializable;
 
 /**
- * TODO Add a short description of the class
+ * application scoped bean proving access to the application properties
  * 
  * @author Joern Muehlencord, 2025-04-15
- * @since TODO - add version
+ * @since 0.1.0
  */
 @Named ("pfbsConfig")
 @ApplicationScoped

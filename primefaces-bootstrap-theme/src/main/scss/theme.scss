@@ -1,15 +1,20 @@
-// import own variables
-@import './variables';
+// pre-define / overwrite bootstrap variables
+@import "bs_variables";
+@import "pf_variables";
+@import "pfbs-variables";
+
+// own stuff
+@import "_mixins";
+@import "_buttons";
+@import "_panels";
+@import "_containers";
+@import "_misc";
+@import "_links";
+@import "_datatable";
 
 // import bootstrap
-@import "bootstrap/functions";
-@import "bootstrap/variables";
-@import "bootstrap/variables-dark";
-@import "bootstrap/mixins";
-@import "bootstrap/buttons";
-@import "bootstrap/button-group";
+@import "bootstrap/bootstrap";
 
-
-// own adjustments
-@import "buttons";
-
+// import primefaces
+@import "primefaces/_variables";
+@import "primefaces/_components";

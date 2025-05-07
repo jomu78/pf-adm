@@ -1,0 +1,7 @@
+= TODO
+
+- fontawsome funktioniert noch nicht, laden optional machen
+- buttons:
+    - splitButtons gehen noch nicht
+
+ - License file, link https://github.com/adminfaces und rmpestano

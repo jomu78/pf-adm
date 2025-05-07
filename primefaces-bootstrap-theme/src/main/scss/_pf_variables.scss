@@ -1,0 +1,70 @@
+@import "bs_variables";
+
+$card-border-color: $gray-600;
+$panelContentBorder:1px solid $gray-600 !default;
+$panelContentBg: $white !default;
+$panelContentTextColor:$gray-100 !default;
+$panelContentPadding:1rem !default;
+
+
+$buttonBg:$primary !default;
+$buttonBorder:1px solid $primary !default;
+$buttonTextColor:$gray-800 !default;
+
+$glyphicon-icon-size:10px;
+
+// general
+$errorColor:#ef9a9a !default;
+
+//input field
+$inputBg:$white !default;
+$inputTextColor:$gray-800 !default;
+$inputIconColor:$gray-800 !default;
+$inputHoverBorderColor:$primary !default;
+$inputFocusBorderColor:$primary !default;
+$inputErrorBorderColor:$errorColor !default;
+$inputPlaceholderTextColor:$gray-300 !default;
+$inputFilledBg:$white !default;
+$inputFilledHoverBg:$white !default;
+$inputFilledFocusBg:$white !default;
+
+//datatable
+$datatableHeaderBorder:1px solid $gray-800 !default;
+$datatableHeaderBorderWidth:0 0 1px 0 !default;
+$datatableHeaderBg:$white !default;
+$datatableHeaderTextColor:$gray-800 !default;
+$datatableHeaderFontWeight:600 !default;
+$datatableHeaderPadding:1rem 1rem !default;
+
+$datatableHeaderCellBg:$white !default;
+$datatableHeaderCellTextColor:$gray-800 !default;
+$datatableHeaderCellBorder:1px solid $gray-800 !default;
+
+$datatable-border-color: $gray-800 !default;
+$datatable-row-border-color: $gray-800 !default;
+$datatable-row-hover-color: $white !default;
+
+$datatableFooterCellBg:$white !default;
+$datatableFooterCellTextColor:$gray-800 !default;
+$datatableFooterCellBorder:1px solid $gray-800 !default;
+$datatableResizerHelperBg:$primary !default;
+
+$datatableFooterBorder:1px solid $gray-800 !default;
+$datatableFooterBg:$white !default;
+$datatableFooterTextColor:$gray-800 !default;
+
+$datatableBodyRowBg:$white !default;
+$datatableBodyRowTextColor:$black !default;
+$datatableBodyRowOddBg:$gray-200 !default;
+$datatableBodyRowHoverBg:$gray-400 !default;
+$datatableBodyRowTextHoverColor:$gray-200 !default;
+$datatableFooterCellBg:$white !default;
+$datatableFooterCellTextColor:$black !default;
+$datatableResizerHelperBg:$primary !default;
+
+
+//paginator
+$paginatorBg:$white !default;
+$paginatorIconColor:$gray-800 !default;
+$paginatorElementHoverBg:$gray-900 !default;
+$paginatorElementHoverIconColor:$gray-800 !default;

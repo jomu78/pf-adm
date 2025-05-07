@@ -4,16 +4,17 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * TODO Add a short description of the class
+ * properties available to configure the template look and feel.
  *
  * @author Joern Muehlencord, 2025-04-14
- * @since TODO - add version
+ * @since 0.1.0
  */
 @Configuration
 @ConfigurationProperties(prefix = "pfbs")
 //@Data
 public class PfbsProperties {
 
+  /* *** adminface inspired / compatible *** */
 //  private Properties adminConfigFile;//default config
 //  private Properties userConfigFile;//user defined properties
 //  private String loginPage;
