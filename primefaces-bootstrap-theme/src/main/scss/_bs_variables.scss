@@ -172,7 +172,7 @@ $theme-colors-border-subtle: (
 $prefix:                      bs- !default;
 $enable-rounded:              true !default;
 $enable-shadows:              false !default;
-$font-size-base:              .8rem !default; // Assumes the browser default, typically `16px`
+$font-size-base:              .6rem !default;
 $link-color:                  $black !default;
 
 $line-height-base:            1.5 !default;
@@ -225,6 +225,13 @@ $btn-border-radius:           $border-radius !default;
 $btn-border-radius-xs:        $border-radius-xs !default;
 $btn-border-radius-sm:        $border-radius-sm !default;
 $btn-border-radius-lg:        $border-radius-lg !default;
+
+:root {
+  --bs-nav-link-font-size: 0.8em;
+  --bs-body-font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,'sans-serif';
+  --bs-body-text-align: left;
+  --bs-dropdown-item-border-radius: 0;
+}
 
 /*
 :root {

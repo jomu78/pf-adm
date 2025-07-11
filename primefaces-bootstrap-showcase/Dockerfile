@@ -13,4 +13,4 @@ USER javaapp
 RUN mkdir -p /home/javaapp
 WORKDIR /home/javaapp
 COPY --from=builder /app/app.jar ./
-ENTRYPOINT ["java", "-XX:+UseContainerSupport","-Djava.security.egd=file:/dev/./urandom", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-XX:+UseContainerSupport","-Dj ava.security.egd=file:/dev/./urandom", "-jar", "app.jar"]
