@@ -1,0 +1,31 @@
+= Feature matrix
+:icons: font
+
+[cols="3,1,1"]
+|===
+| Feature ^| admin-template ^| bfbs-template
+
+|BootStrap support ^| icon:check[font-color: yellow] v3 ^| icon:check[font-color: green] v5
+|JQuery ^| icon:check[font-color: yellow] v3 ^| not required
+|AdminLTE ^| icon:check[font-color: yellow] v2 ^| icon:times[font-color: red]
+|Fully responsive ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|Material design load bar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|Material design flat buttons ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|Ripple effect based on materialize css ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|Touch enabled menu to slide in/out and show navbar on scroll up ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|Auto show and hide navbar based on page scroll ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|Scroll to top ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|Automatically activates (highlight) menu based on current page ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|Custom error pages ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|Left based menu ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|Top based menu ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|Configurable ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|Breadcrumb based navigation ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|Layout customization via Control Sidebar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|Glyphycons support ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|FontAwesome support ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|Bootstrap Icons support ^| icon:times[font-color: red] ^| icon:check[font-color: green]
+|Menu items search ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|Builtin dark and light skins ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|===
+

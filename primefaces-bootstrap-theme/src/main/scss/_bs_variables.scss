@@ -227,10 +227,20 @@ $btn-border-radius-sm:        $border-radius-sm !default;
 $btn-border-radius-lg:        $border-radius-lg !default;
 
 :root {
+  $body-emphasis-color: #fff;
   --bs-nav-link-font-size: 0.8em;
   --bs-body-font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,'sans-serif';
   --bs-body-text-align: left;
   --bs-dropdown-item-border-radius: 0;
+}
+
+:root,  [data-bs-theme=light] {
+  //$body-emphasis-color: #fff !default;
+  //--bs-emphasis-color-rgb: 1, 1, 1;
+  //--bs-navbar-brand-color: fff;
+  //--bs-navbar-brand-color-rgb: 1, 1, 1;
+  //--bs-emphasis-color: fff;
+  //--bs-emphasis-color-rgb: 1, 1, 1;
 }
 
 /*

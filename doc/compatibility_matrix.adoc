@@ -1,0 +1,5 @@
+= Compatibility matrix
+
+* link:configuration_compatibilty_matrix.adoc[Configuration Options]
+* link:template_compatibility_matrix.adoc[Template]
+* link:feature_matrix.adoc[Features]

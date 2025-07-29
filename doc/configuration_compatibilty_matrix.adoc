@@ -1,0 +1,46 @@
+= Configuration properties compatibility matrix
+:icons: font
+
+|===
+| Property ^| admin-template ^| bfbs-template
+
+| loginPage ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|indexPage ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|dateFormat ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|templatePath ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|breadCrumbMaxSize ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|renderMessages ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|skipMessageDetailIfEqualsSummary ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|renderAjaxStatus ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|disableFilter ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|enableRipple ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|renderBreadCrumb ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|extensionLessUrls ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|enableSlideMenu ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|rippleElements ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|skin ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|autoShowNavbar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|ignoredResources ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|loadingImage ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|renderControlSidebar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|leftMenuTemplate ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|renderMenuSearch ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|renderFormAsterisks ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|closableLoading ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|enableMobileHeader ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|pageSuffix ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|rippleMobileOnly ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|messagesHideTimeout ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|autoHideMessages ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|iconsEffect ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+
+3+|Controlsidebar
+|showOnMobile ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|fixedLayout ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|boxedLayout ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|expandOnHover ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|sidebarCollapsed ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|fixed ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|darkSkin ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+
+|===

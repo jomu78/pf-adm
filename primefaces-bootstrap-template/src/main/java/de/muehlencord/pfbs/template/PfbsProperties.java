@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConfigurationProperties(prefix = "pfbs")
-//@Data
 public class PfbsProperties {
 
   /* *** adminface inspired / compatible *** */

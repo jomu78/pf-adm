@@ -4,7 +4,7 @@ $primaryColor: #2196F3 !default;
 $primaryLightColor: color.scale($primaryColor, $lightness: 60%) !default;
 $primaryDarkColor: color.scale($primaryColor, $lightness: -10%) !default;
 $primaryDarkerColor: color.scale($primaryColor, $lightness: -20%) !default;
-$primaryTextColor: #ffffff !default;
+$primaryTextColor: #000000 !default;
 
 $colors: (
     "blue": #2196F3,
