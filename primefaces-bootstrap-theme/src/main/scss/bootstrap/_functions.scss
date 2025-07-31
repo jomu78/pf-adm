@@ -1,7 +1,3 @@
-@use "sass:color";
-@use "sass:math";
-@use "sass:list";
-
 // Bootstrap functions
 //
 // Utility mixins and functions for evaluating source code across our variables, maps, and mixins.
@@ -12,7 +8,7 @@
   $prev-key: null;
   $prev-num: null;
   @each $key, $num in $map {
-    @if $prev-num == null or math.unit($num) == "%" or math.unit($prev-num) == "%" {
+    @if $prev-num == null or unit($num) == "%" or unit($prev-num) == "%" {
       // Do nothing
     } @else if not comparable($prev-num, $num) {
       @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
@@ -38,7 +34,7 @@
 
 // Colors
 @function to-rgb($value) {
-  @return color.red($value), color.green($value), color.blue($value);
+  @return red($value), green($value), blue($value);
 }
 
 // stylelint-disable scss/dollar-variable-pattern
@@ -186,13 +182,13 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
 // See https://www.w3.org/TR/WCAG/#dfn-contrast-ratio
 @function luminance($color) {
   $rgb: (
-    "r": color.red($color),
-    "g": color.green($color),
-    "b": color.blue($color)
+    "r": red($color),
+    "g": green($color),
+    "b": blue($color)
   );
 
   @each $name, $value in $rgb {
-    $value: if(divide($value, 255) < .04045, divide(divide($value, 255), 12.92), list.nth($_luminance-list, $value + 1));
+    $value: if(divide($value, 255) < .04045, divide(divide($value, 255), 12.92), nth($_luminance-list, $value + 1));
     $rgb: map-merge($rgb, ($name: $value));
   }
 
@@ -202,18 +198,18 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
 // Return opaque color
 // opaque(#fff, rgba(0, 0, 0, .5)) => #808080
 @function opaque($background, $foreground) {
-  @return color.mix(rgba($foreground, 1), $background, opacity($foreground) * 100%);
+  @return mix(rgba($foreground, 1), $background, opacity($foreground) * 100%);
 }
 
 // scss-docs-start color-functions
 // Tint a color: mix a color with white
 @function tint-color($color, $weight) {
-  @return color.mix(white, $color, $weight);
+  @return mix(white, $color, $weight);
 }
 
 // Shade a color: mix a color with black
 @function shade-color($color, $weight) {
-  @return color.mix(black, $color, $weight);
+  @return mix(black, $color, $weight);
 }
 
 // Shade the color if the weight is positive, else tint it
@@ -291,8 +287,8 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
     }
   }
   $result: $result * $factor * $sign;
-  $dividend-unit: math.unit($dividend);
-  $divisor-unit: math.unit( $divisor);
+  $dividend-unit: unit($dividend);
+  $divisor-unit: unit($divisor);
   $unit-map: (
     "px": 1px,
     "rem": 1rem,
