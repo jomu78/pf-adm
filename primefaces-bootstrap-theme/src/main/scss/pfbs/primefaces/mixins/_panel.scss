@@ -1,0 +1,10 @@
+@mixin panel-solid($color) {
+  border-top: 0;
+  .ui-panel-titlebar {
+    background: $color;
+  }
+
+  .ui-panel-title {
+    color: #fff;
+  }
+}

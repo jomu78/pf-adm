@@ -1,0 +1,18 @@
+@mixin datagridBoxColors($color, $text-color) {
+  .ui-datagrid-header,
+  .ui-panel-titlebar {
+    border-top: 3px solid $color;
+  }
+
+  &.box-solid {
+    .ui-datagrid-header,
+    .ui-datagrid-footer {
+      background-color: $color;
+      color: $text-color;
+
+      .ui-panel-title {
+        color: $text-color;
+      }
+    }
+  }
+}

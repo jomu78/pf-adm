@@ -1,9 +1,0 @@
-//@use "bootstrap/mixins/box-shadow" as shadow;
-//@import "bs_variables";
-//@import "pf_variables";
-
-div.card {
-  background: #fff;
-  border-top: 0;
-  //@include shadow.box-shadow($card-shadow);
-}
