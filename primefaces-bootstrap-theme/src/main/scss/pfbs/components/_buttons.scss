@@ -1,7 +1,5 @@
 @use "../mixins" as pfbs-mixins;
 
-@import "../variables";
-
 @each $color, $value in $theme-colors {
   .btn-#{$color} {
     background-color: $value;

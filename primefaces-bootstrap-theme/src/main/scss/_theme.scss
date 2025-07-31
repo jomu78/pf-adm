@@ -1,34 +1,13 @@
-// pre-define / overwrite bootstrap variables
-//@import "bs_variables";
-//@import "pf_variables";
-//@import "pfbs-variables";
-
-// own stuff
-//@import "_mixins";
-//@import "_buttons";
-//@import "_panels";
-//@import "_containers";
-//@import "_misc";
-//@import "_links";
-//@import "_datatable";
-
-@import "pfbs/variables";
-
-// import bootstrap
-@import "bootstrap/bootstrap";
-
-// font awesome
-
-// import adminlte
-@import "adminlte/adminlte";
-@import "pfbs/skins/all-skins";
-
-// skins
+// Bootstrap
+// ---------------------------------------------------
+@import 'bootstrap/functions';
+@import 'adminlte/bootstrap-variables';
 
 // mixins
-//@import "bootstrap/bootstrap-utilities";
 @import "pfbs/mixins";
 
+// skins
+@import "pfbs/skins/all-skins";
 
 // components
 @import "pfbs/components/basic";
@@ -39,8 +18,3 @@
 @import "pfbs/components/panels";
 @import "pfbs/components/sidebar";
 
-
-
-// import primefaces
-//@import "primefaces/_variables";
-//@import "primefaces/_components";
