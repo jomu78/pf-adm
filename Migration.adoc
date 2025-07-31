@@ -1,0 +1,62 @@
+= Migration from admin-faces
+:toc:
+
+This project is inspired and based on https://adminfaces.github.io/site/[AdminFaces] by https://github.com/rmpestano[Rafael Pestano].
+
+This document describes how to upgrade a SpringBoot based AdminFaces project.
+
+== Dependencies
+
+Remove any all AdminFaces based dependencies and replace them by the PFBS dependency.
+
+[cols="a,a"]
+|===
+^| AdminFaces ^| PFBS
+
+|
+[source,xml]
+----
+<dependency>
+  <groupId>com.github.adminfaces</groupId>
+  <artifactId>admin-template</artifactId>
+</dependency>
+<dependency>
+  <groupId>com.github.adminfaces</groupId>
+  <artifactId>admin-theme</artifactId>
+</dependency>
+<dependency>
+  <groupId>com.primefaces</groupId>
+  <artifactId>primefaces</artifactId>
+</dependency>
+----
+
+if based on Joinfaces
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.joinfaces</groupId>
+  <artifactId>adminfaces-spring-boot-starter</artifactId>
+</dependency>
+----
+
+|
+[source,xml]
+----
+<dependency>
+  <groupId>de.muehlencord.pfbs</groupId>
+  <artifactId>primefaces-bootstrap-spring-boot-starter</artifactId>
+</dependency>
+----
+|===
+
+== Configuration
+
+== Template changes
+
+== Page changes
+
+
+
+
+

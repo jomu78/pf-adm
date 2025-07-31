@@ -1,0 +1,77 @@
+/*
+ * Skin: green
+ * ----------
+ */
+@use "sass:color";
+
+@import "../../bootstrap/_mixins.scss";
+@import "../../pfbs/variables.scss";
+@import "../mixins";
+
+.skin-green {
+  //Navbar
+  .navbar {
+    @include navbar-variant("skin-green", $light-green);
+
+    .sidebar {
+      color: #fff;
+
+      &:hover {
+        background-color: darken($light-green, 5%);
+      }
+    }
+
+    .navbar-brand {
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+      font-weight: 300;
+    }
+
+    @media (max-width: $screen-header-collapse) {
+      .dropdown-menu {
+        li {
+          &.divider {
+            background-color: rgba(255, 255, 255, 0.1);
+          }
+
+          a {
+            color: #fff;
+
+            &:hover {
+              background: darken($light-green, 5%);
+            }
+          }
+        }
+      }
+    }
+
+    //Logo
+    //.logo {
+    //  @include logo-variant(darken($light-green, 5%));
+    //  TODO - check https://adminlte.io/docs/3.0/upgrade-guide.html
+    //}
+
+    //li.user-header {
+    //  background-color: $light-green;
+    //}
+  }
+
+  //Content Header
+  //.content-header {
+  //  background: transparent;
+  //}
+
+  //Create the sidebar skin
+  // TODO
+  //@include skin-dark-sidebar($light-green);
+
+  //a.dropdown-toggle {
+  //  background-color: $light-green !important;
+  //}
+
+}
+
+//.skin-green.layout-top-nav > .logo {
+//  @include logo-variant($light-green);
+//}

@@ -1,0 +1,43 @@
+body {
+  div {
+    &.ui-sidebar {
+      a {
+        &.ui-sidebar-close {
+          padding: 0;
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+
+a {
+  &.sidebar-toggle {
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+
+ul {
+  &.sidebar-menu {
+    li {
+      &.header {
+        text-transform: uppercase;
+      }
+
+      &.treeview {
+        i {
+          &.fa-angle-left {
+            &:before {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

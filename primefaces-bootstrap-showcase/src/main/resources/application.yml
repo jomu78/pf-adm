@@ -4,6 +4,10 @@ server:
     context-path: /showcase
 pfbs:
   enable-slide-menu: true
+  skin: skin-blue
+  render-brand-text: true
+  render-logo: false
+  render-full-screen-toggle: true
 joinfaces:
   primefaces:
     theme: bootstrap5

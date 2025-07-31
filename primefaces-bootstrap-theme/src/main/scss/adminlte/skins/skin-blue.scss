@@ -1,0 +1,82 @@
+/*
+ * Skin: Blue
+ * ----------
+ */
+@use "sass:color";
+
+@import "../../bootstrap/_mixins.scss";
+@import "../../pfbs/variables.scss";
+@import "../mixins";
+
+.skin-blue {
+  .navbar {
+    @include navbar-variant("skin-blue", $light-blue);
+
+    .sidebar {
+      color: #fff;
+
+      &:hover {
+        background-color: darken($light-blue, 5%);
+      }
+    }
+
+    .navbar-brand {
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+      font-weight: 300;
+    }
+
+    @media (max-width: $screen-header-collapse) {
+      .dropdown-menu {
+        li {
+          &.divider {
+            background-color: rgba(255, 255, 255, 0.1);
+          }
+
+          a {
+            color: #fff;
+
+            &:hover {
+              background: darken($light-blue, 5%);
+            }
+          }
+        }
+      }
+    }
+
+
+
+    //li.user-header {
+    //  background-color: $light-blue;
+    //}
+  }
+
+  .app-sidebar {
+    @include sidebar-variant("skin-blue", $light-blue, $gray-100);
+  }
+
+  //Content Header
+  //.content-header {
+  //  background: transparent;
+  //}
+
+  //Create the sidebar skin
+  // TODO
+  //@include skin-dark-sidebar($light-blue);
+
+  //a.dropdown-toggle {
+  //  background-color: $light-blue !important;
+  //}
+
+  //.ui-panel.ui-widget {
+  //  .ui-panel-titlebar {
+  //    background-color: $light-blue;
+  //  }
+  //}
+
+}
+
+//.skin-blue.layout-top-nav > .logo {
+//  @include logo-variant($light-blue);
+//}

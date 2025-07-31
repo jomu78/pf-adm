@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html"
       xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui"
 >
 
 <ui:insert name="metadata"/>
@@ -10,68 +11,133 @@
 <h:head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <h:outputStylesheet library="css" name="bootstrap-icons.min.css"/>
-  <h:outputStylesheet library="css" name="fa-all.min.css"/>
+  <h:outputStylesheet library="css" name="bootstrap-icons.css"/>
+  <h:outputStylesheet library="css" name="fa-all.css"/>
   <h:outputStylesheet library="css" name="primefaces-bootstrap.css"/>
   <ui:insert name="head"/>
   <ui:insert name="head-end"/>
 </h:head>
 
-<h:body>
-  <ui:insert name="body-begin"/>
-  <div class="d-flex flex-column min-vh-100">
-
-    <!-- Topbar -->
-    <nav class="navbar navbar-expand-lg bg-primary">
+<h:body class="layout-fixed sidebar-expand-lg sidebar-mini bg-body-tertiary #{skinView.skin}">
+  <!--begin::App Wrapper-->
+  <div class="app-wrapper">
+    <!--begin::Header-->
+    <nav class="app-header navbar navbar-expand navbar-#{skinView.skin}" >
+      <!--begin::Container-->
       <div class="container-fluid">
-        <a class="navbar-brand d-lg-none" href="#"><ui:insert name="logo-mini"/></a>
-        <a class="navbar-brand d-none d-lg-block" href="#"><ui:insert name="logo-lg"/></a>
 
-        <ui:fragment rendered="#{pfbsConfig.enableSlideMenu}">
-          <button class="btn btn-outline-light me-2" type="button" id="sidebarToggle">
-            ☰
-          </button>
-        </ui:fragment>
-
-        <div class="collapse navbar-collapse" id="topMenu">
+        <ul class="navbar-nav">
+          <ui:fragment rendered="#{pfbsConfig.enableSlideMenu}">
+            <li class="nav-item">
+              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                <i class="bi bi-list"/>
+              </a>
+            </li>
+          </ui:fragment>
           <ui:insert name="top-menu"/>
-        </div>
+        </ul>
+
+        <ul class="navbar-nav ms-auto">
+
+          <ui:insert name="top-menu-notifications"/>
+
+          <ui:fragment rendered="#{pfbsConfig.renderFullScreenToggle}">
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+              <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"/>
+              <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"/>
+            </a>
+          </li>
+          </ui:fragment>
+
+          <li class="nav-item dropdown user-menu">
+            <ui:insert name="top-menu-user-menu" />
+          </li>
+        </ul>
       </div>
     </nav>
+    <!--end::Header-->
 
+    <!--begin::Sidebar-->
+    <ui:fragment rendered="#{pfbsConfig.enableSlideMenu}">
+      <aside class="app-sidebar sidebar-#{skinView.skin}">
 
-    <div class="container-fluid flex-grow-1">
-      <div class="row flex-nowrap">
-        <ui:fragment rendered="#{pfbsConfig.enableSlideMenu}">
-          <!-- Sidebar -->
-          <div id="sidebar" class="col-auto col-md-3 col-lg-2 px-3 bg-light sidebar">
-            <ui:insert name="menu"/>
+        <!--begin::Sidebar Brand-->
+        <div class="sidebar-brand">
+          <p:link action="#{pfbsConfig.indexPage}" styleClass="brand-link logo-switch">
+            <ui:fragment rendered="#{pfbsConfig.renderLogo}">
+              <div class="brand-image-xl logo-xl">
+                <ui:insert name="logo-lg"/>
+              </div>
+              <div class="brand-image-xs logo-xs">
+                <ui:insert name="logo-mini"/>
+              </div>
+            </ui:fragment>
+            <ui:fragment rendered="#{pfbsConfig.renderBrandText}">
+            <span class="brand-text fw-light">
+              <ui:insert name="brand-text"/>
+            </span>
+            </ui:fragment>
+          </p:link>
+        </div>
+        <!--end::Sidebar Brand-->
+
+        <div class="sidebar-wrapper">
+          <nav class="mt-2">
+            <ul class="nav sidebar-menu flex-column">
+              <ui:insert name="menu"/>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+    </ui:fragment>
+
+    <!--end::Sidebar-->
+    <!--begin::App Main-->
+    <main class="app-main">
+      <!--begin::App Content Header-->
+      <div class="app-content-header">
+        <!--begin::Container-->
+        <div class="container-fluid">
+          <!--begin::Row-->
+          <div class="row">
+            <div class="col-sm-6">
+              <h3 class="mb-0">Dashboard</h3>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-end">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+              </ol>
+            </div>
           </div>
-        </ui:fragment>
-
-        <!-- Main Content -->
-        <main class="col ps-md-4 py-4 main-content">
-          <h1>
-            <ui:insert name="title" />
-            <small><ui:insert name="description" /></small>
-          </h1>
-          <ui:insert name="body"/>
-          <ui:insert name="content-end"/>
-        </main>
+          <!--end::Row-->
+        </div>
+        <!--end::Container-->
       </div>
-    </div>
+      <!--end::App Content Header-->
+      <!--begin::App Content-->
+      <div class="app-content">
+        <h1>
+          <ui:insert name="title"/>
+          <small><ui:insert name="description"/></small>
+        </h1>
+        <ui:insert name="body"/>
+        <ui:insert name="content-end"/>
+      </div>
+      <!--end::App Content-->
+    </main>
+    <!--end::App Main-->
 
-
-    <!-- Footer -->
-    <footer class="bg-light text-center py-3 mt-auto">
+    <footer class="app-footer">
       <ui:insert name="footer"/>
     </footer>
-
   </div>
 
 
-  <h:outputScript library="js" name="bootstrap.bundle.min.js" />
-  <h:outputScript library="js" name="primefaces-bootstrap.js" />
+  <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
+  <h:outputScript library="js" name="primefaces-bootstrap.js"/>
+  <h:outputScript library="js" name="adminlte.min.js"/>
 
   <script>
       const sidebar = document.getElementById('sidebar');

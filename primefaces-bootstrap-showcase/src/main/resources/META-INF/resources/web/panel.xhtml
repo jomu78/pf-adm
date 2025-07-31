@@ -30,16 +30,16 @@
 
             <p:panel id="basic" header="Basic" footer="Movie Details">
                 <h:panelGrid columns="2" cellpadding="10">
-                    <p:graphicImage name="demo/images/godfather1.jpg"/>
+                    <p:graphicImage name="images/godfather1.jpg"/>
                     <h:outputText
                         value="The story begins as Don Vito Corleone..."/>
                 </h:panelGrid>
             </p:panel>
 
 
-            <p:panel header="No border" footer="Movie Details"  styleClass="no-border">
+            <p:panel header="No border" footer="Movie Details" styleClass="no-border">
                 <h:panelGrid columns="2" cellpadding="10">
-                    <p:graphicImage name="demo/images/godfather1.jpg"/>
+                    <p:graphicImage name="images/godfather1.jpg"/>
                     <h:outputText
                         value="The story begins as Don Vito Corleone..."/>
                 </h:panelGrid>
@@ -47,15 +47,15 @@
 
             <p:panel header="Card" footer="Movie Details"  styleClass="card">
                 <h:panelGrid columns="2" cellpadding="10">
-                    <p:graphicImage name="demo/images/godfather1.jpg"/>
+                    <p:graphicImage name="images/godfather1.jpg"/>
                     <h:outputText
                         value="The story begins as Don Vito Corleone..."/>
                 </h:panelGrid>
             </p:panel>  
 
-            <p:panel id="box-colors-panel" header="Box Colors - #{panelMB.selectedColor}" styleClass="#{panelMB.selectedColor} #{panelMB.solid ? 'box-solid':''}">
+            <p:panel id="box-colors-panel" header="Box Colors - boy-primary" styleClass="box-primary">
                 <h:panelGrid columns="2" cellpadding="10">
-                    <p:graphicImage name="demo/images/godfather1.jpg"/>
+                    <p:graphicImage name="images/godfather1.jpg"/>
                     <h:outputText
                         value="The story begins as Don Vito Corleone..."/>
                 </h:panelGrid>
@@ -91,7 +91,7 @@
                 <p:ajax event="toggle" listener="#{panelMB.onToggle}" update="msgs" ignoreAutoUpdate="true"/>
 
                 <h:panelGrid columns="2" cellpadding="10">
-                    <p:graphicImage name="demo/images/godfather2.jpg"/>
+                    <p:graphicImage name="images/godfather2.jpg"/>
                     <h:outputText value="Francis Ford Coppola's legendary continuation..."/>
                 </h:panelGrid>
 
@@ -112,7 +112,7 @@
                 <p:ajax event="toggle" listener="#{panelMB.onToggle}" update="msgs" ignoreAutoUpdate="true"/>
 
                 <h:panelGrid columns="2" cellpadding="10">
-                    <p:graphicImage name="demo/images/godfather2.jpg"/>
+                    <p:graphicImage name="images/godfather2.jpg"/>
                     <h:outputText value="Francis Ford Coppola's legendary continuation..."/>
                 </h:panelGrid>
 
@@ -128,7 +128,7 @@
 
             <p:panel id="custom" header="Custom Actions" >
                 <h:panelGrid columns="2" cellpadding="10">
-                    <p:graphicImage name="demo/images/godfather3.jpg"/>
+                    <p:graphicImage name="images/godfather3.jpg"/>
                     <h:outputText value="After a break of more than 15 years..."/>
                 </h:panelGrid>
 
@@ -142,7 +142,7 @@
 
             <p:panel id="horizontal" header="Horizontal Toggle" toggleable="true" toggleOrientation="horizontal">
                 <h:panelGrid columns="2" cellpadding="10">
-                    <p:graphicImage name="demo/images/godfather1.jpg"/>
+                    <p:graphicImage name="images/godfather1.jpg"/>
                     <h:outputText
                         value="The story begins as Don Vito Corleone..."/>
                 </h:panelGrid>

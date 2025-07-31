@@ -1,0 +1,103 @@
+@use "../bootstrap/vendor/rfs" as bs-rfs;
+
+@import "variables";
+
+@mixin datagridBoxColors($color, $text-color) {
+  .ui-datagrid-header,
+  .ui-panel-titlebar {
+    border-top: 3px solid $color;
+  }
+
+  &.box-solid {
+    .ui-datagrid-header,
+    .ui-datagrid-footer {
+      background-color: $color;
+      color: $text-color;
+
+      .ui-panel-title {
+        color: $text-color;
+      }
+    }
+  }
+}
+
+@mixin panel-solid($color) {
+  border-top: 0;
+  .ui-panel-titlebar {
+    background: $color;
+  }
+
+  .ui-panel-title {
+    color: #fff;
+  }
+}
+
+@mixin btn-interactions($color, $bg-color) {
+  color: $color !important;
+
+  &:hover, &.ui-state-hover {
+    background-color: darken($bg-color, 5%) !important;
+  }
+  &:focus, &.ui-state-focus {
+    background-color: darken($bg-color, 8%) !important;
+  }
+  &:active, &.ui-state-active {
+    background-color: darken($bg-color, 15%) !important;
+  }
+
+  &.ui-state-disabled {
+    &:hover, &.ui-state-hover {
+      background-color: darken($bg-color, 0%) !important;
+    }
+
+    &:focus, &.ui-state-focus {
+      background-color: darken($bg-color, 0%) !important;
+    }
+
+    &:active, &.ui-state-active {
+      background-color: darken($bg-color, 0%) !important;
+    }
+  }
+}
+
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius, $line-height) {
+  padding: $padding-y $padding-x;
+  @include bs-rfs.rfs($font-size, --bs-btn-font-size);
+  border-radius: $border-radius;
+  line-height: $line-height;
+}
+
+
+@mixin datatableBoxColors($color, $text-color) {
+  .ui-datatable-header, .ui-treetable-header {
+    border-top: 3px solid $color;
+  }
+
+  &.box-solid {
+    .ui-datatable-header, .ui-treetable-header, .ui-datatable-footer, .ui-treetable-footer {
+      background-color: $color;
+      color: $text-color;
+    }
+
+    thead tr[role="row"] {
+      background-color: $color;
+    }
+
+    th[role="columnheader"] {
+      span.ui-column-title {
+        color: $text-color
+      }
+
+      .ui-sortable-column-icon:before {
+        color: $text-color;
+      }
+
+      &.ui-state-default.ui-sortable-column.ui-state-active {
+        background-image: -webkit-linear-gradient(to top, $color, darken($color, 20%));
+        background-image: linear-gradient(to top, $color, darken($color, 20%));
+
+      }
+    }
+
+  }
+}

@@ -5,7 +5,7 @@
 | Property ^| admin-template ^| bfbs-template
 
 | loginPage ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|indexPage ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|indexPage ^| icon:check[font-color: green] ^| icon:check[font-color: green]
 |dateFormat ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 |templatePath ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 |breadCrumbMaxSize ^| icon:check[font-color: green] ^| icon:times[font-color: red]
@@ -18,7 +18,7 @@
 |extensionLessUrls ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 |enableSlideMenu ^| icon:check[font-color: green] ^| icon:check[font-color: green]
 |rippleElements ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|skin ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|skin ^| icon:check[font-color: green] ^| icon:check[font-color: yellow]
 |autoShowNavbar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 |ignoredResources ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 |loadingImage ^| icon:check[font-color: green] ^| icon:times[font-color: red]
@@ -43,4 +43,7 @@
 |fixed ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 |darkSkin ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 
+|renderLogo ^| icon:times[font-color: red] ^| icon:check[font-color: green]
+|renderBrandText ^| icon:times[font-color: red] ^| icon:check[font-color: green]
+|renderFullScreenToggle ^| icon:times[font-color: red] ^| icon:check[font-color: green]
 |===

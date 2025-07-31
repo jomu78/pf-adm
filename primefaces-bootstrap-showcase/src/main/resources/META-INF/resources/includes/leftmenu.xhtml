@@ -5,32 +5,31 @@
                 xmlns:p="http://primefaces.org/ui">
 
   <h:form id="menuform">
-    <ul class="nav flex-column">
-      <li class="nav-item my-1">
-        <p:link outcome="/web/index.xhtml" class="nav-link d-flex align-items-center">
-          <i class="bi bi-house fs-5 me-2"/>
-          <span class="menu-label">Dashboard</span>
+    <li class="nav-item">
+        <p:link outcome="/web/index.xhtml" class="nav-link">
+          <i class="nav-icon bi bi-house"/>
+          <p>Dashboard</p>
         </p:link>
       </li>
-      <li class="nav-item my-1">
-        <p:link outcome="/web/buttons.xhtml" class="nav-link d-flex align-items-center">
-          <i class="bi bi-people fs-5 me-2"/>
-          <span class="menu-label">Buttons</span>
+    <li class="nav-item">
+        <p:link outcome="/web/buttons.xhtml" class="nav-link">
+          <i class="nav-icon bi bi-people"/>
+          <p>Buttons</p>
         </p:link>
       </li>
-      <li class="nav-item my-1">
-        <p:link outcome="/web/panel.xhtml" class="nav-link d-flex align-items-center">
-          <i class="fa fa-cog fs-5 me-2"/>
-          <span class="menu-label">Panels</span>
+    <li class="nav-item">
+        <p:link outcome="/web/panel.xhtml" class="nav-link">
+          <i class="nav-icon fa fa-cog"/>
+          <p>Panels</p>
         </p:link>
       </li>
-      <li class="nav-item my-1">
-        <p:link outcome="/web/datatable.xhtml" class="nav-link d-flex align-items-center">
-          <i class="fa fa-cog fs-5 me-2"/>
-          <span class="menu-label">Datatable</span>
+    <li class="nav-item">
+        <p:link outcome="/web/datatable.xhtml" class="nav-link">
+          <i class="nav-icon fa fa-cog"/>
+          <p>Datatable</p>
         </p:link>
       </li>
-    </ul>
+
   </h:form>
 
 </ui:composition>

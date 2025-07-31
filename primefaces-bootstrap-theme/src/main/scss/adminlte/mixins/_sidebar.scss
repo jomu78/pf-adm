@@ -1,0 +1,24 @@
+//
+// Mixins: Sidebar
+//
+
+// Sidebar Variant
+@mixin sidebar-variant($name, $color, $bgcolor) {
+
+  background-color: $color;
+  color: $white;
+
+  .brand-text {
+    color: white;
+  }
+
+  .sidebar-brand {
+    border: 0;
+    height: $lte-app-header-height;
+  }
+
+  .sidebar-wrapper {
+    background-color: $bgcolor;
+    height: 100vh;
+  }
+}
