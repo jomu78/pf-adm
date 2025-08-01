@@ -14,7 +14,7 @@
 |renderAjaxStatus ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 |disableFilter ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 |enableRipple ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|renderBreadCrumb ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|renderBreadCrumb ^| icon:check[font-color: green] ^| icon:check[font-color: green]
 |extensionLessUrls ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 |enableSlideMenu ^| icon:check[font-color: green] ^| icon:check[font-color: green]
 |rippleElements ^| icon:check[font-color: green] ^| icon:times[font-color: red]
@@ -46,4 +46,5 @@
 |renderLogo ^| icon:times[font-color: red] ^| icon:check[font-color: green]
 |renderBrandText ^| icon:times[font-color: red] ^| icon:check[font-color: green]
 |renderFullScreenToggle ^| icon:times[font-color: red] ^| icon:check[font-color: green]
+|renderSlideMenuToggle ^| icon:times[font-color: red] ^| icon:check[font-color: green]
 |===

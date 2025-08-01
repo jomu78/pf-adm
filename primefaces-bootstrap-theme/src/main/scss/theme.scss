@@ -1,0 +1,74 @@
+// Bootstrap
+// ---------------------------------------------------
+@import 'bootstrap/functions';
+@import 'adminlte/bootstrap-variables';
+@import 'bootstrap/mixins';
+
+// extend colors
+$light-blue: #3c8dbc !default;
+$light-green: #00A65AFF !default;
+$default: #f4f4f4 !default;
+$fatal:  #b13c2e !default;
+
+$theme-colors: map-merge((
+        'fatal': $fatal,
+        'teal': $teal
+), $theme-colors);
+
+// custom bs variables
+$line-height-base:            1.5 !default;
+$line-height-xs:              1.0 !default;
+$line-height-sm:              1.25 !default;
+$line-height-lg:              2 !default;
+
+$border-radius:               3px !default;
+$border-radius-xs:            3px !default;
+$border-radius-sm:            3px !default;
+$border-radius-lg:            3px !default;
+$border-radius-xl:            3px !default;
+$border-radius-xxl:           3px !default;
+$border-radius-pill:          3px !default;
+
+$input-btn-padding-y-xs:      1px !default;
+$input-btn-padding-x-xs:      5px !default;
+$input-btn-font-size-xs:      12px !default;
+
+$btn-padding-y-xs:            $input-btn-padding-y-xs !default;
+$btn-padding-x-xs:            $input-btn-padding-x-xs !default;
+$btn-font-size-xs:            $input-btn-font-size-xs !default;
+
+$btn-border-radius:           $border-radius !default;
+$btn-border-radius-xs:        $border-radius-xs !default;
+$btn-border-radius-sm:        $border-radius-sm !default;
+$btn-border-radius-lg:        $border-radius-lg !default;
+
+// custom pf-variables
+$datatable-border-color: $gray-800 !default;
+$datatable-row-border-color: $gray-800 !default;
+$datatable-row-hover-color: $white !default;
+$glyphicon-icon-size:10px;
+
+$admin-text-color:#444 !default;
+$font-awesome-icon-size:13.3px !default;
+$box-shadow-color: #1f89ce !default;
+$brand-primary: darken(#428bca, 6.5%) !default;
+$hover-color: #eeeeee !default;
+$panel-border-bottom-color: $hover-color !default;
+
+// mixins
+@import "pfbs/mixins";
+
+// skins
+@import "pfbs/skins/all-skins";
+
+// components
+@import "pfbs/components/basic";
+@import "pfbs/components/links";
+@import "pfbs/components/buttons";
+@import "pfbs/components/containers";
+@import "pfbs/components/datatable";
+@import "pfbs/components/panels";
+@import "pfbs/components/sidebar";
+
+
+@import "adminlte/adminlte";

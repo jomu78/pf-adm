@@ -2,11 +2,10 @@
 // Mixins: Sidebar
 //
 
+@import "../../../adminlte/variables";
+
 // Sidebar Variant
 @mixin sidebar-variant($name, $color, $bgcolor) {
-
-  background-color: $color;
-  color: $white;
 
   .brand-text {
     color: white;
@@ -14,7 +13,14 @@
 
   .sidebar-brand {
     border: 0;
+    background-color: $color;
     height: $lte-app-header-height;
+
+    .brand-text {
+      color: $white;
+      font-weight: bold;
+      font-size: 1.8em;
+    }
   }
 
   .sidebar-wrapper {

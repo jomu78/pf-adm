@@ -18,7 +18,7 @@
   <ui:insert name="head-end"/>
 </h:head>
 
-<h:body class="layout-fixed sidebar-expand-lg sidebar-mini bg-body-tertiary #{skinView.skin}">
+<h:body class="layout-fixed sidebar-expand-md sidebar-mini bg-body-tertiary #{skinView.skin}">
   <!--begin::App Wrapper-->
   <div class="app-wrapper">
     <!--begin::Header-->
@@ -27,7 +27,7 @@
       <div class="container-fluid">
 
         <ul class="navbar-nav">
-          <ui:fragment rendered="#{pfbsConfig.enableSlideMenu}">
+          <ui:fragment rendered="#{pfbsConfig.enableSlideMenu and pfbsConfig.renderSlideMenuToggle}">
             <li class="nav-item">
               <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
                 <i class="bi bi-list"/>
@@ -60,7 +60,7 @@
 
     <!--begin::Sidebar-->
     <ui:fragment rendered="#{pfbsConfig.enableSlideMenu}">
-      <aside class="app-sidebar sidebar-#{skinView.skin}">
+      <aside class="app-sidebar">
 
         <!--begin::Sidebar Brand-->
         <div class="sidebar-brand">
@@ -102,14 +102,19 @@
           <!--begin::Row-->
           <div class="row">
             <div class="col-sm-6">
-              <h3 class="mb-0">Dashboard</h3>
+              <h1>
+                <ui:insert name="title"/>
+                <small><ui:insert name="description"/></small>
+              </h1>
             </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-end">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-              </ol>
-            </div>
+            <ui:fragment rendered="#{pfbsConfig.renderBreadCrumb}">
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                </ol>
+              </div>
+            </ui:fragment>
           </div>
           <!--end::Row-->
         </div>
@@ -118,10 +123,6 @@
       <!--end::App Content Header-->
       <!--begin::App Content-->
       <div class="app-content">
-        <h1>
-          <ui:insert name="title"/>
-          <small><ui:insert name="description"/></small>
-        </h1>
         <ui:insert name="body"/>
         <ui:insert name="content-end"/>
       </div>

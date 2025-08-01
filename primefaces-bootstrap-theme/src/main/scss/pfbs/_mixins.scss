@@ -1,6 +1,6 @@
 @use "../bootstrap/vendor/rfs" as bs-rfs;
 
-//@import "variables";
+@import '../adminlte/bootstrap-variables';
 
 @import "adminlte/mixins/navbar";
 @import "adminlte/mixins/sidebar";

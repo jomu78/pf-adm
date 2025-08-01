@@ -27,6 +27,9 @@ public class PfbsConfig implements Serializable {
     return SpringContext.getBean(PfbsProperties.class).isSkipMessageDetailIfEqualsSummary();
   }
 
+  public boolean isRenderBreadCrumb() {
+    return SpringContext.getBean(PfbsProperties.class).isRenderBreadCrumb();
+  }
 
   public boolean isEnableSlideMenu() {
     return SpringContext.getBean(PfbsProperties.class).isEnableSlideMenu();
@@ -50,6 +53,10 @@ public class PfbsConfig implements Serializable {
 
   public boolean isRenderFullScreenToggle() {
     return SpringContext.getBean(PfbsProperties.class).isRenderFullScreenToggle();
+  }
+
+  public boolean isRenderSlideMenuToggle() {
+    return SpringContext.getBean(PfbsProperties.class).isRenderSlideMenuToggle();
   }
 
 

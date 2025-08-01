@@ -32,7 +32,7 @@ public class PfbsProperties {
 //  private boolean renderAjaxStatus;
 //  private boolean disableFilter;
 //  private boolean enableRipple;
-//  private boolean renderBreadCrumb;
+  private boolean renderBreadCrumb = true;
 //  private boolean extensionLessUrls;
   private boolean enableSlideMenu = true;
 //  private String rippleElements;
@@ -59,6 +59,7 @@ public class PfbsProperties {
   private boolean renderLogo = true;
   private boolean renderBrandText = false;
   private boolean renderFullScreenToggle = false;
+  private boolean renderSlideMenuToggle = true;
 
 
 

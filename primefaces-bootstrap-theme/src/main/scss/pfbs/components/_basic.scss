@@ -1,13 +1,14 @@
 .main-content {
   background-color: $gray-100;
+}
 
-
+.app-content-header {
 
   h1 {
     margin: 0;
     font-size: 24px;
 
-    small {
+    .small {
       font-size: 15px;
       display: inline-block;
       padding-left: 4px;
