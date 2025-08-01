@@ -14,8 +14,14 @@
   }
 
   &.ui-state-disabled {
+    //background-color: darken($bg-color, 0%) !important;
+    cursor: not-allowed !important;
+    pointer-events: auto !important;
+    opacity: $opacity-disabled;
+
     &:hover, &.ui-state-hover {
       background-color: darken($bg-color, 0%) !important;
+      opacity: $opacity-disabled-hover;
     }
 
     &:focus, &.ui-state-focus {

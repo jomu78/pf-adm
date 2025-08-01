@@ -1,4 +1,7 @@
-@use "../mixins" as pfbs-mixins;
+@use "../../mixins" as pfbs-mixins;
+
+@import "../../../primefaces/variables";
+@import "../../variables";
 
 @each $color, $value in $theme-colors {
   .btn-#{$color} {
@@ -14,10 +17,6 @@
   }
 }
 
-//.btn-link {
-//  .box-shadow(none);
-//}
-
 .ui-button {
 
   &.btn-default {
@@ -29,7 +28,7 @@
   }
 
   &.btn-primary {
-    @include pfbs-mixins.btn-interactions($white, $primary);
+    @include pfbs-mixins.btn-interactions($white, $light-blue);
 
     span.ui-icon {
       color: #fff !important;
