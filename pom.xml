@@ -20,6 +20,26 @@
     A PrimeFaces theme based on Bootstrap and AdminLTE
   </description>
 
+  <scm>
+    <connection>scm:git:git@github.com:jomu78/pf-adm.git</connection>
+    <developerConnection>scm:git:git@github.com:jomu78/pf-adm.git</developerConnection>
+    <url>https://github.com/jomu78/pf-adm</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/jomu78/pf-adm/issues</url>
+  </issueManagement>
+
+  <licenses>
+    <license>
+      <name>The MIT License (MIT)</name>
+      <url>https://opensource.org/licenses/MIT</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
   <developers>
     <developer>
       <name>Joern Muehlencord</name>
