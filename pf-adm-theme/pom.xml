@@ -17,25 +17,6 @@
 
   <build>
 
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>io.github.cleydyr</groupId>
-          <artifactId>dart-sass-maven-plugin</artifactId>
-          <version>1.5.0</version>
-          <configuration>
-            <inputFolder>src/main/resources/META-INF/resources/primefaces-admin</inputFolder>
-            <outputFolder>src/main/resources/META-INF/resources/primefaces-admin</outputFolder>
-            <update>true</update>
-            <noSourceMap>true</noSourceMap>
-            <style>COMPRESSED</style>
-            <quiet>false</quiet>
-            <version>1.86.3</version>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-
     <plugins>
       <plugin>
         <groupId>io.github.cleydyr</groupId>
@@ -54,7 +35,7 @@
               <noSourceMap>true</noSourceMap>
               <style>EXPANDED</style>
               <quiet>false</quiet>
-              <version>1.86.3</version>
+              <version>${dart-sass.version}</version>
             </configuration>
           </execution>
         </executions>

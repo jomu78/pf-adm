@@ -29,12 +29,13 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- dependency versions -->
-    <!--    <jakarta.faces-api.version>4.0.1</jakarta.faces-api.version>-->
     <jakarta.jakartaee-web-api.version>10.0.0</jakarta.jakartaee-web-api.version>
 
     <omnifaces.version>4.6.1</omnifaces.version>
     <joinfaces.version>5.5.3</joinfaces.version>
     <primefaces.version>15.0.5</primefaces.version>
+    <dart-sass-maven-plugin.version>1.5.0</dart-sass-maven-plugin.version>
+    <dart-sass.version>1.86.3</dart-sass.version>
   </properties>
 
   <repositories>
@@ -162,6 +163,12 @@
               </image>
             </images>
           </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>io.github.cleydyr</groupId>
+          <artifactId>dart-sass-maven-plugin</artifactId>
+          <version>${dart-sass-maven-plugin.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
