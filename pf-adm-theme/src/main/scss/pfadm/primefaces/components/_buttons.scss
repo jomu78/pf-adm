@@ -1,0 +1,114 @@
+@use "../../mixins" as pfadm-mixins;
+
+@import "../../../primefaces/variables";
+@import "../../variables";
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    background-color: $value;
+    color: var(--#{$prefix}#{$color}-text-emphasis) !important;
+    border-color: $value;
+
+    &:hover,
+    &:active,
+    &.hover {
+      background-color: darken($value, 5%) !important;;
+    }
+  }
+}
+
+.ui-button {
+
+  &.btn-default {
+    @include pfadm-mixins.btn-interactions($gray-800, $default);
+
+    span.ui-icon {
+      color: #fff !important;
+    }
+  }
+
+  &.btn-primary {
+    @include pfadm-mixins.btn-interactions($white, $light-blue);
+
+    span.ui-icon {
+      color: #fff !important;
+    }
+  }
+
+  &.btn-success {
+    @include pfadm-mixins.btn-interactions($white, $success);
+
+    span.ui-icon {
+      color: #fff !important;
+    }
+  }
+
+  &.btn-info {
+    @include pfadm-mixins.btn-interactions($white, $info);
+
+    span.ui-icon {
+      color: #fff !important;
+    }
+  }
+
+  &.btn-warning {
+    @include pfadm-mixins.btn-interactions($white, $warning);
+
+    span.ui-icon {
+      color: #fff !important;
+    }
+  }
+
+  &.btn-danger {
+    @include pfadm-mixins.btn-interactions($white, $danger);
+
+    span.ui-icon {
+      color: #fff !important;
+    }
+  }
+
+  &.btn-fatal {
+    @include pfadm-mixins.btn-interactions($white, $fatal);
+
+    span.ui-icon {
+      color: #fff !important;
+    }
+  }
+
+  &.btn-teal {
+    @include pfadm-mixins.btn-interactions($white, $teal);
+
+    span.ui-icon {
+      color: #fff !important;
+    }
+  }
+
+  &.btn {
+    padding: 5px 12px;
+  }
+
+  &.btn-lg {
+    @include pfadm-mixins.button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg, $line-height-lg)
+  }
+
+  &.btn-sm {
+    @include pfadm-mixins.button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm, $line-height-sm);
+  }
+
+  &.btn-xs {
+    @include pfadm-mixins.button-size($btn-padding-y-xs, $btn-padding-x-xs, $btn-font-size-xs, $btn-border-radius-xs, $line-height-xs);
+  }
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+
+
+

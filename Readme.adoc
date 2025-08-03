@@ -1,4 +1,4 @@
-= primefaces-bootstrap
+= Primefaces Admin
 :page-layout: base
 :source-language: java
 :icons: font
@@ -31,10 +31,10 @@ The project is based on Java 21 and maven 3.9.x.
 
 ----
 git clone <TBD>
-cd primefaces-bootstrap
+cd pf-adm
 mvn clean install
-cd primefaces-bootstrap-showcase
-java -jar target/primefaces-bootstrap-showcase-<version>-starter.jar
+cd pf-adm-showcase
+java -jar target/pf-adm-showcase-<version>-starter.jar
 ----
 Access the showcase on http://localhost:8080/showcase
 
@@ -43,7 +43,7 @@ Access the showcase on http://localhost:8080/showcase
 There is a docker image available.
 
 ----
-docker run -p 8080:8080 jomu78/primefaces-bootstrap-showcase
+docker run -p 8080:8080 jomu78/pf-adm-showcase
 ----
 Access the showcase on http://localhost:8080/showcase
 
@@ -54,9 +54,9 @@ To create the docker image locally, run the following commands.
 
 ----
 git clone <TBD>
-cd primefaces-bootstrap
+cd pf-adm
 mvn clean install
-cd primefaces-bootstrap-showcase
+cd pf-adm-showcase
 mvn docker:build
 ----
 

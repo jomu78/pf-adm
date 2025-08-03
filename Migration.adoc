@@ -7,11 +7,11 @@ This document describes how to upgrade a SpringBoot based AdminFaces project.
 
 == Dependencies
 
-Remove any all AdminFaces based dependencies and replace them by the PFBS dependency.
+Remove any all AdminFaces based dependencies and replace them with the pf-adm dependency.
 
 [cols="a,a"]
 |===
-^| AdminFaces ^| PFBS
+^| AdminFaces ^| PF-Adm
 
 |
 [source,xml]
@@ -44,8 +44,8 @@ if based on Joinfaces
 [source,xml]
 ----
 <dependency>
-  <groupId>de.muehlencord.pfbs</groupId>
-  <artifactId>primefaces-bootstrap-spring-boot-starter</artifactId>
+  <groupId>de.muehlencord.pf-adm</groupId>
+  <artifactId>pf-adm-spring-boot-starter</artifactId>
 </dependency>
 ----
 |===

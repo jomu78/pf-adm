@@ -3,7 +3,7 @@
 
 Pre-defined UI-definitions
 |===
-|Template Name ^| Admin-template ^| pfbs-template
+|Template Name ^| Admin-template ^| Pf-Adm Template
 
 |template-header ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 |template-menu ^| icon:check[font-color: green] ^| icon:times[font-color: red]
@@ -12,7 +12,7 @@ Pre-defined UI-definitions
 
 Available ui:insert regions
 |===
-|Region name ^| Admin Template ^| pfbs Template
+|Region name ^| Admin Template ^| Pf-Amd Template
 
 |metadata ^| icon:check[font-color: green] ^| icon:check[font-color: green]
 |head ^| icon:check[font-color: green] ^| icon:check[font-color: green]

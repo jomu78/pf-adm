@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                template="/admin.xhtml"
+>
+
+  <ui:define name="head">
+    <title>Primefaces Bootstrap Showcase</title>
+    <link rel="shortcut icon" href="#{resource['images/favico.png']}"/>
+  </ui:define>
+
+  <ui:define name="logo-lg">
+    pf-admin Showcase
+  </ui:define>
+
+  <ui:define name="logo-mini">
+    pf-admin
+  </ui:define>
+
+  <ui:define name="brand-text">
+    Primefaces Admin
+  </ui:define>
+
+  <ui:define name="menu">
+    <ui:include src="/includes/leftmenu.xhtml"/>
+  </ui:define>
+
+  <ui:define name="top-menu">
+    <ui:include src="/includes/topmenu.xhtml"/>
+  </ui:define>
+
+  <ui:define name="top-menu-notifications">
+    <ui:include src="/includes/notifications.xhtml"/>
+  </ui:define>
+
+  <ui:define name="top-menu-user-menu">
+    <ui:include src="/includes/usermenu.xhtml"/>
+  </ui:define>
+
+  <ui:define name="footer">
+    <ui:include src="/includes/footer.xhtml"/>
+  </ui:define>
+
+
+
+
+</ui:composition>

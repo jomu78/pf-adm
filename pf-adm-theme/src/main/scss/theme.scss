@@ -1,0 +1,27 @@
+// Bootstrap
+// ---------------------------------------------------
+@import 'bootstrap/functions';
+@import 'adminlte/bootstrap-variables';
+@import "pfadm/variables";
+
+@import 'bootstrap/mixins';
+
+// skins
+@import "pfadm/skins/all-skins";
+
+// mixins
+@import "pfadm/mixins";
+
+
+
+// components
+@import "pfadm/primefaces/components/basic";
+@import "pfadm/primefaces/components/links";
+@import "pfadm/primefaces/components/buttons";
+@import "pfadm/primefaces/components/containers";
+@import "pfadm/primefaces/components/datatable";
+@import "pfadm/primefaces/components/panels";
+@import "pfadm/primefaces/components/sidebar";
+
+
+@import "adminlte/adminlte";

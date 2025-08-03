@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>de.muehlencord.pfbs</groupId>
-  <artifactId>primefaces-bootstrap</artifactId>
+  <groupId>de.muehlencord.pf-adm</groupId>
+  <artifactId>pf-adm</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -16,11 +16,11 @@
   </parent>
 
   <modules>
-    <module>primefaces-bootstrap-showcase</module>
-    <module>primefaces-bootstrap-template</module>
-    <module>primefaces-bootstrap-spring-boot-starter</module>
-    <module>primefaces-bootstrap-spring-boot-autoconfigure</module>
-    <module>primefaces-bootstrap-theme</module>
+    <module>pf-adm-showcase</module>
+    <module>pf-adm-template</module>
+    <module>pf-adm-spring-boot-starter</module>
+    <module>pf-adm-spring-boot-autoconfigure</module>
+    <module>pf-adm-theme</module>
   </modules>
 
   <properties>
@@ -103,23 +103,23 @@
 
       <!-- project dependencies -->
       <dependency>
-        <groupId>de.muehlencord.pfbs</groupId>
-        <artifactId>primefaces-bootstrap-theme</artifactId>
+        <groupId>de.muehlencord.pf-adm</groupId>
+        <artifactId>pf-adm-theme</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>de.muehlencord.pfbs</groupId>
-        <artifactId>primefaces-bootstrap-template</artifactId>
+        <groupId>de.muehlencord.pf-adm</groupId>
+        <artifactId>pf-adm-template</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>de.muehlencord.pfbs</groupId>
-        <artifactId>primefaces-bootstrap-spring-boot-autoconfigure</artifactId>
+        <groupId>de.muehlencord.pf-adm</groupId>
+        <artifactId>pf-adm-spring-boot-autoconfigure</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>de.muehlencord.pfbs</groupId>
-        <artifactId>primefaces-bootstrap-spring-boot-starter</artifactId>
+        <groupId>de.muehlencord.pf-adm</groupId>
+        <artifactId>pf-adm-spring-boot-starter</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
