@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * TODO Add a short description of the class
+ * enumeration of available skins
  *
  * @author Joern Muehlencord, 2025-07-30
- * @since TODO - add version
+ * @since 0.1.0
  */
 public enum SkinEnum {
 
