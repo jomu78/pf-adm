@@ -246,20 +246,17 @@
       <p:panel id="iconPanel">
 
         <div class="row">
-          <div class="col-sm-12 col-md-3">
-            <p:commandButton value="FA Icon" id="fa-icon-button" update="growl" ignoreAutoUpdate="true"
-                             icon="fa fa-times"
-                             actionListener="#{buttonMB.buttonAction}" styleClass="btn-teal btn-block"/>
-          </div>
+          <ui:fragment rendered="#{pfAdmConfig.supportFontAwesome}">
+            <div class="col-sm-12 col-md-3">
+              <p:commandButton value="FontAwesome Icon" id="fa-icon-button" update="growl" ignoreAutoUpdate="true"
+                               icon="fa fa-times"
+                               actionListener="#{buttonMB.buttonAction}" styleClass="btn-teal btn-block"/>
+            </div>
+          </ui:fragment>
 
           <div class="col-sm-12 col-md-3">
             <p:commandButton value="Primefaces Icon" id="pi-icon-button" update="growl" ignoreAutoUpdate="true"
                              icon="pi pi-check"
-                             actionListener="#{buttonMB.buttonAction}" styleClass="btn-teal btn-block"/>
-          </div>
-          <div class="col-sm-12 col-md-3">
-            <p:commandButton value="Bootstrap Icon" id="bi-icon-button" update="growl" ignoreAutoUpdate="true"
-                             icon="bi bi-list"
                              actionListener="#{buttonMB.buttonAction}" styleClass="btn-teal btn-block"/>
           </div>
         </div>

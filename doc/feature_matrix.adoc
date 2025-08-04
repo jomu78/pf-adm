@@ -24,7 +24,6 @@
 |Layout customization via Control Sidebar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 |Glyphycons support ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 |FontAwesome support ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|Bootstrap Icons support ^| icon:times[font-color: red] ^| icon:check[font-color: green]
 |Menu items search ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 |Builtin dark and light skins ^| icon:check[font-color: green] ^| icon:times[font-color: red]
 |===

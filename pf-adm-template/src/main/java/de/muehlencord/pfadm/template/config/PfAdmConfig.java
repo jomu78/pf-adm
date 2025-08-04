@@ -59,6 +59,10 @@ public class PfAdmConfig implements Serializable {
     return SpringContext.getBean(PfAdmProperties.class).isRenderSlideMenuToggle();
   }
 
+  public boolean isSupportFontAwesome() {
+    return SpringContext.getBean(PfAdmProperties.class).isSupportFontAwesome();
+  }
+
 
 
 }

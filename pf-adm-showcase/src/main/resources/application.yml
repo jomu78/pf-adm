@@ -10,6 +10,7 @@ pf-adm:
   render-logo: false
   render-full-screen-toggle: false
   render-bread-crumb: false
+  support-font-awesome: true
 joinfaces:
   primefaces:
     theme: admin

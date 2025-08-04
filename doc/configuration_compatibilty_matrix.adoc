@@ -47,4 +47,5 @@
 |renderBrandText ^| icon:times[font-color: red] ^| icon:check[font-color: green]
 |renderFullScreenToggle ^| icon:times[font-color: red] ^| icon:check[font-color: green]
 |renderSlideMenuToggle ^| icon:times[font-color: red] ^| icon:check[font-color: green]
+|supportFontAwesome ^| icon:times[font-color: red] ^| icon:check[font-color: green]
 |===

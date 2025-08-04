@@ -60,6 +60,7 @@ public class PfAdmProperties {
   private boolean renderBrandText = false;
   private boolean renderFullScreenToggle = false;
   private boolean renderSlideMenuToggle = true;
+  private boolean supportFontAwesome = false;
 
 
 
