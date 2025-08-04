@@ -11,9 +11,8 @@
 <h:head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <h:outputStylesheet library="css" name="bootstrap-icons.css"/>
-  <h:outputStylesheet library="css" name="fa-all.css"/>
-  <h:outputStylesheet library="css" name="pf-adm.css"/>
+  <h:outputStylesheet library="css" name="fa-all.min.css"/>
+  <h:outputStylesheet library="css" name="bootstrap-icons.min.css"/>
   <ui:insert name="head"/>
   <ui:insert name="head-end"/>
 </h:head>
@@ -137,17 +136,7 @@
 
 
   <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
-  <h:outputScript library="js" name="pf-adm.js"/>
   <h:outputScript library="js" name="adminlte.min.js"/>
-
-  <script>
-      const sidebar = document.getElementById('sidebar');
-      const toggleBtn = document.getElementById('sidebarToggle');
-
-      toggleBtn.addEventListener('click', () => {
-          sidebar.classList.toggle('collapsed');
-      });
-  </script>
 
   <ui:insert name="body-end"/>
 </h:body>

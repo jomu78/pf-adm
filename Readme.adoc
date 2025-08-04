@@ -14,7 +14,14 @@
 :caution-caption: :fire:
 :warning-caption: :warning:
 
+IMPORTANT: This project is work in progress.
+
 == Features
+
+pf-adm is an open source project which integrates http://primefaces.org/[Primefaces 15], https://getbootstrap.com/[Bootstrap 5] and https://adminlte.io/[AdminLTE 4].
+
+The project is inspired and partly based on https://adminfaces.github.io/site/[AdminFaces] by https://github.com/rmpestano[Rafael Pestano] which is based on Bootstrap 3 and AdminLTE 2.
+
 
 == Usage
 
@@ -30,7 +37,7 @@ IMPORTANT: currently there is no demo available, put planned.
 The project is based on Java 21 and maven 3.9.x.
 
 ----
-git clone <TBD>
+git clone https://github.com/jomu78/pf-adm
 cd pf-adm
 mvn clean install
 cd pf-adm-showcase
@@ -53,7 +60,7 @@ IMPORTANT: The image is not yet publicly available.
 To create the docker image locally, run the following commands.
 
 ----
-git clone <TBD>
+git clone https://github.com/jomu78/pf-adm
 cd pf-adm
 mvn clean install
 cd pf-adm-showcase
