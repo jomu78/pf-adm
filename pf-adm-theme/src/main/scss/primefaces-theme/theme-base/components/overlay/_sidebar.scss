@@ -1,5 +1,5 @@
 body {
-  div.ui-sidebar {
+  .ui-sidebar {
     background: $panelContentBg;
     color: $panelContentTextColor;
     padding: $panelContentPadding;
@@ -17,18 +17,6 @@ body {
 
     &.ui-sidebar-active {
       box-shadow: $overlayContainerShadow;
-    }
-  }
-}
-
-ul.sidebar-menu {
-  li.header {
-    text-transform: uppercase;
-  }
-
-  li.treeview {
-    i.fa-angle-left:before {
-      font-weight: 600;
     }
   }
 }

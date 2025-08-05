@@ -252,14 +252,3 @@
 @function shade($color, $percentage) {
     @return color.mix(#000, $color, $weight: $percentage, $method: null);
 }
-
-@mixin panel-solid($color) {
-    border-top: 0;
-    .ui-panel-titlebar {
-        background: $color;
-    }
-
-    .ui-panel-title {
-        color: #fff;
-    }
-}
