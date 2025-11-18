@@ -54,6 +54,43 @@ if based on Joinfaces
 
 == Template changes
 
+== Menu changes
+
+[cols="a,a"]
+|===
+^| AdminFaces ^| PF-Adm
+
+|
+[source,xml]
+----
+<h:form id="menuform">
+  <ul class="sidebar-menu tree" data-widget="tree">
+    <li>
+      <p:link outcome="/web/index.xhtml">
+        <i class="fa fa-home"/>
+        <span>Home</span>
+      </p:link>
+    </li>
+    ....
+  </ul>
+</h:form>
+----
+
+|
+[source,xml]
+----
+<h:form id="menuform">
+  <li class="nav-item">
+    <p:link class="nav-link" outcome="/web/index.xhtml">
+      <i class="nav-icon pi pi-home"/>
+      <p>Home</p>
+    </p:link>
+  </li>
+  ..
+</h:form>
+----
+|===
+
 == Page changes
 
 
