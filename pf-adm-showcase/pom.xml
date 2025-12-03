@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>pf-adm-showcase</artifactId>
+  <name>pf-adm-showcase</name>
 
   <dependencies>
     <dependency>

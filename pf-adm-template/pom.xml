@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>pf-adm-template</artifactId>
+  <name>pf-adm-template</name>
 
   <dependencies>
     <dependency>
