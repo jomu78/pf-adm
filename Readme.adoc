@@ -22,6 +22,20 @@ pf-adm is an open source project which integrates http://primefaces.org/[Primefa
 
 The project is inspired and partly based on https://adminfaces.github.io/site/[AdminFaces] by https://github.com/rmpestano[Rafael Pestano] which is based on Bootstrap 3 and AdminLTE 2.
 
+[cols="3,4a,4a,4a,3", frame=none, grid=none]
+|===
+|
+| image::https://github.com/jomu78/pf-adm/actions/workflows/maven.yml/badge.svg?branch=feature/initial[GitHub Build Status]
+| image:https://img.shields.io/maven-central/v/de.muehlencord.pf-adm/pf-adm[Maven Central Version]
+| image:https://img.shields.io/github/license/jomu78/pf-adm[GitHub License]
+|
+|===
+
+
+== How to use
+
+
+
 
 == Usage
 
@@ -29,8 +43,6 @@ The project is inspired and partly based on https://adminfaces.github.io/site/[A
 
 === Theme
 === Showcase
-==== Demo
-IMPORTANT: currently there is no demo available, put planned.
 
 ==== Running from source
 
