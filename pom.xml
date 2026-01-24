@@ -12,7 +12,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>4.0.1</version>
+    <version>4.0.2</version>
   </parent>
 
   <name>pf-adm</name>
@@ -77,12 +77,12 @@
 
     <!-- dependency versions -->
     <joinfaces.version>6.0.1</joinfaces.version>
-    <primefaces.version>15.0.10</primefaces.version>
+    <primefaces.version>15.0.12</primefaces.version>
 
     <!-- plugin versions -->
     <dart-sass-maven-plugin.version>1.5.0</dart-sass-maven-plugin.version>
     <dart-sass.version>1.86.3</dart-sass.version>
-    <central-publishing-maven-plugin.version>0.9.0</central-publishing-maven-plugin.version>
+    <central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
   </properties>
 
 
