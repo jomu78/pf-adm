@@ -1,6 +1,4 @@
-/*
- * variables
- */
+// variables
 @import 'adminlte/bootstrap-variables';
 @import 'pfadm/variables';
 @import 'primefaces-theme/primefaces-admin/variables';
@@ -8,20 +6,19 @@
 // skins
 @import "pfadm/skins/all-skins";
 
-/*
- * components
- */
-@import 'primefaces-theme/theme-base/_components';
-//@import "pfadm/primefaces/components/basic";
-//@import "pfadm/primefaces/components/links";
-@import "pfadm/primefaces/components/buttons";
-//@import "pfadm/primefaces/components/containers";
-//@import "pfadm/primefaces/components/datatable";
-@import "pfadm/primefaces/components/panels";
-//@import "pfadm/primefaces/components/sidebar";
-
-/*
- * extensions
- */
-@import "pfadm/adminlte/adminlte";
+// AdminLTE and BootStrap
 @import "adminlte/adminlte";
+@import "bootstrap/bootstrap";
+
+ // components
+@import 'primefaces-theme/theme-base/_components';
+
+@import "pfadm/primefaces/components/header";
+@import "pfadm/primefaces/components/links";
+@import "pfadm/primefaces/components/containers";
+@import "pfadm/primefaces/components/buttons";
+@import "pfadm/primefaces/components/panels";
+@import "pfadm/primefaces/components/datatable";
+@import "pfadm/primefaces/components/tabview";
+@import "pfadm/primefaces/components/sidebar";
+

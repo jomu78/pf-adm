@@ -30,8 +30,24 @@ Remove any all AdminFaces based dependencies and replace them with the pf-adm de
 </dependency>
 ----
 
+|
+[source,xml]
+----
+<dependency>
+  <groupId>de.muehlencord.pf-adm</groupId>
+  <artifactId>pf-adm-spring-boot-starter</artifactId>
+</dependency>
+----
+
+|===
+
 if based on Joinfaces
 
+[cols="a,a"]
+|===
+^| AdminFaces ^| PF-Adm
+
+|
 [source,xml]
 ----
 <dependency>
@@ -43,6 +59,10 @@ if based on Joinfaces
 |
 [source,xml]
 ----
+<dependency>
+  <groupId>org.joinfaces</groupId>
+  <artifactId>primefaces-spring-boot-starter</artifactId>
+</dependency>
 <dependency>
   <groupId>de.muehlencord.pf-adm</groupId>
   <artifactId>pf-adm-spring-boot-starter</artifactId>
