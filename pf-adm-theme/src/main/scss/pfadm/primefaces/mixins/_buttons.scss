@@ -1,4 +1,4 @@
-@use "../../../bootstrap/vendor/rfs" as bs-rfs;
+@use "../../../../resources/static/bootstrap/vendor/rfs" as bs-rfs;
 
 @mixin btn-interactions($color, $bg-color) {
   color: $color !important;

@@ -4,7 +4,7 @@
  */
 @use "sass:color";
 
-@import "../../bootstrap/_mixins.scss";
+@import "../../../resources/static/bootstrap/_mixins.scss";
 @import "../mixins";
 
 .skin-blue {
@@ -27,5 +27,9 @@
     }
   }
 
-  @include sidebar-variant("skin-blue", $light-blue, $gray-100);
+  .app-footer {
+    font-size: 14px;
+  }
+
+  @include sidebar-variant("skin-blue", $light-blue, $light-blue);
 }

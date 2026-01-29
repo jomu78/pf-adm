@@ -190,8 +190,8 @@ body .ui-datatable, body .ui-treetable {
             background-image: none;
             display: inline;
 
-            &:before {
-                font-family: 'Glyphicons Halflings';
+            &:before.after {
+                font-family: $fontFamily;
                 color: $admin-text-color;
                 position: relative;
                 font-size: $font-awesome-icon-size;
@@ -200,7 +200,7 @@ body .ui-datatable, body .ui-treetable {
                 font-weight: 500;
                 overflow: hidden;
                 opacity: .35 ;
-                content: "\e150";
+                //content: "\e150";
             }
         }
 
@@ -208,8 +208,8 @@ body .ui-datatable, body .ui-treetable {
             background-image: none;
             display: inline;
 
-            &:before {
-                font-family: 'Glyphicons Halflings';
+            &:before.after {
+                font-family: $fontFamily;
                 color: $admin-text-color;
                 position: relative;
                 font-size: $font-awesome-icon-size;
@@ -218,7 +218,7 @@ body .ui-datatable, body .ui-treetable {
                 font-weight: 500;
                 overflow: hidden;
                 opacity: .6;
-                content: "\e156" !important;
+                //content: "\e156" !important;
             }
         }
 
@@ -226,8 +226,8 @@ body .ui-datatable, body .ui-treetable {
             background-image: none;
             display: inline;
 
-            &:before {
-                font-family: 'Glyphicons Halflings';
+            &:before.after {
+                font-family: $fontFamily;
                 color: $admin-text-color;
                 position: relative;
                 font-size: $font-awesome-icon-size;
@@ -236,7 +236,7 @@ body .ui-datatable, body .ui-treetable {
                 top: 2px;
                 overflow: hidden;
                 opacity: .6;
-                content: "\e155" !important;
+                //content: "\e155" !important;
             }
         }
 
@@ -360,7 +360,7 @@ body .ui-treetable .ui-treetable-data {
         display: inline !important;
 
         &.ui-icon-triangle-1-e:before {
-            font-family: 'Glyphicons Halflings';
+            font-family: $fontFamily;
             color: $admin-text-color;
             position: relative;
             font-size: $glyphicon-icon-size;
@@ -368,11 +368,11 @@ body .ui-treetable .ui-treetable-data {
             top: -5px;
             padding: 0 4px;
             overflow: hidden;
-            content: "\e258" !important;
+            //content: "\e258" !important;
         }
 
         &.ui-icon-triangle-1-s:before {
-            font-family: 'Glyphicons Halflings';
+            font-family: $fontFamily;
             color: $admin-text-color;
             position: relative;
             font-size: $glyphicon-icon-size;
@@ -380,7 +380,7 @@ body .ui-treetable .ui-treetable-data {
             padding: 0 4px;
             overflow: hidden;
             top: -5px;
-            content: "\e259" !important;
+            //content: "\e259" !important;
         }
     }
 
@@ -495,7 +495,7 @@ body .ui-paginator {
             font-size:  ($font-awesome-icon-size - 1) ;
             top: 0;
             padding: 0 4px;
-            content: "\f051" !important;
+            //content: "\f051" !important;
         }
     }
 
@@ -511,7 +511,7 @@ body .ui-paginator {
             top: 0;
             padding: 0 4px;
             overflow: hidden;
-            content: "\f048" !important;
+            //content: "\f048" !important;
         }
     }
 
@@ -529,7 +529,7 @@ body .ui-paginator {
             top: 0;
             padding: 0 4px;
             overflow: hidden;
-            content: "\f054" !important;
+            //content: "\f054" !important;
         }
     }
 
@@ -547,7 +547,7 @@ body .ui-paginator {
             top: 0;
             padding: 0 4px;
             overflow: hidden;
-            content: "\f053" !important;
+            //content: "\f053" !important;
         }
     }
 
@@ -630,23 +630,23 @@ td.ui-editable-column .ui-cell-editor-input {
         position: relative;
         font-size: $font-awesome-icon-size - 1;
         overflow: hidden;
-        content: "\f040";
+        //content: "\f040";
     }
 
     span.ui-icon-check:before {
-        font-family: 'Glyphicons Halflings';
+        font-family: $fontFamily;
         position: relative;
         font-size: $font-awesome-icon-size - 1;
         overflow: hidden;
-        content: "\e013";
+        //content: "\e013";
     }
 
     span.ui-icon-close:before {
-        font-family: 'Glyphicons Halflings';
+        font-family: $fontFamily;
         position: relative;
         font-size: $font-awesome-icon-size - 1;
         overflow: hidden;
-        content: "\e014";
+        //content: "\e014";
     }
 
 }
@@ -735,13 +735,13 @@ a.ui-rowgroup-toggler {
             background-image: none;
             display: contents;
             &:before {
-                font-family: 'Glyphicons Halflings';
+                font-family: $fontFamily;
                 color: $admin-text-color;
                 position: relative;
                 top: -2px;
                 font-size: $glyphicon-icon-size!important;
                 overflow: hidden;
-                content: "\e259" !important;
+                //content: "\e259" !important;
             }
 
             &.icon-ripple:before {
@@ -754,13 +754,13 @@ a.ui-rowgroup-toggler {
             display: contents;
             background-image: none;
             &:before {
-                font-family: 'Glyphicons Halflings';
+                font-family: $fontFamily;
                 color: $admin-text-color;
                 position: relative;
                 top: -2px;
                 font-size: $glyphicon-icon-size!important;
                 overflow: hidden;
-                content: "\e258" !important;
+                //content: "\e258" !important;
             }
 
             &.icon-ripple:before {
@@ -788,14 +788,14 @@ div.ui-row-toggler {
 
     &.ui-icon-circle-triangle-e {
         &:before {
-            font-family: 'Glyphicons Halflings';
+            font-family: $fontFamily;
             color: $admin-text-color;
             position: relative;
             font-weight: bold;
             top: -2px;
             font-size: $glyphicon-icon-size!important;
             overflow: hidden;
-            content: "\e258" !important;
+            //content: "\e258" !important;
         }
 
         &.icon-ripple:before {
@@ -806,14 +806,14 @@ div.ui-row-toggler {
 
     &.ui-icon-circle-triangle-s {
         &:before {
-            font-family: 'Glyphicons Halflings';
+            font-family: $fontFamily;
             color: $admin-text-color;
             position: relative;
             font-weight: bold;
             top: -2px;
             font-size: $glyphicon-icon-size !important;
             overflow: hidden;
-            content: "\e259" !important;
+            //content: "\e259" !important;
         }
 
         &.icon-ripple:before {
