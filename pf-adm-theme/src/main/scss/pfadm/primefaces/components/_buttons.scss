@@ -11,13 +11,13 @@ body {
       &.btn-#{$color} {
         @include pfadm-mixins.btn-interactions($white, $value);
         background-color: $value;
-        color: var(--#{$prefix}#{$color}-text-emphasis) !important;
-        border-color: $value;
+        color: map-get($theme-colors-btn-text, $color) !important;
+        border-color: map-get($theme-colors-border-subtle, $color) !important;
 
         &:hover,
         &:active,
         &.hover {
-          background-color: darken($value, 5%) !important;;
+          background-color: darken($value, 5%) !important;
         }
       }
     }
