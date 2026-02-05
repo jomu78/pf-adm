@@ -11,16 +11,27 @@ body .ui-datatable, body .ui-treetable {
         padding: 10px 5px;
     }
 
+    .ui-datatable-data {
+      >tr >td {
+        border-width: 1px;
+      }
+    }
+
     th {
+        border-width: 1px !important;
         font-weight: 600;
+        color: $admin-text-color !important;
+        text-align: center !important;
+        background: white !important;
+        border-color: $panelHeaderBorder !important;
     }
 
     th.ui-state-default {
-        border-color: $datatable-border-color;
+        border-color: $panelHeaderBorder;
     }
 
     th.ui-state-hover {
-        background: #d3d5d8;
+        background: #d3d5d8 !important;
         border-color: $datatable-border-color;
     }
 
@@ -426,6 +437,7 @@ body .ui-treetable  {
 body div.ui-datatable, body div.ui-treetable {
     div.ui-paginator {
         border: 1px solid #f4f4f4;
+        padding: 2px !important;
         span.ui-paginator-pages {
             overflow: hidden;
             padding: 6px 12px;
