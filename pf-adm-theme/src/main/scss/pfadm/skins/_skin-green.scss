@@ -28,9 +28,7 @@
     }
   }
 
-  .app-footer {
-    font-size: 14px;
-  }
+  @include dialog-variant("skin-green", $light-green);
 
   .app-sidebar {
     @include sidebar-variant("skin-green", $light-green, $gray-100);

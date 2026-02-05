@@ -27,9 +27,7 @@
     }
   }
 
-  .app-footer {
-    font-size: 14px;
-  }
+  @include dialog-variant("skin-blue", $light-blue);
 
   @include sidebar-variant("skin-blue", $light-blue, $light-blue);
 }
