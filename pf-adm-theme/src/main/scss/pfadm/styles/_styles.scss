@@ -1,11 +1,11 @@
 /* 1. Eliminate cell padding and shrink font */
 .ui-datatable.extra-compact .ui-datatable-data > tr > td {
-  padding: 1px 4px !important; /* Minimal vertical padding */
+  padding: 0px 1px !important;
   font-size: 90% !important;
 }
 
 /* 2. Shrink the header to match */
 .ui-datatable.extra-compact thead th {
-  padding: 5px 2px !important;
+  padding: 3px 2px !important;
   font-size: 90% !important;
 }
