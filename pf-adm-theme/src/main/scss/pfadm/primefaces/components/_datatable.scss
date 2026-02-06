@@ -11,6 +11,10 @@ body .ui-datatable, body .ui-treetable {
         padding: 10px 5px;
     }
 
+    .ui-datatable-tablewrapper table tr:nth-child(even) {
+      background-color: $default-bg-subtle;
+    }
+
     .ui-datatable-data {
       >tr >td {
         border-width: 1px;
