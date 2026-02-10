@@ -11,7 +11,7 @@ body .ui-datatable, body .ui-treetable {
         padding: 10px 5px;
     }
 
-    .ui-datatable-tablewrapper table tr:nth-child(even) {
+    .ui-datatable-tablewrapper table tr:nth-child(even):not(.ui-state-highlight) {
       background-color: $default-bg-subtle;
     }
 
