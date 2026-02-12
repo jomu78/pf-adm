@@ -10,22 +10,6 @@
     color: white;
   }
 
-  .sidebar-menu {
-    .nav-link{
-      color: $admin-text-color;
-      display: flex;
-      align-items: center;
-
-      i, span {
-        line-height: 1;
-      }
-    }
-    .tree, .sidebar-menu.tree ul {
-      list-style: none !important;
-      padding-left: 0 !important;
-    }
-  }
-
   .sidebar-wrapper {
     background-color: white;
     border: 1px solid $card-border-color;

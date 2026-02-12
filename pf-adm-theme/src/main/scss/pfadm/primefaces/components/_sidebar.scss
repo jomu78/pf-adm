@@ -11,6 +11,15 @@ body {
   }
 }
 
+.sidebar-menu {
+  .nav-item {
+    .nav-link{
+      color: $admin-text-color;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
 
 a {
   &.sidebar-toggle {
