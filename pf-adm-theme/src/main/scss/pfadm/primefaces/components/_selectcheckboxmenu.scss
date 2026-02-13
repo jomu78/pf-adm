@@ -1,4 +1,19 @@
 body {
+  .ui-selectcheckboxmenu-panel {
+    font-size: 90%;
+  }
+  .ui-selectcheckboxmenu-panel .ui-chkbox-box {
+    min-width: 1.3rem !important;
+    min-height: 1.3rem !important;
+    height: 1.3rem !important;
+    width: 1.3rem !important;
+  }
+  .ui-selectcheckboxmenu-panel .ui-chkbox-icon {
+    min-width: 1.3rem !important;
+    min-height: 1.3rem !important;
+    height: 1.3rem !important;
+    width: 1.3rem !important;
+  }
   .ui-selectcheckboxmenu {
     width: 100%;
   }
