@@ -6,7 +6,7 @@
   <parent>
     <groupId>de.muehlencord.pf-adm</groupId>
     <artifactId>pf-adm</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
   </parent>
 
   <artifactId>pf-adm-spring-boot-starter</artifactId>
