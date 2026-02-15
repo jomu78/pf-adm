@@ -2,36 +2,47 @@
 $light-blue: #3c8dbc;
 $light-green: #00A65AFF;
 
+//overwrite already defined
 $primary: #3c8dbc;
-$primary-text-emphasis: shade-color($primary, 60%) !default;
-$primary-bg-subtle: tint-color($primary, 80%) !default;
-$primary-border-subtle: tint-color($primary, 60%) !default;
-$primary-text-emphasis:   shade-color($primary, 60%) !default;
+$danger: #dd4b39;
 
-$teal: #39CCCC;
+//highlight
+$highlightBg:$light-blue !default;
+$highlightTextColor:$white !default;
+
+// define additional theme-colors
+$teal: #009688;
 $teal-text-emphasis: shade-color($teal, 60%) !default;
 $teal-bg-subtle: tint-color($teal, 80%) !default;
 $teal-border-subtle: tint-color($teal, 60%) !default;
-$teal-text-emphasis:   shade-color($teal, 60%) !default;
+$teal-text-emphasis: shade-color($teal, 60%) !default;
 
 $fatal: #b13c2e;
 $fatal-text-emphasis: shade-color($fatal, 60%) !default;
 $fatal-bg-subtle: tint-color($fatal, 80%) !default;
 $fatal-border-subtle: tint-color($fatal, 60%) !default;
-$fatal-text-emphasis:   shade-color($fatal, 60%) !default;
+$fatal-text-emphasis: shade-color($fatal, 60%) !default;
 
-$default: #f4f4f4;
+$default: #d2d6de;
+$default-text-emphasis: shade-color($default, 60%) !default;
+$default-bg-subtle: tint-color($default, 80%) !default;
+$default-border-subtle: tint-color($default, 60%) !default;
+$default-text-emphasis: shade-color($default, 60%) !default;
 
 
-//$theme-colors: map-remove($theme-colors, 'primary');
+//remove already defined from map and add them back with updated color
+$theme-colors: map-remove($theme-colors, 'primary', 'danger');
 
 $theme-colors: map-merge((
+        'default' : $default,
         'fatal': $fatal,
         'teal': $teal,
-        'primary': $primary
+        'primary': $primary,
+        'danger': $danger
 ), $theme-colors);
 
 $theme-colors-text: (
+        "default": $default-text-emphasis,
         "primary": $primary-text-emphasis,
         "secondary": $secondary-text-emphasis,
         "success": $success-text-emphasis,
@@ -45,6 +56,7 @@ $theme-colors-text: (
 ) !default;
 
 $theme-colors-bg-subtle: (
+        "default": $default-bg-subtle,
         "primary": $primary-bg-subtle,
         "secondary": $secondary-bg-subtle,
         "success": $success-bg-subtle,
@@ -58,6 +70,7 @@ $theme-colors-bg-subtle: (
 ) !default;
 
 $theme-colors-border-subtle: (
+        "default": $default-border-subtle,
         "primary": $primary-border-subtle,
         "secondary": $secondary-border-subtle,
         "success": $success-border-subtle,
@@ -70,36 +83,19 @@ $theme-colors-border-subtle: (
         "fatal": $fatal-border-subtle,
 ) !default;
 
-//$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value") !default;
-//$utilities-colors: $theme-colors-rgb !default;
-
-//$utilities-text: map-merge(
-//                $utilities-colors,
-//                (
-//                        "black": to-rgb($black),
-//                        "white": to-rgb($white),
-//                        "body": to-rgb($body-color)
-//                )
-//) !default;
-//$utilities-text-colors: map-loop($utilities-text, rgba-css-var, "$key", "text") !default;
-
-//$fatal-text-emphasis: shade-color($fatal, 60%) !default;
-//$teal-text-emphasis: shade-color($teal, 60%) !default;
-
-//$theme-colors-text: map-remove($theme-colors-text, "primary");
-//$theme-colors-text: map-merge((
-//        'fatal': $fatal-text-emphasis,
-//        'teal': $teal-text-emphasis,
-//        'primary': $primary-text-emphasis
-//), $theme-colors-text);
-
-
-//$theme-colors: map-merge((
-//        'fatal': $fatal-text-emphasis,
-//        'teal': $teal-text-emphasis,
-//        'primary': $primary-text-emphasis
-//), $theme-colors);
-
+$theme-colors-btn-text: (
+        "default": $black,
+        "primary": $white,
+        "secondary": $white,
+        "success": $white,
+        "info": $white,
+        "warning": $white,
+        "danger": $white,
+        "light": $black,
+        "dark": $white,
+        "teal": $white,
+        "fatal": $white,
+) !default;
 
 // custom bs variables
 $line-height-base: 1.5 !default;

@@ -1,10 +1,11 @@
-@use "../bootstrap/vendor/rfs" as bs-rfs;
+@use "../../resources/static/bootstrap/vendor/rfs" as bs-rfs;
 
-@import "../adminlte/bootstrap-variables";
+@import "../../resources/static/adminlte/bootstrap-variables";
 @import "variables";
 
 @import "adminlte/mixins/navbar";
 @import "adminlte/mixins/sidebar";
+@import "adminlte/mixins/dialog";
 
 @import "primefaces/mixins/buttons";
 @import "primefaces/mixins/datagrid";

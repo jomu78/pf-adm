@@ -2,22 +2,29 @@
 // Mixins: Sidebar
 //
 
-@import "../../../adminlte/variables";
+@import "../../../../resources/static/adminlte/variables";
 
 // Sidebar Variant
 @mixin sidebar-variant($name, $color, $bgcolor) {
-
   .brand-text {
     color: white;
   }
 
+  .sidebar-wrapper {
+    background-color: white;
+    border: 1px solid $card-border-color;
+  }
+
   .sidebar-brand {
-    border: 0;
+    border: 1px solid $color;
+    color: $color;
+    background-color: $bgcolor;
     height: $lte-app-header-height;
 
     .brand-text {
+      color: white;
       font-weight: bold;
-      font-size: 1.8em;
+      font-size: 24px;
     }
   }
 }

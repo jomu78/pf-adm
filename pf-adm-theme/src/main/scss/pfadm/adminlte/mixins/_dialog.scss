@@ -1,0 +1,12 @@
+
+@mixin dialog_variant($name, $bgcolor) {
+  .ui-dialog {
+    .ui-dialog-titlebar {
+      background-color: $bgcolor;
+      color: $white;
+    }
+    .ui-dialog-titlebar-icon {
+      color: $white !important;
+    }
+  }
+}

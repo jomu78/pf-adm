@@ -11,6 +11,24 @@ body {
   }
 }
 
+.sidebar-menu {
+  .nav-item {
+    .nav-link {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      color: $admin-text-color;
+      align-items: center;
+      &:hover {
+        background-color: $hover-color;
+      }
+      &.active {
+        background-color: $highlightBg;
+        font-weight: bold;
+        color: $highlightTextColor;
+      }
+    }
+  }
+}
 
 a {
   &.sidebar-toggle {
