@@ -1,0 +1,154 @@
+@use "../../mixins" as pfadm-mixins;
+
+/* Panel */
+
+.ui-panel.ui-widget {
+  padding: 0;
+}
+
+.ui-panel.ui-widget .ui-panel-titlebar.ui-corner-all {
+  -moz-border-radius-bottom-left: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  -khtml-border-bottom-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  -moz-border-radius-bottom-right: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  -khtml-border-bottom-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+div.ui-panel-titlebar {
+  border: 1px solid $panel-border-bottom-color;
+  padding: 0.7rem !important;
+}
+
+div.ui-panel-footer {
+  border: 1px solid $panel-border-bottom-color;
+}
+
+div.ui-panel.no-border .ui-panel-titlebar {
+  border: none;
+}
+
+div.ui-panel.no-border .ui-panel-footer {
+  border: none;
+}
+
+div.ui-panel .ui-panel-title {
+  display: inline-block;
+  font-size: 18px;
+  margin: 0;
+  line-height: 1;
+  font-weight: 500;
+  padding: 8px 5px;
+}
+
+
+
+body .ui-panel {
+
+  &.ui-widget {
+    border-radius: $border-radius;
+    overflow: visible;
+
+    .ui-panel-content {
+      padding: 10px 10px;
+
+      .ui-g {
+        overflow: hidden;
+      }
+    }
+
+    &.box-default {
+      border-top: 3px solid $default;
+
+      &.box-solid {
+        @include pfadm-mixins.panel-solid($default);
+      }
+    }
+
+    &.box-primary {
+        border-top: 3px solid $light-blue;
+
+      &.box-solid {
+        @include pfadm-mixins.panel-solid($light-blue);
+      }
+    }
+
+    &.box-danger {
+      border-top: 3px solid $danger;
+
+      &.box-solid {
+        @include pfadm-mixins.panel-solid($danger);
+      }
+    }
+
+    &.box-fatal {
+      border-top: 3px solid $fatal;
+
+      &.box-solid {
+        @include pfadm-mixins.panel-solid($fatal);
+      }
+    }
+
+    &.box-warning {
+      border-top: 3px solid $warning;
+
+      &.box-solid {
+        @include pfadm-mixins.panel-solid($warning);
+      }
+    }
+
+    &.box-success {
+      border-top: 3px solid $success;
+
+      &.box-solid {
+        @include pfadm-mixins.panel-solid($success);
+      }
+    }
+
+    &.box-info {
+      border-top: 3px solid $info;
+
+      &.box-solid {
+        @include pfadm-mixins.panel-solid($info);
+      }
+    }
+
+    &.box-teal {
+      border-top: 3px solid $teal;
+
+      &.box-solid {
+        @include pfadm-mixins.panel-solid($teal);
+      }
+    }
+  }
+
+  &.no-border {
+    border-style: none;
+  }
+
+  &.card {
+    border: none;
+  }
+}
+
+
+/* ScrollPanel */
+.ui-scrollpanel .ui-scrollpanel-drag {
+  background-color: #dcdcdc;
+}
+
+a.ui-panel-titlebar-icon {
+  border: 0 !important;
+
+  > span:before {
+    top: 2px;
+  }
+}
+
+
+
+
+
+

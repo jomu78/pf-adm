@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template/template.xhtml"
+>
+
+  <ui:define name="title">
+    <p:outputLabel value="Primefaces Admin Showcase"/>
+  </ui:define>
+
+  <ui:define name="body">
+    <h3>Properties</h3>
+    <h:outputText value="renderMessages: #{pfAdmConfig.renderMessages}" /> <br />
+    <h:outputText value="skipMessageDetailIfEqualsSummary: #{pfAdmConfig.skipMessageDetailIfEqualsSummary}" /> <br />
+    <h:outputText value="enableSlideMenu: #{pfAdmConfig.enableSlideMenu}" /> <br />
+    <h:outputText value="skin: #{pfAdmConfig.skin}" /> <br />
+    <h:outputText value="renderMenuSearch: #{pfAdmConfig.renderMenuSearch}" /> <br />
+    <h:outputText value="renderLogo: #{pfAdmConfig.renderLogo}" /> <br />
+    <h:outputText value="renderBrandText: #{pfAdmConfig.renderBrandText}" /> <br />
+    <h:outputText value="renderFullScreenToggle: #{pfAdmConfig.renderFullScreenToggle}" /> <br />
+    <h:outputText value="renderSlideMenuToggle: #{pfAdmConfig.renderSlideMenuToggle}" /> <br />
+    <h:outputText value="supportFontAwesome: #{pfAdmConfig.supportFontAwesome}" /> <br />
+
+  </ui:define>
+
+
+</ui:composition>

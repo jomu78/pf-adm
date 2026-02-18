@@ -1,0 +1,42 @@
+@use "../../../../resources/static/bootstrap/vendor/rfs" as bs-rfs;
+
+@mixin btn-interactions($color, $bg-color) {
+  color: $color !important;
+
+  &:hover, &.ui-state-hover {
+    background-color: darken($bg-color, 5%) !important;
+  }
+  &:focus, &.ui-state-focus {
+    background-color: darken($bg-color, 8%) !important;
+  }
+  &:active, &.ui-state-active {
+    background-color: darken($bg-color, 15%) !important;
+  }
+
+  &.ui-state-disabled {
+    //background-color: darken($bg-color, 0%) !important;
+    cursor: not-allowed !important;
+    pointer-events: auto !important;
+    opacity: $opacity-disabled;
+
+    &:hover, &.ui-state-hover {
+      background-color: darken($bg-color, 0%) !important;
+      opacity: $opacity-disabled-hover;
+    }
+
+    &:focus, &.ui-state-focus {
+      background-color: darken($bg-color, 0%) !important;
+    }
+
+    &:active, &.ui-state-active {
+      background-color: darken($bg-color, 0%) !important;
+    }
+  }
+}
+
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius, $line-height) {
+  padding: $padding-y $padding-x;
+  @include bs-rfs.rfs($font-size, --bs-btn-font-size);
+  border-radius: $border-radius;
+  line-height: $line-height;
+}

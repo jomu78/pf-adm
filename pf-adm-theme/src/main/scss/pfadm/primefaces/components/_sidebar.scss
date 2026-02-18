@@ -1,0 +1,61 @@
+body {
+  div {
+    &.ui-sidebar {
+      a {
+        &.ui-sidebar-close {
+          padding: 0;
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+.sidebar-menu {
+  .nav-item {
+    .nav-link {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      color: $admin-text-color;
+      align-items: center;
+      &:hover {
+        background-color: $hover-color;
+      }
+      &.active {
+        background-color: $highlightBg;
+        font-weight: bold;
+        color: $highlightTextColor;
+      }
+    }
+  }
+}
+
+a {
+  &.sidebar-toggle {
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+
+ul {
+  &.sidebar-menu {
+    li {
+      &.header {
+        text-transform: uppercase;
+      }
+
+      &.treeview {
+        i {
+          &.fa-angle-left {
+            &:before {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

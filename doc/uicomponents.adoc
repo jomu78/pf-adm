@@ -1,0 +1,29 @@
+= Components
+:icons: font
+
+|===
+^| UI Element ^| admin-template ^| bfbs-template
+
+^| Accordion ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| AutoComplete ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| Buttons ^| icon:check[font-color: green] ^| icon:check[font-color: yellow]
+^| Chips ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| Datatable ^| icon:check[font-color: green] ^| icon:check[font-color: yellow]
+^| DatePicker ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| Dialog ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| DragDrop ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| InPlace ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| InputGroup ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| Menus ^| icon:check[font-color: green] ^| icon:check[font-color: yellow]
+^| NotificationBar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| Panels ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+^| Sidebar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| Steps ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| Schedule ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| TabView ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| Toolbar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| Tree ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| TriStateCheckbox ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| Upload ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+^| Wizard ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|===

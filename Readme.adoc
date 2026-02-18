@@ -1,0 +1,86 @@
+= Primefaces Admin
+:page-layout: base
+:source-language: java
+:icons: font
+:linkattrs:
+:sectanchors:
+:sectlink:
+:numbered:
+:doctype: book
+:toc: preamble
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+
+IMPORTANT: This project is work in progress.
+
+== Features
+
+pf-adm is an open source project which integrates http://primefaces.org/[Primefaces 15], https://getbootstrap.com/[Bootstrap 5] and https://adminlte.io/[AdminLTE 4].
+
+The project is inspired and partly based on https://adminfaces.github.io/site/[AdminFaces] by https://github.com/rmpestano[Rafael Pestano] which is based on Bootstrap 3 and AdminLTE 2.
+
+[cols="3,4a,4a,4a,3", frame=none, grid=none]
+|===
+|
+| image::https://github.com/jomu78/pf-adm/actions/workflows/maven.yml/badge.svg?branch=feature/initial[GitHub Build Status]
+| image:https://img.shields.io/maven-central/v/de.muehlencord.pf-adm/pf-adm[Maven Central Version]
+| image:https://img.shields.io/github/license/jomu78/pf-adm[GitHub License]
+|
+|===
+
+
+== How to use
+
+
+
+
+== Usage
+
+=== Template
+
+=== Theme
+=== Showcase
+
+==== Running from source
+
+The project is based on Java 21 and maven 3.9.x.
+
+----
+git clone https://github.com/jomu78/pf-adm
+cd pf-adm
+mvn clean install
+cd pf-adm-showcase
+java -jar target/pf-adm-showcase-<version>-starter.jar
+----
+Access the showcase on http://localhost:8080/showcase
+
+
+==== Running from Docker
+There is a docker image available.
+
+----
+docker run -p 8080:8080 jomu78/pf-adm-showcase
+----
+Access the showcase on http://localhost:8080/showcase
+
+IMPORTANT: The image is not yet publicly available.
+
+==== Creating docker image
+To create the docker image locally, run the following commands.
+
+----
+git clone https://github.com/jomu78/pf-adm
+cd pf-adm
+mvn clean install
+cd pf-adm-showcase
+mvn docker:build
+----
+
+
+
+== Configuration
+
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>de.muehlencord.pf-adm</groupId>
+    <artifactId>pf-adm</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>pf-adm-theme</artifactId>
+  <name>pf-adm-theme</name>
+  <packaging>jar</packaging>
+
+  <properties>
+  </properties>
+
+  <build>
+
+    <plugins>
+      <plugin>
+        <groupId>io.github.cleydyr</groupId>
+        <artifactId>dart-sass-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>generate-themes</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>compile-sass</goal>
+            </goals>
+            <configuration>
+              <inputFolder>${project.basedir}/src/main/scss</inputFolder>
+              <outputFolder>src/main/resources/META-INF/resources/primefaces-admin</outputFolder>
+              <update>false</update>
+              <noSourceMap>true</noSourceMap>
+              <style>EXPANDED</style>
+              <quiet>false</quiet>
+              <version>${dart-sass.version}</version>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+
+  </build>
+
+</project>

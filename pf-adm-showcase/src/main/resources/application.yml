@@ -1,0 +1,16 @@
+server:
+  shutdown: graceful
+  servlet:
+    context-path: /showcase
+pf-adm:
+  enable-slide-menu: true
+  render-slide-menu-toggle: true
+  skin: skin-blue
+  render-brand-text: true
+  render-logo: false
+  render-full-screen-toggle: false
+  render-bread-crumb: false
+  support-font-awesome: true
+joinfaces:
+  primefaces:
+    theme: admin

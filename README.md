@@ -1,2 +1,0 @@
-# primefaces-admin
-

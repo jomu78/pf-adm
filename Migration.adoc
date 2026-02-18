@@ -1,0 +1,119 @@
+= Migration from admin-faces
+:toc:
+
+This project is inspired and based on https://adminfaces.github.io/site/[AdminFaces] by https://github.com/rmpestano[Rafael Pestano].
+
+This document describes how to upgrade a SpringBoot based AdminFaces project.
+
+== Dependencies
+
+Remove any all AdminFaces based dependencies and replace them with the pf-adm dependency.
+
+[cols="a,a"]
+|===
+^| AdminFaces ^| PF-Adm
+
+|
+[source,xml]
+----
+<dependency>
+  <groupId>com.github.adminfaces</groupId>
+  <artifactId>admin-template</artifactId>
+</dependency>
+<dependency>
+  <groupId>com.github.adminfaces</groupId>
+  <artifactId>admin-theme</artifactId>
+</dependency>
+<dependency>
+  <groupId>com.primefaces</groupId>
+  <artifactId>primefaces</artifactId>
+</dependency>
+----
+
+|
+[source,xml]
+----
+<dependency>
+  <groupId>de.muehlencord.pf-adm</groupId>
+  <artifactId>pf-adm-spring-boot-starter</artifactId>
+</dependency>
+----
+
+|===
+
+if based on Joinfaces
+
+[cols="a,a"]
+|===
+^| AdminFaces ^| PF-Adm
+
+|
+[source,xml]
+----
+<dependency>
+  <groupId>org.joinfaces</groupId>
+  <artifactId>adminfaces-spring-boot-starter</artifactId>
+</dependency>
+----
+
+|
+[source,xml]
+----
+<dependency>
+  <groupId>org.joinfaces</groupId>
+  <artifactId>primefaces-spring-boot-starter</artifactId>
+</dependency>
+<dependency>
+  <groupId>de.muehlencord.pf-adm</groupId>
+  <artifactId>pf-adm-spring-boot-starter</artifactId>
+</dependency>
+----
+|===
+
+== Configuration
+
+== Template changes
+
+== Menu changes
+
+[cols="a,a"]
+|===
+^| AdminFaces ^| PF-Adm
+
+|
+[source,xml]
+----
+<h:form id="menuform">
+  <ul class="sidebar-menu tree" data-widget="tree">
+    <li>
+      <p:link outcome="/web/index.xhtml">
+        <i class="fa fa-home"/>
+        <span>Home</span>
+      </p:link>
+    </li>
+    ....
+  </ul>
+</h:form>
+----
+
+|
+[source,xml]
+----
+<h:form id="menuform">
+  <li class="nav-item">
+    <p:link class="nav-link" outcome="/web/index.xhtml">
+      <i class="nav-icon pi pi-home"/>
+      <p>Home</p>
+    </p:link>
+  </li>
+  ..
+</h:form>
+----
+|===
+
+== Page changes
+
+
+
+
+

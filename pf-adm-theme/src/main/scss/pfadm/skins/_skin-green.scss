@@ -1,0 +1,36 @@
+/*
+ * Skin: green
+ * ----------
+ */
+@use "sass:color";
+
+@import "../../../resources/static/bootstrap/_mixins.scss";
+@import "../mixins";
+
+.skin-green {
+  //Navbar
+  .navbar {
+    @include navbar-variant("skin-green", $light-green);
+
+    .sidebar {
+      color: #fff;
+
+      &:hover {
+        background-color: darken($light-green, 5%);
+      }
+    }
+
+    .navbar-brand {
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+      font-weight: 300;
+    }
+  }
+
+  @include dialog-variant("skin-green", $light-green);
+
+  .app-sidebar {
+    @include sidebar-variant("skin-green", $light-green, $gray-100);
+  }
+}

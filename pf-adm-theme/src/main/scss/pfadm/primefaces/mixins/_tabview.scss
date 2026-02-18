@@ -1,0 +1,15 @@
+@mixin  tabviewSolid($color, $text-color) {
+&.box-solid {
+  background: $color;
+  border-color: $color;
+  //.border-radius($default-border-radius);
+
+  a {
+    color: $text-color;
+  }
+
+  span.ui-icon:before {
+    color: $text-color;
+  }
+}
+}

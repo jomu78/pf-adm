@@ -1,0 +1,54 @@
+@use "../../mixins" as pfadm-mixins;
+
+@import "../../variables";
+
+
+
+body {
+  .ui-button {
+
+    @each $color, $value in $theme-colors {
+      &.btn-#{$color} {
+        @include pfadm-mixins.btn-interactions($white, $value);
+        background-color: $value;
+        color: map-get($theme-colors-btn-text, $color) !important;
+        border-color: map-get($theme-colors-border-subtle, $color) !important;
+
+        &:hover,
+        &:active,
+        &.hover {
+          background-color: darken($value, 5%) !important;
+        }
+      }
+    }
+
+    &.btn {
+      padding: 5px 12px;
+    }
+
+    &.btn-lg {
+      @include pfadm-mixins.button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg, $line-height-lg)
+    }
+
+    &.btn-sm {
+      @include pfadm-mixins.button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm, $line-height-sm);
+    }
+
+    &.btn-xs {
+      @include pfadm-mixins.button-size($btn-padding-y-xs, $btn-padding-x-xs, $btn-font-size-xs, $btn-border-radius-xs, $line-height-xs);
+    }
+  }
+
+  .btn-block {
+    display: block;
+    width: 100%;
+  }
+
+  .btn-block + .btn-block {
+    margin-top: 5px;
+  }
+
+}
+
+
+

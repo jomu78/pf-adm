@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>de.muehlencord.pf-adm</groupId>
+  <artifactId>pf-adm</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>4.0.2</version>
+  </parent>
+
+  <name>pf-adm</name>
+  <description>
+    A PrimeFaces theme based on Bootstrap and AdminLTE
+  </description>
+
+  <scm>
+    <connection>scm:git:git@github.com:jomu78/pf-adm.git</connection>
+    <developerConnection>scm:git:git@github.com:jomu78/pf-adm.git</developerConnection>
+    <url>https://github.com/jomu78/pf-adm</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/jomu78/pf-adm/issues</url>
+  </issueManagement>
+
+  <licenses>
+    <license>
+      <name>The MIT License (MIT)</name>
+      <url>https://opensource.org/licenses/MIT</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Joern Muehlencord</name>
+    </developer>
+  </developers>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>central</id>
+      <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>central</id>
+      <url>https://central.sonatype.com/</url>
+    </repository>
+  </distributionManagement>
+
+  <modules>
+    <module>pf-adm-showcase</module>
+    <module>pf-adm-template</module>
+    <module>pf-adm-spring-boot-starter</module>
+    <module>pf-adm-spring-boot-autoconfigure</module>
+    <module>pf-adm-theme</module>
+  </modules>
+
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <licenses.dir>${project.build.directory}/third-party-licenses</licenses.dir>
+
+    <!-- dependency versions -->
+    <jakarta.jakartaee-web-api.version>11.0.0</jakarta.jakartaee-web-api.version>
+
+    <!-- dependency versions -->
+    <joinfaces.version>6.0.1</joinfaces.version>
+    <primefaces.version>15.0.12</primefaces.version>
+
+    <!-- plugin versions -->
+    <dart-sass-maven-plugin.version>1.5.0</dart-sass-maven-plugin.version>
+    <dart-sass.version>1.86.3</dart-sass.version>
+    <central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
+  </properties>
+
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- imports -->
+      <dependency>
+        <groupId>org.joinfaces</groupId>
+        <artifactId>joinfaces-bom</artifactId>
+        <version>${joinfaces.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.joinfaces</groupId>
+        <artifactId>joinfaces-dependencies</artifactId>
+        <version>${joinfaces.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.primefaces</groupId>
+        <artifactId>primefaces</artifactId>
+        <version>${primefaces.version}</version>
+        <classifier>jakarta</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.primefaces</groupId>
+        <artifactId>primefaces-themes</artifactId>
+        <version>${primefaces.version}</version>
+      </dependency>
+
+      <!-- project dependencies -->
+      <dependency>
+        <groupId>de.muehlencord.pf-adm</groupId>
+        <artifactId>pf-adm-theme</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.muehlencord.pf-adm</groupId>
+        <artifactId>pf-adm-template</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.muehlencord.pf-adm</groupId>
+        <artifactId>pf-adm-spring-boot-autoconfigure</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.muehlencord.pf-adm</groupId>
+        <artifactId>pf-adm-spring-boot-starter</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.platform</groupId>
+        <artifactId>jakarta.jakartaee-web-api</artifactId>
+        <version>11.0.0</version>
+        <scope>provided</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>io.fabric8</groupId>
+          <artifactId>docker-maven-plugin</artifactId>
+          <configuration>
+            <images>
+              <image>
+                <name>jomu78/${project.artifactId}:${project.version}</name>
+                <build>
+                  <dockerFile>${project.basedir}/Dockerfile</dockerFile>
+                  <tags>
+                    <tag>latest</tag>
+                  </tags>
+                  <buildOptions>
+                    <forcerm>1</forcerm>
+                  </buildOptions>
+                  <args>
+                    <JAR_FILE>target/${project.build.finalName}-starter.jar</JAR_FILE>
+                  </args>
+                  <buildx>
+                    <platforms>
+                      <platform>linux/amd64</platform>
+                      <platform>linux/arm64</platform>
+                    </platforms>
+                  </buildx>
+                </build>
+              </image>
+            </images>
+          </configuration>
+        </plugin>
+
+        <!-- dart sass - translate scss to css -->
+        <plugin>
+          <groupId>io.github.cleydyr</groupId>
+          <artifactId>dart-sass-maven-plugin</artifactId>
+          <version>${dart-sass-maven-plugin.version}</version>
+        </plugin>
+
+        <!-- generate javadoc artefact -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${maven-javadoc-plugin.version}</version>
+        </plugin>
+
+        <!-- automatically create new versions -->
+        <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>${maven-release-plugin.version}</version>
+          <configuration>
+            <tagNameFormat>v@{project.version}</tagNameFormat>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+
+    <plugins>
+      <!-- deploy to Maven Central -->
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <version>${central-publishing-maven-plugin.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <publishingServerId>central</publishingServerId>
+          <autoPublish>true</autoPublish>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

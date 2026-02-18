@@ -1,0 +1,151 @@
+// extend colors
+$light-blue: #3c8dbc;
+$light-green: #00A65AFF;
+
+//overwrite already defined
+$primary: #3c8dbc;
+$danger: #dd4b39;
+
+//highlight
+$highlightBg:$light-blue !default;
+$highlightTextColor:$white !default;
+
+// define additional theme-colors
+$teal: #009688;
+$teal-text-emphasis: shade-color($teal, 60%) !default;
+$teal-bg-subtle: tint-color($teal, 80%) !default;
+$teal-border-subtle: tint-color($teal, 60%) !default;
+$teal-text-emphasis: shade-color($teal, 60%) !default;
+
+$fatal: #b13c2e;
+$fatal-text-emphasis: shade-color($fatal, 60%) !default;
+$fatal-bg-subtle: tint-color($fatal, 80%) !default;
+$fatal-border-subtle: tint-color($fatal, 60%) !default;
+$fatal-text-emphasis: shade-color($fatal, 60%) !default;
+
+$default: #d2d6de;
+$default-text-emphasis: shade-color($default, 60%) !default;
+$default-bg-subtle: tint-color($default, 80%) !default;
+$default-border-subtle: tint-color($default, 60%) !default;
+$default-text-emphasis: shade-color($default, 60%) !default;
+
+
+//remove already defined from map and add them back with updated color
+$theme-colors: map-remove($theme-colors, 'primary', 'danger');
+
+$theme-colors: map-merge((
+        'default' : $default,
+        'fatal': $fatal,
+        'teal': $teal,
+        'primary': $primary,
+        'danger': $danger
+), $theme-colors);
+
+$theme-colors-text: (
+        "default": $default-text-emphasis,
+        "primary": $primary-text-emphasis,
+        "secondary": $secondary-text-emphasis,
+        "success": $success-text-emphasis,
+        "info": $info-text-emphasis,
+        "warning": $warning-text-emphasis,
+        "danger": $danger-text-emphasis,
+        "light": $light-text-emphasis,
+        "dark": $dark-text-emphasis,
+        "teal": $teal-text-emphasis,
+        "fatal": $fatal-text-emphasis,
+) !default;
+
+$theme-colors-bg-subtle: (
+        "default": $default-bg-subtle,
+        "primary": $primary-bg-subtle,
+        "secondary": $secondary-bg-subtle,
+        "success": $success-bg-subtle,
+        "info": $info-bg-subtle,
+        "warning": $warning-bg-subtle,
+        "danger": $danger-bg-subtle,
+        "light": $light-bg-subtle,
+        "dark": $dark-bg-subtle,
+        "teal": $teal-bg-subtle,
+        "fatal": $fatal-bg-subtle,
+) !default;
+
+$theme-colors-border-subtle: (
+        "default": $default-border-subtle,
+        "primary": $primary-border-subtle,
+        "secondary": $secondary-border-subtle,
+        "success": $success-border-subtle,
+        "info": $info-border-subtle,
+        "warning": $warning-border-subtle,
+        "danger": $danger-border-subtle,
+        "light": $light-border-subtle,
+        "dark": $dark-border-subtle,
+        "teal": $teal-border-subtle,
+        "fatal": $fatal-border-subtle,
+) !default;
+
+$theme-colors-btn-text: (
+        "default": $black,
+        "primary": $white,
+        "secondary": $white,
+        "success": $white,
+        "info": $white,
+        "warning": $white,
+        "danger": $white,
+        "light": $black,
+        "dark": $white,
+        "teal": $white,
+        "fatal": $white,
+) !default;
+
+// custom bs variables
+$line-height-base: 1.5 !default;
+$line-height-xs: 1.0 !default;
+$line-height-sm: 1.25 !default;
+$line-height-lg: 2 !default;
+
+$border-radius: 3px !default;
+$border-radius-xs: 3px !default;
+$border-radius-sm: 3px !default;
+$border-radius-lg: 3px !default;
+$border-radius-xl: 3px !default;
+$border-radius-xxl: 3px !default;
+$border-radius-pill: 3px !default;
+
+$input-btn-padding-y-xs: 1px !default;
+$input-btn-padding-x-xs: 5px !default;
+$input-btn-font-size-xs: 12px !default;
+
+$btn-padding-y-xs: $input-btn-padding-y-xs !default;
+$btn-padding-x-xs: $input-btn-padding-x-xs !default;
+$btn-font-size-xs: $input-btn-font-size-xs !default;
+
+$btn-border-radius: $border-radius !default;
+$btn-border-radius-xs: $border-radius-xs !default;
+$btn-border-radius-sm: $border-radius-sm !default;
+$btn-border-radius-lg: $border-radius-lg !default;
+
+// custom pf-variables
+$datatable-border-color: $gray-800 !default;
+$datatable-row-border-color: $gray-800 !default;
+$datatable-row-hover-color: $white !default;
+$glyphicon-icon-size: 10px;
+
+$admin-text-color: #444 !default;
+$font-awesome-icon-size: 13.3px !default;
+$box-shadow-color: #1f89ce !default;
+$brand-primary: darken(#428bca, 6.5%) !default;
+$hover-color: #eeeeee !default;
+$panel-border-bottom-color: $hover-color !default;
+
+$opacity-disabled: 0.70 !default;
+$opacity-disabled-hover: 0.85 !default;
+
+$fontSize:0.8rem !default;
+$fontFamily:"Source Sans Pro","Trebuchet MS","Helvetica Neue",Helvetica,Arial,"sans-serif" !default;
+
+
+// tabview
+$tabview-border-color: $hover-color;
+$tabview-border-top-color: $light-blue;
+$tabview-hover-color: #ededf0;
+$hover-icon-color: #696969;

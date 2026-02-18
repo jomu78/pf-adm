@@ -1,0 +1,49 @@
+= Template Compatibility Matrix
+:icons: font
+
+Pre-defined UI-definitions
+|===
+|Template Name ^| Admin-template ^| Pf-Adm Template
+
+|template-header ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|template-menu ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|body-end ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|===
+
+Available ui:insert regions
+|===
+|Region name ^| Admin Template ^| Pf-Amd Template
+
+|metadata ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|head ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|head-end ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|body-begin ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|template-header ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|template-menu ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|logo-mini ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|logo-lg ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|top-menu ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|top-menu-notifications ^| icon:times[font-color: red] ^| icon:check[font-color: green]
+|top-menu-user-menu ^| icon:times[font-color: red] ^| icon:check[font-color: green]
+|menu-begin ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|menu ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|menu-end ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|content-wrapper ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|title ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|description ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|content-header ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|body ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|content-end ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|footer ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|wrapper-end ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|before-controlsidebar-content ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|controlsidebar-tabs ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|before-controlsidebar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|after-controlsidebar-skin ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|after-controlsidebar-tabs ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|controlsidebar-content ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|after-controlsidebar-content ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|after-wrapper ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+|body-end ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+|===
+
