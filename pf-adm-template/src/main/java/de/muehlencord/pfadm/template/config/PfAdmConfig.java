@@ -19,6 +19,10 @@ public class PfAdmConfig implements Serializable {
     return SpringContext.getBean(PfAdmProperties.class).getIndexPage();
   }
 
+  public String getDateFormat() {
+    return SpringContext.getBean(PfAdmProperties.class).getDateFormat();
+  }
+
   public boolean isRenderMessages() {
     return SpringContext.getBean(PfAdmProperties.class).isRenderMessages();
   }
@@ -62,6 +66,12 @@ public class PfAdmConfig implements Serializable {
   public boolean isSupportFontAwesome() {
     return SpringContext.getBean(PfAdmProperties.class).isSupportFontAwesome();
   }
+
+  public ErrorPageProperties getError() {
+    return SpringContext.getBean(PfAdmProperties.class).getError();
+  }
+
+
 
 
 

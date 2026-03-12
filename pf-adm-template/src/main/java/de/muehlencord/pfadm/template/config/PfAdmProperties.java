@@ -1,9 +1,13 @@
 package de.muehlencord.pfadm.template.config;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 
 /**
@@ -24,7 +28,7 @@ public class PfAdmProperties {
 //  private Properties userConfigFile;//user defined properties
 //  private String loginPage;
   private String indexPage = "index.xhtml";
-//  private String dateFormat;
+  private String dateFormat;
 //  private String templatePath;
 //  private Integer breadCrumbMaxSize;
   private boolean renderMessages = true;
@@ -62,6 +66,13 @@ public class PfAdmProperties {
   private boolean renderSlideMenuToggle = true;
   private boolean supportFontAwesome = false;
 
+  @NestedConfigurationProperty
+  private ErrorPageProperties error = new ErrorPageProperties();
 
 
+  public PfAdmProperties() {
+    if (!StringUtils.hasText(dateFormat)) {
+      dateFormat =  ((SimpleDateFormat) DateFormat.getDateTimeInstance()).toLocalizedPattern();
+    }
+  }
 }

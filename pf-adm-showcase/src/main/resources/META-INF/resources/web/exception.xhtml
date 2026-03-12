@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template/template.xhtml"
+>
+
+  <ui:define name="title">
+    pf-adm Showcase - Denied
+  </ui:define>
+
+  <ui:define name="body">
+    <h:form id="buttons">
+      <p:panel styleClass="card no-border" style="min-height: 100px">
+        <p:growl id="growl" life="2000"/>
+
+        <div class="row">
+          <div class="col-sm-12 col-md-3">
+            <p:commandButton value="Ajax Submit" id="ajax" update="growl" ignoreAutoUpdate="true" ajax="true"
+                             actionListener="#{exceptionView.raiseException}" styleClass="btn-default btn-block"/>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <p:commandButton value="Non-Ajax Submit" id="nonAjax" update="growl" ignoreAutoUpdate="true" ajax="false"
+                             actionListener="#{exceptionView.raiseException}" styleClass="btn-default btn-block"/>
+          </div>
+
+        </div>
+      </p:panel>
+    </h:form>
+  </ui:define>
+
+</ui:composition>

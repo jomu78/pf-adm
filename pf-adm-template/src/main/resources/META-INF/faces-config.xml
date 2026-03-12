@@ -8,11 +8,23 @@
 
   <application>
     <locale-config>
-      <default-locale>de</default-locale>
+      <default-locale>en_US</default-locale>
       <supported-locale>en</supported-locale>
-      <supported-locale>de</supported-locale>
+      <supported-locale>en_US</supported-locale>
+      <supported-locale>de_DE</supported-locale>
     </locale-config>
 
+    <resource-bundle>
+      <base-name>messages</base-name>
+      <var>admMessages</var>
+    </resource-bundle>
   </application>
+
+  <factory>
+    <exception-handler-factory>
+      org.omnifaces.exceptionhandler.FullAjaxExceptionHandlerFactory
+    </exception-handler-factory>
+  </factory>
+
 
 </faces-config>

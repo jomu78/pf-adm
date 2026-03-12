@@ -11,6 +11,7 @@ pf-adm:
   render-full-screen-toggle: false
   render-bread-crumb: false
   support-font-awesome: true
+  index-page: /web/index.xhtml
 joinfaces:
   primefaces:
     theme: admin

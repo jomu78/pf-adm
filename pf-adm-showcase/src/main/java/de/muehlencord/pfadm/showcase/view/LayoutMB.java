@@ -15,6 +15,7 @@ import lombok.Setter;
 @Named("layoutMB")
 @Getter
 @Setter
+// TODO - unify with template bean
 public class LayoutMB {
 
   private boolean borderless = false;
