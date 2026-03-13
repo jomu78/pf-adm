@@ -7,21 +7,21 @@
 
   <ui:define name="body">
     <div class="row">
-      <div class="ui-sm-12">
-        <div class="error-page">
-          <h2 class="headline text-fatal">#{admMessages['error_500_header']}</h2>
+    <div class="ui-sm-12">
+    <div class="error-page">
+      <h2 class="headline text-fatal">#{admMessages['error_500_header']}</h2>
 
-          <div class="error-content" style="font-size: 1.1em">
-            <h3>
-              <i class="pi pi-exclamation-triangle text-fatal"/> #{admMessages['error_500_message']}
-            </h3>
+      <div class="error-content" style="font-size: 1.1em">
+        <h3>
+          <i class="pi pi-exclamation-triangle text-fatal"/> #{admMessages['error_500_message']}
+        </h3>
 
-            <p>
-              #{admMessages['label_go_back']}
-              <p:link outcome="#{pfAdmConfig.indexPage}" value="#{admMessages['label_home']}" escape="false"/>
-              #{admMessages['label_or_to']}
+        <p>
+          #{admMessages['label_go_back']}
+          <p:link outcome="#{pfAdmConfig.indexPage}" value="#{admMessages['label_home']}" escape="false"/>
+          #{admMessages['label_or_to']}
               <p:link outcome="#{pfAdminSessionView.requestRelativeURI}" value="#{admMessages['label_previous_page']}" escape="false"/>
-            </p>
+        </p>
           </div>
         </div>
       </div>

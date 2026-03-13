@@ -1,8 +1,9 @@
 package de.muehlencord.pfadm.showcase.view;
 
+import jakarta.faces.application.ViewExpiredException;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
-import java.awt.event.ActionEvent;
+import jakarta.persistence.OptimisticLockException;
 
 /**
  * view to test exception handling
@@ -14,8 +15,20 @@ import java.awt.event.ActionEvent;
 @Named("exceptionView")
 public class ExceptionView {
 
-  public void raiseException(ActionEvent actionEvent)  {
-    throw new UnsupportedOperationException ("Exception raised from bean");
+  public void throwUnsupportedOperationException()  {
+    throw new UnsupportedOperationException ("An UnsupportedOperationException");
+  }
+
+  public void throwNullPointerException()  {
+    throw new NullPointerException ("A NullPointerException");
+  }
+
+  public void throwViewExpiredException()  {
+    throw new ViewExpiredException("A ViewExpiredException!");
+  }
+
+  public void throwOptimisticLockException()  {
+    throw new OptimisticLockException("A OptimisticLockException!");
   }
 
 }
