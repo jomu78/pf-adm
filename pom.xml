@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>de.muehlencord.pf-adm</groupId>
@@ -83,6 +84,8 @@
     <maven-release-plugin.version>3.3.1</maven-release-plugin.version>
     <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
     <central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
+    <docker-maven-plugin.version>0.48.1</docker-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.8.14</jacoco-maven-plugin.version>
   </properties>
 
 
@@ -139,7 +142,7 @@
       <dependency>
         <groupId>jakarta.platform</groupId>
         <artifactId>jakarta.jakartaee-web-api</artifactId>
-        <version>11.0.0</version>
+        <version>${jakarta.jakartaee-web-api.version}</version>
         <scope>provided</scope>
       </dependency>
     </dependencies>
@@ -151,6 +154,7 @@
         <plugin>
           <groupId>io.fabric8</groupId>
           <artifactId>docker-maven-plugin</artifactId>
+          <version>${docker-maven-plugin.version}</version>
           <configuration>
             <images>
               <image>
@@ -199,6 +203,12 @@
           <configuration>
             <tagNameFormat>v@{project.version}</tagNameFormat>
           </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>${jacoco-maven-plugin.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
