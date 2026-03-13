@@ -1,5 +1,6 @@
 package de.muehlencord.pfadm.template.config;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import lombok.Getter;
@@ -21,7 +22,7 @@ import org.springframework.validation.annotation.Validated;
 @Setter
 @Getter
 @Validated
-public class PfAdmProperties {
+public class PfAdmProperties implements Serializable {
 
   /* *** adminface inspired / compatible *** */
 //  private Properties adminConfigFile;//default config
@@ -29,7 +30,8 @@ public class PfAdmProperties {
 //  private String loginPage;
   private String indexPage = "index.xhtml";
   private String dateFormat;
-//  private String templatePath;
+  // path to template in use */
+  private String templatePath = "/admin.xhtml";
 //  private Integer breadCrumbMaxSize;
   private boolean renderMessages = true;
   private boolean skipMessageDetailIfEqualsSummary = true;

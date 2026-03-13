@@ -12,6 +12,7 @@ pf-adm:
   render-bread-crumb: false
   support-font-awesome: true
   index-page: /web/index.xhtml
+  template-path: /WEB-INF/template/template.xhtml
 joinfaces:
   primefaces:
     theme: admin

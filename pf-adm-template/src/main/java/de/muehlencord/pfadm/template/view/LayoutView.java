@@ -1,10 +1,10 @@
 package de.muehlencord.pfadm.template.view;
 
+import de.muehlencord.pfadm.template.config.PfAdmConfig;
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.io.Serializable;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * control layout settings
@@ -14,9 +14,21 @@ import lombok.Setter;
  */
 @Named
 @SessionScoped
-@Getter
-@Setter
 public class LayoutView implements Serializable {
 
-  private String template = "/admin.xhtml";
+  private final PfAdmConfig pfAdmConfig;
+
+  @Inject
+  public LayoutView(PfAdmConfig pfAdmConfig) {
+    this.pfAdmConfig = pfAdmConfig;
+  }
+
+  public String getTemplate() {
+    return pfAdmConfig.getTemplatePath();
+  }
+
+  public void setTemplate(String template) {
+    pfAdmConfig.setTemplatePath (template);
+
+  }
 }

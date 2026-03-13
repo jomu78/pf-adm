@@ -8,7 +8,7 @@ $danger: #dd4b39;
 
 //highlight
 $highlightBg:$light-blue !default;
-$highlightTextColor:$white !default;
+$highlightTextColor:#ffffff !default;
 
 // define additional theme-colors
 $teal: #009688;
@@ -149,3 +149,12 @@ $tabview-border-color: $hover-color;
 $tabview-border-top-color: $light-blue;
 $tabview-hover-color: #ededf0;
 $hover-icon-color: #696969;
+
+//// BOXES
+$box-border-color: #f4f4f4;
+$box-border-radius: 3px;
+$box-footer-bg: #fff;
+$box-boxshadow: 0 1px 1px rgba(0, 0, 0, .1);
+$box-padding: 10px;
+$box-default-border-top-color: #d2d6de;
+$attachment-border-radius: 3px;
