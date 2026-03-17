@@ -12,7 +12,7 @@ import jakarta.persistence.OptimisticLockException;
  * @since 0.2.0
  */
 @ViewScoped
-@Named("exceptionView")
+@Named
 public class ExceptionView {
 
   public void throwUnsupportedOperationException()  {

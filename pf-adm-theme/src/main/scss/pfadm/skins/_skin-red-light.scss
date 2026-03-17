@@ -2,4 +2,4 @@
 
 $skin-red-light-accent: #dd4b39;
 
-@include skin-variant("skin-red-light", $skin-red-light-accent, $gray-100);
+@include skin-variant("skin-red-light", $skin-red-light-accent, $gray-100, $pfadm-text-inverse);

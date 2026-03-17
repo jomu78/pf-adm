@@ -3,13 +3,25 @@
 //
 
 // Navbar Variant
-@mixin navbar-variant($name, $color) {
+@mixin navbar-variant($name, $color, $text-color: color-contrast($color)) {
   &.navbar-#{$name} {
     background-color: $color;
-    color: color-contrast($color);
+    color: $text-color;
 
-    .nav-link {
-      color: color-contrast($color);
+    .nav-link,
+    .nav-link:hover,
+    .nav-link:focus,
+    .navbar-brand,
+    .navbar-brand:hover,
+    .navbar-brand:focus {
+      color: $text-color;
+    }
+
+    .nav-link svg,
+    .nav-link i,
+    .nav-link .nav-icon {
+      color: inherit;
+      fill: currentColor;
     }
 
     &.navbar-light {
@@ -79,4 +91,3 @@
 //    background-color: darken($bg-color, 1%);
 //  }
 //}
-

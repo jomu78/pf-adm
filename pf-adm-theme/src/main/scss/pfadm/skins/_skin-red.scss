@@ -2,4 +2,4 @@
 
 $skin-red-accent: #dd4b39;
 
-@include skin-variant("skin-red", $skin-red-accent, $pfadm-surface-card);
+@include skin-variant("skin-red", $skin-red-accent, $pfadm-surface-card, $pfadm-text-inverse);

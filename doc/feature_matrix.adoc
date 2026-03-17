@@ -45,7 +45,7 @@ behavior, not just the existence of Facelets hook names.
 |Material-style flat buttons
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
-|Not currently implemented in `pf-adm-template`.
+|`btn-flat` exists as a visual utility, but material-design button behavior and styling parity are not supported.
 
 |Ripple effect
 ^| icon:check[font-color: green]
@@ -96,6 +96,11 @@ behavior, not just the existence of Facelets hook names.
 ^| icon:check[font-color: green]
 ^| icon:check[font-color: yellow]
 |`pf-adm-template` renders breadcrumb UI, but does not currently provide the full AdminFaces breadcrumb navigation model.
+
+|Sticky datatable headers
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|PrimeFaces sticky datatable headers are not currently supported reliably in `pf-adm-template` / `pf-adm-showcase`.
 
 |Layout customization via control sidebar
 ^| icon:check[font-color: green]

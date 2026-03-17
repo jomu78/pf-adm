@@ -1,13 +1,13 @@
 @import "../../../resources/static/bootstrap/_mixins.scss";
 @import "../mixins";
 
-@mixin skin-variant($name, $accent, $sidebar-bg: $pfadm-surface-card) {
+@mixin skin-variant($name, $accent, $sidebar-bg: $pfadm-surface-card, $accent-text-color: color-contrast($accent)) {
   .#{$name} {
     .navbar {
-      @include navbar-variant($name, $accent);
+      @include navbar-variant($name, $accent, $accent-text-color);
 
       .sidebar {
-        color: color-contrast($accent);
+        color: $accent-text-color;
 
         &:hover {
           background-color: darken($accent, 5%);
@@ -15,7 +15,7 @@
       }
 
       .navbar-brand {
-        color: color-contrast($accent);
+        color: $accent-text-color;
         font-size: 24px;
         text-align: center;
         font-weight: 300;
@@ -25,7 +25,7 @@
     @include dialog-variant($name, $accent);
 
     .app-sidebar {
-      @include sidebar-variant($name, $accent, $sidebar-bg);
+      @include sidebar-variant($name, $accent, $sidebar-bg, $accent-text-color);
     }
   }
 }

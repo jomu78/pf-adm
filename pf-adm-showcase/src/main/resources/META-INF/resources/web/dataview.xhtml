@@ -9,14 +9,13 @@
 
   <ui:define name="metadata">
     <f:metadata>
-      <f:viewParam name="bordeless" value="#{layoutMB.borderless}" converter="jakarta.faces.Boolean"/>
+      <f:viewParam name="bordeless" value="#{showcaseLayoutView.borderless}" converter="jakarta.faces.Boolean"/>
     </f:metadata>
-    <ui:param name="enableSlideMenu" value="false"/> <!-- disables slide menu (only on this page) on small screens -->
-    <ui:param name="autoShowNavbar"
-              value="false"/> <!-- disables auto show navbar (only on this page) on small devices -->
+    <ui:param name="enableSlideMenu" value="false"/>
+    <ui:param name="autoShowNavbar" value="false"/>
   </ui:define>
   <ui:define name="title">
-    Datatable
+    DataView
   </ui:define>
 
   <ui:define name="description">
@@ -43,7 +42,7 @@
                     class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>
               </div>
               <div class="product-grid-item-content">
-                <p:graphicImage name="images/product/#{product.image}" library="demo"/>
+                <p:graphicImage name="product/#{product.image}" library="images"/>
                 <div class="product-name">#{product.name}</div>
                 <div class="product-description">#{product.description}</div>
                 <p:rating readonly="true" value="#{product.rating}"/>
@@ -55,6 +54,7 @@
                 <p:commandButton type="button"
                                  value="Add To Cart"
                                  icon="pi pi-shopping-cart"
+                                 actionListener="#{dataView.addToCard(product)}"
                                  disabled="#{product.inventoryStatus == 'OUTOFSTOCK'}">
                 </p:commandButton>
               </div>
@@ -63,7 +63,7 @@
 
           <p:dataViewListItem>
             <div class="product-list-item">
-              <p:graphicImage name="demo/images/product/#{product.image}"/>
+              <p:graphicImage name="images/product/#{product.image}"/>
               <div class="product-list-detail">
                 <div class="product-name">#{product.name}</div>
                 <div class="product-description">#{product.description}</div>

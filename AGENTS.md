@@ -10,6 +10,11 @@
 - Preserve AdminFaces-compatible skin names. Keep `SkinEnum` and `pfadm/skins` in sync.
 - Implement dark/light mode through the local `pfadm` layer and CSS variables, not by patching vendor sources.
 - Prefer central fixes in shared mixins, tokens, or compatibility layers over one-off per-component and per-skin patches.
+- Keep per-skin contrast decisions centralized when possible. Saturated skins such as `skin-blue` should use light/inverse header text; light accent skins such as yellow may require dark text for readability.
+- Preserve Bootstrap 3 compatibility utility classes that are still used by the showcase, such as `visible-xs`, `visible-sm`, `visible-md`, `visible-lg`, `hidden-xs`, `hidden-sm`, `hidden-md`, and `hidden-lg`.
+- `btn-flat` is supported as a visual utility in the `pfadm` layer. Material design and ripple behavior are still unsupported and must not be implied by `btn-flat`.
+- AdminFaces-style semantic button classes must work not only for `.ui-button`, but also for `.ui-splitbutton` and `.ui-menubutton`.
+- PrimeFaces datatable calendar filters with `showOn="both"` may need `pfadm` styling to keep the trigger inside the field. Prefer shared datatable filter rules over one-off page CSS.
 
 ## Template Compatibility Rules
 
@@ -18,6 +23,7 @@
 - Keep the top-left branding block in the sidebar/menu area. Do not move it into the header/navbar again.
 - Do not introduce control-sidebar behavior unless explicitly requested. Placeholder compatibility hooks may exist, but they must not be documented or treated as full feature support.
 - Prefer modern internal bean names such as `layoutView`, `skinView`, and `pfAdmConfig` over legacy `*MB` naming. Compatibility aliases should only be added when explicitly needed for migration support.
+- JS resources served through JSF must not rely on relative source map lookups. Remove `sourceMappingURL` directives from packaged JS files in `pf-adm-template` if they trigger JSF navigation/resource errors.
 - When editing template compatibility, distinguish clearly between:
   - structural compatibility of Facelets regions
   - behavioral compatibility of implemented features
@@ -39,9 +45,21 @@
   - `doc/configuration_compatibility_matrix.adoc` is about configuration property availability
 - Do not mark a feature as supported in documentation when only a placeholder hook exists.
 - For migration guidance, prefer modern `pf-adm` naming and conventions over preserving legacy AdminFaces naming.
+- Current button documentation position:
+  - semantic button classes, sizes, block buttons, `btn-flat`, and basic split-button styling are supported
+  - material design and ripple behavior are not supported
+- Current datatable documentation position:
+  - year filter calendar trigger alignment is supported in the showcase/theme
+  - PrimeFaces sticky datatable headers are currently unsupported in `pf-adm-template` / `pf-adm-showcase` and must be documented as such
+
+## Showcase Rules
+
+- Keep `pf-adm-showcase` examples honest. Do not leave a feature enabled in the showcase when it is known to render incorrectly in the current stack.
+- `pf-adm-showcase` product seed data currently uses the shared image `example-product.png` for all products in `ProductService`.
 
 ## Verification
 
 - After SCSS changes, run `mvn -pl pf-adm-theme -DskipTests generate-resources`.
 - After theme/template integration changes, run `mvn -pl pf-adm-theme,pf-adm-template -DskipTests compile`.
+- After changes spanning theme, template, and showcase together, run `mvn -pl pf-adm-theme,pf-adm-template,pf-adm-showcase -DskipTests compile`.
 - Documentation-only changes do not require a Maven build unless they also modify examples, generated assets, or code snippets tied to build output.

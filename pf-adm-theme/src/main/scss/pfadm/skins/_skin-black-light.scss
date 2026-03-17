@@ -2,4 +2,4 @@
 
 $skin-black-light-accent: #222d32;
 
-@include skin-variant("skin-black-light", $skin-black-light-accent, $gray-100);
+@include skin-variant("skin-black-light", $skin-black-light-accent, $gray-100, $pfadm-text-inverse);

@@ -2,4 +2,4 @@
 
 $skin-yellow-accent: #f39c12;
 
-@include skin-variant("skin-yellow", $skin-yellow-accent, $pfadm-surface-card);
+@include skin-variant("skin-yellow", $skin-yellow-accent, $pfadm-surface-card, $pfadm-text-primary);

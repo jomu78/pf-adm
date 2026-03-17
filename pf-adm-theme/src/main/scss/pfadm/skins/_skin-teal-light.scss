@@ -2,4 +2,4 @@
 
 $skin-teal-light-accent: #39cccc;
 
-@include skin-variant("skin-teal-light", $skin-teal-light-accent, $gray-100);
+@include skin-variant("skin-teal-light", $skin-teal-light-accent, $gray-100, $pfadm-text-inverse);

@@ -10,11 +10,29 @@ body {
     box-shadow: none;
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, color .15s ease-in-out;
 
+    &.btn-flat {
+      background-image: none;
+      box-shadow: none;
+      border-color: transparent !important;
+    }
+
     &.btn-default {
       @include pfadm-mixins.btn-interactions($pfadm-text-primary, $pfadm-surface-muted);
       background-color: $pfadm-surface-muted;
       color: $pfadm-text-primary !important;
       border-color: $pfadm-border-color !important;
+
+      &.btn-flat {
+        color: var(--pfadm-text-primary) !important;
+        background-color: transparent !important;
+
+        &:hover,
+        &:active,
+        &.hover {
+          background-color: var(--pfadm-hover-bg) !important;
+          border-color: transparent !important;
+        }
+      }
 
       &:hover,
       &:active,
@@ -30,6 +48,19 @@ body {
         background-color: $value;
         color: map-get($theme-colors-btn-text, $color) !important;
         border-color: map-get($theme-colors-border-subtle, $color) !important;
+
+        &.btn-flat {
+          color: $value !important;
+          background-color: transparent !important;
+          border-color: transparent !important;
+
+          &:hover,
+          &:active,
+          &.hover {
+            background-color: rgba($value, .12) !important;
+            border-color: transparent !important;
+          }
+        }
 
         &:hover,
         &:active,
@@ -70,6 +101,101 @@ body {
     }
   }
 
+  .ui-splitbutton.btn-block,
+  .ui-menubutton.btn-block {
+    display: flex;
+    width: 100%;
+  }
+
+  .ui-splitbutton.btn-block > .ui-button:first-child,
+  .ui-menubutton.btn-block > .ui-button:first-child {
+    flex: 1 1 auto;
+  }
+
+  .ui-splitbutton.btn-block > .ui-button.ui-splitbutton-menubutton,
+  .ui-menubutton.btn-block > .ui-button.ui-menubutton-button {
+    flex: 0 0 auto;
+  }
+
+  .ui-splitbutton.btn-default > .ui-button,
+  .ui-menubutton.btn-default > .ui-button {
+    @include pfadm-mixins.btn-interactions($pfadm-text-primary, $pfadm-surface-muted);
+    background-color: $pfadm-surface-muted;
+    color: $pfadm-text-primary !important;
+    border-color: $pfadm-border-color !important;
+
+    &:hover,
+    &:active,
+    &.hover,
+    &.ui-state-hover,
+    &.ui-state-active {
+      background-color: $pfadm-hover-bg !important;
+      border-color: $pfadm-border-color-strong !important;
+    }
+
+    &:focus,
+    &.ui-state-focus {
+      box-shadow: 0 0 0 .2rem $pfadm-focus-ring-color;
+      outline: 0;
+    }
+  }
+
+  .ui-splitbutton.btn-default.btn-flat > .ui-button,
+  .ui-menubutton.btn-default.btn-flat > .ui-button {
+    color: var(--pfadm-text-primary) !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+
+    &:hover,
+    &:active,
+    &.hover,
+    &.ui-state-hover,
+    &.ui-state-active {
+      background-color: var(--pfadm-hover-bg) !important;
+      border-color: transparent !important;
+    }
+  }
+
+  @each $color, $value in $theme-colors {
+    .ui-splitbutton.btn-#{$color} > .ui-button,
+    .ui-menubutton.btn-#{$color} > .ui-button {
+      @include pfadm-mixins.btn-interactions($white, $value);
+      background-color: $value;
+      color: map-get($theme-colors-btn-text, $color) !important;
+      border-color: map-get($theme-colors-border-subtle, $color) !important;
+
+      &:hover,
+      &:active,
+      &.hover,
+      &.ui-state-hover,
+      &.ui-state-active {
+        background-color: darken($value, 5%) !important;
+      }
+
+      &:focus,
+      &.ui-state-focus {
+        box-shadow: 0 0 0 .2rem $pfadm-focus-ring-color;
+        outline: 0;
+      }
+    }
+
+    .ui-splitbutton.btn-#{$color}.btn-flat > .ui-button,
+    .ui-menubutton.btn-#{$color}.btn-flat > .ui-button {
+      color: $value !important;
+      background-color: transparent !important;
+      border-color: transparent !important;
+
+      &:hover,
+      &:active,
+      &.hover,
+      &.ui-state-hover,
+      &.ui-state-active {
+        background-color: rgba($value, .12) !important;
+        border-color: transparent !important;
+      }
+    }
+  }
+
   .btn-block {
     display: block;
     width: 100%;
@@ -80,5 +206,3 @@ body {
   }
 
 }
-
-

@@ -21,10 +21,10 @@ import java.util.List;
  * @since 0.1.0
  */
 @ViewScoped
-@Named("datatableMB")
+@Named
 @Getter
 @Setter
-public class DatatableMB implements Serializable {
+public class DatatableView implements Serializable {
 
   private final CarService carService;
 
@@ -37,7 +37,7 @@ public class DatatableMB implements Serializable {
 
 
   @Inject
-  public DatatableMB(CarService carService) {
+  public DatatableView(CarService carService) {
     this.carService = carService;
 
     teams = new ArrayList<Team>();

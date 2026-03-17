@@ -2,4 +2,4 @@
 
 $skin-teal-accent: #39cccc;
 
-@include skin-variant("skin-teal", $skin-teal-accent, $pfadm-surface-card);
+@include skin-variant("skin-teal", $skin-teal-accent, $pfadm-surface-card, $pfadm-text-inverse);

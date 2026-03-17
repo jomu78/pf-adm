@@ -33,7 +33,7 @@ rendering across both projects.
 ^| Buttons
 ^| icon:check[font-color: green]
 ^| icon:check[font-color: yellow]
-|Basic button support exists, but full AdminFaces visual parity is not complete.
+|Semantic color classes, size variants, block buttons, `btn-flat`, and basic split-button styling are supported, but material-design support is not provided and full AdminFaces parity is still incomplete.
 
 ^| Chips
 ^| icon:check[font-color: green]
@@ -43,7 +43,7 @@ rendering across both projects.
 ^| DataTable
 ^| icon:check[font-color: green]
 ^| icon:check[font-color: yellow]
-|Core table support exists, but AdminFaces-specific presentation is not yet fully aligned.
+|Core table support exists, but sticky headers and some AdminFaces-specific presentation details are not currently supported.
 
 ^| DatePicker
 ^| icon:check[font-color: green]

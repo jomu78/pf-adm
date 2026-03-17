@@ -9,7 +9,7 @@
 
     <ui:define name="metadata">
         <f:metadata>
-            <f:viewParam name="bordeless" value="#{layoutMB.borderless}" converter="jakarta.faces.Boolean"/>
+            <f:viewParam name="bordeless" value="#{showcaseLayoutView.borderless}" converter="jakarta.faces.Boolean"/>
         </f:metadata>
         <ui:param name="enableSlideMenu" value="false"/> <!-- disables slide menu (only on this page) on small screens -->
         <ui:param name="autoShowNavbar" value="false"/> <!-- disables auto show navbar (only on this page) on small devices -->
@@ -28,12 +28,12 @@
                 <p:spacer height="15px"/>
 
                 <div id="datatable">
-                    <p:dataTable var="car" value="#{datatableMB.cars}" widgetVar="carsTable" paginator="true" styleClass="header-right #{layoutMB.borderless ? 'no-border':''}"
+                    <p:dataTable var="car" value="#{datatableView.cars}" widgetVar="carsTable" paginator="true" styleClass="header-right #{showcaseLayoutView.borderless ? 'no-border':''}"
                                  paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  currentPageReportTemplate="{startRecord} - {endRecord} of {totalRecords}"
                                  rowsPerPageTemplate="5,10,15" rows="10" rowKey="#{car.id}"
-                                 emptyMessage="No cars found with given criteria" stickyHeader="true"
-                                 filteredValue="#{datatableMB.filteredCars}">
+                                 emptyMessage="No cars found with given criteria"
+                                 filteredValue="#{datatableView.filteredCars}">
 
                         <f:facet name="header">
                             <p:outputPanel>
@@ -58,11 +58,13 @@
                         <p:column filterBy="#{car.year}" sortBy="#{car.year}" headerText="Year" footerText="lte" filterMatchMode="lte"
                                   priority="2">
                             <f:facet name="filter">
-                                <p:calendar pattern="yyyy" showOn="both" yearRange="c-60:c+0" navigator="true">
+                                <div class="ui-fluid">
+                                    <p:calendar pattern="yyyy" showOn="both" yearRange="c-60:c+0" navigator="true">
 <!--                                    <f:converter converterId="calendarYearConverter"/>-->
-                                    <p:ajax process="@this" event="change" oncomplete="PF('carsTable').filter()"/>
-                                    <p:ajax process="@this" event="dateSelect" oncomplete="PF('carsTable').filter()"/>
-                                </p:calendar>
+                                        <p:ajax process="@this" event="change" oncomplete="PF('carsTable').filter()"/>
+                                        <p:ajax process="@this" event="dateSelect" oncomplete="PF('carsTable').filter()"/>
+                                    </p:calendar>
+                                </div>
                             </f:facet>
                             <h:outputText value="#{car.year}"/>
                         </p:column>
@@ -72,7 +74,7 @@
                             <f:facet name="filter">
                                 <p:selectOneMenu onchange="PF('carsTable').filter()">
                                     <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true"/>
-                                    <f:selectItems value="#{datatableMB.brands}"/>
+                                    <f:selectItems value="#{datatableView.brands}"/>
                                 </p:selectOneMenu>
                             </f:facet>
                             <h:outputText value="#{car.brand}"/>
@@ -83,7 +85,7 @@
                             <f:facet name="filter">
                                 <p:selectCheckboxMenu label="Colors" onchange="PF('carsTable').filter()"
                                                       panelStyle="width:125px" scrollHeight="150">
-                                    <f:selectItems value="#{datatableMB.colors}"/>
+                                    <f:selectItems value="#{datatableView.colors}"/>
                                 </p:selectCheckboxMenu>
                             </f:facet>
                             <h:outputText value="#{car.color}"/>
@@ -104,7 +106,7 @@
                         </p:column>
 
                         <p:column filterBy="#{car.price}" headerText="Price" footerText="custom (min)"
-                                  filterFunction="#{datatableMB.filterByPrice}" priority="2">
+                                  filterFunction="#{datatableView.filterByPrice}" priority="2">
                             <h:outputText value="#{car.price}">
                                 <f:convertNumber currencySymbol="$" type="currency"/>
                             </h:outputText>
@@ -114,9 +116,9 @@
                 <p:spacer/>
 
                 <div id="datatable-single">
-                    <p:dataTable id="radioDT" var="car" value="#{datatableMB.cars}" paginator="true"
-                                 paginatorPosition="bottom" styleClass="#{layoutMB.borderless ? 'no-border':''}"
-                                 selection="#{datatableMB.selectedCar}" rowKey="#{car.id}" rows="5">
+                    <p:dataTable id="radioDT" var="car" value="#{datatableView.cars}" paginator="true"
+                                 paginatorPosition="bottom" styleClass="#{showcaseLayoutView.borderless ? 'no-border':''}"
+                                 selection="#{datatableView.selectedCar}" rowKey="#{car.id}" rows="5">
                         <f:facet name="header">
                             RadioButton
                         </f:facet>
@@ -146,7 +148,7 @@
         <p:panel header="Tree table" styleClass="card no-border" toggleable="true" toggleSpeed="300" >
             <h:form>
                 <div id="treetable">
-                    <p:treeTable value="#{treeTableMB.root}" selectionMode="single" styleClass="#{layoutMB.borderless ? 'no-border':''}"
+                    <p:treeTable value="#{treeTableMB.root}" selectionMode="single" styleClass="#{showcaseLayoutView.borderless ? 'no-border':''}"
                                  var="document" paginator="true" paginatorPosition="bottom" rows="2">
                         <f:facet name="header">
                             Document Viewer
@@ -170,7 +172,7 @@
                 <p:spacer/>
                 <div id="treetable-multiple">
                     <p:treeTable value="#{treeTableMB.root}" selectionMode="checkbox"
-                                 selection="#{treeTableMB.selectedNodes}" styleClass="#{layoutMB.borderless ? 'no-border':''}"
+                                 selection="#{treeTableMB.selectedNodes}" styleClass="#{showcaseLayoutView.borderless ? 'no-border':''}"
                                  var="document" paginator="true" paginatorPosition="bottom" rows="2">
                         <f:facet name="header">
                             Document Viewer (multiple selection)
@@ -199,19 +201,19 @@
             <h:form id="form">
                 <p:growl id="msgs" showDetail="true"/>
 
-                <p:dataTable id="cars1" var="car" value="#{datatableEditMB.cars1}" styleClass="#{layoutMB.borderless ? 'no-border':''}"
+                <p:dataTable id="cars1" var="car" value="#{datatableEditView.cars1}" styleClass="#{showcaseLayoutView.borderless ? 'no-border':''}"
                              editable="true" style="margin-bottom:20px">
                     <f:facet name="header">
                         Row Editing
                     </f:facet>
 
-                    <p:ajax event="rowEdit" listener="#{datatableEditMB.onRowEdit}" update=":form:msgs" />
-                    <p:ajax event="rowEditCancel" listener="#{datatableEditMB.onRowCancel}" update=":form:msgs" />
+                    <p:ajax event="rowEdit" listener="#{datatableEditView.onRowEdit}" update=":form:msgs" />
+                    <p:ajax event="rowEditCancel" listener="#{datatableEditView.onRowCancel}" update=":form:msgs" />
 
                     <p:column headerText="Id">
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{car.id}" /></f:facet>
-                            <f:facet name="input"><p:inputText id="modelInput" value="#{car.id}"/></f:facet>
+                            <f:facet name="input"><p:inputText id="cars1ModelInput" value="#{car.id}"/></f:facet>
                         </p:cellEditor>
                     </p:column>
 
@@ -231,7 +233,7 @@
                             <f:facet name="output"><h:outputText value="#{car.brand}" /></f:facet>
                             <f:facet name="input">
                                 <p:selectOneMenu value="#{car.brand}">
-                                    <f:selectItems value="#{datatableEditMB.brands}" var="man" itemLabel="#{man}" itemValue="#{man}" />
+                                    <f:selectItems value="#{datatableEditView.brands}" var="man" itemLabel="#{man}" itemValue="#{man}" />
                                 </p:selectOneMenu>
                             </f:facet>
                         </p:cellEditor>
@@ -242,7 +244,7 @@
                             <f:facet name="output"><h:outputText value="#{car.color}" /></f:facet>
                             <f:facet name="input">
                                 <p:selectOneMenu value="#{car.color}">
-                                    <f:selectItems value="#{datatableEditMB.colors}" var="color" itemLabel="#{color}" itemValue="#{color}" />
+                                    <f:selectItems value="#{datatableEditView.colors}" var="color" itemLabel="#{color}" itemValue="#{color}" />
                                 </p:selectOneMenu>
                             </f:facet>
                         </p:cellEditor>
@@ -253,18 +255,18 @@
                     </p:column>
                 </p:dataTable>
 
-                <p:dataTable id="cars2" var="car" value="#{datatableEditMB.cars2}" styleClass="#{layoutMB.borderless ? 'no-border':''}"
+                <p:dataTable id="cars2" var="car" value="#{datatableEditView.cars2}" styleClass="#{showcaseLayoutView.borderless ? 'no-border':''}"
                              editable="true" editMode="cell" widgetVar="cellCars">
                     <f:facet name="header">
                         Cell Editing with Click and RightClick
                     </f:facet>
 
-                    <p:ajax event="cellEdit" listener="#{datatableEditMB.onCellEdit}" update=":form:msgs" />
+                    <p:ajax event="cellEdit" listener="#{datatableEditView.onCellEdit}" update=":form:msgs" />
 
                     <p:column headerText="Id">
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{car.id}" /></f:facet>
-                            <f:facet name="input"><p:inputText id="modelInput" value="#{car.id}"/></f:facet>
+                            <f:facet name="input"><p:inputText id="cars2ModelInput" value="#{car.id}"/></f:facet>
                         </p:cellEditor>
                     </p:column>
 
@@ -284,7 +286,7 @@
                             <f:facet name="output"><h:outputText value="#{car.brand}" /></f:facet>
                             <f:facet name="input">
                                 <p:selectOneMenu value="#{car.brand}">
-                                    <f:selectItems value="#{datatableEditMB.brands}" var="man" itemLabel="#{man}" itemValue="#{man}" />
+                                    <f:selectItems value="#{datatableEditView.brands}" var="man" itemLabel="#{man}" itemValue="#{man}" />
                                 </p:selectOneMenu>
                             </f:facet>
                         </p:cellEditor>
@@ -295,7 +297,7 @@
                             <f:facet name="output"><h:outputText value="#{car.color}" /></f:facet>
                             <f:facet name="input">
                                 <p:selectOneMenu value="#{car.color}">
-                                    <f:selectItems value="#{datatableEditMB.colors}" var="color" itemLabel="#{color}" itemValue="#{color}" />
+                                    <f:selectItems value="#{datatableEditView.colors}" var="color" itemLabel="#{color}" itemValue="#{color}" />
                                 </p:selectOneMenu>
                             </f:facet>
                         </p:cellEditor>
@@ -314,8 +316,8 @@
         <p:panel header="Box colors" styleClass="card no-border" toggleable="true" toggleSpeed="300">
             <div class="ui-g">
                 <div class="ui-g-6 ui-sm-12">
-                    <p:dataTable id="boxSolidTable" var="car" value="#{datatableMB.cars}" paginator="true" paginatorPosition="bottom"
-                                 styleClass="box-primary #{layoutMB.borderless ? 'no-border':''}"
+                    <p:dataTable id="boxSolidTable" var="car" value="#{datatableView.cars}" paginator="true" paginatorPosition="bottom"
+                                 styleClass="box-primary #{showcaseLayoutView.borderless ? 'no-border':''}"
                                  paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="5,10,15" rows="10"
                                  emptyMessage="No cars found with given criteria"
@@ -342,8 +344,8 @@
                 </div>
 
                 <div class="ui-g-6 ui-sm-12">
-                    <p:dataTable id="boxTable" var="car" value="#{datatableMB.cars}" paginator="true" paginatorPosition="bottom"
-                                 styleClass="box-solid box-primary #{layoutMB.borderless ? 'no-border':''}"
+                    <p:dataTable id="boxTable" var="car" value="#{datatableView.cars}" paginator="true" paginatorPosition="bottom"
+                                 styleClass="box-solid box-primary #{showcaseLayoutView.borderless ? 'no-border':''}"
                                  paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="5,10,15" rows="10"
                                  emptyMessage="No cars found with given criteria"
@@ -375,7 +377,7 @@
         <p:spacer/>
 
         <p:panel styleClass="card box-info" header="SubTable" toggleable="true" toggleSpeed="300">
-            <p:dataTable id="subtable" var="team" value="#{datatableMB.teams}" styleClass="header-right #{layoutMB.borderless ? 'no-border':''}">
+            <p:dataTable id="subtable" var="team" value="#{datatableView.teams}" styleClass="header-right #{showcaseLayoutView.borderless ? 'no-border':''}">
                 <f:facet name="header">
                     NBA Teams
                 </f:facet>
@@ -417,7 +419,7 @@
         <p:separator/>
         <p:panel styleClass="card no-border" header="Row grouping" id="rowGroupPanel" toggleable="true" toggleSpeed="300">
             <h:form>
-                <p:dataTable var="car" widgetVar="rowGroupTable" value="#{datatableMB.cars}" sortBy="#{car.brand}" expandableRowGroups="true" styleClass="#{layoutMB.borderless ? 'no-border':''}">
+                <p:dataTable var="car" widgetVar="rowGroupTable" value="#{datatableView.cars}" sortBy="#{car.brand}" expandableRowGroups="true" styleClass="#{showcaseLayoutView.borderless ? 'no-border':''}">
                     <p:headerRow groupBy="#{car.brand}">
                         <p:column colspan="3" sortBy="#{car.brand}">
                             <h:outputText value="#{car.brand}" />
@@ -426,10 +428,10 @@
                     <p:column headerText="Year" sortBy="#{car.year}">
                         <h:outputText value="#{car.year}" />
                     </p:column>
-                    <p:column headerText="Color" sortBy="#{car.color}" filterBy="#{car.color}" filterFunction="#{datatableMB.filterByColor}">
+                    <p:column headerText="Color" sortBy="#{car.color}" filterBy="#{car.color}" filterFunction="#{datatableView.filterByColor}">
                         <f:facet name="filter">
-                            <p:selectCheckboxMenu multiple="true" filter="true" value="#{datatableMB.selectedColors}" filterMatchMode="contains">
-                                <f:selectItems value="#{datatableMB.colors}" var="c" itemLabel="#{c}" itemValue="#{c}"/>
+                            <p:selectCheckboxMenu multiple="true" filter="true" value="#{datatableView.selectedColors}" filterMatchMode="contains">
+                                <f:selectItems value="#{datatableView.colors}" var="c" itemLabel="#{c}" itemValue="#{c}"/>
                                 <p:ajax event="change" oncomplete="PF('rowGroupTable').filter()" update="rowGroupPanel"/>
                             </p:selectCheckboxMenu>
                         </f:facet>
@@ -443,7 +445,7 @@
                             <h:outputText value="Total:" />
                         </p:column>
                         <p:column>
-                            <h:outputText value="#{datatableMB.randomPrice}">
+                            <h:outputText value="#{datatableView.randomPrice}">
                                 <f:convertNumber type="currency" currencySymbol="$" />
                             </h:outputText>
                         </p:column>
@@ -452,8 +454,8 @@
             </h:form>
         </p:panel>
         <p:separator/>
-        <p:panel styleClass="card no-border" header="Row expansion" id="rowExpansionPanel" toggleable="true" toggleSpeed="300" selection="#{datatableMB.selectedCar}">
-            <p:dataTable var="car" value="#{datatableMB.cars}" styleClass="#{layoutMB.borderless ? 'no-border':''}" rowKey="#{car.id}" selectionMode="single">
+        <p:panel styleClass="card no-border" header="Row expansion" id="rowExpansionPanel" toggleable="true" toggleSpeed="300" selection="#{datatableView.selectedCar}">
+            <p:dataTable var="car" value="#{datatableView.cars}" styleClass="#{showcaseLayoutView.borderless ? 'no-border':''}" rowKey="#{car.id}" selectionMode="single">
                 <f:facet name="header">
                     Expand rows to see detailed information
                 </f:facet>
