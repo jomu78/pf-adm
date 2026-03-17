@@ -4,6 +4,10 @@
 
 .ui-panel.ui-widget {
   padding: 0;
+  color: var(--pfadm-text-primary);
+  background-color: var(--pfadm-surface-card);
+  border: 1px solid var(--pfadm-border-color);
+  box-shadow: var(--pfadm-shadow-sm);
 }
 
 .ui-panel.ui-widget .ui-panel-titlebar.ui-corner-all {
@@ -18,12 +22,15 @@
 }
 
 div.ui-panel-titlebar {
-  border: 1px solid $panel-border-bottom-color;
+  color: var(--pfadm-text-primary);
+  background-color: var(--pfadm-surface-muted);
+  border: 1px solid var(--pfadm-border-color);
   padding: 0.7rem !important;
 }
 
 div.ui-panel-footer {
-  border: 1px solid $panel-border-bottom-color;
+  background-color: var(--pfadm-surface-muted);
+  border: 1px solid var(--pfadm-border-color);
 }
 
 div.ui-panel.no-border .ui-panel-titlebar {
@@ -41,6 +48,7 @@ div.ui-panel .ui-panel-title {
   line-height: 1;
   font-weight: 500;
   padding: 8px 5px;
+  color: var(--pfadm-text-primary);
 }
 
 
@@ -52,6 +60,8 @@ body .ui-panel {
     overflow: visible;
 
     .ui-panel-content {
+      color: var(--pfadm-text-primary);
+      background-color: var(--pfadm-surface-card);
       padding: 10px 10px;
 
       .ui-g {
@@ -129,7 +139,7 @@ body .ui-panel {
   }
 
   &.card {
-    border: none;
+    border: 1px solid var(--pfadm-border-color);
   }
 }
 
@@ -146,8 +156,6 @@ a.ui-panel-titlebar-icon {
     top: 2px;
   }
 }
-
-
 
 
 

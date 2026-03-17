@@ -1,0 +1,5 @@
+@import "skin-base";
+
+$skin-teal-light-accent: #39cccc;
+
+@include skin-variant("skin-teal-light", $skin-teal-light-accent, $gray-100);

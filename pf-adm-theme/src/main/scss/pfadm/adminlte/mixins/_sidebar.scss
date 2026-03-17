@@ -5,24 +5,35 @@
 @import "../../../../resources/static/adminlte/variables";
 
 // Sidebar Variant
-@mixin sidebar-variant($name, $color, $bgcolor) {
+@mixin sidebar-variant($name, $color, $sidebar-bg, $brand-text-color: color-contrast($color), $sidebar-text-color: color-contrast($sidebar-bg)) {
   .brand-text {
-    color: white;
+    color: $brand-text-color;
   }
 
   .sidebar-wrapper {
-    background-color: white;
+    background-color: $sidebar-bg;
+    color: $sidebar-text-color;
     border: 1px solid $card-border-color;
   }
 
   .sidebar-brand {
     border: 1px solid $color;
-    color: $color;
-    background-color: $bgcolor;
+    color: $brand-text-color;
+    background-color: $color;
     height: $lte-app-header-height;
 
+    .brand-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      color: inherit;
+      background-color: inherit;
+    }
+
     .brand-text {
-      color: white;
+      color: $brand-text-color;
       font-weight: bold;
       font-size: 24px;
     }

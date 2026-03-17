@@ -16,15 +16,16 @@ body {
     .nav-link {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
-      color: $admin-text-color;
+      color: var(--pfadm-text-secondary);
       align-items: center;
       &:hover {
-        background-color: $hover-color;
+        color: var(--pfadm-text-primary);
+        background-color: var(--pfadm-hover-bg);
       }
       &.active {
-        background-color: $highlightBg;
+        background-color: $pfadm-color-primary;
         font-weight: bold;
-        color: $highlightTextColor;
+        color: var(--pfadm-text-inverse);
       }
     }
   }
@@ -42,6 +43,7 @@ ul {
   &.sidebar-menu {
     li {
       &.header {
+        color: var(--pfadm-text-muted);
         text-transform: uppercase;
       }
 
@@ -57,5 +59,3 @@ ul {
     }
   }
 }
-
-

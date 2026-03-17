@@ -1,9 +1,11 @@
 body {
 
-  font-size: 14px;
+  font-size: $fontSize;
+  color: var(--pfadm-text-primary);
+  background-color: var(--pfadm-surface-page);
 
   .ui-widget {
-    font-size: 14px;
+    font-size: $fontSize;
   }
 
 
@@ -16,15 +18,15 @@ body {
   }
 
   .ui-widget-content {
-    border: 1px solid $card-border-color;
-    background: #fff;
-    color: #222222;
+    border: 1px solid var(--pfadm-border-color);
+    background: var(--pfadm-surface-card);
+    color: var(--pfadm-text-primary);
   }
 
   .ui-widget-header {
-    color: #222222;
-    border: 1px solid $card-border-color;
-    background: #fff;
+    color: var(--pfadm-text-primary);
+    border: 1px solid var(--pfadm-border-color);
+    background: var(--pfadm-surface-muted);
     font-weight: 600;
   }
 
@@ -37,10 +39,10 @@ body {
   }
 
   .ui-widget-content, .ui-state-default, .ui-widget-header .ui-state-default {
-    color: $gray-600;
+    color: var(--pfadm-text-secondary);
   }
 
   body .ui-widget-content .ui-state-default, body .ui-widget-header .ui-state-default {
-    border-color: $gray-600;
+    border-color: var(--pfadm-border-color-strong);
   }
 }

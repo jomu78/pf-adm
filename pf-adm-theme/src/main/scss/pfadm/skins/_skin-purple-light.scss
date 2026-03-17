@@ -1,0 +1,5 @@
+@import "skin-base";
+
+$skin-purple-light-accent: #605ca8;
+
+@include skin-variant("skin-purple-light", $skin-purple-light-accent, $gray-100);

@@ -1,0 +1,101 @@
+body {
+  .ui-dialog,
+  .ui-sidebar,
+  .ui-overlaypanel,
+  .ui-confirm-popup {
+    color: var(--pfadm-text-primary);
+    background: var(--pfadm-surface-overlay);
+    border: 1px solid var(--pfadm-border-color);
+    border-radius: $pfadm-radius-md;
+    box-shadow: var(--pfadm-shadow-md);
+  }
+
+  .ui-dialog {
+    padding: 0;
+
+    .ui-dialog-titlebar {
+      color: var(--pfadm-text-primary);
+      background: var(--pfadm-surface-muted);
+      border-bottom: 1px solid var(--pfadm-border-color);
+      padding: 1rem 1rem .875rem;
+
+      .ui-dialog-title {
+        color: inherit;
+        font-weight: 600;
+      }
+
+      .ui-dialog-titlebar-icon {
+        color: var(--pfadm-text-secondary) !important;
+        border: 0 none;
+        box-shadow: none;
+
+        &:hover {
+          color: var(--pfadm-text-primary) !important;
+          background: var(--pfadm-hover-bg);
+        }
+      }
+    }
+
+    .ui-dialog-content {
+      color: var(--pfadm-text-primary);
+      background: var(--pfadm-surface-overlay);
+      border: 0;
+      padding: 1rem;
+    }
+
+    .ui-dialog-footer {
+      color: var(--pfadm-text-secondary);
+      background: var(--pfadm-surface-muted);
+      border-top: 1px solid var(--pfadm-border-color);
+      padding: .875rem 1rem 1rem;
+    }
+  }
+
+  .ui-sidebar {
+    color: var(--pfadm-text-primary);
+    background: var(--pfadm-surface-overlay);
+    padding: 1rem;
+
+    .ui-sidebar-close {
+      color: var(--pfadm-text-secondary);
+      box-shadow: none;
+
+      &:hover {
+        color: var(--pfadm-text-primary);
+        background: var(--pfadm-hover-bg);
+      }
+    }
+  }
+
+  .ui-overlaypanel {
+    .ui-overlaypanel-content {
+      padding: 1rem;
+      color: var(--pfadm-text-primary);
+      background: var(--pfadm-surface-overlay);
+    }
+
+    .ui-overlaypanel-close {
+      color: var(--pfadm-text-inverse);
+      background: $pfadm-color-primary;
+      box-shadow: var(--pfadm-shadow-sm);
+
+      &:hover {
+        background: darken($pfadm-color-primary, 5%);
+      }
+    }
+  }
+
+  .ui-confirm-popup {
+    .ui-confirm-popup-content {
+      padding: 1rem;
+    }
+
+    .ui-confirm-popup-footer {
+      padding: 0 1rem 1rem;
+    }
+
+    .ui-confirm-popup-icon {
+      color: $pfadm-color-warning;
+    }
+  }
+}

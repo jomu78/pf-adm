@@ -14,7 +14,19 @@ import java.util.Map;
 public enum SkinEnum {
 
   SKIN_BLUE("skin-blue"),
-  SKIN_GREEN("skin-green");
+  SKIN_BLUE_LIGHT("skin-blue-light"),
+  SKIN_BLACK("skin-black"),
+  SKIN_BLACK_LIGHT("skin-black-light"),
+  SKIN_GREEN("skin-green"),
+  SKIN_GREEN_LIGHT("skin-green-light"),
+  SKIN_RED("skin-red"),
+  SKIN_RED_LIGHT("skin-red-light"),
+  SKIN_YELLOW("skin-yellow"),
+  SKIN_YELLOW_LIGHT("skin-yellow-light"),
+  SKIN_PURPLE("skin-purple"),
+  SKIN_PURPLE_LIGHT("skin-purple-light"),
+  SKIN_TEAL("skin-teal"),
+  SKIN_TEAL_LIGHT("skin-teal-light");
 
   private final static Map<String, SkinEnum>  LABEL_MAP = new HashMap();
 

@@ -1,0 +1,5 @@
+@import "skin-base";
+
+$skin-red-accent: #dd4b39;
+
+@include skin-variant("skin-red", $skin-red-accent, $pfadm-surface-card);

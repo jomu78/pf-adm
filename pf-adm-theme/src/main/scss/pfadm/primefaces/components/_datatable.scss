@@ -4,7 +4,7 @@
 
 body .ui-datatable, body .ui-treetable {
 
-    background-color: #fff;
+    background-color: var(--pfadm-surface-card);
 
     .ui-treetable-header, ui-treetable-footer {
         border-color: $datatable-border-color;
@@ -24,9 +24,9 @@ body .ui-datatable, body .ui-treetable {
     th {
         border-width: 1px !important;
         font-weight: 600;
-        color: $admin-text-color !important;
+        color: var(--pfadm-text-secondary) !important;
         text-align: center !important;
-        background: white !important;
+        background: var(--pfadm-surface-card) !important;
         border-color: $panelHeaderBorder !important;
     }
 
@@ -35,13 +35,13 @@ body .ui-datatable, body .ui-treetable {
     }
 
     th.ui-state-hover {
-        background: #d3d5d8 !important;
+        background: var(--pfadm-hover-bg) !important;
         //border-color: $datatable-border-color;
     }
 
     th.ui-state-active {
-        background: #E6E6E6;
-        color: #444;
+        background: var(--pfadm-active-bg);
+        color: var(--pfadm-text-primary);
     }
 
     tbody {
@@ -94,24 +94,20 @@ body .ui-datatable, body .ui-treetable {
     }
 
     .ui-datatable-header, .ui-treetable-header, .ui-datatable-footer, .ui-treetable-footer {
-        background: #fff;
+        background: var(--pfadm-surface-card);
         font-size: 18px;
         font-weight: 500;
         border-color: $datatable-border-color
     }
 
     th[role="columnheader"].ui-state-default {
-        background: #fff none;
+        background: var(--pfadm-surface-card) none;
         border: 1px solid $datatable-border-color;
         box-shadow: none !important;
         outline: 0 !important;
         position: relative;
         font-weight: 600;
         border-radius: 0;
-        &.ui-sortable-column.ui-state-active {
-            background-image: -webkit-linear-gradient(to top, #ffffff, darken(#ffffff,8%));
-            background-image: linear-gradient(to top, #ffffff, darken(#ffffff,8%));
-        }
     }
 
     td[role="gridcell"] {
@@ -124,7 +120,7 @@ body .ui-datatable, body .ui-treetable {
     .ui-widget-content .ui-state-highlight a {
         text-decoration: underline;
         &:hover {
-            color: #222;
+            color: var(--pfadm-text-primary);
         }
     }
 
@@ -174,7 +170,7 @@ body .ui-datatable, body .ui-treetable {
 
     th .ui-column-customfilter {
         .ui-selectonemenu, .ui-selectcheckboxmenu {
-            background-color: #fff;
+            background-color: var(--pfadm-surface-card);
         }
 
         input {
@@ -207,7 +203,7 @@ body .ui-datatable, body .ui-treetable {
 
             &:before.after {
                 font-family: $fontFamily;
-                color: $admin-text-color;
+                color: var(--pfadm-text-secondary);
                 position: relative;
                 font-size: $font-awesome-icon-size;
                 padding: 0 7px;
@@ -282,7 +278,7 @@ body .ui-datatable, body .ui-treetable {
             .ui-chkbox-icon {
                 &.ui-icon-check {
                     &:before {
-                        color: #444;
+                        color: $pfadm-text-primary;
                     }
                 }
 
@@ -298,15 +294,15 @@ body .ui-datatable, body .ui-treetable {
                 height: 10px;
                 margin-left: -5px;
                 margin-top: 3px;
-                color: #444 !important;
+                color: $pfadm-color-primary !important;
             }
 
             &.ui-state-focus {
-                -moz-box-shadow: 0 0 5px $box-shadow-color;
-                -webkit-box-shadow: 0 0 5px $box-shadow-color;
-                box-shadow: 0 0 5px $box-shadow-color;
-                border-color: lighten($box-shadow-color, 30%);
-                background-color: #fff;
+                -moz-box-shadow: 0 0 0 .2rem $pfadm-focus-ring-color;
+                -webkit-box-shadow: 0 0 0 .2rem $pfadm-focus-ring-color;
+                box-shadow: 0 0 0 .2rem $pfadm-focus-ring-color;
+                border-color: $pfadm-color-primary;
+                background-color: $pfadm-surface-card;
             }
 
         }
@@ -316,9 +312,9 @@ body .ui-datatable, body .ui-treetable {
         }
 
         .ui-radiobutton .ui-radiobutton-box.ui-state-active {
-            border-color: #444;
+            border-color: $pfadm-color-primary;
             span.ui-radiobutton-icon {
-                background-color: #444 !important;
+                background-color: $pfadm-color-primary !important;
             }
         }
 
@@ -329,7 +325,7 @@ body .ui-datatable, body .ui-treetable {
         overflow: visible;
 
         .ui-chkbox-box.ui-state-active {
-            border: 1px solid #d2d6de;
+            border: 1px solid $pfadm-border-color;
         }
     }
 
@@ -350,8 +346,8 @@ body .ui-datatable, body .ui-treetable {
 
     tr {
       &.ui-widget-content.ui-state-hover {
-        border-bottom: #f4f4f4 !important;
-        border-top: #f4f4f4 !important;
+        border-bottom: var(--pfadm-border-color) !important;
+        border-top: var(--pfadm-border-color) !important;
       }
 
       &.ui-datatable-selectable.ui-state-highlight {
@@ -360,7 +356,7 @@ body .ui-datatable, body .ui-treetable {
           border-color: $brand-primary;
         }
         .ui-icon:before {
-          color: #fff;
+          color: var(--pfadm-text-inverse);
         }
       }
 
@@ -620,7 +616,7 @@ body .ui-treetable .ui-selection .ui-chkbox-box {
 /* Editable */
 
 td.ui-editable-column .ui-cell-editor-input {
-    background-color: #fff;
+    background-color: $pfadm-surface-card;
 
     .ui-inputfield {
         width: 100%;
@@ -678,7 +674,7 @@ tr.ui-datatable-selectable.ui-row-editing {
     }
     div.ui-cell-editor-input {
         &:hover, .ui-inputfield:hover {
-            background-color: #fff;
+            background-color: $pfadm-surface-card;
         }
     }
 }
@@ -843,4 +839,3 @@ div.ui-row-toggler {
 //body.sidebar-collapse .ui-datatable.ui-datatable-sticky > .ui-datatable.ui-datatable-sticky {
 //  margin-left: -(@sidebar-width - 50px);
 //}
-

@@ -3,10 +3,10 @@
   .ui-dialog {
     .ui-dialog-titlebar {
       background-color: $bgcolor;
-      color: $white;
+      color: color-contrast($bgcolor);
     }
     .ui-dialog-titlebar-icon {
-      color: $white !important;
+      color: color-contrast($bgcolor) !important;
     }
   }
 }

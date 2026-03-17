@@ -6,6 +6,23 @@
 
 body {
   .ui-button {
+    border-radius: $pfadm-radius-md;
+    box-shadow: none;
+    transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, color .15s ease-in-out;
+
+    &.btn-default {
+      @include pfadm-mixins.btn-interactions($pfadm-text-primary, $pfadm-surface-muted);
+      background-color: $pfadm-surface-muted;
+      color: $pfadm-text-primary !important;
+      border-color: $pfadm-border-color !important;
+
+      &:hover,
+      &:active,
+      &.hover {
+        background-color: $pfadm-hover-bg !important;
+        border-color: $pfadm-border-color-strong !important;
+      }
+    }
 
     @each $color, $value in $theme-colors {
       &.btn-#{$color} {
@@ -23,7 +40,9 @@ body {
     }
 
     &.btn {
-      padding: 5px 12px;
+      padding: .5rem .875rem;
+      font-weight: 500;
+      line-height: $pfadm-line-height-base;
     }
 
     &.btn-lg {
@@ -37,6 +56,18 @@ body {
     &.btn-xs {
       @include pfadm-mixins.button-size($btn-padding-y-xs, $btn-padding-x-xs, $btn-font-size-xs, $btn-border-radius-xs, $line-height-xs);
     }
+
+    &:focus,
+    &.ui-state-focus {
+      box-shadow: 0 0 0 .2rem $pfadm-focus-ring-color;
+      outline: 0;
+    }
+
+    &.ui-state-disabled,
+    &:disabled {
+      box-shadow: none;
+      opacity: $pfadm-disabled-opacity;
+    }
   }
 
   .btn-block {
@@ -49,6 +80,5 @@ body {
   }
 
 }
-
 
 

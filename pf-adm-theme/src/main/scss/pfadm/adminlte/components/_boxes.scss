@@ -11,7 +11,8 @@
 .box {
   position: relative;
   @include admin-lte-mixins.border-radius($box-border-radius);
-  background: #ffffff;
+  color: var(--pfadm-text-primary);
+  background: var(--pfadm-surface-card);
   border-top: 3px solid $box-default-border-top-color;
   margin-bottom: 20px;
   width: 100%;
@@ -83,14 +84,14 @@
       .btn,
       a {
         &:hover {
-          background: rgba(0, 0, 0, 0.1);
+          background: var(--pfadm-hover-bg);
         }
       }
     }
 
     // Box color variations
     &.box-default {
-      @include admin-lte-mixins.box-solid-variant($default, #444);
+      @include admin-lte-mixins.box-solid-variant($default, var(--pfadm-text-primary));
     }
     &.box-primary {
       @include admin-lte-mixins.box-solid-variant($primary);
@@ -116,7 +117,7 @@
     // Fix font color for tiles
     &[class*='bg'] {
       > .box-header {
-        color: #fff;
+        color: var(--pfadm-text-inverse);
       }
     }
 
@@ -145,7 +146,7 @@
 
   .overlay {
     z-index: 50;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba($pfadm-mode-surface-overlay, 0.7);
     @include admin-lte-mixins.border-radius($box-border-radius);
     > .fa {
       position: absolute;
@@ -153,7 +154,7 @@
       left: 50%;
       margin-left: -15px;
       margin-top: -15px;
-      color: #000;
+      color: var(--pfadm-text-primary);
       font-size: 30px;
     }
   }
@@ -172,7 +173,7 @@
 
 //Box header
 .box-header {
-  color: #444;
+  color: var(--pfadm-text-primary);
   display: block;
   padding: $box-padding;
   position: relative;
@@ -216,7 +217,7 @@
     }
 
     .dropdown-menu > li > a {
-      color: #444!important;
+      color: var(--pfadm-text-primary) !important;
     }
   }
 }
@@ -226,10 +227,10 @@
   padding: 5px;
   font-size: 12px;
   background: transparent;
-  color: darken($box-default-border-top-color, 20%);
+  color: var(--pfadm-text-secondary);
   .open &,
   &:hover {
-    color: darken($box-default-border-top-color, 40%);
+    color: var(--pfadm-text-primary);
   }
   &.btn:active {
     box-shadow: none;

@@ -1,0 +1,5 @@
+@import "skin-base";
+
+$skin-purple-accent: #605ca8;
+
+@include skin-variant("skin-purple", $skin-purple-accent, $pfadm-surface-card);
