@@ -1,29 +1,139 @@
-= Components
+= UI Component Compatibility Matrix
 :icons: font
 
-|===
-^| UI Element ^| admin-template ^| bfbs-template
+This document compares the visual/component-level support offered by the
+upstream AdminFaces `admin-template` and `pf-adm-template`.
 
-^| Accordion ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| AutoComplete ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Buttons ^| icon:check[font-color: green] ^| icon:check[font-color: yellow]
-^| Chips ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Datatable ^| icon:check[font-color: green] ^| icon:check[font-color: yellow]
-^| DatePicker ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Dialog ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| DragDrop ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| InPlace ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| InputGroup ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Menus ^| icon:check[font-color: green] ^| icon:check[font-color: yellow]
-^| NotificationBar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Panels ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-^| Sidebar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Steps ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Schedule ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| TabView ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Toolbar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Tree ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| TriStateCheckbox ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Upload ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Wizard ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+The table is intentionally high level. It answers this question:
+
+* does the template/theme provide styling and layout support for the component family?
+
+It does not guarantee identical markup, JavaScript behavior, or pixel-perfect
+rendering across both projects.
+
+== Legend
+
+* icon:check[font-color: green] = supported
+* icon:check[font-color: yellow] = partially supported or still being aligned
+* icon:times[font-color: red] = not currently supported
+
 |===
+^| UI component family ^| AdminFaces `admin-template` ^| `pf-adm-template` ^| Notes
+
+^| Accordion
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| AutoComplete
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| Buttons
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Basic button support exists, but full AdminFaces visual parity is not complete.
+
+^| Chips
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| DataTable
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Core table support exists, but AdminFaces-specific presentation is not yet fully aligned.
+
+^| DatePicker
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| Dialog
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| DragDrop
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| InPlace
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| InputGroup
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| Menus
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Template-level menu support exists, but not all AdminFaces menu variants are covered.
+
+^| NotificationBar
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| Panels
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Panel compatibility is currently one of the stronger aligned areas.
+
+^| Sidebar
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Sidebar exists at template level, but not as an AdminFaces-compatible component feature set.
+
+^| Steps
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| Schedule
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| TabView
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| Toolbar
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| Tree
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| TriStateCheckbox
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| FileUpload
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| Wizard
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+|===
+
+== Summary
+
+`pf-adm-template` currently has the strongest compatibility in core layout and
+basic shared presentation areas such as panels, buttons, menus, and data tables.
+Most specialized PrimeFaces component families still need dedicated compatibility
+styling before they can be considered AdminFaces-equivalent.

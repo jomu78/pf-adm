@@ -1,49 +1,241 @@
 = Template Compatibility Matrix
 :icons: font
 
-Pre-defined UI-definitions
-|===
-|Template Name ^| Admin-template ^| Pf-Adm Template
+This document compares the Facelets template contract exposed by the upstream
+AdminFaces `admin-template` with the contract currently exposed by
+`pf-adm-template`.
 
-|template-header ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|template-menu ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|body-end ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|===
+The focus here is template composition compatibility:
 
-Available ui:insert regions
-|===
-|Region name ^| Admin Template ^| Pf-Amd Template
+* `ui:define` regions exposed by `admin.xhtml`
+* `ui:insert` regions exposed by `admin-base.xhtml`
+* whether a hook exists, not whether the full AdminFaces behavior behind that hook is implemented
 
-|metadata ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|head ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|head-end ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|body-begin ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|template-header ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|template-menu ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|logo-mini ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|logo-lg ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|top-menu ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|top-menu-notifications ^| icon:times[font-color: red] ^| icon:check[font-color: green]
-|top-menu-user-menu ^| icon:times[font-color: red] ^| icon:check[font-color: green]
-|menu-begin ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|menu ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|menu-end ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|content-wrapper ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|title ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|description ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|content-header ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|body ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|content-end ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|footer ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|wrapper-end ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|before-controlsidebar-content ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|controlsidebar-tabs ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|before-controlsidebar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|after-controlsidebar-skin ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|after-controlsidebar-tabs ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|controlsidebar-content ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|after-controlsidebar-content ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|after-wrapper ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|body-end ^| icon:check[font-color: green] ^| icon:check[font-color: green]
+IMPORTANT: `pf-adm-template` currently aims for structural compatibility of
+template regions. It does not currently implement the AdminFaces control sidebar
+feature set or all legacy AdminFaces backing-bean APIs.
+
+== Legend
+
+* icon:check[font-color: green] = available
+* icon:times[font-color: red] = not available
+* icon:warning[font-color: orange] = available as a hook, but not backed by the full AdminFaces feature set
+
+== `admin.xhtml` Regions
+
+These are the top-level `ui:define` regions expected by pages that use the
+standard template wrapper.
+
+|===
+|Region name ^| AdminFaces `admin-template` ^| `pf-adm-template` ^| Notes
+
+|`template-header`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Provided for compatible header composition.
+
+|`template-menu`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Provided for compatible sidebar/menu composition.
+
+|`body-end`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
 |===
 
+== `admin-base.xhtml` Regions
+
+These are the `ui:insert` regions exposed by the base layout.
+
+|===
+|Region name ^| AdminFaces `admin-template` ^| `pf-adm-template` ^| Notes
+
+|`metadata`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`head`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`head-end`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`body-begin`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`template-header`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Added for structural compatibility.
+
+|`template-menu`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Added for structural compatibility.
+
+|`logo-mini`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`logo-lg`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`logo`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Supported through `admin.xhtml` as a fallback inside `logo-lg`.
+
+|`brand-text`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|`pf-adm-template` extension, not an AdminFaces region.
+
+|`top-menu`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`center-header`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Added for header compatibility.
+
+|`top-menu-notifications`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|`pf-adm-template` extension.
+
+|`top-menu-user-menu`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|`pf-adm-template` extension.
+
+|`menu-begin`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Added for menu compatibility.
+
+|`menu`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`menu-end`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Added for menu compatibility.
+
+|`content-wrapper`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available as a hook before the main content header.
+
+|`title`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`description`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`content-header`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Added for content-header compatibility.
+
+|`content-begin`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`body`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`content-end`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`footer`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`wrapper-end`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available as a hook after the footer inside the wrapper.
+
+|`before-controlsidebar-content`
+^| icon:check[font-color: green]
+^| icon:warning[font-color: orange]
+|Hook exists, but the AdminFaces control sidebar feature is not implemented.
+
+|`controlsidebar-tabs`
+^| icon:check[font-color: green]
+^| icon:warning[font-color: orange]
+|Hook exists, but no compatible control sidebar container is provided yet.
+
+|`before-controlsidebar`
+^| icon:check[font-color: green]
+^| icon:warning[font-color: orange]
+|Hook exists only as a placeholder for future compatibility work.
+
+|`after-controlsidebar-skin`
+^| icon:check[font-color: green]
+^| icon:warning[font-color: orange]
+|Hook exists, but no skin switcher UI is rendered by the base template.
+
+|`after-controlsidebar-tabs`
+^| icon:check[font-color: green]
+^| icon:warning[font-color: orange]
+|Hook exists only as a placeholder for future compatibility work.
+
+|`controlsidebar-content`
+^| icon:check[font-color: green]
+^| icon:warning[font-color: orange]
+|Hook exists, but no control sidebar implementation is currently present.
+
+|`after-controlsidebar-content`
+^| icon:check[font-color: green]
+^| icon:warning[font-color: orange]
+|Hook exists only as a placeholder for future compatibility work.
+
+|`after-wrapper`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`body-end`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+|===
+
+== Summary
+
+`pf-adm-template` now exposes the core Facelets composition regions needed for
+AdminFaces-style page templates:
+
+* header and menu wrapper regions are available
+* the main content regions are available
+* menu and header extension points are available
+
+The remaining compatibility gap is not the existence of hooks, but feature
+behavior behind some of them, especially the AdminFaces control sidebar.

@@ -46,7 +46,7 @@ public class PfAdminSessionView implements Serializable {
   public String getExceptionType() {
     var request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
     var exceptionTypeObj = request.getAttribute("jakarta.servlet.error.exception_type");
-    if (exceptionTypeObj instanceof Class clazz) {
+    if (exceptionTypeObj instanceof Class<?> clazz) {
       return clazz.getName();
     } else if (exceptionTypeObj instanceof String s) {
       return s;
@@ -56,7 +56,16 @@ public class PfAdminSessionView implements Serializable {
 
   public String getRequestRelativeURI() {
     var request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-    var uriWithContextPath = (String) request.getAttribute("jakarta.servlet.error.request_uri");
-    return uriWithContextPath.substring(request.getContextPath().length());
+    var requestUriObject = request.getAttribute("jakarta.servlet.error.request_uri");
+    if (!(requestUriObject instanceof String uriWithContextPath) || uriWithContextPath.isBlank()) {
+      return null;
+    }
+
+    var contextPath = request.getContextPath();
+    if (contextPath == null || contextPath.isEmpty() || !uriWithContextPath.startsWith(contextPath)) {
+      return uriWithContextPath;
+    }
+
+    return uriWithContextPath.substring(contextPath.length());
   }
 }
