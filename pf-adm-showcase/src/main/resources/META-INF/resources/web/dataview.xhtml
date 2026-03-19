@@ -5,15 +5,6 @@
                 xmlns:p="http://primefaces.org/ui"
                 template="#{layoutView.template}"
 >
-
-
-  <ui:define name="metadata">
-    <f:metadata>
-      <f:viewParam name="bordeless" value="#{showcaseLayoutView.borderless}" converter="jakarta.faces.Boolean"/>
-    </f:metadata>
-    <ui:param name="enableSlideMenu" value="false"/>
-    <ui:param name="autoShowNavbar" value="false"/>
-  </ui:define>
   <ui:define name="title">
     DataView
   </ui:define>
@@ -51,10 +42,9 @@
                 <h:outputText value="#{product.price}" styleClass="product-price">
                   <f:convertNumber currencySymbol="$" type="currency"/>
                 </h:outputText>
-                <p:commandButton type="button"
-                                 value="Add To Cart"
+                <p:commandButton value="Add To Cart"
                                  icon="pi pi-shopping-cart"
-                                 actionListener="#{dataView.addToCard(product)}"
+                                 actionListener="#{dataGridView.addToCart(product)}"
                                  disabled="#{product.inventoryStatus == 'OUTOFSTOCK'}">
                 </p:commandButton>
               </div>
@@ -63,7 +53,7 @@
 
           <p:dataViewListItem>
             <div class="product-list-item">
-              <p:graphicImage name="images/product/#{product.image}"/>
+              <p:graphicImage name="product/#{product.image}" library="images"/>
               <div class="product-list-detail">
                 <div class="product-name">#{product.name}</div>
                 <div class="product-description">#{product.description}</div>
@@ -75,9 +65,10 @@
                 <h:outputText value="#{product.price}" styleClass="product-price">
                   <f:convertNumber currencySymbol="$" type="currency"/>
                 </h:outputText>
-                <p:commandButton type="button"
+                <p:commandButton
                                  value="Add To Cart"
                                  icon="pi pi-shopping-cart"
+                                 actionListener="#{dataGridView.addToCart(product)}"
                                  disabled="#{product.inventoryStatus == 'OUTOFSTOCK'}">
                 </p:commandButton>
                 <span

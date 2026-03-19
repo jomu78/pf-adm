@@ -47,13 +47,13 @@ rendering across both projects.
 
 ^| DatePicker
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|No dedicated compatibility styling yet in `pf-adm-template`.
+^| icon:check[font-color: yellow]
+|Dedicated date picker styling exists for trigger/input integration, including datatable filter calendars with `showOn="both"`, but full AdminFaces-equivalent coverage is still incomplete.
 
 ^| Dialog
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|No dedicated compatibility styling yet in `pf-adm-template`.
+^| icon:check[font-color: yellow]
+|Dedicated dialog styling exists, but AdminFaces-equivalent compatibility is still only partial.
 
 ^| DragDrop
 ^| icon:check[font-color: green]
@@ -102,8 +102,8 @@ rendering across both projects.
 
 ^| TabView
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|No dedicated compatibility styling yet in `pf-adm-template`.
+^| icon:check[font-color: yellow]
+|Dedicated tab styling exists, including AdminFaces-style box color variants, but full parity is still incomplete.
 
 ^| Toolbar
 ^| icon:check[font-color: green]
@@ -134,6 +134,7 @@ rendering across both projects.
 == Summary
 
 `pf-adm-template` currently has the strongest compatibility in core layout and
-basic shared presentation areas such as panels, buttons, menus, and data tables.
-Most specialized PrimeFaces component families still need dedicated compatibility
-styling before they can be considered AdminFaces-equivalent.
+shared presentation areas such as panels, buttons, menus, data tables, tab
+views, dialogs, and date pickers. Most specialized PrimeFaces component
+families still need dedicated compatibility styling before they can be
+considered AdminFaces-equivalent.

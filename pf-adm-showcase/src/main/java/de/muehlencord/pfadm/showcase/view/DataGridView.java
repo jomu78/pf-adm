@@ -56,4 +56,9 @@ public class DataGridView implements Serializable {
       .addMessage(null,
         new FacesMessage(FacesMessage.SEVERITY_INFO, clientId + " multiview state has been cleared out", null));
   }
+
+  public void addToCart(Product product) {
+    var message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Added to cart", product.getName());
+    FacesContext.getCurrentInstance().addMessage(null, message);
+  }
 }

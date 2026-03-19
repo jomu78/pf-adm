@@ -173,53 +173,6 @@ body .ui-datatable, body .ui-treetable {
             background-color: var(--pfadm-surface-card);
         }
 
-        .ui-calendar.ui-trigger-calendar {
-            display: block;
-            position: relative;
-
-            input.hasDatepicker {
-                width: 100%;
-                padding-right: 2.25rem;
-                border-radius: $pfadm-radius-md;
-            }
-
-            .ui-datepicker-trigger.ui-button {
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 2rem;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                color: var(--pfadm-text-secondary) !important;
-                background: transparent !important;
-                border: 0 !important;
-                box-shadow: none !important;
-
-                &:hover,
-                &:focus,
-                &.ui-state-hover,
-                &.ui-state-focus {
-                    color: var(--pfadm-text-primary) !important;
-                    background: transparent !important;
-                    border: 0 !important;
-                    box-shadow: none !important;
-                }
-
-                .ui-button-text {
-                    display: none;
-                }
-
-                .ui-button-icon-left,
-                .ui-button-icon-right,
-                .ui-icon {
-                    left: 50%;
-                    margin-left: 0;
-                    transform: translateX(-50%);
-                }
-            }
-        }
-
         input {
             width: 100%;
         }

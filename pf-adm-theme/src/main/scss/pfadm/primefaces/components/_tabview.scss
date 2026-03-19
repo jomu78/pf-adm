@@ -287,39 +287,62 @@ body .ui-tabs .ui-tabs-nav {
   }
 }
 
-div.ui-tabs-navscroller a.ui-tabs-navscroller-btn {
-  span.ui-icon-carat-1-e {
-    background-image: none;
-    display: inline;
-
-    &:before {
-      font-family: 'primeicons';
-      color: #444444;
-      position: relative;
-      font-size: 10px;
-      font-weight: bold;
-      padding: 0 4px;
-      top: 2px;
-      overflow: hidden;
-      content: "\e258" !important;
-    }
+body .ui-tabs.ui-tabs-scrollable {
+  .ui-tabs-navscroller {
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    position: relative;
   }
 
-  .ui-icon-carat-1-w {
-    background-image: none;
-    display: inline;
+  .ui-tabs-navscroller-btn {
+    align-items: center;
+    background: $pfadm-surface-muted;
+    color: $admin-text-color;
+    cursor: pointer;
+    display: inline-flex;
+    flex: 0 0 auto;
+    justify-content: center;
+    min-width: 2.25rem;
+  }
 
-    &:before {
-      font-family: 'primeicons';
-      color: #444444;
-      position: relative;
-      font-size: 10px;
-      font-weight: bold;
-      padding: 0 4px;
-      top: 2px;
-      overflow: hidden;
-      content: "\e257" !important;
-    }
+  .ui-tabs-navscroller-content {
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+
+  .ui-tabs-nav {
+    flex-wrap: nowrap;
+    min-width: max-content;
+    white-space: nowrap;
+  }
+
+  .ui-tabs-nav > li.ui-tabs-header {
+    flex: 0 0 auto;
+  }
+}
+
+div.ui-tabs-navscroller a.ui-tabs-navscroller-btn {
+  .ui-icon {
+    background-image: none;
+    display: inline-block;
+    font-family: 'primeicons' !important;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0;
+  }
+
+  &.ui-tabs-navscroller-btn-left .ui-icon:before {
+    color: #444444;
+    content: "\e900" !important;
+    font-size: 10px;
+  }
+
+  &.ui-tabs-navscroller-btn-right .ui-icon:before {
+    color: #444444;
+    content: "\e901" !important;
+    font-size: 10px;
   }
 }
 
@@ -328,5 +351,3 @@ div.ui-tabs-navscroller a.ui-tabs-navscroller-btn {
 //    font-size: $font-awesome-icon-size - 1;
 //  }
 //}
-
-

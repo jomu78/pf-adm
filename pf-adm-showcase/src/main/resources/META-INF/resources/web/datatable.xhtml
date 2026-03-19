@@ -11,8 +11,6 @@
         <f:metadata>
             <f:viewParam name="bordeless" value="#{showcaseLayoutView.borderless}" converter="jakarta.faces.Boolean"/>
         </f:metadata>
-        <ui:param name="enableSlideMenu" value="false"/> <!-- disables slide menu (only on this page) on small screens -->
-        <ui:param name="autoShowNavbar" value="false"/> <!-- disables auto show navbar (only on this page) on small devices -->
     </ui:define>
     <ui:define name="title">
         Datatable
@@ -471,7 +469,7 @@
                 <p:rowExpansion>
                     <p:panelGrid  columns="2" style="width:300px" styleClass="ui-panelgrid-blank">
                         <f:facet name="header">
-                            <p:graphicImage name="demo/images/car/#{car.brand}-big.gif"/>
+                            <p:graphicImage name="images/car/#{car.brand}-big.gif"/>
                         </f:facet>
                         <p:outputLabel for="id" value="Id:" />
                         <h:outputText id="id" value="#{car.id}" />
@@ -487,45 +485,4 @@
         </p:panel>
     </ui:define>
 
-    <ui:define name="code">
-        <p:tabView styleClass="hidden-sm hidden-xs">
-            <p:tab title="datatable.xhtml">
-                <pre>
-               <code class="language-html"><h:outputText
-                       value="#{sourceCodeMB.getPageSource()}" escape="true"/>
-               </code>
-                </pre>
-            </p:tab>
-
-            <p:tab title="DatatableMB.java">
-                <pre>
-               <code class="language-java">
-                   <h:outputText
-                           value="#{sourceCodeMB.getJavaSource('com.github.adminfaces.showcase.bean.DatatableMB')}"
-                           escape="false"/>
-               </code>
-                </pre>
-            </p:tab>
-        </p:tabView>
-
-        <p:accordionPanel styleClass="hidden-md hidden-lg no-icon">
-            <p:tab title="datatable.xhtml">
-                <pre>
-               <code class="language-html"><h:outputText
-                       value="#{sourceCodeMB.getPageSource()}" escape="true"/>
-               </code>
-                </pre>
-            </p:tab>
-
-            <p:tab title="DatatableMB.java">
-                <pre>
-               <code class="language-java">
-                   <h:outputText
-                           value="#{sourceCodeMB.getJavaSource('com.github.adminfaces.showcase.bean.DatatableMB')}"
-                           escape="false"/>
-               </code>
-                </pre>
-            </p:tab>
-        </p:accordionPanel>
-    </ui:define>
 </ui:composition>
