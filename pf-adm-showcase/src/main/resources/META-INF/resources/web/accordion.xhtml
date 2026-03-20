@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="http://primefaces.org/ui"
+                template="#{layoutView.template}"
+>
+
+  <ui:define name="title">
+    Accordion
+  </ui:define>
+
+  <ui:define name="description">
+    This page shows the shared pf-adm styling for PrimeFaces accordions, including default headers, active states, embedded content panels, and semantic box variants.
+  </ui:define>
+
+  <ui:define name="body">
+    <h:form id="accordion-form">
+      <div class="row g-4">
+        <div class="col-12 col-xl-6">
+          <p:panel header="Default Accordion" styleClass="card no-border h-100">
+            <p:accordionPanel activeIndex="0">
+              <p:tab title="Project Summary">
+                <p>
+                  Use accordions for grouped, collapsible content blocks where each section needs a visible heading
+                  and a clear expanded state.
+                </p>
+              </p:tab>
+              <p:tab title="Deployment Notes">
+                <p>
+                  This example keeps the styling inside the shared theme layer so the appearance applies consistently
+                  across showcase pages and downstream applications.
+                </p>
+              </p:tab>
+              <p:tab title="Migration Guidance">
+                <p>
+                  Semantic variants are handled in the local `pfadm` layer rather than patching vendored PrimeFaces
+                  sources.
+                </p>
+              </p:tab>
+            </p:accordionPanel>
+          </p:panel>
+        </div>
+
+        <div class="col-12 col-xl-6">
+          <p:panel header="Semantic Variant" styleClass="card no-border h-100">
+            <p:accordionPanel activeIndex="0,2" multiple="true" styleClass="box-primary box-solid">
+              <p:tab title="Design Tokens">
+                <p>
+                  Headers and content panels derive from shared `pfadm` tokens for surfaces, borders, focus rings,
+                  and semantic colors.
+                </p>
+              </p:tab>
+              <p:tab title="Interaction States">
+                <p>
+                  Hover, focus, and active states are centralized so accordions behave consistently with buttons,
+                  toolbars, and input groups.
+                </p>
+              </p:tab>
+              <p:tab title="AdminFaces Compatibility">
+                <p>
+                  The semantic `box-*` approach is preserved to keep the migration path aligned with AdminFaces-style
+                  presentation patterns.
+                </p>
+              </p:tab>
+            </p:accordionPanel>
+          </p:panel>
+        </div>
+      </div>
+    </h:form>
+  </ui:define>
+
+</ui:composition>

@@ -1,0 +1,106 @@
+body {
+  .ui-fileupload {
+    position: relative;
+    color: var(--pfadm-text-primary);
+
+    .ui-fileupload-buttonbar {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      color: var(--pfadm-text-primary);
+      background: var(--pfadm-surface-muted);
+      border: 1px solid var(--pfadm-border-color);
+      border-bottom: 0;
+      box-shadow: var(--pfadm-shadow-sm);
+    }
+
+    .ui-fileupload-content {
+      color: var(--pfadm-text-primary);
+      background: var(--pfadm-surface-card);
+      border: 1px solid var(--pfadm-border-color);
+      box-shadow: var(--pfadm-shadow-sm);
+      padding: $fileupload-dropzone-padding;
+    }
+
+    .ui-fileupload-drag-overlay {
+      background: rgba($pfadm-color-success, 0.14);
+      border: 2px dashed $fileupload-dropzone-active-border-color;
+
+      .ui-fileupload-drag-overlay-content i {
+        color: $fileupload-dropzone-active-border-color;
+      }
+    }
+
+    .ui-fileupload-files {
+      width: 100%;
+
+      .ui-fileupload-row > div {
+        color: var(--pfadm-text-primary);
+        border-top: 1px solid var(--pfadm-border-color);
+      }
+    }
+
+    .ui-progressbar {
+      border-color: var(--pfadm-border-color);
+      background: var(--pfadm-surface-muted);
+    }
+
+    &.box-default,
+    &.box-primary,
+    &.box-danger,
+    &.box-fatal,
+    &.box-warning,
+    &.box-success,
+    &.box-info,
+    &.box-teal {
+      .ui-fileupload-buttonbar {
+        border-top-width: 3px;
+      }
+    }
+
+    &.box-default .ui-fileupload-buttonbar {
+      border-top-color: $default;
+    }
+
+    &.box-primary .ui-fileupload-buttonbar {
+      border-top-color: $primary;
+    }
+
+    &.box-danger .ui-fileupload-buttonbar {
+      border-top-color: $danger;
+    }
+
+    &.box-fatal .ui-fileupload-buttonbar {
+      border-top-color: $fatal;
+    }
+
+    &.box-warning .ui-fileupload-buttonbar {
+      border-top-color: $warning;
+    }
+
+    &.box-success .ui-fileupload-buttonbar {
+      border-top-color: $success;
+    }
+
+    &.box-info .ui-fileupload-buttonbar {
+      border-top-color: $info;
+    }
+
+    &.box-teal .ui-fileupload-buttonbar {
+      border-top-color: $teal;
+    }
+  }
+
+  .ui-fileupload-simple {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--pfadm-text-primary);
+    background: var(--pfadm-surface-card);
+    border: 1px dashed $fileupload-dropzone-border-color;
+    border-radius: $pfadm-radius-md;
+    box-shadow: var(--pfadm-shadow-sm);
+  }
+}

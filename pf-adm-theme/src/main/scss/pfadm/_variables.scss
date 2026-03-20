@@ -239,6 +239,62 @@ $tabview-border-top-color: $light-blue;
 $tabview-hover-color: #ededf0;
 $hover-icon-color: #696969;
 
+$dataview-card-gap: 1.25rem !default;
+$dataview-card-padding: 1.25rem !default;
+$dataview-card-border-radius: $pfadm-radius-lg !default;
+$dataview-card-border-color: $pfadm-border-color !default;
+$dataview-card-shadow: $pfadm-shadow-sm !default;
+$dataview-card-hover-shadow: $pfadm-shadow-md !default;
+$dataview-image-radius: $pfadm-radius-md !default;
+$dataview-badge-padding-y: 0.25rem !default;
+$dataview-badge-padding-x: 0.65rem !default;
+$dataview-badge-font-size: 0.75rem !default;
+$dataview-price-font-size: 1.35rem !default;
+$dataview-price-font-weight: 700 !default;
+$dataview-description-max-width: 36ch !default;
+
+$inputgroup-addon-min-width: 2.75rem !default;
+$inputgroup-addon-padding-y: 0.5rem !default;
+$inputgroup-addon-padding-x: 0.875rem !default;
+$inputgroup-addon-bg: $pfadm-surface-muted !default;
+$inputgroup-addon-color: $pfadm-text-secondary !default;
+$inputgroup-addon-border-color: $pfadm-border-color !default;
+
+$toolbar-padding-y: 0.75rem !default;
+$toolbar-padding-x: 1rem !default;
+$toolbar-gap: 0.75rem !default;
+$toolbar-bg: $pfadm-surface-muted !default;
+$toolbar-border-color: $pfadm-border-color !default;
+$toolbar-separator-color: $pfadm-border-color-strong !default;
+
+$accordion-header-padding-y: 0.875rem !default;
+$accordion-header-padding-x: 1rem !default;
+$accordion-content-padding: 1rem !default;
+$accordion-header-bg: $pfadm-surface-muted !default;
+$accordion-content-bg: $pfadm-surface-card !default;
+$accordion-border-color: $pfadm-border-color !default;
+
+$tree-node-padding-y: 0.2rem !default;
+$tree-node-padding-x: 0 !default;
+$tree-content-padding-y: 0.4rem !default;
+$tree-content-padding-x: 0.55rem !default;
+$tree-border-color: $pfadm-border-color !default;
+$tree-filter-spacing: 0.75rem !default;
+
+$fileupload-dropzone-padding: 1.25rem !default;
+$fileupload-dropzone-border-color: $pfadm-border-color !default;
+$fileupload-dropzone-active-border-color: $pfadm-color-success !default;
+$fileupload-dropzone-active-bg: rgba($pfadm-color-success, 0.10) !default;
+
+$steps-track-color: $pfadm-border-color !default;
+$steps-item-gap: 0.75rem !default;
+$steps-number-size: 2.25rem !default;
+$steps-title-max-width: 12rem !default;
+
+$notificationbar-padding-y: 1rem !default;
+$notificationbar-padding-x: 1.25rem !default;
+$notificationbar-close-size: 2rem !default;
+
 // Legacy box variables kept for compatibility with AdminFaces-inspired components.
 $box-border-color: $pfadm-border-color;
 $box-border-radius: $pfadm-radius-md;

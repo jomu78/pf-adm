@@ -1,0 +1,132 @@
+body {
+  .ui-tree {
+    color: var(--pfadm-text-primary);
+    background: var(--pfadm-surface-card);
+    border: 1px solid $tree-border-color;
+    border-radius: $pfadm-radius-md;
+    box-shadow: var(--pfadm-shadow-sm);
+    padding: $accordion-content-padding;
+
+    .ui-tree-filter-container {
+      margin-bottom: $tree-filter-spacing;
+
+      .ui-inputfield {
+        width: 100%;
+      }
+
+      .ui-icon {
+        color: var(--pfadm-text-muted);
+      }
+    }
+
+    .ui-tree-container {
+      .ui-treenode {
+        padding: $tree-node-padding-y $tree-node-padding-x;
+      }
+
+      .ui-treenode-content {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: $tree-content-padding-y $tree-content-padding-x;
+        color: var(--pfadm-text-primary);
+        border: 1px solid transparent;
+        border-radius: $pfadm-radius-md;
+        transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+        &.ui-tree-selectable:not(.ui-state-highlight):hover,
+        &.ui-tree-selectable:not(.ui-state-highlight).ui-state-hover {
+          color: var(--pfadm-text-primary);
+          background: var(--pfadm-hover-bg);
+          border-color: var(--pfadm-border-color);
+        }
+
+        &.ui-state-highlight {
+          color: var(--pfadm-skin-accent-emphasis, #{$pfadm-color-primary});
+          background: var(--pfadm-skin-accent-soft-bg, #{rgba($pfadm-color-primary, 0.16)});
+          border-color: var(--pfadm-skin-accent-emphasis, #{$pfadm-color-primary});
+
+          .ui-tree-toggler,
+          .ui-treenode-icon,
+          .ui-treenode-label {
+            color: inherit;
+          }
+        }
+      }
+
+      .ui-treenode-label {
+        margin: 0;
+        padding: 0.1rem 0.2rem;
+        color: inherit;
+        border-radius: $pfadm-radius-sm;
+      }
+
+      .ui-tree-toggler,
+      .ui-treenode-icon,
+      .ui-treenode-leaf-icon {
+        color: var(--pfadm-text-secondary);
+      }
+
+      .ui-tree-toggler {
+        border-radius: $pfadm-radius-sm;
+
+        &:hover {
+          color: var(--pfadm-text-primary);
+          background: var(--pfadm-hover-bg);
+        }
+      }
+
+      .ui-chkbox {
+        margin-right: 0.35rem;
+      }
+
+      .ui-treenode-outline {
+        box-shadow: 0 0 0 .2rem var(--pfadm-focus-ring-color);
+        border-radius: $pfadm-radius-md;
+      }
+    }
+
+    &.box-default,
+    &.box-primary,
+    &.box-danger,
+    &.box-fatal,
+    &.box-warning,
+    &.box-success,
+    &.box-info,
+    &.box-teal {
+      border-top-width: 3px;
+    }
+
+    &.box-default {
+      border-top-color: $default;
+    }
+
+    &.box-primary {
+      border-top-color: $primary;
+    }
+
+    &.box-danger {
+      border-top-color: $danger;
+    }
+
+    &.box-fatal {
+      border-top-color: $fatal;
+    }
+
+    &.box-warning {
+      border-top-color: $warning;
+    }
+
+    &.box-success {
+      border-top-color: $success;
+    }
+
+    &.box-info {
+      border-top-color: $info;
+    }
+
+    &.box-teal {
+      border-top-color: $teal;
+    }
+  }
+}

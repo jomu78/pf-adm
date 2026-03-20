@@ -1,0 +1,129 @@
+body {
+  .ui-steps {
+    padding: 0.5rem 0;
+
+    &:before {
+      border-top: 2px solid $steps-track-color;
+      top: calc(#{$steps-number-size} * 0.5 + 0.5rem);
+    }
+
+    ul {
+      gap: $steps-item-gap;
+      flex-wrap: wrap;
+    }
+
+    .ui-steps-item {
+      min-width: 0;
+      opacity: 1;
+
+      .ui-menuitem-link {
+        .ui-steps-number {
+          width: $steps-number-size;
+          height: $steps-number-size;
+          margin-top: 0;
+          color: var(--pfadm-text-secondary);
+          background: var(--pfadm-surface-card);
+          border: 1px solid var(--pfadm-border-color-strong);
+          box-shadow: var(--pfadm-shadow-sm);
+        }
+
+        .ui-steps-title {
+          max-width: $steps-title-max-width;
+          margin: 0.5rem auto 0;
+          color: var(--pfadm-text-secondary);
+          line-height: 1.35;
+        }
+      }
+
+      &.ui-state-highlight {
+        .ui-menuitem-link {
+          .ui-steps-number {
+            color: var(--pfadm-skin-accent-contrast, #{$pfadm-text-inverse});
+            background: var(--pfadm-skin-accent, #{$pfadm-color-primary});
+            border-color: var(--pfadm-skin-accent, #{$pfadm-color-primary});
+          }
+
+          .ui-steps-title {
+            color: var(--pfadm-text-primary);
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .ui-steps-item:not(.ui-state-highlight) {
+      opacity: 1;
+    }
+
+    &.box-default .ui-steps-item.ui-state-highlight .ui-menuitem-link .ui-steps-number {
+      color: var(--pfadm-text-primary);
+      background: $default;
+      border-color: $default;
+    }
+
+    &.box-primary .ui-steps-item.ui-state-highlight .ui-menuitem-link .ui-steps-number {
+      background: $primary;
+      border-color: $primary;
+    }
+
+    &.box-danger .ui-steps-item.ui-state-highlight .ui-menuitem-link .ui-steps-number {
+      background: $danger;
+      border-color: $danger;
+    }
+
+    &.box-fatal .ui-steps-item.ui-state-highlight .ui-menuitem-link .ui-steps-number {
+      background: $fatal;
+      border-color: $fatal;
+    }
+
+    &.box-warning .ui-steps-item.ui-state-highlight .ui-menuitem-link .ui-steps-number {
+      color: var(--pfadm-text-primary);
+      background: $warning;
+      border-color: $warning;
+    }
+
+    &.box-success .ui-steps-item.ui-state-highlight .ui-menuitem-link .ui-steps-number {
+      background: $success;
+      border-color: $success;
+    }
+
+    &.box-info .ui-steps-item.ui-state-highlight .ui-menuitem-link .ui-steps-number {
+      color: var(--pfadm-text-primary);
+      background: $info;
+      border-color: $info;
+    }
+
+    &.box-teal .ui-steps-item.ui-state-highlight .ui-menuitem-link .ui-steps-number {
+      background: $teal;
+      border-color: $teal;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .ui-steps {
+      &:before {
+        display: none;
+      }
+
+      ul {
+        flex-direction: column;
+      }
+
+      .ui-steps-item {
+        flex: none;
+
+        .ui-menuitem-link {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          text-align: left;
+
+          .ui-steps-title {
+            max-width: none;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

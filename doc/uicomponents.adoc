@@ -22,13 +22,13 @@ rendering across both projects.
 
 ^| Accordion
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|No dedicated compatibility styling yet in `pf-adm-template`.
+^| icon:check[font-color: yellow]
+|Dedicated accordion styling exists for default headers, active states, embedded content panels, and semantic box variants, but full AdminFaces-equivalent parity is still incomplete.
 
 ^| AutoComplete
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|No dedicated compatibility styling yet in `pf-adm-template`.
+^| icon:check[font-color: yellow]
+|Dedicated auto complete styling exists for single-input, dropdown-trigger, token, and suggestion-panel states, but full AdminFaces-equivalent parity is still incomplete.
 
 ^| Buttons
 ^| icon:check[font-color: green]
@@ -67,8 +67,8 @@ rendering across both projects.
 
 ^| InputGroup
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|No dedicated compatibility styling yet in `pf-adm-template`.
+^| icon:check[font-color: yellow]
+|Dedicated input group styling exists for add-ons, checkbox add-ons, button actions, and mixed input/select combinations, but full AdminFaces-equivalent parity is still incomplete.
 
 ^| Menus
 ^| icon:check[font-color: green]
@@ -77,8 +77,8 @@ rendering across both projects.
 
 ^| NotificationBar
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|No dedicated compatibility styling yet in `pf-adm-template`.
+^| icon:check[font-color: yellow]
+|Dedicated notification bar styling exists for top and bottom bars, dismiss actions, embedded content layouts, and semantic box variants, but full AdminFaces-equivalent parity is still incomplete.
 
 ^| Panels
 ^| icon:check[font-color: green]
@@ -92,8 +92,8 @@ rendering across both projects.
 
 ^| Steps
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|No dedicated compatibility styling yet in `pf-adm-template`.
+^| icon:check[font-color: yellow]
+|Dedicated steps styling exists for progress tracks, active items, semantic box variants, and responsive wrapping, but full AdminFaces-equivalent parity is still incomplete.
 
 ^| Schedule
 ^| icon:check[font-color: green]
@@ -107,13 +107,13 @@ rendering across both projects.
 
 ^| Toolbar
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|No dedicated compatibility styling yet in `pf-adm-template`.
+^| icon:check[font-color: yellow]
+|Dedicated toolbar styling exists for grouped actions, separators, embedded filters, responsive wrapping, and semantic box variants, but full AdminFaces-equivalent parity is still incomplete.
 
 ^| Tree
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|No dedicated compatibility styling yet in `pf-adm-template`.
+^| icon:check[font-color: yellow]
+|Dedicated tree styling exists for filters, togglers, selectable nodes, checkbox selection, and semantic box variants, but full AdminFaces-equivalent parity is still incomplete. Horizontal tree connector line height remains an open TODO.
 
 ^| TriStateCheckbox
 ^| icon:check[font-color: green]
@@ -122,8 +122,8 @@ rendering across both projects.
 
 ^| FileUpload
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|No dedicated compatibility styling yet in `pf-adm-template`.
+^| icon:check[font-color: yellow]
+|Dedicated file upload styling exists for advanced and simple modes, drag-and-drop overlays, file rows, and semantic box variants, but full AdminFaces-equivalent parity is still incomplete.
 
 ^| Wizard
 ^| icon:check[font-color: green]

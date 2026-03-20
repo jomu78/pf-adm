@@ -1,0 +1,160 @@
+body {
+  .ui-accordion {
+    color: var(--pfadm-text-primary);
+
+    .ui-accordion-header {
+      margin: 0;
+      padding: 0;
+      color: var(--pfadm-text-primary);
+      background: $accordion-header-bg;
+      border: 1px solid $accordion-border-color;
+      border-top-width: 0;
+      transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+      &:first-child {
+        border-top-width: 1px;
+      }
+
+      > a {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: $accordion-header-padding-y $accordion-header-padding-x;
+        color: inherit;
+      }
+
+      &:hover {
+        color: var(--pfadm-text-primary);
+        background: var(--pfadm-hover-bg);
+        border-color: var(--pfadm-border-color-strong);
+      }
+
+      &:focus-within {
+        border-color: $pfadm-color-primary;
+        box-shadow: 0 0 0 .2rem var(--pfadm-focus-ring-color);
+        position: relative;
+        z-index: 2;
+      }
+
+      &.ui-state-active {
+        color: var(--pfadm-skin-accent-emphasis, #{$pfadm-color-primary});
+        background: var(--pfadm-skin-accent-soft-bg, #{rgba($pfadm-color-primary, 0.16)});
+        border-color: var(--pfadm-skin-accent-emphasis, #{$pfadm-color-primary});
+      }
+
+      .ui-icon {
+        color: inherit;
+      }
+    }
+
+    .ui-accordion-content {
+      padding: $accordion-content-padding;
+      color: var(--pfadm-text-primary);
+      background: $accordion-content-bg;
+      border: 1px solid $accordion-border-color;
+      border-top: 0;
+      box-shadow: var(--pfadm-shadow-sm);
+    }
+
+    &.box-default,
+    &.box-primary,
+    &.box-danger,
+    &.box-fatal,
+    &.box-warning,
+    &.box-success,
+    &.box-info,
+    &.box-teal {
+      .ui-accordion-header.ui-state-active + .ui-accordion-content {
+        border-top: 0;
+      }
+    }
+
+    &.box-default .ui-accordion-header.ui-state-active {
+      background: $default-bg-subtle;
+      border-color: $default-border-subtle;
+      color: $default-text-emphasis;
+    }
+
+    &.box-primary .ui-accordion-header.ui-state-active {
+      background: $primary-bg-subtle;
+      border-color: $primary;
+      color: $primary-text-emphasis;
+    }
+
+    &.box-danger .ui-accordion-header.ui-state-active {
+      background: $danger-bg-subtle;
+      border-color: $danger;
+      color: $danger-text-emphasis;
+    }
+
+    &.box-fatal .ui-accordion-header.ui-state-active {
+      background: $fatal-bg-subtle;
+      border-color: $fatal;
+      color: $fatal-text-emphasis;
+    }
+
+    &.box-warning .ui-accordion-header.ui-state-active {
+      background: $warning-bg-subtle;
+      border-color: $warning;
+      color: $warning-text-emphasis;
+    }
+
+    &.box-success .ui-accordion-header.ui-state-active {
+      background: $success-bg-subtle;
+      border-color: $success;
+      color: $success-text-emphasis;
+    }
+
+    &.box-info .ui-accordion-header.ui-state-active {
+      background: $info-bg-subtle;
+      border-color: $info;
+      color: $info-text-emphasis;
+    }
+
+    &.box-teal .ui-accordion-header.ui-state-active {
+      background: $teal-bg-subtle;
+      border-color: $teal;
+      color: $teal-text-emphasis;
+    }
+
+    &.box-solid {
+      &.box-primary .ui-accordion-header.ui-state-active,
+      &.box-danger .ui-accordion-header.ui-state-active,
+      &.box-fatal .ui-accordion-header.ui-state-active,
+      &.box-success .ui-accordion-header.ui-state-active,
+      &.box-teal .ui-accordion-header.ui-state-active {
+        color: var(--pfadm-text-inverse);
+      }
+
+      &.box-primary .ui-accordion-header.ui-state-active {
+        background: $primary;
+      }
+
+      &.box-danger .ui-accordion-header.ui-state-active {
+        background: $danger;
+      }
+
+      &.box-fatal .ui-accordion-header.ui-state-active {
+        background: $fatal;
+      }
+
+      &.box-warning .ui-accordion-header.ui-state-active {
+        background: $warning;
+        color: var(--pfadm-text-primary);
+      }
+
+      &.box-success .ui-accordion-header.ui-state-active {
+        background: $success;
+      }
+
+      &.box-info .ui-accordion-header.ui-state-active {
+        background: $info;
+        color: var(--pfadm-text-primary);
+      }
+
+      &.box-teal .ui-accordion-header.ui-state-active {
+        background: $teal;
+      }
+    }
+  }
+}

@@ -51,6 +51,10 @@
 - Current datatable documentation position:
   - year filter calendar trigger alignment is supported in the showcase/theme
   - PrimeFaces sticky datatable headers are currently unsupported in `pf-adm-template` / `pf-adm-showcase` and must be documented as such
+- Current component support position after this session:
+  - dedicated `pfadm` showcase/theme styling exists for `Accordion`, `DataView`, `FileUpload`, `InputGroup`, `NotificationBar`, `Steps`, `Toolbar`, and `Tree`
+  - `Tree` support is still partial; horizontal tree connector line height remains an open TODO and must stay documented as such
+  - `Wizard` remains one of the next uncovered component-family candidates after the completed `Steps` / `NotificationBar` work
 
 ## Showcase Rules
 

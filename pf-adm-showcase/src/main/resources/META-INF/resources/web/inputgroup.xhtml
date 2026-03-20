@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:p="http://primefaces.org/ui"
+                template="#{layoutView.template}"
+>
+
+  <ui:define name="title">
+    InputGroup
+  </ui:define>
+
+  <ui:define name="description">
+    This page shows the shared pf-adm styling for PrimeFaces input groups, including add-ons, button actions, checkbox add-ons, and mixed input/select combinations.
+  </ui:define>
+
+  <ui:define name="body">
+    <h:form id="inputgroup-form">
+      <div class="row g-4">
+        <div class="col-12 col-xl-6">
+          <p:panel header="Text And Currency Add-ons" styleClass="card no-border h-100">
+            <div class="row g-3">
+              <div class="col-12">
+                <p:outputLabel for="email-local" value="Team mailbox"/>
+                <div class="ui-inputgroup">
+                  <span class="ui-inputgroup-addon">@</span>
+                  <p:inputText id="email-local" value="#{inputGroupView.emailLocalPart}"/>
+                  <span class="ui-inputgroup-addon">@pf-adm.dev</span>
+                </div>
+              </div>
+              <div class="col-12">
+                <p:outputLabel for="budget" value="Monthly budget"/>
+                <div class="ui-inputgroup">
+                  <span class="ui-inputgroup-addon">$</span>
+                  <p:inputText id="budget" value="#{inputGroupView.amount}"/>
+                  <span class="ui-inputgroup-addon">USD</span>
+                </div>
+              </div>
+            </div>
+          </p:panel>
+        </div>
+
+        <div class="col-12 col-xl-6">
+          <p:panel header="Buttons And Selects" styleClass="card no-border h-100">
+            <div class="row g-3">
+              <div class="col-12">
+                <p:outputLabel for="search" value="Search"/>
+                <div class="ui-inputgroup">
+                  <span class="ui-inputgroup-addon">
+                    <i class="pi pi-search"/>
+                  </span>
+                  <p:inputText id="search" value="#{inputGroupView.searchQuery}"/>
+                  <p:commandButton type="button" value="Go" icon="pi pi-arrow-right" styleClass="btn-primary"/>
+                </div>
+              </div>
+              <div class="col-12">
+                <p:outputLabel for="channel" value="Preferred contact"/>
+                <div class="ui-inputgroup">
+                  <p:selectOneMenu id="channel" value="#{inputGroupView.contactChannel}" style="max-width: 10rem;">
+                    <f:selectItem itemLabel="Email" itemValue="Email"/>
+                    <f:selectItem itemLabel="Phone" itemValue="Phone"/>
+                    <f:selectItem itemLabel="Chat" itemValue="Chat"/>
+                  </p:selectOneMenu>
+                  <p:inputText id="city" value="#{inputGroupView.city}"/>
+                </div>
+              </div>
+            </div>
+          </p:panel>
+        </div>
+
+        <div class="col-12">
+          <p:panel header="Checkbox Add-on" styleClass="card no-border">
+            <div class="row g-3 align-items-end">
+              <div class="col-12 col-xl-8">
+                <p:outputLabel for="alerts-query" value="Notification target"/>
+                <div class="ui-inputgroup">
+                  <span class="ui-inputgroup-addon-checkbox">
+                    <p:selectBooleanCheckbox value="#{inputGroupView.alertsEnabled}"/>
+                  </span>
+                  <p:inputText id="alerts-query" value="#{inputGroupView.searchQuery}"/>
+                  <span class="ui-inputgroup-addon">alerts enabled</span>
+                </div>
+              </div>
+              <div class="col-12 col-xl-4">
+                <h:panelGrid columns="2" cellpadding="8">
+                  <h:outputText value="Contact"/>
+                  <h:outputText value="#{inputGroupView.contactChannel}"/>
+
+                  <h:outputText value="City"/>
+                  <h:outputText value="#{inputGroupView.city}"/>
+
+                  <h:outputText value="Alerts"/>
+                  <h:outputText value="#{inputGroupView.alertsEnabled ? 'Enabled' : 'Disabled'}"/>
+                </h:panelGrid>
+              </div>
+            </div>
+          </p:panel>
+        </div>
+      </div>
+    </h:form>
+  </ui:define>
+
+</ui:composition>
