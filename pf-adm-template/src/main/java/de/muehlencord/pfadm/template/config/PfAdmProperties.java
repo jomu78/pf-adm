@@ -17,7 +17,6 @@ import org.springframework.validation.annotation.Validated;
  * @author Joern Muehlencord, 2025-04-14
  * @since 0.1.0
  */
-@Configuration
 @ConfigurationProperties(prefix = "pf-adm")
 @Setter
 @Getter
