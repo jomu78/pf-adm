@@ -2,28 +2,203 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="jakarta.faces.facelets"
                 xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
                 xmlns:p="http://primefaces.org/ui"
                 template="#{layoutView.template}"
 >
 
   <ui:define name="title">
-    <p:outputLabel value="Primefaces Admin Showcase"/>
+    Dashboard
+  </ui:define>
+
+  <ui:define name="description">
+    AdminFaces-style dashboard overview adapted to the `pf-adm` showcase components and sample data.
   </ui:define>
 
   <ui:define name="body">
-    <h3>Properties</h3>
-    <h:outputText value="renderMessages: #{pfAdmConfig.renderMessages}" /> <br />
-    <h:outputText value="skipMessageDetailIfEqualsSummary: #{pfAdmConfig.skipMessageDetailIfEqualsSummary}" /> <br />
-    <h:outputText value="enableSlideMenu: #{pfAdmConfig.enableSlideMenu}" /> <br />
-    <h:outputText value="skin: #{pfAdmConfig.skin}" /> <br />
-    <h:outputText value="renderMenuSearch: #{pfAdmConfig.renderMenuSearch}" /> <br />
-    <h:outputText value="renderLogo: #{pfAdmConfig.renderLogo}" /> <br />
-    <h:outputText value="renderBrandText: #{pfAdmConfig.renderBrandText}" /> <br />
-    <h:outputText value="renderFullScreenToggle: #{pfAdmConfig.renderFullScreenToggle}" /> <br />
-    <h:outputText value="renderSlideMenuToggle: #{pfAdmConfig.renderSlideMenuToggle}" /> <br />
-    <h:outputText value="supportFontAwesome: #{pfAdmConfig.supportFontAwesome}" /> <br />
+    <h:form id="dashboard-form">
+      <div class="row g-4">
+        <div class="col-12 col-sm-6 col-xl-3">
+          <div class="small-box text-bg-primary mb-0">
+            <div class="inner">
+              <h3>#{dashboardView.productCount}</h3>
+              <p>Products in showcase catalog</p>
+            </div>
+            <div class="icon">
+              <i class="pi pi-shopping-bag"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-3">
+          <div class="small-box text-bg-success mb-0">
+            <div class="inner">
+              <h3>#{dashboardView.inStockCount}</h3>
+              <p>Items currently in stock</p>
+            </div>
+            <div class="icon">
+              <i class="pi pi-check-circle"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-3">
+          <div class="small-box text-bg-warning mb-0">
+            <div class="inner">
+              <h3>#{dashboardView.lowStockCount}</h3>
+              <p>Low-stock products</p>
+            </div>
+            <div class="icon">
+              <i class="pi pi-exclamation-triangle"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-3">
+          <div class="small-box text-bg-danger mb-0">
+            <div class="inner">
+              <h3>#{dashboardView.inventoryValueLabel}</h3>
+              <p>Estimated inventory value</p>
+            </div>
+            <div class="icon">
+              <i class="pi pi-chart-line"/>
+            </div>
+          </div>
+        </div>
 
+        <div class="col-12 col-xl-8">
+          <p:panel header="Recent Products" styleClass="card no-border h-100">
+            <p:dataTable value="#{dashboardView.recentProducts}" var="product" responsiveLayout="scroll"
+                         styleClass="no-border">
+              <p:column headerText="Product">
+                <div class="d-flex align-items-center gap-3">
+                  <p:graphicImage name="images/product/#{product.image}" style="width: 48px; height: 48px"
+                                  styleClass="rounded border"/>
+                  <div>
+                    <div class="fw-semibold">#{product.name}</div>
+                    <small class="text-body-secondary">#{product.category}</small>
+                  </div>
+                </div>
+              </p:column>
+              <p:column headerText="Code">
+                #{product.code}
+              </p:column>
+              <p:column headerText="Price">
+                <h:outputText value="#{product.price}">
+                  <f:convertNumber type="currency" currencySymbol="$"/>
+                </h:outputText>
+              </p:column>
+              <p:column headerText="Status">
+                <span class="badge #{dashboardView.getProductStatusClass(product)}">#{product.inventoryStatus.text}</span>
+              </p:column>
+            </p:dataTable>
+          </p:panel>
+        </div>
+
+        <div class="col-12 col-xl-4">
+          <p:panel header="Showcase Runtime" styleClass="card no-border h-100">
+            <div class="info-box mb-3">
+              <span class="info-box-icon text-bg-primary shadow-sm">
+                <i class="pi pi-palette"/>
+              </span>
+              <div class="info-box-content">
+                <span class="info-box-text">Active skin</span>
+                <span class="info-box-number">#{skinView.skin}</span>
+              </div>
+            </div>
+
+            <div class="info-box mb-3">
+              <span class="info-box-icon text-bg-success shadow-sm">
+                <i class="pi pi-clone"/>
+              </span>
+              <div class="info-box-content">
+                <span class="info-box-text">Template</span>
+                <span class="info-box-number">#{layoutView.template}</span>
+              </div>
+            </div>
+
+            <div class="info-box mb-0">
+              <span class="info-box-icon text-bg-warning shadow-sm">
+                <i class="pi pi-car"/>
+              </span>
+              <div class="info-box-content">
+                <span class="info-box-text">Sold cars in demo batch</span>
+                <span class="info-box-number">#{dashboardView.soldCars} / #{dashboardView.recentCars.size()}</span>
+              </div>
+            </div>
+          </p:panel>
+        </div>
+
+        <div class="col-12 col-xl-7">
+          <p:panel header="Latest Demo Cars" styleClass="card no-border h-100">
+            <p:dataTable value="#{dashboardView.recentCars}" var="car" responsiveLayout="scroll" styleClass="no-border">
+              <p:column headerText="Brand">
+                #{car.brand}
+              </p:column>
+              <p:column headerText="Year">
+                #{car.year}
+              </p:column>
+              <p:column headerText="Color">
+                #{car.color}
+              </p:column>
+              <p:column headerText="Price">
+                <h:outputText value="#{car.price}">
+                  <f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0"/>
+                </h:outputText>
+              </p:column>
+              <p:column headerText="State">
+                <span class="badge #{car.sold ? 'text-bg-success' : 'text-bg-secondary'}">
+                  #{car.sold ? 'Sold' : 'Available'}
+                </span>
+              </p:column>
+            </p:dataTable>
+          </p:panel>
+        </div>
+
+        <div class="col-12 col-xl-5">
+          <p:panel header="Quick Access" styleClass="card no-border h-100">
+            <div class="list-group">
+              <p:link outcome="/web/datatable.xhtml" styleClass="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                Datatable
+                <span class="badge text-bg-primary rounded-pill">data</span>
+              </p:link>
+              <p:link outcome="/web/buttons.xhtml" styleClass="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                Buttons
+                <span class="badge text-bg-success rounded-pill">actions</span>
+              </p:link>
+              <p:link outcome="/web/skins.xhtml" styleClass="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                Skins
+                <span class="badge text-bg-warning rounded-pill">theme</span>
+              </p:link>
+              <p:link outcome="/web/tree.xhtml" styleClass="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                Tree
+                <span class="badge text-bg-info rounded-pill">nav</span>
+              </p:link>
+            </div>
+
+            <hr/>
+
+            <table class="table table-sm mb-0">
+              <tbody>
+              <tr>
+                <th scope="row">Messages</th>
+                <td>#{pfAdmConfig.renderMessages}</td>
+              </tr>
+              <tr>
+                <th scope="row">Slide menu</th>
+                <td>#{pfAdmConfig.enableSlideMenu}</td>
+              </tr>
+              <tr>
+                <th scope="row">Menu search</th>
+                <td>#{pfAdmConfig.renderMenuSearch}</td>
+              </tr>
+              <tr>
+                <th scope="row">Fullscreen toggle</th>
+                <td>#{pfAdmConfig.renderFullScreenToggle}</td>
+              </tr>
+              </tbody>
+            </table>
+          </p:panel>
+        </div>
+      </div>
+    </h:form>
   </ui:define>
-
 
 </ui:composition>
