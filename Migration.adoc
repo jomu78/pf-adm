@@ -157,6 +157,66 @@ Recommended migration approach:
   link:doc/template_compatibility_matrix.adoc[Compatibility Matrix]
 * remove reliance on AdminFaces-only regions that currently exist only as placeholders
 
+=== Upper-Right Notifications
+
+The showcase fragment
+`pf-adm-showcase/src/main/resources/META-INF/resources/includes/notifications.xhtml`
+renders the upper-right header dropdowns through the
+`top-menu-notifications` template region.
+
+This differs from AdminFaces in a few important ways:
+
+* `top-menu-notifications` is a `pf-adm-template` extension. It is not an AdminFaces-compatible template region.
+* the fragment is only header navigation UI. It is separate from the main page message area rendered by `p:messages` when `pf-adm.render-messages=true`.
+* `pf-adm` uses AdminLTE 4 / Bootstrap 5 navbar dropdown markup such as `nav-item dropdown`, `nav-link`, `data-bs-toggle="dropdown"`, `dropdown-menu`, `dropdown-item`, and `dropdown-menu-end`
+* AdminFaces examples are based on AdminLTE 2 / Bootstrap 3 patterns such as `messages-menu` / `notifications-menu`, `dropdown-toggle`, `data-toggle="dropdown"`, `label`, and nested `.menu > li > a` structures
+* the showcase uses Bootstrap Icons (`bi ...`) and Bootstrap 5 badge utility classes such as `badge text-bg-warning`; AdminFaces examples typically use Font Awesome and Bootstrap 3 label classes
+
+In practice, this means that AdminFaces notification dropdown fragments cannot be copied unchanged into `pf-adm`.
+When migrating the upper-right corner, keep the conceptual content, but rewrite the markup to the current navbar dropdown structure and place it in `top-menu-notifications`.
+
+
+// TODO: generalize
+[cols="a,a"]
+|===
+^| AdminFaces-style concept ^| `pf-adm` showcase pattern
+
+|
+[source,xhtml]
+----
+<li class="dropdown notifications-menu">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-bell-o"/>
+    <span class="label label-warning">10</span>
+  </a>
+  <ul class="dropdown-menu">
+    <li class="header">10 notifications</li>
+    <li>
+      <ul class="menu">
+        <li><a href="#">...</a></li>
+      </ul>
+    </li>
+  </ul>
+</li>
+----
+
+|
+[source,xhtml]
+----
+<ui:define name="top-menu-notifications">
+  <li class="nav-item dropdown">
+    <a class="nav-link" data-bs-toggle="dropdown" href="#">
+      <i class="bi bi-bell-fill"/>
+      <span class="navbar-badge badge text-bg-warning">15</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+      <a href="#" class="dropdown-item">...</a>
+    </div>
+  </li>
+</ui:define>
+----
+|===
+
 == Bean Naming
 
 `pf-adm` prefers modern names such as `layoutView`, `skinView`, and
