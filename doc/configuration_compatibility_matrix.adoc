@@ -14,7 +14,7 @@ The matrix focuses on property availability, not on full behavioral parity.
 
 * icon:check[font-color: green] = supported
 * icon:check[font-color: yellow] = partially supported or supported with different behavior
-* icon:times[font-color: red] = not currently supported
+* icon:times[font-color: red] = currently not supported
 
 == Shared or Related Properties
 

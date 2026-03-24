@@ -11,14 +11,14 @@ behavior, not just the existence of Facelets hook names.
 
 * icon:check[font-color: green] = implemented
 * icon:check[font-color: yellow] = partially implemented or implemented differently
-* icon:times[font-color: red] = not currently implemented
+* icon:times[font-color: red] = currently not implemented
 
 [cols="3,1,1,4"]
 |===
 |Feature ^| AdminFaces `admin-template` ^| `pf-adm-template` ^| Notes
 
 |Bootstrap support
-^| icon:check[font-color: yellow] v3
+^| icon:check[font-color: red] v3
 ^| icon:check[font-color: green] v5
 |Both templates are Bootstrap-based, but they target different major versions.
 
@@ -28,7 +28,7 @@ behavior, not just the existence of Facelets hook names.
 |`pf-adm-template` is based on a Bootstrap 5 / AdminLTE 4 stack and does not require jQuery as a core dependency.
 
 |AdminLTE integration
-^| icon:check[font-color: yellow] v2
+^| icon:check[font-color: red] v2
 ^| icon:check[font-color: green] v4
 |Both templates integrate AdminLTE, but with different major versions.
 
@@ -40,7 +40,7 @@ behavior, not just the existence of Facelets hook names.
 |Material-style load bar
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
-|Not currently implemented in `pf-adm-template`.
+|Currently not implemented in `pf-adm-template`.
 
 |Material-style flat buttons
 ^| icon:check[font-color: green]
@@ -50,7 +50,7 @@ behavior, not just the existence of Facelets hook names.
 |Ripple effect
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
-|Not currently implemented in `pf-adm-template`.
+|Currently not implemented in `pf-adm-template`.
 
 |Touch slide menu and scroll-reactive navbar
 ^| icon:check[font-color: green]
@@ -60,17 +60,17 @@ behavior, not just the existence of Facelets hook names.
 |Auto show and hide navbar on scroll
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
-|Not currently implemented in `pf-adm-template`.
+|Currently not implemented in `pf-adm-template`.
 
 |Scroll-to-top affordance
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
-|Not currently implemented in `pf-adm-template`.
+|Currently not implemented in `pf-adm-template`.
 
 |Automatic active-menu highlighting
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
-|Not currently implemented in `pf-adm-template`.
+|Currently not implemented in `pf-adm-template`.
 
 |Custom error pages
 ^| icon:check[font-color: green]
@@ -85,7 +85,7 @@ behavior, not just the existence of Facelets hook names.
 |Top-based menu layout
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
-|AdminFaces provides `admin-top.xhtml`; `pf-adm-template` does not currently provide an equivalent layout.
+|AdminFaces provides `admin-top.xhtml`; `pf-adm-template` does currently not provide an equivalent layout.
 
 |Configurable via application properties
 ^| icon:check[font-color: green]
@@ -95,17 +95,17 @@ behavior, not just the existence of Facelets hook names.
 |Breadcrumb-based navigation
 ^| icon:check[font-color: green]
 ^| icon:check[font-color: yellow]
-|`pf-adm-template` renders breadcrumb UI, but does not currently provide the full AdminFaces breadcrumb navigation model.
+|`pf-adm-template` renders breadcrumb UI, but does currently not provide the full AdminFaces breadcrumb navigation model.
 
 |Sticky datatable headers
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
-|PrimeFaces sticky datatable headers are not currently supported reliably in `pf-adm-template` / `pf-adm-showcase`.
+|PrimeFaces sticky datatable headers are currently not supported reliably in `pf-adm-template` / `pf-adm-showcase`.
 
 |Layout customization via control sidebar
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
-|Not currently implemented in `pf-adm-template`.
+|Currently not implemented in `pf-adm-template`.
 
 |Glyphicons support
 ^| icon:check[font-color: green]
@@ -120,7 +120,7 @@ behavior, not just the existence of Facelets hook names.
 |Menu item search
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
-|A configuration flag exists in `pf-adm-template`, but the AdminFaces-style menu search feature is not currently implemented.
+|A configuration flag exists in `pf-adm-template`, but the AdminFaces-style menu search feature is currently not implemented.
 
 |Built-in dark and light skin variants
 ^| icon:check[font-color: green]
