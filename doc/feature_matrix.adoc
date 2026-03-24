@@ -1,30 +1,143 @@
-= Feature matrix
+= Feature Matrix
 :icons: font
 
-[cols="3,1,1"]
-|===
-| Feature ^| admin-template ^| bfbs-template
+This document compares higher-level template features between the upstream
+AdminFaces `admin-template` and `pf-adm-template`.
 
-|BootStrap support ^| icon:check[font-color: yellow] v3 ^| icon:check[font-color: green] v5
-|JQuery ^| icon:check[font-color: yellow] v3 ^| not required
-|AdminLTE ^| icon:check[font-color: yellow] v2 ^| icon:times[font-color: red]
-|Fully responsive ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|Material design load bar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|Material design flat buttons ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|Ripple effect based on materialize css ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|Touch enabled menu to slide in/out and show navbar on scroll up ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|Auto show and hide navbar based on page scroll ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|Scroll to top ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|Automatically activates (highlight) menu based on current page ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|Custom error pages ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|Left based menu ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|Top based menu ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|Configurable ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|Breadcrumb based navigation ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|Layout customization via Control Sidebar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|Glyphycons support ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|FontAwesome support ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-|Menu items search ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-|Builtin dark and light skins ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+Unlike the template compatibility matrix, this page is about implemented
+behavior, not just the existence of Facelets hook names.
+
+== Legend
+
+* icon:check[font-color: green] = implemented
+* icon:check[font-color: yellow] = partially implemented or implemented differently
+* icon:times[font-color: red] = currently not implemented
+
+[cols="3,1,1,4"]
+|===
+|Feature ^| AdminFaces `admin-template` ^| `pf-adm-template` ^| Notes
+
+|Bootstrap support
+^| icon:check[font-color: red] v3
+^| icon:check[font-color: green] v5
+|Both templates are Bootstrap-based, but they target different major versions.
+
+|jQuery dependency
+^| icon:check[font-color: yellow] required
+^| icon:check[font-color: green] not required
+|`pf-adm-template` is based on a Bootstrap 5 / AdminLTE 4 stack and does not require jQuery as a core dependency.
+
+|AdminLTE integration
+^| icon:check[font-color: red] v2
+^| icon:check[font-color: green] v4
+|Both templates integrate AdminLTE, but with different major versions.
+
+|Fully responsive layout
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Responsive layout is supported in both templates.
+
+|Material-style load bar
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Currently not implemented in `pf-adm-template`.
+
+|Material-style flat buttons
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|`btn-flat` exists as a visual utility, but material-design button behavior and styling parity are not supported.
+
+|Ripple effect
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Currently not implemented in `pf-adm-template`.
+
+|Touch slide menu and scroll-reactive navbar
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|`pf-adm-template` supports sidebar toggling, but not the AdminFaces slideout/mobile behavior set.
+
+|Auto show and hide navbar on scroll
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Currently not implemented in `pf-adm-template`.
+
+|Scroll-to-top affordance
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Currently not implemented in `pf-adm-template`.
+
+|Automatic active-menu highlighting
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Currently not implemented in `pf-adm-template`.
+
+|Custom error pages
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|`pf-adm-template` ships 403, 404, 500, expired-view, and optimistic-lock pages.
+
+|Left-based menu layout
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Both templates support a sidebar-oriented layout.
+
+|Top-based menu layout
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|AdminFaces provides `admin-top.xhtml`; `pf-adm-template` does currently not provide an equivalent layout.
+
+|Configurable via application properties
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|`pf-adm-template` exposes template settings via `PfAdmProperties`.
+
+|Breadcrumb-based navigation
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|`pf-adm-template` renders breadcrumb UI, but does currently not provide the full AdminFaces breadcrumb navigation model.
+
+|Sticky datatable headers
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|PrimeFaces sticky datatable headers are currently not supported reliably in `pf-adm-template` / `pf-adm-showcase`.
+
+|Layout customization via control sidebar
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Currently not implemented in `pf-adm-template`.
+
+|Glyphicons support
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not relevant to the Bootstrap 5 / AdminLTE 4 stack used by `pf-adm-template`.
+
+|Font Awesome support
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Supported in `pf-adm-template` as an optional feature flag.
+
+|Menu item search
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|A configuration flag exists in `pf-adm-template`, but the AdminFaces-style menu search feature is currently not implemented.
+
+|Built-in dark and light skin variants
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|`pf-adm-template` provides compatible skin names including light variants through `SkinEnum`.
 |===
 
+== Summary
+
+`pf-adm-template` already matches AdminFaces in core areas such as responsive
+layout, sidebar layout, error pages, configuration support, Font Awesome
+integration, and skin variants.
+
+The main missing areas are AdminFaces-specific UX features:
+
+* control sidebar customization
+* top-menu layout variant
+* menu search
+* ripple/material interactions
+* breadcrumb navigation behavior beyond basic rendering

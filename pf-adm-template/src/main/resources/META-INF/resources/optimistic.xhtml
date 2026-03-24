@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="jakarta.faces.facelets"
+                template="#{layoutView.template}">
+
+    <ui:define name="body">
+        <div class="error-content">
+            <div class="box box-solid box-warning">
+                <div class="box-header with-border" style="padding-top: 1px">
+                    <h3>#{admMessages['error_optimistic_title']}</h3>
+                </div>
+                <div class="box-body">
+                    <p>#{admMessages['error_optimistic_message']}
+                      <p:link outcome="#{pfAdminSessionView.requestRelativeURI}"
+                              value="#{admMessages['label_optimistic_click_here']}" escape="false"/>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <h:form>
+            <p:remoteCommand autoRun="true" process="@none" global="false" partialSubmit="true" update="@none" oncomplete="$('body').layout('fix');window.setTimeout(collapseSidebar, 100);"/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

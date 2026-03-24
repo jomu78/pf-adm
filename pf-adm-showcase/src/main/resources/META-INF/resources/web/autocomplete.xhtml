@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="http://primefaces.org/ui"
+                template="#{layoutView.template}"
+>
+
+  <ui:define name="title">
+    AutoComplete
+  </ui:define>
+
+  <ui:define name="description">
+    This page shows the shared pf-adm styling for PrimeFaces auto complete inputs, dropdown triggers, token mode, and suggestion panels.
+  </ui:define>
+
+  <ui:define name="body">
+    <h:form id="autocomplete-form">
+      <div class="row g-4">
+        <div class="col-12 col-xl-6">
+          <p:panel header="Single Selection" styleClass="card no-border h-100">
+            <div class="row g-3">
+              <div class="col-12">
+                <p:outputLabel for="brand" value="Brand search"/>
+                <p:autoComplete id="brand" value="#{autoCompleteView.selectedBrand}"
+                                completeMethod="#{autoCompleteView.completeBrand}"
+                                dropdown="false" scrollHeight="220"/>
+              </div>
+              <div class="col-12">
+                <p:outputLabel for="color" value="Force selection"/>
+                <p:autoComplete id="color" value="#{autoCompleteView.forcedSelectionColor}"
+                                completeMethod="#{autoCompleteView.completeColor}"
+                                forceSelection="true" scrollHeight="220"/>
+              </div>
+            </div>
+          </p:panel>
+        </div>
+
+        <div class="col-12 col-xl-6">
+          <p:panel header="Dropdown And Multiple Mode" styleClass="card no-border h-100">
+            <div class="row g-3">
+              <div class="col-12">
+                <p:outputLabel for="brand-dropdown" value="Dropdown trigger"/>
+                <p:autoComplete id="brand-dropdown" value="#{autoCompleteView.dropdownBrand}"
+                                completeMethod="#{autoCompleteView.completeBrand}"
+                                dropdown="true" forceSelection="true" scrollHeight="220"/>
+              </div>
+              <div class="col-12">
+                <p:outputLabel for="colors-multiple" value="Multiple token mode"/>
+                <p:autoComplete id="colors-multiple" value="#{autoCompleteView.selectedColors}"
+                                completeMethod="#{autoCompleteView.completeColor}"
+                                multiple="true" scrollHeight="220"/>
+              </div>
+            </div>
+          </p:panel>
+        </div>
+
+        <div class="col-12">
+          <p:panel header="Current Values" styleClass="card no-border">
+            <h:panelGrid columns="2" cellpadding="8">
+              <h:outputText value="Brand search"/>
+              <h:outputText value="#{autoCompleteView.selectedBrand}"/>
+
+              <h:outputText value="Force selection"/>
+              <h:outputText value="#{autoCompleteView.forcedSelectionColor}"/>
+
+              <h:outputText value="Dropdown trigger"/>
+              <h:outputText value="#{autoCompleteView.dropdownBrand}"/>
+
+              <h:outputText value="Multiple token mode"/>
+              <h:outputText value="#{autoCompleteView.selectedColors}"/>
+            </h:panelGrid>
+          </p:panel>
+        </div>
+      </div>
+    </h:form>
+  </ui:define>
+
+</ui:composition>

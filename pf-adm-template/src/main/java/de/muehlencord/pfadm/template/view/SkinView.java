@@ -1,12 +1,13 @@
 package de.muehlencord.pfadm.template.view;
 
+import de.muehlencord.pfadm.template.config.SkinEnum;
 import de.muehlencord.pfadm.template.config.PfAdmConfig;
+import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import lombok.Getter;
-
 import java.io.Serializable;
+import org.springframework.util.StringUtils;
 
 /**
  * Managed Bean for managing the current skin
@@ -18,12 +19,34 @@ import java.io.Serializable;
 @SessionScoped
 public class SkinView implements Serializable {
 
-  @Getter
-  private final String skin;
+  private final PfAdmConfig config;
+  private String skin;
 
   @Inject
   public SkinView(PfAdmConfig config) {
-    this.skin = config.getSkin();
+    this.config = config;
+  }
+
+  @PostConstruct
+  public void init() {
+    skin = config.getSkin();
+  }
+
+  public String getSkin() {
+    if (!StringUtils.hasText(skin)) {
+      skin = config.getSkin();
+    }
+    return skin;
+  }
+
+  public void setSkin(String skin) {
+    if (!StringUtils.hasText(skin)) {
+      this.skin = config.getSkin();
+      return;
+    }
+
+    var resolvedSkin = SkinEnum.fromLabel(skin);
+    this.skin = resolvedSkin != null ? resolvedSkin.getLabel() : config.getSkin();
   }
 
 }

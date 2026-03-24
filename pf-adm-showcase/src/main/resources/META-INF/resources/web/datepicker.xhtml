@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:p="http://primefaces.org/ui"
+                template="#{layoutView.template}"
+>
+
+  <ui:define name="title">
+    DatePicker
+  </ui:define>
+
+  <ui:define name="description">
+    This page shows the shared pf-adm styling for legacy PrimeFaces calendar inputs and modern date picker inputs.
+  </ui:define>
+
+  <ui:define name="body">
+    <h:form id="datepicker-form">
+      <div class="row g-4">
+        <div class="col-12 col-xl-6">
+          <p:panel header="Calendar Trigger Integration" styleClass="card no-border h-100">
+            <div class="row g-3">
+              <div class="col-12">
+                <p:outputLabel for="legacy-date" value="Legacy calendar with trigger"/>
+                <p:calendar id="legacy-date" value="#{datePickerView.legacyDate}" pattern="dd.MM.yyyy"
+                            showOn="both" navigator="true" yearRange="c-10:c+10"/>
+              </div>
+              <div class="col-12">
+                <p:outputLabel for="legacy-year" value="Year-only filter style"/>
+                <p:calendar id="legacy-year" value="#{datePickerView.legacyYear}" pattern="yyyy"
+                            showOn="both" navigator="true" yearRange="c-60:c+0"/>
+              </div>
+            </div>
+          </p:panel>
+        </div>
+
+        <div class="col-12 col-xl-6">
+          <p:panel header="DatePicker Trigger Integration" styleClass="card no-border h-100">
+            <div class="row g-3">
+              <div class="col-12">
+                <p:outputLabel for="combined-date-input" value="Date picker with combined month-year header"/>
+                <p:datePicker id="combined-date-input" value="#{datePickerView.combinedDate}"
+                              pattern="dd.MM.yyyy" showIcon="true"/>
+              </div>
+              <div class="col-12">
+                <p:outputLabel for="date-input" value="Date picker with icon trigger"/>
+                <p:datePicker id="date-input" value="#{datePickerView.date}" pattern="dd.MM.yyyy"
+                              showIcon="true" monthNavigator="true" yearNavigator="true"/>
+              </div>
+              <div class="col-12">
+                <p:outputLabel for="appointment-input" value="Date and time"/>
+                <p:datePicker id="appointment-input" value="#{datePickerView.appointment}"
+                              pattern="dd.MM.yyyy HH:mm" showIcon="true" showTime="true"
+                              monthNavigator="true" yearNavigator="true"/>
+              </div>
+            </div>
+          </p:panel>
+        </div>
+
+        <div class="col-12">
+          <p:panel header="Inline DatePicker" styleClass="card no-border">
+            <p:datePicker id="inline-date" value="#{datePickerView.inlineDate}" inline="true"
+                          monthNavigator="false" yearNavigator="false"/>
+          </p:panel>
+        </div>
+
+        <div class="col-12">
+          <p:panel header="Current Values" styleClass="card no-border">
+            <h:panelGrid columns="2" cellpadding="8">
+              <h:outputText value="Legacy date"/>
+              <h:outputText value="#{datePickerView.legacyDate}">
+                <f:convertDateTime pattern="dd.MM.yyyy"/>
+              </h:outputText>
+
+              <h:outputText value="Date picker"/>
+              <h:outputText value="#{datePickerView.date}"/>
+
+              <h:outputText value="Combined header date picker"/>
+              <h:outputText value="#{datePickerView.combinedDate}"/>
+
+              <h:outputText value="Appointment"/>
+              <h:outputText value="#{datePickerView.appointment}"/>
+            </h:panelGrid>
+          </p:panel>
+        </div>
+      </div>
+    </h:form>
+  </ui:define>
+
+</ui:composition>

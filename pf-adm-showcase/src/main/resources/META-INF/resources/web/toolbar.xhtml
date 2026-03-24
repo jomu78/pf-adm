@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:p="http://primefaces.org/ui"
+                template="#{layoutView.template}"
+>
+
+  <ui:define name="title">
+    Toolbar
+  </ui:define>
+
+  <ui:define name="description">
+    This page shows the shared pf-adm styling for PrimeFaces toolbars, including grouped actions, separators, embedded filters, responsive wrapping, and semantic box variants.
+  </ui:define>
+
+  <ui:define name="body">
+    <h:form id="toolbar-form">
+      <div class="row g-4">
+        <div class="col-12">
+          <p:panel header="Default Action Toolbar" styleClass="card no-border">
+            <p:toolbar>
+              <p:toolbarGroup>
+                <p:commandButton type="button" value="Create" icon="pi pi-plus" styleClass="btn-primary"/>
+                <p:commandButton type="button" value="Export" icon="pi pi-download" styleClass="btn-default"/>
+                <p:separator/>
+                <p:commandButton type="button" value="Archive" icon="pi pi-folder" styleClass="btn-warning"/>
+              </p:toolbarGroup>
+              <p:toolbarGroup align="right">
+                <div class="ui-inputgroup">
+                  <span class="ui-inputgroup-addon">
+                    <i class="pi pi-search"/>
+                  </span>
+                  <p:inputText id="search-query" value="#{toolbarView.searchQuery}"/>
+                </div>
+                <p:selectOneMenu id="status" value="#{toolbarView.status}">
+                  <f:selectItem itemLabel="Active" itemValue="Active"/>
+                  <f:selectItem itemLabel="Pending" itemValue="Pending"/>
+                  <f:selectItem itemLabel="Archived" itemValue="Archived"/>
+                </p:selectOneMenu>
+              </p:toolbarGroup>
+            </p:toolbar>
+          </p:panel>
+        </div>
+
+        <div class="col-12">
+          <p:panel header="Semantic Box Variant" styleClass="card no-border">
+            <p:toolbar styleClass="box-primary box-solid">
+              <p:toolbarGroup>
+                <p:commandButton type="button" value="Save" icon="pi pi-save" styleClass="btn-default"/>
+                <p:commandButton type="button" value="Share" icon="pi pi-send" styleClass="btn-info"/>
+                <p:separator/>
+                <p:commandButton type="button" value="Delete" icon="pi pi-trash" styleClass="btn-danger"/>
+              </p:toolbarGroup>
+              <p:toolbarGroup align="right">
+                <p:selectOneMenu id="scope" value="#{toolbarView.scope}">
+                  <f:selectItem itemLabel="All teams" itemValue="All teams"/>
+                  <f:selectItem itemLabel="Product" itemValue="Product"/>
+                  <f:selectItem itemLabel="Support" itemValue="Support"/>
+                </p:selectOneMenu>
+              </p:toolbarGroup>
+            </p:toolbar>
+          </p:panel>
+        </div>
+
+        <div class="col-12 col-xl-6">
+          <p:panel header="Current Values" styleClass="card no-border h-100">
+            <h:panelGrid columns="2" cellpadding="8">
+              <h:outputText value="Search"/>
+              <h:outputText value="#{toolbarView.searchQuery}"/>
+
+              <h:outputText value="Status"/>
+              <h:outputText value="#{toolbarView.status}"/>
+
+              <h:outputText value="Scope"/>
+              <h:outputText value="#{toolbarView.scope}"/>
+            </h:panelGrid>
+          </p:panel>
+        </div>
+      </div>
+    </h:form>
+  </ui:define>
+
+</ui:composition>

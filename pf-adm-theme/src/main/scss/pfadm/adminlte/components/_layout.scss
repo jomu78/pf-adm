@@ -1,0 +1,139 @@
+:root {
+  --pfadm-surface-page: #{$pfadm-mode-surface-page};
+  --pfadm-surface-app: #{$pfadm-mode-surface-app};
+  --pfadm-surface-card: #{$pfadm-mode-surface-card};
+  --pfadm-surface-overlay: #{$pfadm-mode-surface-overlay};
+  --pfadm-surface-muted: #{$pfadm-mode-surface-muted};
+  --pfadm-border-color: #{$pfadm-mode-border-color};
+  --pfadm-border-color-strong: #{$pfadm-mode-border-color-strong};
+  --pfadm-text-primary: #{$pfadm-mode-text-primary};
+  --pfadm-text-secondary: #{$pfadm-mode-text-secondary};
+  --pfadm-text-muted: #{$pfadm-mode-text-muted};
+  --pfadm-text-inverse: #{$pfadm-mode-text-inverse};
+  --pfadm-hover-bg: #{$pfadm-mode-hover-bg};
+  --pfadm-active-bg: #{$pfadm-mode-active-bg};
+  --pfadm-focus-ring-color: #{$pfadm-mode-focus-ring-color};
+  --pfadm-shadow-sm: #{$pfadm-mode-shadow-sm};
+  --pfadm-shadow-md: #{$pfadm-mode-shadow-md};
+}
+
+[data-pfadm-mode="dark"],
+[data-bs-theme="dark"] {
+  --pfadm-surface-page: #{$pfadm-dark-surface-page};
+  --pfadm-surface-app: #{$pfadm-dark-surface-app};
+  --pfadm-surface-card: #{$pfadm-dark-surface-card};
+  --pfadm-surface-overlay: #{$pfadm-dark-surface-overlay};
+  --pfadm-surface-muted: #{$pfadm-dark-surface-muted};
+  --pfadm-border-color: #{$pfadm-dark-border-color};
+  --pfadm-border-color-strong: #{$pfadm-dark-border-color-strong};
+  --pfadm-text-primary: #{$pfadm-dark-text-primary};
+  --pfadm-text-secondary: #{$pfadm-dark-text-secondary};
+  --pfadm-text-muted: #{$pfadm-dark-text-muted};
+  --pfadm-text-inverse: #{$pfadm-dark-text-inverse};
+  --pfadm-hover-bg: #{$pfadm-dark-hover-bg};
+  --pfadm-active-bg: #{$pfadm-dark-active-bg};
+  --pfadm-focus-ring-color: #{$pfadm-dark-focus-ring-color};
+  --pfadm-shadow-sm: #{$pfadm-dark-shadow-sm};
+  --pfadm-shadow-md: #{$pfadm-dark-shadow-md};
+}
+
+body {
+  color: var(--pfadm-text-primary);
+  background-color: var(--pfadm-surface-page);
+}
+
+.app-main,
+.app-content {
+  color: var(--pfadm-text-primary);
+  background-color: var(--pfadm-surface-page);
+}
+
+.app-content-header {
+  color: var(--pfadm-text-primary);
+  background-color: transparent;
+}
+
+.app-content-top-area,
+.app-content-bottom-area {
+  color: var(--pfadm-text-secondary);
+  background-color: var(--pfadm-surface-card);
+  border-color: var(--pfadm-border-color);
+}
+
+.app-content-top-area {
+  border-bottom: 1px solid var(--pfadm-border-color);
+}
+
+.app-content-bottom-area {
+  border-top: 1px solid var(--pfadm-border-color);
+}
+
+.card {
+  color: var(--pfadm-text-primary);
+  background-color: var(--pfadm-surface-card);
+  border-color: var(--pfadm-border-color);
+  box-shadow: var(--pfadm-shadow-sm);
+}
+
+.card-header {
+  color: var(--pfadm-text-primary);
+  background-color: var(--pfadm-surface-muted);
+  border-bottom-color: var(--pfadm-border-color);
+}
+
+.card-footer {
+  background-color: var(--pfadm-surface-muted);
+  border-top-color: var(--pfadm-border-color);
+}
+
+body[class*="skin-"] .navbar-nav > .user-menu > .dropdown-menu {
+  color: var(--pfadm-text-primary);
+  background-color: var(--pfadm-surface-overlay);
+  border-color: var(--pfadm-border-color);
+  box-shadow: var(--pfadm-shadow-md);
+
+  > li.user-header,
+  > li.user-header.text-bg-primary,
+  > li.user-header.card-primary,
+  > li.user-header.bg-primary {
+    color: var(--pfadm-skin-accent-contrast, var(--pfadm-text-inverse)) !important;
+    background-color: var(--pfadm-skin-accent, #{$pfadm-color-primary}) !important;
+    background-image: none !important;
+  }
+
+  > li.user-header > img,
+  > li.user-header.text-bg-primary > img,
+  > li.user-header.card-primary > img,
+  > li.user-header.bg-primary > img {
+    border-color: var(--pfadm-skin-accent-border, rgba(255, 255, 255, 0.35));
+  }
+
+  > .user-body {
+    color: var(--pfadm-text-primary);
+    background-color: var(--pfadm-surface-card);
+    border-top-color: var(--pfadm-border-color);
+    border-bottom-color: var(--pfadm-border-color);
+
+    a {
+      color: var(--pfadm-text-primary) !important;
+      background-color: transparent !important;
+    }
+  }
+
+  > .user-footer {
+    background-color: var(--pfadm-surface-muted);
+
+    .btn-default {
+      color: var(--pfadm-text-primary);
+      background-color: var(--pfadm-surface-card);
+      border-color: var(--pfadm-border-color);
+
+      &:hover,
+      &:focus {
+        color: var(--pfadm-text-primary);
+        background-color: var(--pfadm-hover-bg);
+        border-color: var(--pfadm-border-color-strong);
+      }
+    }
+  }
+}

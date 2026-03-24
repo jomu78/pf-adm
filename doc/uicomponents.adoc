@@ -1,29 +1,140 @@
-= Components
+= UI Component Compatibility Matrix
 :icons: font
 
-|===
-^| UI Element ^| admin-template ^| bfbs-template
+This document compares the visual/component-level support offered by the
+upstream AdminFaces `admin-template` and `pf-adm-template`.
 
-^| Accordion ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| AutoComplete ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Buttons ^| icon:check[font-color: green] ^| icon:check[font-color: yellow]
-^| Chips ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Datatable ^| icon:check[font-color: green] ^| icon:check[font-color: yellow]
-^| DatePicker ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Dialog ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| DragDrop ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| InPlace ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| InputGroup ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Menus ^| icon:check[font-color: green] ^| icon:check[font-color: yellow]
-^| NotificationBar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Panels ^| icon:check[font-color: green] ^| icon:check[font-color: green]
-^| Sidebar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Steps ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Schedule ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| TabView ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Toolbar ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Tree ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| TriStateCheckbox ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Upload ^| icon:check[font-color: green] ^| icon:times[font-color: red]
-^| Wizard ^| icon:check[font-color: green] ^| icon:times[font-color: red]
+The table is intentionally high level. It answers this question:
+
+* does the template/theme provide styling and layout support for the component family?
+
+It does not guarantee identical markup, JavaScript behavior, or pixel-perfect
+rendering across both projects.
+
+== Legend
+
+* icon:check[font-color: green] = supported
+* icon:check[font-color: yellow] = partially supported or still being aligned
+* icon:times[font-color: red] = not currently supported
+
 |===
+^| UI component family ^| AdminFaces `admin-template` ^| `pf-adm-template` ^| Notes
+
+^| Accordion
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Dedicated accordion styling exists for default headers, active states, embedded content panels, and semantic box variants, but full AdminFaces-equivalent parity is still incomplete.
+
+^| AutoComplete
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Dedicated auto complete styling exists for single-input, dropdown-trigger, token, and suggestion-panel states, but full AdminFaces-equivalent parity is still incomplete.
+
+^| Buttons
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Semantic color classes, size variants, block buttons, `btn-flat`, and basic split-button styling are supported, but material-design support is not provided and full AdminFaces parity is still incomplete.
+
+^| Chips
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| DataTable
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Core table support exists, but sticky headers and some AdminFaces-specific presentation details are not currently supported.
+
+^| DatePicker
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Dedicated date picker styling exists for trigger/input integration, including datatable filter calendars with `showOn="both"`, but full AdminFaces-equivalent coverage is still incomplete.
+
+^| Dialog
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Dedicated dialog styling exists, but AdminFaces-equivalent compatibility is still only partial.
+
+^| DragDrop
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| InPlace
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| InputGroup
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Dedicated input group styling exists for add-ons, checkbox add-ons, button actions, and mixed input/select combinations, but full AdminFaces-equivalent parity is still incomplete.
+
+^| Menus
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Template-level menu support exists, but not all AdminFaces menu variants are covered.
+
+^| NotificationBar
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Dedicated notification bar styling exists for top and bottom bars, dismiss actions, embedded content layouts, and semantic box variants, but full AdminFaces-equivalent parity is still incomplete.
+
+^| Panels
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Panel compatibility is currently one of the stronger aligned areas.
+
+^| Sidebar
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Sidebar exists at template level, but not as an AdminFaces-compatible component feature set.
+
+^| Steps
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Dedicated steps styling exists for progress tracks, active items, semantic box variants, and responsive wrapping, but full AdminFaces-equivalent parity is still incomplete.
+
+^| Schedule
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| TabView
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Dedicated tab styling exists, including AdminFaces-style box color variants, but full parity is still incomplete.
+
+^| Toolbar
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Dedicated toolbar styling exists for grouped actions, separators, embedded filters, responsive wrapping, and semantic box variants, but full AdminFaces-equivalent parity is still incomplete.
+
+^| Tree
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Dedicated tree styling exists for filters, togglers, selectable nodes, checkbox selection, and semantic box variants, but full AdminFaces-equivalent parity is still incomplete. Horizontal tree connector line height remains an open TODO.
+
+^| TriStateCheckbox
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+
+^| FileUpload
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Dedicated file upload styling exists for advanced and simple modes, drag-and-drop overlays, file rows, and semantic box variants, but full AdminFaces-equivalent parity is still incomplete.
+
+^| Wizard
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|No dedicated compatibility styling yet in `pf-adm-template`.
+|===
+
+== Summary
+
+`pf-adm-template` currently has the strongest compatibility in core layout and
+shared presentation areas such as panels, buttons, menus, data tables, tab
+views, dialogs, and date pickers. Most specialized PrimeFaces component
+families still need dedicated compatibility styling before they can be
+considered AdminFaces-equivalent.

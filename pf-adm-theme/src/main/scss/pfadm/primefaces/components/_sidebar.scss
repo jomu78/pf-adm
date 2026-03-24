@@ -11,20 +11,50 @@ body {
   }
 }
 
-.sidebar-menu {
-  .nav-item {
-    .nav-link {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-      color: $admin-text-color;
-      align-items: center;
-      &:hover {
-        background-color: $hover-color;
+.app-sidebar {
+  .sidebar-menu {
+    > .nav-item,
+    > form > .nav-item,
+    .nav-treeview > .nav-item {
+      > .nav-link.active,
+      > .nav-link.active:hover,
+      > .nav-link.active:focus,
+      > .nav-link.pfadm-nav-link-active,
+      > .nav-link.pfadm-nav-link-active:hover,
+      > .nav-link.pfadm-nav-link-active:focus {
+        background-color: var(--pfadm-skin-accent, #{$pfadm-color-primary});
+        color: var(--pfadm-skin-accent-contrast, var(--pfadm-text-inverse));
+        font-weight: 700;
+
+        .nav-icon,
+        .nav-arrow,
+        .right,
+        p,
+        p > .nav-arrow,
+        p > .right,
+        i,
+        svg {
+          color: inherit;
+        }
       }
-      &.active {
-        background-color: $highlightBg;
-        font-weight: bold;
-        color: $highlightTextColor;
+    }
+
+    .nav-item {
+      .nav-link {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        color: var(--pfadm-text-secondary);
+        align-items: center;
+
+        &:hover {
+          color: var(--pfadm-text-primary);
+          background-color: var(--pfadm-hover-bg);
+        }
+
+        &:focus-visible {
+          outline: 0;
+          box-shadow: 0 0 0 .2rem var(--pfadm-focus-ring-color);
+        }
       }
     }
   }
@@ -42,6 +72,7 @@ ul {
   &.sidebar-menu {
     li {
       &.header {
+        color: var(--pfadm-text-muted);
         text-transform: uppercase;
       }
 
@@ -57,5 +88,3 @@ ul {
     }
   }
 }
-
-

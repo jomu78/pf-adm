@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                template="#{layoutView.template}">
+
+
+  <ui:define name="body">
+    <div class="row">
+      <div class="ui-sm-12">
+
+        <div class="error-page">
+          <h2 class="headline text-danger">#{admMessages['error_403_header']}</h2>
+
+          <div class="error-content" style="font-size: 1.1em">
+            <h3><i class="pi pi-lock text-danger"/> #{admMessages['error_403_message']}</h3>
+
+            <p>
+              #{admMessages['label_go_back']}
+              <p:link outcome="#{pfAdmConfig.indexPage}" value="#{admMessages['label_home']}" escape="false"/>
+              #{admMessages['label_or_to']}
+              <p:link outcome="#{pfAdminSessionView.requestRelativeURI}" value="#{admMessages['label_previous_page']}"
+                      escape="false"/>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <h:form>
+      <p:remoteCommand autoRun="true" process="@none" global="false" partialSubmit="true" update="@none"
+                       oncomplete="$('body').layout('fix');window.setTimeout(collapseSidebar, 100);"/>
+    </h:form>
+  </ui:define>
+
+
+</ui:composition>

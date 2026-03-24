@@ -2,7 +2,6 @@ package de.muehlencord.pfadm.template.config;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
-
 import java.io.Serializable;
 
 /**
@@ -17,6 +16,18 @@ public class PfAdmConfig implements Serializable {
 
   public String getIndexPage() {
     return SpringContext.getBean(PfAdmProperties.class).getIndexPage();
+  }
+
+  public String getDateFormat() {
+    return SpringContext.getBean(PfAdmProperties.class).getDateFormat();
+  }
+
+  public String getTemplatePath() {
+    return SpringContext.getBean(PfAdmProperties.class).getTemplatePath();
+  }
+
+  public void setTemplatePath(String templatePath) {
+    SpringContext.getBean(PfAdmProperties.class).setTemplatePath(templatePath);
   }
 
   public boolean isRenderMessages() {
@@ -63,6 +74,8 @@ public class PfAdmConfig implements Serializable {
     return SpringContext.getBean(PfAdmProperties.class).isSupportFontAwesome();
   }
 
-
+  public ErrorPageProperties getError() {
+    return SpringContext.getBean(PfAdmProperties.class).getError();
+  }
 
 }

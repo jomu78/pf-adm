@@ -1,0 +1,38 @@
+@import "../../../resources/static/bootstrap/_mixins.scss";
+@import "../mixins";
+
+@mixin skin-variant($name, $accent, $sidebar-bg: $pfadm-surface-card, $accent-text-color: color-contrast($accent)) {
+  .#{$name} {
+    --pfadm-skin-accent: #{$accent};
+    --pfadm-skin-accent-contrast: #{$accent-text-color};
+    --pfadm-skin-accent-emphasis: #{if($accent-text-color == $pfadm-text-primary, shade-color($accent, 35%), $accent)};
+    --pfadm-skin-accent-border: #{rgba($accent-text-color, 0.35)};
+    --pfadm-skin-accent-hover-bg: #{rgba($accent-text-color, 0.12)};
+    --pfadm-skin-accent-soft-bg: #{rgba($accent, 0.16)};
+
+    .navbar {
+      @include navbar-variant($name, $accent, $accent-text-color);
+
+      .sidebar {
+        color: $accent-text-color;
+
+        &:hover {
+          background-color: darken($accent, 5%);
+        }
+      }
+
+      .navbar-brand {
+        color: $accent-text-color;
+        font-size: 24px;
+        text-align: center;
+        font-weight: 300;
+      }
+    }
+
+    @include dialog-variant($name, $accent);
+
+    .app-sidebar {
+      @include sidebar-variant($name, $accent, $sidebar-bg, $accent-text-color);
+    }
+  }
+}

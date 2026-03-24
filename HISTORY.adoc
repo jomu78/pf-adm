@@ -1,6 +1,12 @@
 = pf-adm History
-==============
 
-== 0.1.0 (TBD)
+== 0.2.0 - 2026-03-24
+
+* new: style additional components
+* new: skin support
+* new: custom error pages and exception handling
+* improved: documentation
+
+== 0.1.0 - 2026-02-18
 
 * initial release

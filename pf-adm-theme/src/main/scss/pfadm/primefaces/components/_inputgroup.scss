@@ -1,0 +1,127 @@
+body {
+  .ui-inputgroup {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+
+    > .ui-inputfield,
+    > .ui-inputtextarea,
+    > .ui-selectonemenu,
+    > .ui-selectcheckboxmenu,
+    > .ui-button,
+    > .ui-inputnumber,
+    > .ui-float-label {
+      position: relative;
+      z-index: 1;
+      min-width: 0;
+    }
+
+    > .ui-inputfield,
+    > .ui-inputtextarea,
+    > .ui-selectonemenu,
+    > .ui-selectcheckboxmenu,
+    > .ui-inputnumber,
+    > .ui-float-label {
+      flex: 1 1 auto;
+    }
+
+    > .ui-inputfield,
+    > .ui-inputtextarea,
+    > .ui-selectonemenu,
+    > .ui-selectcheckboxmenu,
+    > .ui-button,
+    > .ui-inputnumber .ui-inputfield,
+    > .ui-float-label > .ui-inputfield,
+    > .ui-float-label > .ui-inputtextarea {
+      border-radius: 0;
+    }
+
+    > .ui-widget:not(:first-child),
+    > .ui-float-label:not(:first-child) > .ui-widget,
+    > .ui-inputgroup-addon:not(:first-child),
+    > .ui-inputgroup-addon-checkbox:not(:first-child) {
+      margin-left: -1px;
+    }
+
+    > .ui-widget:hover,
+    > .ui-widget:focus,
+    > .ui-widget.ui-state-focus,
+    > .ui-float-label > .ui-widget:hover,
+    > .ui-float-label > .ui-widget:focus,
+    > .ui-float-label > .ui-widget.ui-state-focus,
+    > .ui-inputgroup-addon:hover,
+    > .ui-inputgroup-addon-checkbox:hover {
+      z-index: 2;
+    }
+
+    > .ui-inputgroup-addon,
+    > .ui-inputgroup-addon-checkbox {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: $inputgroup-addon-min-width;
+      padding: $inputgroup-addon-padding-y $inputgroup-addon-padding-x;
+      color: $inputgroup-addon-color;
+      background: $inputgroup-addon-bg;
+      border: 1px solid $inputgroup-addon-border-color;
+      white-space: nowrap;
+    }
+
+    > .ui-inputgroup-addon:first-child,
+    > .ui-inputgroup-addon-checkbox:first-child {
+      border-top-left-radius: $pfadm-radius-md;
+      border-bottom-left-radius: $pfadm-radius-md;
+    }
+
+    > .ui-inputgroup-addon:last-child,
+    > .ui-inputgroup-addon-checkbox:last-child {
+      border-top-right-radius: $pfadm-radius-md;
+      border-bottom-right-radius: $pfadm-radius-md;
+    }
+
+    > .ui-inputfield:first-child,
+    > .ui-inputtextarea:first-child,
+    > .ui-selectonemenu:first-child,
+    > .ui-selectcheckboxmenu:first-child,
+    > .ui-button:first-child,
+    > .ui-inputnumber:first-child .ui-inputfield,
+    > .ui-float-label:first-child > .ui-inputfield,
+    > .ui-float-label:first-child > .ui-inputtextarea {
+      border-top-left-radius: $pfadm-radius-md;
+      border-bottom-left-radius: $pfadm-radius-md;
+    }
+
+    > .ui-inputfield:last-child,
+    > .ui-inputtextarea:last-child,
+    > .ui-selectonemenu:last-child,
+    > .ui-selectcheckboxmenu:last-child,
+    > .ui-button:last-child,
+    > .ui-inputnumber:last-child .ui-inputfield,
+    > .ui-float-label:last-child > .ui-inputfield,
+    > .ui-float-label:last-child > .ui-inputtextarea {
+      border-top-right-radius: $pfadm-radius-md;
+      border-bottom-right-radius: $pfadm-radius-md;
+    }
+
+    > .ui-selectonemenu .ui-selectonemenu-trigger,
+    > .ui-selectcheckboxmenu .ui-selectcheckboxmenu-trigger {
+      border-left-color: var(--pfadm-border-color);
+    }
+
+    > .ui-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    > .ui-inputgroup-addon-checkbox {
+      padding: 0;
+
+      .ui-chkbox {
+        position: static;
+        margin: 0;
+      }
+    }
+  }
+}

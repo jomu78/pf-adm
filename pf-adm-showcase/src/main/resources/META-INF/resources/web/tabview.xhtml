@@ -4,7 +4,7 @@
                 xmlns:h="jakarta.faces.html"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="jakarta.faces.core"
-                template="/WEB-INF/template/template.xhtml"
+                template="#{layoutView.template}"
 >
 
   <ui:define name="title">
@@ -172,9 +172,9 @@
 
           <h3>Events</h3>
           <p:tabView>
-            <p:ajax event="tabChange" listener="#{tabViewMB.onTabChange}" update=":form:msgs"
+            <p:ajax event="tabChange" listener="#{tabView.onTabChange}" update=":form:msgs"
                     ignoreAutoUpdate="true"/>
-            <p:ajax event="tabClose" listener="#{tabViewMB.onTabClose}" update=":form:msgs"
+            <p:ajax event="tabClose" listener="#{tabView.onTabClose}" update=":form:msgs"
                     ignoreAutoUpdate="true"/>
 
             <p:tab title="Godfather Part I" >
@@ -205,7 +205,7 @@
           </p:tabView>
 
           <h3>DataModel</h3>
-          <p:tabView value="#{tabViewMB.cars}" var="car">
+          <p:tabView value="#{tabView.cars}" var="car">
             <p:tab title="Car - #{car.id}">
               <h:panelGrid columns="2" cellpadding="5">
                 <f:facet name="header">

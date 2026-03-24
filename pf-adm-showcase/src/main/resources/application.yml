@@ -5,12 +5,14 @@ server:
 pf-adm:
   enable-slide-menu: true
   render-slide-menu-toggle: true
-  skin: skin-blue
+  skin: skin-purple
   render-brand-text: true
   render-logo: false
   render-full-screen-toggle: false
   render-bread-crumb: false
   support-font-awesome: true
+  index-page: /web/index.xhtml
+  template-path: /WEB-INF/template/template.xhtml
 joinfaces:
   primefaces:
     theme: admin

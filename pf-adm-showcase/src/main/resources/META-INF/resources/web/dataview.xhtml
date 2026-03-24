@@ -3,30 +3,22 @@
                 xmlns:h="jakarta.faces.html"
                 xmlns:f="jakarta.faces.core"
                 xmlns:p="http://primefaces.org/ui"
-                template="/WEB-INF/template/template.xhtml"
+                template="#{layoutView.template}"
 >
-
-
-  <ui:define name="metadata">
-    <f:metadata>
-      <f:viewParam name="bordeless" value="#{layoutMB.borderless}" converter="jakarta.faces.Boolean"/>
-    </f:metadata>
-    <ui:param name="enableSlideMenu" value="false"/> <!-- disables slide menu (only on this page) on small screens -->
-    <ui:param name="autoShowNavbar"
-              value="false"/> <!-- disables auto show navbar (only on this page) on small devices -->
-  </ui:define>
   <ui:define name="title">
-    Datatable
+    DataView
   </ui:define>
 
   <ui:define name="description">
-    This page shows Primefaces dataview.
+    This page shows PrimeFaces DataView with pf-adm card/list styling and a semantic box variant.
   </ui:define>
 
   <ui:define name="body">
-    <div class="card product">
+    <div class="card box-primary box-solid product">
       <h:form id="form">
-        <p:dataView var="product" value="#{dataGridView.products}" rows="12" paginator="true"
+        <p:growl id="messages" showDetail="true"/>
+        <p:dataView var="product" value="#{dataView.products}" styleClass="box-primary"
+                    rows="12" paginator="true"
                     rowsPerPageTemplate="6,12,16"
                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                     currentPageReportTemplate="records {startRecord} - {endRecord} of {totalRecords} (page {currentPage} / {totalPages})"
@@ -43,7 +35,7 @@
                     class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>
               </div>
               <div class="product-grid-item-content">
-                <p:graphicImage name="images/product/#{product.image}" library="demo"/>
+                <p:graphicImage name="product/#{product.image}" library="images"/>
                 <div class="product-name">#{product.name}</div>
                 <div class="product-description">#{product.description}</div>
                 <p:rating readonly="true" value="#{product.rating}"/>
@@ -52,9 +44,10 @@
                 <h:outputText value="#{product.price}" styleClass="product-price">
                   <f:convertNumber currencySymbol="$" type="currency"/>
                 </h:outputText>
-                <p:commandButton type="button"
-                                 value="Add To Cart"
+                <p:commandButton value="Add To Cart"
                                  icon="pi pi-shopping-cart"
+                                 actionListener="#{dataView.addToCart(product)}"
+                                 update="messages"
                                  disabled="#{product.inventoryStatus == 'OUTOFSTOCK'}">
                 </p:commandButton>
               </div>
@@ -63,7 +56,7 @@
 
           <p:dataViewListItem>
             <div class="product-list-item">
-              <p:graphicImage name="demo/images/product/#{product.image}"/>
+              <p:graphicImage name="product/#{product.image}" library="images"/>
               <div class="product-list-detail">
                 <div class="product-name">#{product.name}</div>
                 <div class="product-description">#{product.description}</div>
@@ -75,9 +68,11 @@
                 <h:outputText value="#{product.price}" styleClass="product-price">
                   <f:convertNumber currencySymbol="$" type="currency"/>
                 </h:outputText>
-                <p:commandButton type="button"
+                <p:commandButton
                                  value="Add To Cart"
                                  icon="pi pi-shopping-cart"
+                                 actionListener="#{dataView.addToCart(product)}"
+                                 update="messages"
                                  disabled="#{product.inventoryStatus == 'OUTOFSTOCK'}">
                 </p:commandButton>
                 <span

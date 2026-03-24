@@ -1,17 +1,43 @@
-= Migration from admin-faces
+= Migration from AdminFaces
 :toc:
 
-This project is inspired and based on https://adminfaces.github.io/site/[AdminFaces] by https://github.com/rmpestano[Rafael Pestano].
+This project is inspired by https://adminfaces.github.io/site/[AdminFaces].
+This document describes how to migrate a Spring Boot based AdminFaces
+application to `pf-adm`.
 
-This document describes how to upgrade a SpringBoot based AdminFaces project.
+The goal of the migration is not a byte-for-byte replacement of AdminFaces.
+`pf-adm` keeps a compatible direction where it is practical, but it is based on
+a different technical stack:
+
+* Bootstrap 5 instead of Bootstrap 3
+* AdminLTE 4 instead of AdminLTE 2
+* a `pf-adm` configuration model instead of the original AdminFaces property set
+* modern bean naming such as `*View` and config nouns instead of legacy `*MB`
+
+For detailed compatibility status, see:
+
+* link:doc/template_compatibility_matrix.adoc[Compatibility Matrix]
+* link:doc/feature_matrix.adoc[Feature Matrix]
+* link:doc/uicomponents.adoc[UI Components]
+
+== Migration Strategy
+
+The migration is usually easiest in this order:
+
+1. Replace dependencies.
+2. Move configuration from AdminFaces properties to `pf-adm.*`.
+3. Switch the template usage to `pf-adm` templates.
+4. Update menu markup to the AdminLTE 4 / Bootstrap 5 structure.
+5. Review pages for features that are only partially compatible.
 
 == Dependencies
 
-Remove any all AdminFaces based dependencies and replace them with the pf-adm dependency.
+Remove AdminFaces-based dependencies and replace them with the `pf-adm`
+starter.
 
 [cols="a,a"]
 |===
-^| AdminFaces ^| PF-Adm
+^| AdminFaces ^| `pf-adm`
 
 |
 [source,xml]
@@ -25,7 +51,7 @@ Remove any all AdminFaces based dependencies and replace them with the pf-adm de
   <artifactId>admin-theme</artifactId>
 </dependency>
 <dependency>
-  <groupId>com.primefaces</groupId>
+  <groupId>org.primefaces</groupId>
   <artifactId>primefaces</artifactId>
 </dependency>
 ----
@@ -38,14 +64,14 @@ Remove any all AdminFaces based dependencies and replace them with the pf-adm de
   <artifactId>pf-adm-spring-boot-starter</artifactId>
 </dependency>
 ----
-
 |===
 
-if based on Joinfaces
+If your project is based on JoinFaces, replace the AdminFaces JoinFaces starter
+with the PrimeFaces starter plus `pf-adm`.
 
 [cols="a,a"]
 |===
-^| AdminFaces ^| PF-Adm
+^| AdminFaces / JoinFaces ^| `pf-adm`
 
 |
 [source,xml]
@@ -72,16 +98,161 @@ if based on Joinfaces
 
 == Configuration
 
-== Template changes
+`pf-adm-template` uses Spring Boot configuration properties with the prefix
+`pf-adm`.
 
-== Menu changes
+Typical examples:
+
+[source,yaml]
+----
+pf-adm:
+  index-page: index.xhtml
+  template-path: /admin.xhtml
+  render-messages: true
+  render-bread-crumb: true
+  enable-slide-menu: true
+  skin: skin-blue
+  render-logo: true
+  render-brand-text: false
+  render-full-screen-toggle: false
+  render-slide-menu-toggle: true
+  support-font-awesome: false
+  error:
+    page403: /403.xhtml
+    page404: /404.xhtml
+    page500: /500.xhtml
+----
+
+Important differences:
+
+* not all AdminFaces properties exist in `pf-adm`
+* some properties exist with different behavior
+* some features, such as the AdminFaces control sidebar, are intentionally not implemented at this stage
+
+Before migrating configuration files, compare your current settings with
+link:doc/configuration_compatibility_matrix.adoc[Compatibility Matrix]
+
+== Template Changes
+
+Pages that currently use AdminFaces templates usually reference `admin.xhtml`
+already. `pf-adm-template` provides the same template entry point, but the
+implementation is not a full copy of AdminFaces.
+
+What is currently compatible:
+
+* the main `admin.xhtml` template entry point
+* the core `ui:define` and `ui:insert` regions used for header, menu, body, and footer composition
+* the standard sidebar layout direction
+
+What still differs:
+
+* control sidebar behavior is not implemented
+* the top-menu-only layout variant is not implemented
+* legacy AdminFaces backing bean names are not part of the preferred API
+
+Recommended migration approach:
+
+* keep using `admin.xhtml` where possible
+* verify page-level `ui:define` usage against
+  link:doc/template_compatibility_matrix.adoc[Compatibility Matrix]
+* remove reliance on AdminFaces-only regions that currently exist only as placeholders
+
+=== Upper-Right Notifications
+
+The showcase fragment
+`pf-adm-showcase/src/main/resources/META-INF/resources/includes/notifications.xhtml`
+renders the upper-right header dropdowns through the
+`top-menu-notifications` template region.
+
+This differs from AdminFaces in a few important ways:
+
+* `top-menu-notifications` is a `pf-adm-template` extension. It is not an AdminFaces-compatible template region.
+* the fragment is only header navigation UI. It is separate from the main page message area rendered by `p:messages` when `pf-adm.render-messages=true`.
+* `pf-adm` uses AdminLTE 4 / Bootstrap 5 navbar dropdown markup such as `nav-item dropdown`, `nav-link`, `data-bs-toggle="dropdown"`, `dropdown-menu`, `dropdown-item`, and `dropdown-menu-end`
+* AdminFaces examples are based on AdminLTE 2 / Bootstrap 3 patterns such as `messages-menu` / `notifications-menu`, `dropdown-toggle`, `data-toggle="dropdown"`, `label`, and nested `.menu > li > a` structures
+* the showcase uses Bootstrap Icons (`bi ...`) and Bootstrap 5 badge utility classes such as `badge text-bg-warning`; AdminFaces examples typically use Font Awesome and Bootstrap 3 label classes
+
+In practice, this means that AdminFaces notification dropdown fragments cannot be copied unchanged into `pf-adm`.
+When migrating the upper-right corner, keep the conceptual content, but rewrite the markup to the current navbar dropdown structure and place it in `top-menu-notifications`.
+
+
+// TODO: generalize
+[cols="a,a"]
+|===
+^| AdminFaces-style concept ^| `pf-adm` showcase pattern
+
+|
+[source,xhtml]
+----
+<li class="dropdown notifications-menu">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-bell-o"/>
+    <span class="label label-warning">10</span>
+  </a>
+  <ul class="dropdown-menu">
+    <li class="header">10 notifications</li>
+    <li>
+      <ul class="menu">
+        <li><a href="#">...</a></li>
+      </ul>
+    </li>
+  </ul>
+</li>
+----
+
+|
+[source,xhtml]
+----
+<ui:define name="top-menu-notifications">
+  <li class="nav-item dropdown">
+    <a class="nav-link" data-bs-toggle="dropdown" href="#">
+      <i class="bi bi-bell-fill"/>
+      <span class="navbar-badge badge text-bg-warning">15</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+      <a href="#" class="dropdown-item">...</a>
+    </div>
+  </li>
+</ui:define>
+----
+|===
+
+== Bean Naming
+
+`pf-adm` prefers modern names such as `layoutView`, `skinView`, and
+`pfAdmConfig` instead of legacy `layoutMB`, `skinMB`, and similar `MB` names.
+
+If your application still uses AdminFaces-era EL names, update the templates and
+pages during migration instead of carrying the old names forward unnecessarily.
+
+Examples:
 
 [cols="a,a"]
 |===
-^| AdminFaces ^| PF-Adm
+^| Legacy style ^| Preferred `pf-adm` style
+
+|`#{layoutMB.template}`
+|`#{layoutView.template}`
+
+|`#{skinMB.skin}`
+|`#{skinView.skin}`
+
+|`#{adminConfig.indexPage}`
+|`#{pfAdmConfig.indexPage}`
+|===
+
+== Menu Changes
+
+This is one of the most visible migration steps. AdminFaces menu markup follows
+the AdminLTE 2 / Bootstrap 3 structure, while `pf-adm` uses an AdminLTE 4 /
+Bootstrap 5 compatible structure.
+
+[cols="a,a"]
+|===
+^| AdminFaces ^| `pf-adm`
 
 |
-[source,xml]
+[source,xhtml]
 ----
 <h:form id="menuform">
   <ul class="sidebar-menu tree" data-widget="tree">
@@ -91,29 +262,69 @@ if based on Joinfaces
         <span>Home</span>
       </p:link>
     </li>
-    ....
+    ...
   </ul>
 </h:form>
 ----
 
 |
-[source,xml]
+[source,xhtml]
 ----
 <h:form id="menuform">
   <li class="nav-item">
-    <p:link class="nav-link" outcome="/web/index.xhtml">
+    <p:link styleClass="nav-link" outcome="/web/index.xhtml">
       <i class="nav-icon pi pi-home"/>
       <p>Home</p>
     </p:link>
   </li>
-  ..
+  ...
 </h:form>
 ----
 |===
 
-== Page changes
+Migration notes for menus:
 
+* use `nav-item` and `nav-link`
+* use `nav-icon` on icons
+* expect to rewrite nested menu markup instead of relying on old tree classes
+* do not assume AdminFaces JavaScript menu behavior is present unchanged
 
+== Page Changes
 
+Most page migrations fall into these categories:
 
+* replace legacy bean names with the current `pf-adm` names
+* adjust menu and header fragments to the current template structure
+* remove dependency on AdminFaces-only features that are not implemented in `pf-adm`
+* re-check component styling for pages that rely heavily on AdminFaces-specific presentation
 
+Areas that usually need explicit review:
+
+* breadcrumb-heavy flows
+* pages that relied on the control sidebar
+* pages that used AdminFaces ripple/material interactions
+* pages that rely on specialized AdminFaces component styling
+
+For the current high-level feature status, see
+link:doc/feature_matrix.adoc[Feature Matrix] and link:doc/uicomponents.adoc[UI Components].
+
+== Validation Checklist
+
+After migrating, verify at least the following:
+
+* application starts with the new dependencies only
+* the main `admin.xhtml` layout renders correctly
+* sidebar branding, menu, and header actions render in the expected positions
+* configured `pf-adm.skin` is used for new sessions
+* per-session skin changes do not affect other users
+* custom error pages render correctly
+* migrated menus render and navigate correctly
+
+== Summary
+
+The easiest way to migrate from AdminFaces to `pf-adm` is to treat it as a
+template and styling migration, not as a drop-in binary replacement.
+
+Keep the template contract where it helps, move configuration to `pf-adm.*`,
+rename legacy EL usage to the current bean names, and rewrite menu/layout markup
+where the underlying AdminLTE structure changed.

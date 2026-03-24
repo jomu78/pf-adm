@@ -1,9 +1,14 @@
 package de.muehlencord.pfadm.template.config;
 
+import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 
 /**
@@ -12,20 +17,20 @@ import org.springframework.validation.annotation.Validated;
  * @author Joern Muehlencord, 2025-04-14
  * @since 0.1.0
  */
-@Configuration
 @ConfigurationProperties(prefix = "pf-adm")
 @Setter
 @Getter
 @Validated
-public class PfAdmProperties {
+public class PfAdmProperties implements Serializable {
 
   /* *** adminface inspired / compatible *** */
 //  private Properties adminConfigFile;//default config
 //  private Properties userConfigFile;//user defined properties
 //  private String loginPage;
   private String indexPage = "index.xhtml";
-//  private String dateFormat;
-//  private String templatePath;
+  private String dateFormat;
+  // path to template in use */
+  private String templatePath = "/admin.xhtml";
 //  private Integer breadCrumbMaxSize;
   private boolean renderMessages = true;
   private boolean skipMessageDetailIfEqualsSummary = true;
@@ -62,6 +67,13 @@ public class PfAdmProperties {
   private boolean renderSlideMenuToggle = true;
   private boolean supportFontAwesome = false;
 
+  @NestedConfigurationProperty
+  private ErrorPageProperties error = new ErrorPageProperties();
 
 
+  public PfAdmProperties() {
+    if (!StringUtils.hasText(dateFormat)) {
+      dateFormat =  ((SimpleDateFormat) DateFormat.getDateTimeInstance()).toLocalizedPattern();
+    }
+  }
 }

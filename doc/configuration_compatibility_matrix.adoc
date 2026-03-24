@@ -1,0 +1,278 @@
+= Configuration Property Compatibility Matrix
+:icons: font
+
+This document compares the configuration surface of the upstream AdminFaces
+`admin-template` with the Spring Boot configuration properties currently exposed
+by `pf-adm-template`.
+
+`pf-adm-template` configuration is provided by `PfAdmProperties` with the prefix
+`pf-adm`.
+
+The matrix focuses on property availability, not on full behavioral parity.
+
+== Legend
+
+* icon:check[font-color: green] = supported
+* icon:check[font-color: yellow] = partially supported or supported with different behavior
+* icon:times[font-color: red] = currently not supported
+
+== Shared or Related Properties
+
+|===
+|Property ^| AdminFaces `admin-template` ^| `pf-adm-template` ^| Notes
+
+|`indexPage`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`dateFormat`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`templatePath`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`renderMessages`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`skipMessageDetailIfEqualsSummary`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`renderBreadCrumb`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates, but breadcrumb behavior differs.
+
+|`enableSlideMenu`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates.
+
+|`skin`
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Supported in both, but `pf-adm-template` uses its own `SkinEnum` and AdminLTE 4-based styling model.
+
+|`renderMenuSearch`
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Property exists in `pf-adm-template`, but the full AdminFaces menu-search feature is not implemented yet.
+|===
+
+== Not Currently Supported from AdminFaces
+
+These properties exist in AdminFaces but are not currently implemented in
+`pf-adm-template`.
+
+|===
+|Property ^| AdminFaces `admin-template` ^| `pf-adm-template` ^| Notes
+
+|`loginPage`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently exposed by `PfAdmProperties`.
+
+|`breadCrumbMaxSize`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently exposed by `PfAdmProperties`.
+
+|`renderAjaxStatus`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`disableFilter`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`enableRipple`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`extensionLessUrls`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`rippleElements`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`autoShowNavbar`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`ignoredResources`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`loadingImage`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`renderControlSidebar`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`leftMenuTemplate`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`renderFormAsterisks`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`closableLoading`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`enableMobileHeader`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`pageSuffix`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`rippleMobileOnly`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`messagesHideTimeout`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`autoHideMessages`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`iconsEffect`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+|===
+
+== AdminFaces Control Sidebar Subproperties
+
+These nested AdminFaces control-sidebar settings are not currently implemented
+in `pf-adm-template`.
+
+|===
+|Property ^| AdminFaces `admin-template` ^| `pf-adm-template` ^| Notes
+
+|`controlSidebar.showOnMobile`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`controlSidebar.fixedLayout`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`controlSidebar.boxedLayout`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`controlSidebar.expandOnHover`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`controlSidebar.sidebarCollapsed`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`controlSidebar.fixed`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+
+|`controlSidebar.darkSkin`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Not currently implemented.
+|===
+
+== `pf-adm-template` Specific Properties
+
+These properties are currently specific to `pf-adm-template`.
+
+|===
+|Property ^| AdminFaces `admin-template` ^| `pf-adm-template` ^| Notes
+
+|`renderLogo`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|Controls whether the sidebar brand logo is rendered.
+
+|`renderBrandText`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|Controls whether brand text is rendered.
+
+|`renderFullScreenToggle`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|Controls whether the fullscreen action is shown in the header.
+
+|`renderSlideMenuToggle`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|Controls whether the sidebar toggle button is rendered.
+
+|`supportFontAwesome`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|Enables loading the bundled Font Awesome stylesheet.
+
+|`error.page403`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|Configures the 403 error page mapping for the Spring Boot integration.
+
+|`error.page404`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|Configures the 404 error page mapping for the Spring Boot integration.
+
+|`error.page500`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|Configures the 500 error page mapping for the Spring Boot integration.
+|===
+
+== Summary
+
+`pf-adm-template` currently supports the core shared configuration needed for
+template selection, messaging, breadcrumbs, sidebar usage, and skin selection.
+
+The main AdminFaces compatibility gap is the larger behavioral configuration
+surface around ripple effects, ajax/loading UX, control sidebar behavior,
+top-menu layout, and other AdminFaces-specific interaction features.

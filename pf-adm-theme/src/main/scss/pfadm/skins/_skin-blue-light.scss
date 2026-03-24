@@ -1,0 +1,3 @@
+@import "skin-base";
+
+@include skin-variant("skin-blue-light", $light-blue, $gray-100, $pfadm-text-inverse);

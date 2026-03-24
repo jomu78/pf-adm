@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="jakarta.faces.core"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="http://primefaces.org/ui"
+                template="#{layoutView.template}"
+>
+
+  <ui:define name="title">
+    Skins
+  </ui:define>
+
+  <ui:define name="description">
+    Switch the current showcase session between the AdminFaces-compatible `pf-adm` skins.
+  </ui:define>
+
+  <ui:define name="body">
+    <h:form id="skin-form">
+      <div class="row g-4">
+        <div class="col-12 col-xl-7">
+          <p:panel header="Session Skin Switcher" styleClass="card no-border h-100">
+            <p>
+              Choose a skin and the page will reload immediately so the header, sidebar, and shared surface tokens
+              pick up the new template-level skin classes.
+            </p>
+
+            <div class="row g-3 align-items-end">
+              <div class="col-12 col-lg-8">
+                <p:outputLabel for="skin" value="Available skins"/>
+                <p:selectOneMenu id="skin" value="#{skinView.skin}" styleClass="w-100">
+                  <f:selectItems value="#{showcaseLayoutView.availableSkins}"/>
+                  <p:ajax process="@this" update="@none" oncomplete="window.location.reload();"/>
+                </p:selectOneMenu>
+              </div>
+              <div class="col-12 col-lg-4">
+                <p:message for="skin" display="icon"/>
+              </div>
+            </div>
+          </p:panel>
+        </div>
+
+        <div class="col-12 col-xl-5">
+          <p:panel header="Current Session State" styleClass="card no-border h-100">
+            <div class="table-responsive">
+              <table class="table table-bordered mb-0">
+                <tbody>
+                <tr>
+                  <th scope="row">Current skin</th>
+                  <td>#{skinView.skin}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Default skin</th>
+                  <td>#{showcaseLayoutView.defaultSkin}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Scope</th>
+                  <td>Session-local via <code>skinView</code></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </p:panel>
+        </div>
+
+        <div class="col-12">
+          <p:panel header="Preview Notes" styleClass="card no-border">
+            <div class="row g-3">
+              <div class="col-12 col-md-4">
+                <div class="small-box text-bg-primary mb-0">
+                  <div class="inner">
+                    <h3>Navbar</h3>
+                    <p>Uses <code>navbar-#{skinView.skin}</code> from the template shell.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="small-box text-bg-success mb-0">
+                  <div class="inner">
+                    <h3>Sidebar</h3>
+                    <p>The sidebar and brand block switch with the same session value.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="small-box text-bg-warning mb-0">
+                  <div class="inner">
+                    <h3>Compatibility</h3>
+                    <p>Only values from <code>SkinEnum</code> are accepted by the setter.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </p:panel>
+        </div>
+      </div>
+    </h:form>
+  </ui:define>
+
+</ui:composition>

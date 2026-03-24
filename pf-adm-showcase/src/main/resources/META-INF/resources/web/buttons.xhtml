@@ -3,7 +3,7 @@
                 xmlns:ui="jakarta.faces.facelets"
                 xmlns:h="jakarta.faces.html"
                 xmlns:p="http://primefaces.org/ui"
-                template="/WEB-INF/template/template.xhtml"
+                template="#{layoutView.template}"
 >
 
   <ui:define name="title">
@@ -18,21 +18,21 @@
         <div class="row">
           <div class="col-sm-12 col-md-3">
             <p:commandButton value="Ajax Submit" id="ajax" update="growl" ignoreAutoUpdate="true"
-                             actionListener="#{buttonMB.buttonAction}" styleClass="btn-default btn-block"/>
+                             actionListener="#{buttonView.buttonAction}" styleClass="btn-default btn-block"/>
           </div>
           <div class="col-sm-12 col-md-3">
-            <p:commandButton value="Non-Ajax Submit" id="nonAjax" actionListener="#{buttonMB.buttonAction}"
+            <p:commandButton value="Non-Ajax Submit" id="nonAjax" actionListener="#{buttonView.buttonAction}"
                              ajax="false" styleClass="btn-primary btn-block" ignoreAutoUpdate="true"/>
           </div>
 
           <div class="col-sm-12 col-md-3">
-            <p:commandButton value="With Icon" id="withIcon" actionListener="#{buttonMB.buttonAction}"
+            <p:commandButton value="With Icon" id="withIcon" actionListener="#{buttonView.buttonAction}"
                              update="growl" icon="pi pi-save" styleClass="btn-danger btn-block"
                              ignoreAutoUpdate="true"/>
           </div>
 
           <div class="col-sm-12 col-md-3">
-            <p:commandButton value="Button large With Icon" id="withIconBig" actionListener="#{buttonMB.buttonAction}"
+            <p:commandButton value="Button large With Icon" id="withIconBig" actionListener="#{buttonView.buttonAction}"
                              update="growl" icon="fa fa-car" iconPos="right" styleClass="btn-lg btn-teal btn-block"
                              ignoreAutoUpdate="true"/>
           </div>
@@ -42,26 +42,26 @@
           </div>
 
           <div class="col-sm-12 col-md-3 ui-fluid">
-            <p:commandButton actionListener="#{buttonMB.buttonAction}" id="iconOnly" update="growl"
+            <p:commandButton actionListener="#{buttonView.buttonAction}" id="iconOnly" update="growl"
                              icon="pi pi-save" title="Icon Only" styleClass="btn-warning"
                              ignoreAutoUpdate="true"/>
           </div>
 
           <div class="col-sm-12 col-md-3">
-            <p:splitButton value="Save" actionListener="#{buttonMB.save}" update="growl"
+            <p:splitButton value="Save" actionListener="#{buttonView.save}" update="growl"
                            icon="pi pi-save" ignoreAutoUpdate="true"
                            styleClass="btn-success btn-block">
-              <p:menuitem value="Update" actionListener="#{buttonMB.update}" update="growl" ignoreAutoUpdate="true"
+              <p:menuitem value="Update" actionListener="#{buttonView.update}" update="growl" ignoreAutoUpdate="true"
                           icon="fa fa-refresh"/>
-              <p:menuitem value="Delete" actionListener="#{buttonMB.delete}" ajax="false"
+              <p:menuitem value="Delete" actionListener="#{buttonView.delete}" ajax="false"
                           icon="fa fa-close"/>
               <p:separator/>
               <p:menuitem value="Homepage" url="/" icon="fa fa-link"/>
             </p:splitButton>
           </div>
           <div class="col-sm-12 col-md-3">
-            <p:commandButton value="Small screens only" update="growl" ignoreAutoUpdate="true"
-                             actionListener="#{buttonMB.buttonAction}" styleClass="visible-sm visible-xs btn-block"/>
+            <p:commandButton id="buttonSmallScreen" value="Small screens only" update="growl" ignoreAutoUpdate="true"
+                             actionListener="#{buttonView.buttonAction}" styleClass="visible-sm visible-xs btn-block"/>
           </div>
         </div>
 
@@ -250,14 +250,14 @@
             <div class="col-sm-12 col-md-3">
               <p:commandButton value="FontAwesome Icon" id="fa-icon-button" update="growl" ignoreAutoUpdate="true"
                                icon="fa fa-times"
-                               actionListener="#{buttonMB.buttonAction}" styleClass="btn-teal btn-block"/>
+                               actionListener="#{buttonView.buttonAction}" styleClass="btn-teal btn-block"/>
             </div>
           </ui:fragment>
 
           <div class="col-sm-12 col-md-3">
             <p:commandButton value="Primefaces Icon" id="pi-icon-button" update="growl" ignoreAutoUpdate="true"
                              icon="pi pi-check"
-                             actionListener="#{buttonMB.buttonAction}" styleClass="btn-teal btn-block"/>
+                             actionListener="#{buttonView.buttonAction}" styleClass="btn-teal btn-block"/>
           </div>
         </div>
 

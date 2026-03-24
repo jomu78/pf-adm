@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="http://primefaces.org/ui"
+                template="#{layoutView.template}"
+>
+
+  <ui:define name="title">
+    pf-adm Showcase - Exception Handling
+  </ui:define>
+
+  <ui:define name="body">
+    <h:form id="buttons">
+
+      <p:panel styleClass="card no-border" style="min-height: 100px">
+        <p:growl id="growl" life="2000"/>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <h3>AJAX</h3>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <p:commandButton value="throw UnsupportedOperationException" id="ajaxUnsupported" update="growl"
+                             ignoreAutoUpdate="true" ajax="true"
+                             actionListener="#{exceptionView.throwUnsupportedOperationException}"
+                             styleClass="btn-danger btn-block"/>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <p:commandButton value="throw NullPointerException" id="ajaxNullPointer"
+                             update="growl" ignoreAutoUpdate="true" ajax="true"
+                             actionListener="#{exceptionView.throwNullPointerException}"
+                             styleClass="btn-danger btn-block"/>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <p:commandButton value="throw ViewExpiredException" id="ajaxViewExpired"
+                             update="growl" ignoreAutoUpdate="true" ajax="true"
+                             actionListener="#{exceptionView.throwViewExpiredException}"
+                             styleClass="btn-danger btn-block"/>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <p:commandButton value="throw OptimistiLockingException" id="ajaxOptimisticLocking"
+                             update="growl" ignoreAutoUpdate="true" ajax="true"
+                             actionListener="#{exceptionView.throwOptimisticLockException}"
+                             styleClass="btn-danger btn-block"/>
+          </div>
+
+
+
+          <div class="col-sm-12">
+            <h3>Non-AJAX</h3>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <p:commandButton value="throw UnsupportedOperationException" id="nonAjaxUnsupported" update="growl"
+                             ignoreAutoUpdate="true" ajax="false"
+                             actionListener="#{exceptionView.throwUnsupportedOperationException}"
+                             styleClass="btn-danger btn-block"/>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <p:commandButton value="throw NullPointerException" id="nonAjaxNullPointer"
+                             update="growl" ignoreAutoUpdate="true" ajax="false"
+                             actionListener="#{exceptionView.throwNullPointerException}"
+                             styleClass="btn-danger btn-block"/>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <p:commandButton value="throw ViewExpiredException" id="nonAjaxViewExpired"
+                             update="growl" ignoreAutoUpdate="true" ajax="false"
+                             actionListener="#{exceptionView.throwViewExpiredException}"
+                             styleClass="btn-danger btn-block"/>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <p:commandButton value="throw OptimistiLockingException" id="nonAjaxOptimisticLocking"
+                             update="growl" ignoreAutoUpdate="true" ajax="false"
+                             actionListener="#{exceptionView.throwOptimisticLockException}"
+                             styleClass="btn-danger btn-block"/>
+          </div>
+
+        </div>
+      </p:panel>
+    </h:form>
+  </ui:define>
+
+</ui:composition>

@@ -1,0 +1,149 @@
+body {
+  .ui-notificationbar {
+    height: auto;
+    min-height: 0;
+    padding: $notificationbar-padding-y $notificationbar-padding-x;
+    color: var(--pfadm-text-primary);
+    background: var(--pfadm-surface-overlay);
+    border: 1px solid var(--pfadm-border-color);
+    box-shadow: var(--pfadm-shadow-md);
+    z-index: 1100;
+  }
+
+  .ui-notificationbar-close {
+    top: 1rem;
+    right: 1rem;
+    width: $notificationbar-close-size;
+    height: $notificationbar-close-size;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    border-radius: $pfadm-radius-pill;
+
+    &:hover {
+      background: var(--pfadm-hover-bg);
+    }
+  }
+
+  .notificationbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-right: 2.5rem;
+  }
+
+  .notificationbar-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .notificationbar-title {
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .notificationbar-text {
+    color: var(--pfadm-text-secondary);
+  }
+
+  .ui-notificationbar.box-default,
+  .ui-notificationbar.box-primary,
+  .ui-notificationbar.box-danger,
+  .ui-notificationbar.box-fatal,
+  .ui-notificationbar.box-warning,
+  .ui-notificationbar.box-success,
+  .ui-notificationbar.box-info,
+  .ui-notificationbar.box-teal {
+    border-top-width: 4px;
+  }
+
+  .ui-notificationbar.box-default {
+    border-top-color: $default;
+  }
+
+  .ui-notificationbar.box-primary {
+    border-top-color: $primary;
+  }
+
+  .ui-notificationbar.box-danger {
+    border-top-color: $danger;
+  }
+
+  .ui-notificationbar.box-fatal {
+    border-top-color: $fatal;
+  }
+
+  .ui-notificationbar.box-warning {
+    border-top-color: $warning;
+  }
+
+  .ui-notificationbar.box-success {
+    border-top-color: $success;
+  }
+
+  .ui-notificationbar.box-info {
+    border-top-color: $info;
+  }
+
+  .ui-notificationbar.box-teal {
+    border-top-color: $teal;
+  }
+
+  .ui-notificationbar.box-solid.box-primary {
+    color: var(--pfadm-text-inverse);
+    background: $primary;
+    border-color: $primary;
+  }
+
+  .ui-notificationbar.box-solid.box-warning {
+    color: var(--pfadm-text-primary);
+    background: $warning;
+    border-color: $warning;
+  }
+
+  .ui-notificationbar.box-solid.box-success {
+    color: var(--pfadm-text-inverse);
+    background: $success;
+    border-color: $success;
+  }
+
+  .ui-notificationbar.box-solid.box-danger {
+    color: var(--pfadm-text-inverse);
+    background: $danger;
+    border-color: $danger;
+  }
+
+  .ui-notificationbar.box-solid.box-info {
+    color: var(--pfadm-text-primary);
+    background: $info;
+    border-color: $info;
+  }
+
+  .ui-notificationbar.box-solid.box-teal {
+    color: var(--pfadm-text-inverse);
+    background: $teal;
+    border-color: $teal;
+  }
+
+  .ui-notificationbar.box-solid {
+    .notificationbar-text {
+      color: inherit;
+      opacity: 0.9;
+    }
+
+    .ui-notificationbar-close:hover {
+      background: rgba($white, 0.12);
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .notificationbar-content {
+      align-items: flex-start;
+      flex-direction: column;
+      padding-right: 0;
+    }
+  }
+}

@@ -4,7 +4,7 @@
   <parent>
     <groupId>de.muehlencord.pf-adm</groupId>
     <artifactId>pf-adm</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.2.0-SNAPSHOT</version>
   </parent>
 
   <artifactId>pf-adm-showcase</artifactId>
@@ -15,6 +15,12 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+
+    <!-- Faces support -->
     <dependency>
       <groupId>org.joinfaces</groupId>
       <artifactId>primefaces-spring-boot-starter</artifactId>
@@ -27,12 +33,12 @@
       <groupId>org.primefaces</groupId>
       <artifactId>primefaces-themes</artifactId>
     </dependency>
+
     <!-- dev tools -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
     </dependency>
-
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>

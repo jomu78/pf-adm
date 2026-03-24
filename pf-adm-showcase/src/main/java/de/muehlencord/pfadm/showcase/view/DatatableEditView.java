@@ -22,8 +22,8 @@ import java.util.List;
  * @since 0.1.0
  */
 @ViewScoped
-@Named("datatableEditMB")
-public class DatatableEditMB implements Serializable {
+@Named
+public class DatatableEditView implements Serializable {
 
   private final CarService carService;
 
@@ -35,7 +35,7 @@ public class DatatableEditMB implements Serializable {
   private List<Car> cars2;
 
   @Inject
-  public DatatableEditMB(CarService carService) {
+  public DatatableEditView(CarService carService) {
     this.carService = carService;
 
     cars1 = carService.createCars(10);

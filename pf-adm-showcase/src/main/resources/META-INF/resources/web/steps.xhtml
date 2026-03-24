@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="#{layoutView.template}"
+>
+
+  <ui:define name="title">
+    Steps
+  </ui:define>
+
+  <ui:define name="description">
+    This page shows the shared pf-adm styling for PrimeFaces steps, including progress tracks, active items, semantic box variants, and responsive wrapping.
+  </ui:define>
+
+  <ui:define name="body">
+    <div class="row g-4">
+      <div class="col-12">
+        <p:panel header="Default Progress" styleClass="card no-border box-primary box-solid">
+          <p:steps activeIndex="1" readonly="true" styleClass="box-primary">
+            <p:menuitem value="Account"/>
+            <p:menuitem value="Profile"/>
+            <p:menuitem value="Verification"/>
+            <p:menuitem value="Finish"/>
+          </p:steps>
+        </p:panel>
+      </div>
+
+      <div class="col-12">
+        <p:panel header="Semantic Variants" styleClass="card no-border box-success box-solid">
+          <div class="row g-4">
+            <div class="col-12 col-xl-6">
+              <p:steps activeIndex="2" readonly="true" styleClass="box-success">
+                <p:menuitem value="Upload"/>
+                <p:menuitem value="Review"/>
+                <p:menuitem value="Publish"/>
+              </p:steps>
+            </div>
+            <div class="col-12 col-xl-6">
+              <p:steps activeIndex="0" readonly="true" styleClass="box-warning">
+                <p:menuitem value="Draft"/>
+                <p:menuitem value="Approval"/>
+                <p:menuitem value="Release"/>
+              </p:steps>
+            </div>
+          </div>
+        </p:panel>
+      </div>
+    </div>
+  </ui:define>
+
+</ui:composition>

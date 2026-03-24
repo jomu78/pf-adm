@@ -1,0 +1,138 @@
+body {
+  .ui-inputfield,
+  .ui-inputtextarea,
+  .ui-autocomplete-input,
+  .ui-spinner .ui-inputfield {
+    color: var(--pfadm-text-primary);
+    background-color: var(--pfadm-surface-card);
+    border: 1px solid var(--pfadm-border-color);
+    border-radius: $pfadm-radius-md;
+    box-shadow: none;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, background-color .15s ease-in-out;
+
+    &::placeholder {
+      color: var(--pfadm-text-muted);
+      opacity: 1;
+    }
+
+    &:hover {
+      border-color: var(--pfadm-border-color-strong);
+    }
+
+    &:focus,
+    &.ui-state-focus {
+      border-color: $pfadm-color-primary;
+      box-shadow: 0 0 0 .2rem var(--pfadm-focus-ring-color);
+      outline: 0;
+    }
+
+    &.ui-state-error {
+      border-color: $pfadm-color-danger;
+    }
+
+    &.ui-state-disabled,
+    &:disabled {
+      color: var(--pfadm-text-muted);
+      background-color: var(--pfadm-surface-muted);
+      border-color: var(--pfadm-border-color);
+      opacity: $pfadm-disabled-opacity;
+    }
+  }
+
+  .ui-inputfield,
+  .ui-inputtextarea {
+    padding: .5rem .75rem;
+  }
+
+  .ui-selectonemenu,
+  .ui-selectcheckboxmenu {
+    width: 100%;
+    min-height: calc(1.5em + 1rem + 2px);
+    color: var(--pfadm-text-primary);
+    background-color: var(--pfadm-surface-card);
+    border: 1px solid var(--pfadm-border-color);
+    border-radius: $pfadm-radius-md;
+    box-shadow: none;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, background-color .15s ease-in-out;
+
+    &:hover {
+      border-color: var(--pfadm-border-color-strong);
+    }
+
+    &.ui-state-focus,
+    &.ui-state-hover.ui-state-focus {
+      border-color: $pfadm-color-primary;
+      box-shadow: 0 0 0 .2rem var(--pfadm-focus-ring-color);
+    }
+
+    &.ui-state-disabled {
+      background-color: var(--pfadm-surface-muted);
+      opacity: $pfadm-disabled-opacity;
+    }
+
+    .ui-selectonemenu-label,
+    .ui-selectcheckboxmenu-label {
+      color: var(--pfadm-text-primary);
+      padding: .5rem .75rem;
+      background: transparent;
+    }
+
+    .ui-selectonemenu-trigger,
+    .ui-selectcheckboxmenu-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      color: var(--pfadm-text-secondary);
+      background-color: var(--pfadm-surface-muted);
+      border-left: 1px solid var(--pfadm-border-color);
+      border-radius: 0 $pfadm-radius-md $pfadm-radius-md 0;
+    }
+  }
+
+  .ui-selectonemenu-panel,
+  .ui-selectcheckboxmenu-panel,
+  .ui-autocomplete-panel {
+    color: var(--pfadm-text-primary);
+    background-color: var(--pfadm-surface-overlay);
+    border: 1px solid var(--pfadm-border-color);
+    border-radius: $pfadm-radius-md;
+    box-shadow: var(--pfadm-shadow-md);
+  }
+
+  .ui-selectonemenu-panel .ui-selectonemenu-item,
+  .ui-selectcheckboxmenu-panel .ui-selectcheckboxmenu-item,
+  .ui-autocomplete-panel .ui-autocomplete-item {
+    color: var(--pfadm-text-primary);
+    background-color: transparent;
+
+    &.ui-state-highlight,
+    &.ui-state-hover {
+      color: var(--pfadm-text-primary);
+      background-color: var(--pfadm-hover-bg);
+    }
+  }
+
+  .ui-chkbox-box,
+  .ui-radiobutton-box {
+    border: 1px solid var(--pfadm-border-color-strong);
+    border-radius: $pfadm-radius-sm;
+    box-shadow: none;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, background-color .15s ease-in-out;
+
+    &:hover {
+      border-color: $pfadm-color-primary;
+    }
+
+    &.ui-state-focus {
+      border-color: $pfadm-color-primary;
+      box-shadow: 0 0 0 .2rem var(--pfadm-focus-ring-color);
+    }
+
+    &.ui-state-active {
+      color: $pfadm-text-inverse;
+      background-color: $pfadm-color-primary;
+      border-color: $pfadm-color-primary;
+    }
+  }
+}

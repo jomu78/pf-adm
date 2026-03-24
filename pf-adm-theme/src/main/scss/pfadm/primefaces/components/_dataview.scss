@@ -1,0 +1,245 @@
+@use "../../mixins" as pfadm-mixins;
+
+body .ui-dataview {
+  color: var(--pfadm-text-primary);
+
+  .ui-dataview-header,
+  .ui-dataview-content,
+  .ui-dataview-footer {
+    color: var(--pfadm-text-primary);
+    background: var(--pfadm-surface-card);
+    border-color: var(--pfadm-border-color);
+  }
+
+  .ui-dataview-header,
+  .ui-dataview-footer {
+    padding: 0.85rem 1rem;
+  }
+
+  .ui-dataview-content {
+    border: 0;
+    padding: 0;
+  }
+
+  .ui-paginator {
+    border: 0;
+    border-top: 1px solid var(--pfadm-border-color);
+    background: var(--pfadm-surface-muted);
+  }
+
+  .ui-dataview-layout-options .ui-button {
+    color: var(--pfadm-text-secondary);
+    background: var(--pfadm-surface-card);
+    border-color: var(--pfadm-border-color);
+
+    &:hover,
+    &:focus {
+      color: var(--pfadm-text-primary);
+      background: var(--pfadm-hover-bg);
+      border-color: var(--pfadm-border-color-strong);
+    }
+
+    &.ui-state-active {
+      color: var(--pfadm-skin-accent-contrast, #{$pfadm-text-inverse});
+      background: var(--pfadm-skin-accent, #{$pfadm-color-primary});
+      border-color: var(--pfadm-skin-accent, #{$pfadm-color-primary});
+    }
+  }
+
+  &.box-default {
+    @include pfadm-mixins.datagridBoxColors($default, $admin-text-color);
+  }
+
+  &.box-primary {
+    @include pfadm-mixins.datagridBoxColors($primary, #fff);
+  }
+
+  &.box-danger {
+    @include pfadm-mixins.datagridBoxColors($danger, #fff);
+  }
+
+  &.box-fatal {
+    @include pfadm-mixins.datagridBoxColors($fatal, #fff);
+  }
+
+  &.box-warning {
+    @include pfadm-mixins.datagridBoxColors($warning, #fff);
+  }
+
+  &.box-success {
+    @include pfadm-mixins.datagridBoxColors($success, #fff);
+  }
+
+  &.box-info {
+    @include pfadm-mixins.datagridBoxColors($info, #fff);
+  }
+
+  &.box-teal {
+    @include pfadm-mixins.datagridBoxColors($teal, #fff);
+  }
+}
+
+body .ui-dataview-content .ui-g > div,
+body .ui-dataview-content .ui-grid > div {
+  margin-bottom: $dataview-card-gap;
+}
+
+body .product-grid-item,
+body .product-list-item {
+  color: var(--pfadm-text-primary);
+  background: var(--pfadm-surface-card);
+  border: 1px solid $dataview-card-border-color;
+  border-radius: $dataview-card-border-radius;
+  box-shadow: $dataview-card-shadow;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    border-color: var(--pfadm-border-color-strong);
+    box-shadow: $dataview-card-hover-shadow;
+    transform: translateY(-2px);
+  }
+}
+
+body .product-grid-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  padding: $dataview-card-padding;
+
+  .product-grid-item-top,
+  .product-grid-item-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .product-grid-item-top {
+    align-items: flex-start;
+  }
+
+  .product-grid-item-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+}
+
+body .product-list-item {
+  display: grid;
+  grid-template-columns: minmax(7rem, 8.5rem) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: $dataview-card-padding;
+  margin-bottom: 1rem;
+
+  .product-list-detail {
+    min-width: 0;
+  }
+
+  .product-list-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+  }
+}
+
+body .product-grid-item img,
+body .product-list-item img {
+  display: block;
+  width: 100%;
+  max-width: 9rem;
+  height: auto;
+  margin: 0 auto;
+  border-radius: $dataview-image-radius;
+}
+
+body .product-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--pfadm-text-primary);
+}
+
+body .product-description {
+  max-width: $dataview-description-max-width;
+  color: var(--pfadm-text-secondary);
+  line-height: 1.45;
+}
+
+body .product-category,
+body .product-category-icon {
+  color: var(--pfadm-text-muted);
+}
+
+body .product-category-icon {
+  margin-right: 0.35rem;
+}
+
+body .product-price {
+  font-size: $dataview-price-font-size;
+  font-weight: $dataview-price-font-weight;
+  line-height: 1;
+  color: var(--pfadm-skin-accent-emphasis, #{$pfadm-color-primary});
+  white-space: nowrap;
+}
+
+body .product-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $dataview-badge-padding-y $dataview-badge-padding-x;
+  border-radius: $pfadm-radius-pill;
+  font-size: $dataview-badge-font-size;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+body .product-badge.status-instock {
+  color: $success-text-emphasis;
+  background: $success-bg-subtle;
+  border: 1px solid $success-border-subtle;
+}
+
+body .product-badge.status-lowstock {
+  color: $warning-text-emphasis;
+  background: $warning-bg-subtle;
+  border: 1px solid $warning-border-subtle;
+}
+
+body .product-badge.status-outofstock {
+  color: $danger-text-emphasis;
+  background: $danger-bg-subtle;
+  border: 1px solid $danger-border-subtle;
+}
+
+body .product-grid-item .ui-rating,
+body .product-list-item .ui-rating {
+  display: inline-flex;
+  gap: 0.15rem;
+}
+
+body .product-grid-item .ui-button,
+body .product-list-item .ui-button {
+  width: 100%;
+}
+
+@media (max-width: 991.98px) {
+  body .product-list-item {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+
+    .product-list-action {
+      align-items: center;
+      width: 100%;
+    }
+  }
+}
