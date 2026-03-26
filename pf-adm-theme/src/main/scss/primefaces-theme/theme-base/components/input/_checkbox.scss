@@ -31,12 +31,12 @@ body {
       }
 
       &.ui-state-active {
-        border-color:$checkboxActiveBorderColor;
-        background: $checkboxActiveBg;
-        color:$checkboxTextActiveColor;
+        border-color: var(--pfadm-skin-accent, #{$checkboxActiveBorderColor});
+        background: var(--pfadm-skin-accent, #{$checkboxActiveBg});
+        color: var(--pfadm-skin-accent-contrast, #{$checkboxTextActiveColor});
 
         &.ui-state-hover {
-          background: $checkboxActiveHoverBg;
+          background: var(--pfadm-skin-accent, #{$checkboxActiveHoverBg});
         }
       }
 
@@ -74,10 +74,10 @@ body {
         }
 
         &.ui-state-active {
-          background: $checkboxActiveBg;
+          background: var(--pfadm-skin-accent, #{$checkboxActiveBg});
 
           &.ui-state-hover {
-            background: $checkboxActiveHoverBg;
+            background: var(--pfadm-skin-accent, #{$checkboxActiveHoverBg});
           }
         }
       }

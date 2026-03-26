@@ -594,10 +594,11 @@ body .ui-paginator .ui-paginator-pages a {
     transition: background-color 0.3s;
 }
 
+body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active,
 body .ui-paginator .ui-paginator-page.ui-state-active {
-    background: $primary;
-    color: #fff !important;
-    border-color: $primary;
+    background: var(--pfadm-skin-accent, #{$pfadm-color-primary}) !important;
+    color: var(--pfadm-skin-accent-contrast, #{$pfadm-text-inverse}) !important;
+    border-color: var(--pfadm-skin-accent, #{$pfadm-color-primary}) !important;
 }
 
 span.ui-paginator-current {
