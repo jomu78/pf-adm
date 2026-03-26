@@ -1,0 +1,14 @@
+body .ui-chkbox .ui-chkbox-box.ui-state-active,
+body.ui-input-filled .ui-chkbox .ui-chkbox-box.ui-state-active,
+body .ui-input-filled .ui-chkbox .ui-chkbox-box.ui-state-active {
+  color: var(--pfadm-skin-accent-contrast, #{$pfadm-text-inverse}) !important;
+  background: var(--pfadm-skin-accent, #{$pfadm-color-primary}) !important;
+  border-color: var(--pfadm-skin-accent, #{$pfadm-color-primary}) !important;
+}
+
+body .ui-chkbox .ui-chkbox-box.ui-state-active.ui-state-hover,
+body.ui-input-filled .ui-chkbox .ui-chkbox-box.ui-state-active.ui-state-hover,
+body .ui-input-filled .ui-chkbox .ui-chkbox-box.ui-state-active.ui-state-hover {
+  background: var(--pfadm-skin-accent, #{$pfadm-color-primary}) !important;
+  border-color: var(--pfadm-skin-accent, #{$pfadm-color-primary}) !important;
+}
