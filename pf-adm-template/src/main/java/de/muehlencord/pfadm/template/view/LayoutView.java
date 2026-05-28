@@ -5,6 +5,8 @@ import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.io.Serializable;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * control layout settings
@@ -12,23 +14,19 @@ import java.io.Serializable;
  * @author Joern Muehlencord, 2026-03-12
  * @since 0.2.0
  */
+@Setter
+@Getter
 @Named
 @SessionScoped
 public class LayoutView implements Serializable {
 
-  private final PfAdmConfig pfAdmConfig;
+  private static final long serialVersionUID = 1L;
+
+  private String template;
 
   @Inject
   public LayoutView(PfAdmConfig pfAdmConfig) {
-    this.pfAdmConfig = pfAdmConfig;
+    this.template = pfAdmConfig.getTemplatePath();
   }
 
-  public String getTemplate() {
-    return pfAdmConfig.getTemplatePath();
-  }
-
-  public void setTemplate(String template) {
-    pfAdmConfig.setTemplatePath (template);
-
-  }
 }
