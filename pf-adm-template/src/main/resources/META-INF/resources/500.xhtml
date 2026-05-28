@@ -2,26 +2,30 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="jakarta.faces.facelets"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:of="http://omnifaces.org/functions">
+                xmlns:of="http://omnifaces.org/functions" xmlns:h="http://java.sun.com/jsf/html">
 
 
   <ui:define name="body">
     <div class="row">
-    <div class="ui-sm-12">
-    <div class="error-page">
-      <h2 class="headline text-fatal">#{admMessages['error_500_header']}</h2>
+      <div class="ui-sm-12">
+        <div class="error-page">
+          <h2 class="headline text-fatal">#{admMessages['error_500_header']}</h2>
 
-      <div class="error-content" style="font-size: 1.1em">
-        <h3>
-          <i class="pi pi-exclamation-triangle text-fatal"/> #{admMessages['error_500_message']}
-        </h3>
+          <div class="error-content" style="font-size: 1.1em">
+            <h3>
+              <i class="pi pi-exclamation-triangle text-fatal"/> #{admMessages['error_500_message']}
+            </h3>
 
-        <p>
-          #{admMessages['label_go_back']}
-          <p:link outcome="#{pfAdmConfig.indexPage}" value="#{admMessages['label_home']}" escape="false"/>
-          #{admMessages['label_or_to']}
-              <p:link outcome="#{pfAdminSessionView.requestRelativeURI}" value="#{admMessages['label_previous_page']}" escape="false"/>
-        </p>
+            <h:form id="linkForm">
+              <p>
+                <h:outputText value="#{admMessages['label_go_back']}&#160;"/>
+                <p:link outcome="#{pfAdmConfig.indexPage}" value="#{admMessages['label_home']}" escape="false"/>
+
+                <h:outputText value="&#160;#{admMessages['label_or_to']}&#160;"/>
+                <p:commandLink onclick="window.history.back();" value="#{admMessages['label_previous_page']}"
+                               escape="false"/>
+              </p>
+            </h:form>
           </div>
         </div>
       </div>
