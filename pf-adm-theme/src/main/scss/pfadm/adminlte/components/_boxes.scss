@@ -1,6 +1,7 @@
 @use "../../../../resources/static/bootstrap/mixins" as bs-mixins;
 @use "../../mixins" as admin-lte-mixins;
 
+@import "../../../../resources/static/bootstrap/functions";
 @import "../../variables";
 @import "../../../../resources/static/adminlte/bootstrap-variables";
 
