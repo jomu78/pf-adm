@@ -69,8 +69,8 @@ behavior, not just the existence of Facelets hook names.
 
 |Automatic active-menu highlighting
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|Currently not implemented in `pf-adm-template`.
+^| icon:check[font-color: green]
+|Both templates support active-menu highlighting
 
 |Custom error pages
 ^| icon:check[font-color: green]

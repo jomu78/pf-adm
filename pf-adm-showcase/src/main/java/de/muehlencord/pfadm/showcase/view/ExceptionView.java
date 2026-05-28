@@ -4,6 +4,7 @@ import jakarta.faces.application.ViewExpiredException;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import jakarta.persistence.OptimisticLockException;
+import java.io.Serializable;
 
 /**
  * view to test exception handling
@@ -13,7 +14,7 @@ import jakarta.persistence.OptimisticLockException;
  */
 @ViewScoped
 @Named
-public class ExceptionView {
+public class ExceptionView implements Serializable {
 
   public void throwUnsupportedOperationException()  {
     throw new UnsupportedOperationException ("An UnsupportedOperationException");
