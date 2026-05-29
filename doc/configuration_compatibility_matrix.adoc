@@ -266,6 +266,16 @@ These properties are currently specific to `pf-adm-template`.
 ^| icon:times[font-color: red]
 ^| icon:check[font-color: green]
 |Configures the 500 error page mapping for the Spring Boot integration.
+
+|`error.referenceIdEnabled`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|Controls whether the 500 error page shows a generated error reference id.
+
+|`error.logReferenceStacktrace`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|Controls whether the log entry for the error reference id includes the exception stacktrace.
 |===
 
 == Summary
