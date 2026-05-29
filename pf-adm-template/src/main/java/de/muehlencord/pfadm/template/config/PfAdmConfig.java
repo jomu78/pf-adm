@@ -70,6 +70,10 @@ public class PfAdmConfig implements Serializable {
     return SpringContext.getBean(PfAdmProperties.class).isRenderSlideMenuToggle();
   }
 
+  public boolean isSupportBootstrapIcons() {
+    return SpringContext.getBean(PfAdmProperties.class).isSupportBootstrapIcons();
+  }
+
   public boolean isSupportFontAwesome() {
     return SpringContext.getBean(PfAdmProperties.class).isSupportFontAwesome();
   }

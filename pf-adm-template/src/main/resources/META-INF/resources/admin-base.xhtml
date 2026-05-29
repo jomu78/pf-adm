@@ -11,6 +11,7 @@
 <h:head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <h:outputStylesheet library="css" name="bootstrap-icons.min.css" rendered="#{pfAdmConfig.supportBootstrapIcons}"/>
   <h:outputStylesheet library="css" name="fa-all.min.css" rendered="#{pfAdmConfig.supportFontAwesome}"/>
   <ui:insert name="head"/>
   <ui:insert name="head-end"/>
@@ -47,8 +48,8 @@
             <ui:fragment rendered="#{pfAdmConfig.renderFullScreenToggle}">
               <li class="nav-item">
                 <a class="nav-link" href="#" data-lte-toggle="fullscreen">
-                  <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"/>
-                  <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"/>
+                  <i data-lte-icon="maximize" class="pi pi-window-maximize"/>
+                  <i data-lte-icon="minimize" class="pi pi-window-minimize d-none"/>
                 </a>
               </li>
             </ui:fragment>

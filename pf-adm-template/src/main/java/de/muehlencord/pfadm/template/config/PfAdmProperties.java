@@ -65,6 +65,7 @@ public class PfAdmProperties implements Serializable {
   private boolean renderBrandText = false;
   private boolean renderFullScreenToggle = false;
   private boolean renderSlideMenuToggle = true;
+  private boolean supportBootstrapIcons = false;
   private boolean supportFontAwesome = false;
 
   @NestedConfigurationProperty

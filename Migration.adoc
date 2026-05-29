@@ -116,6 +116,7 @@ pf-adm:
   render-brand-text: false
   render-full-screen-toggle: false
   render-slide-menu-toggle: true
+  support-bootstrap-icons: false
   support-font-awesome: false
   error:
     page403: /403.xhtml
