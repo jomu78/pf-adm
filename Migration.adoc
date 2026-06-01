@@ -67,7 +67,8 @@ starter.
 |===
 
 If your project is based on JoinFaces, replace the AdminFaces JoinFaces starter
-with the PrimeFaces starter plus `pf-adm`.
+with the JoinFaces PrimeFaces starter plus `pf-adm`. A dedicated JoinFaces
+`pf-adm` starter does not exist yet.
 
 [cols="a,a"]
 |===
@@ -95,6 +96,21 @@ with the PrimeFaces starter plus `pf-adm`.
 </dependency>
 ----
 |===
+
+Configure PrimeFaces through JoinFaces and configure the template through
+`pf-adm` properties:
+
+[source,yaml]
+----
+joinfaces:
+  primefaces:
+    theme: admin
+
+pf-adm:
+  index-page: /web/index.xhtml
+  template-path: /WEB-INF/template/template.xhtml
+  skin: skin-blue
+----
 
 == Configuration
 

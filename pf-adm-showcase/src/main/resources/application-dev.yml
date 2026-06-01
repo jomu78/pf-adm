@@ -1,6 +1,0 @@
-server:
-  port: 8081
-
-joinfaces:
-  faces:
-    project-stage: development
