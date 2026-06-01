@@ -414,7 +414,7 @@
                 </p:subTable>
             </p:dataTable>
         </p:panel>
-        <p:separator/>
+        <p:divider />
         <p:panel styleClass="card no-border" header="Row grouping" id="rowGroupPanel" toggleable="true" toggleSpeed="300">
             <h:form>
                 <p:dataTable var="car" widgetVar="rowGroupTable" value="#{datatableView.cars}" sortBy="#{car.brand}" expandableRowGroups="true" styleClass="#{showcaseLayoutView.borderless ? 'no-border':''}">
@@ -451,7 +451,7 @@
                 </p:dataTable>
             </h:form>
         </p:panel>
-        <p:separator/>
+        <p:divider />
         <p:panel styleClass="card no-border" header="Row expansion" id="rowExpansionPanel" toggleable="true" toggleSpeed="300" selection="#{datatableView.selectedCar}">
             <p:dataTable var="car" value="#{datatableView.cars}" styleClass="#{showcaseLayoutView.borderless ? 'no-border':''}" rowKey="#{car.id}" selectionMode="single">
                 <f:facet name="header">
