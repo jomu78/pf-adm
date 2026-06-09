@@ -118,8 +118,12 @@
             <ui:fragment rendered="#{pfAdmConfig.renderBreadCrumb}">
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                  <li class="breadcrumb-item">
+                    <p:link outcome="#{pfAdmConfig.indexPage}" value="#{admMessages.label_home}"/>
+                  </li>
+                  <!-- Pages append their own trail here; mark the last item active, e.g.
+                       <li class="breadcrumb-item active" aria-current="page">#{title}</li> -->
+                  <ui:insert name="breadcrumb"/>
                 </ol>
               </div>
             </ui:fragment>

@@ -152,6 +152,11 @@ These are the `ui:insert` regions exposed by the base layout.
 ^| icon:check[font-color: green]
 |Available in both templates.
 
+|`breadcrumb`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|`pf-adm-template` extension. Rendered when `renderBreadCrumb` is enabled, after a `Home` root link to the configured index page. Pages append their own trail items into this region. AdminFaces builds the breadcrumb from a navigation model rather than from a template region.
+
 |`content-header`
 ^| icon:check[font-color: green]
 ^| icon:check[font-color: green]

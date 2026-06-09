@@ -95,7 +95,7 @@ behavior, not just the existence of Facelets hook names.
 |Breadcrumb-based navigation
 ^| icon:check[font-color: green]
 ^| icon:check[font-color: yellow]
-|`pf-adm-template` renders breadcrumb UI, but does currently not provide the full AdminFaces breadcrumb navigation model.
+|`pf-adm-template` uses an explicit, hierarchical breadcrumb by design: a `Home` root link to the configured index page plus a `breadcrumb` template region where each page supplies its own trail. This intentionally differs from the AdminFaces approach of a session-scoped, automatically-built visited-history model (with `breadCrumbMaxSize`); replicating that model is a deliberate non-goal.
 
 |Sticky datatable headers
 ^| icon:check[font-color: green]
