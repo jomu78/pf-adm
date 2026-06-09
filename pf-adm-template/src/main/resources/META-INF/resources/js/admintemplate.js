@@ -12,15 +12,21 @@ $(document).ready(function() {
 });
 
 function bindAjaxMenuRefresh() {
-  if (!window.jsf || !window.jsf.ajax || typeof window.jsf.ajax.addOnEvent !== 'function') {
-    return;
-  }
-
-  window.jsf.ajax.addOnEvent(function(event) {
-    if (event && event.status === 'success') {
-      setActiveNavLink();
-    }
+  // PrimeFaces AJAX (p:ajax, p:commandButton, ...) does not use the standard
+  // Faces AJAX API. It dispatches this jQuery event on document instead.
+  $(document).on('pfAjaxComplete', function() {
+    setActiveNavLink();
   });
+
+  // Standard Jakarta Faces AJAX (f:ajax). Faces 4 exposes the 'faces' namespace;
+  // the legacy 'jsf' namespace was removed and is no longer available.
+  if (window.faces && window.faces.ajax && typeof window.faces.ajax.addOnEvent === 'function') {
+    window.faces.ajax.addOnEvent(function(event) {
+      if (event && event.status === 'success') {
+        setActiveNavLink();
+      }
+    });
+  }
 }
 
 function setActiveNavLink() {
