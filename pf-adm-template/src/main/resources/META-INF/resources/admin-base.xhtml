@@ -17,7 +17,7 @@
   <ui:insert name="head-end"/>
 </h:head>
 
-<h:body class="layout-fixed sidebar-expand-md sidebar-mini bg-body-tertiary #{skinView.skin}">
+<h:body class="#{empty bodyLayoutClass ? 'layout-fixed sidebar-expand-md sidebar-mini' : bodyLayoutClass} bg-body-tertiary #{skinView.skin}">
   <ui:insert name="body-begin"/>
   <!--begin::App Wrapper-->
   <div class="app-wrapper">

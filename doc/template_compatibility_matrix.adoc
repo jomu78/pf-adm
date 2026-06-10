@@ -21,6 +21,23 @@ feature set or all legacy AdminFaces backing-bean APIs.
 * icon:times[font-color: red] = not available
 * icon:warning[font-color: orange] = available as a hook, but not backed by the full AdminFaces feature set
 
+== Template Variants
+
+`pf-adm-template` ships two page templates that both extend the shared
+`admin-base.xhtml` layout:
+
+* `admin.xhtml` — the default left-sidebar layout. The primary navigation is
+  supplied through the `menu` region and rendered vertically in the sidebar.
+* `admin-top.xhtml` — a sidebar-less top-menu layout (AdminFaces parity for
+  `admin-top.xhtml`). The primary navigation is supplied through the `top-menu`
+  region and rendered horizontally in the navbar; the brand block moves into the
+  navbar because there is no sidebar. Pages opt in by setting
+  `pf-adm.template-path=/admin-top.xhtml`, or by switching `LayoutView` at
+  runtime. The `template-menu` region is intentionally empty in this layout.
+
+Both templates expose the same `ui:define` / `ui:insert` region contract listed
+below.
+
 == `admin.xhtml` Regions
 
 These are the top-level `ui:define` regions expected by pages that use the

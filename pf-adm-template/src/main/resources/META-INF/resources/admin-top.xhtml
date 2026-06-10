@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="jakarta.faces.facelets"
+                template="/admin-base.xhtml">
+
+    <!-- top-menu layout: no left sidebar, navigation lives in the navbar -->
+    <ui:param name="bodyLayoutClass" value="layout-fixed layout-top-nav"/>
+
+    <ui:define name="template-header">
+        <nav class="app-header navbar navbar-expand-md navbar-#{skinView.skin}">
+            <div class="container-fluid">
+
+                <!-- In the top-menu layout there is no sidebar, so the brand
+                     block lives in the navbar. -->
+                <p:link outcome="#{pfAdmConfig.indexPage}" styleClass="navbar-brand logo-switch">
+                    <ui:fragment rendered="#{pfAdmConfig.renderLogo}">
+                        <span class="brand-image-xl logo-xl">
+                            <ui:insert name="logo-lg">
+                                <ui:insert name="logo"/>
+                            </ui:insert>
+                        </span>
+                    </ui:fragment>
+                    <ui:fragment rendered="#{pfAdmConfig.renderBrandText}">
+                        <span class="brand-text fw-light">
+                            <ui:insert name="brand-text"/>
+                        </span>
+                    </ui:fragment>
+                </p:link>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#pfadm-top-navbar" aria-controls="pfadm-top-navbar"
+                        aria-expanded="false" aria-label="#{admMessages.label_toggle_navigation}">
+                    <span class="navbar-toggler-icon"/>
+                </button>
+
+                <div class="collapse navbar-collapse" id="pfadm-top-navbar">
+                    <ul class="navbar-nav me-auto pfadm-top-menu">
+                        <ui:insert name="top-menu"/>
+                    </ul>
+
+                    <div class="mx-auto">
+                        <ui:insert name="center-header"/>
+                    </div>
+
+                    <ul class="navbar-nav ms-auto">
+                        <ui:insert name="top-menu-notifications"/>
+
+                        <ui:fragment rendered="#{pfAdmConfig.renderFullScreenToggle}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+                                    <i data-lte-icon="maximize" class="pi pi-window-maximize"/>
+                                    <i data-lte-icon="minimize" class="pi pi-window-minimize d-none"/>
+                                </a>
+                            </li>
+                        </ui:fragment>
+
+                        <li class="nav-item dropdown user-menu">
+                            <ui:insert name="top-menu-user-menu"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </ui:define>
+
+    <!-- top-menu layout intentionally renders no left sidebar -->
+    <ui:define name="template-menu"/>
+
+    <ui:define name="body-end">
+        <ui:insert name="body-end"/>
+    </ui:define>
+
+</ui:composition>

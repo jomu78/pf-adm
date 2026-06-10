@@ -1,4 +1,6 @@
-const SIDEBAR_SELECTOR = '.sidebar-menu, .nav-sidebar';
+// '.pfadm-top-menu' is the primary navigation list in the top-menu layout
+// (admin-top.xhtml); the sidebar selectors cover the default left-menu layout.
+const SIDEBAR_SELECTOR = '.sidebar-menu, .nav-sidebar, .pfadm-top-menu';
 const SIDEBAR_LINK_SELECTOR = '.nav-link';
 const ACTIVE_CLASS = 'active';
 const MENU_OPEN_CLASS = 'menu-open';

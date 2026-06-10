@@ -1,5 +1,22 @@
 = pf-adm History
 
+== 0.3.0 - unreleased
+
+* new: top-menu layout (`admin-top.xhtml`) rendering the primary navigation
+  horizontally in the navbar, selectable via `pf-adm.template-path`
+* new: breadcrumb support
+* new: support bootstrap icons
+* removed: moved pf-adm-showcase into own project
+* fixed: error pages and error handling
+* fixed: icon handling
+* fixed: scss not bundled
+* improved: documentation
+* improved: scss handling
+* chore(deps): Update to AdminLte 4.0.0
+* chore(deps): Update to SpringBoot 4.0.6
+* chore(deps): Update to JoinFaces 6.0.6.1
+* chore(deps): Update to Primefaces 15.0.14
+
 == 0.2.0 - 2026-03-24
 
 * new: style additional components

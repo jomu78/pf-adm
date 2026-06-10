@@ -84,8 +84,8 @@ behavior, not just the existence of Facelets hook names.
 
 |Top-based menu layout
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|AdminFaces provides `admin-top.xhtml`; `pf-adm-template` does currently not provide an equivalent layout.
+^| icon:check[font-color: yellow]
+|`pf-adm-template` provides `admin-top.xhtml`, a sidebar-less layout that renders the primary navigation horizontally in the navbar. Pages opt in by setting `pf-adm.template-path=/admin-top.xhtml` (or by switching `LayoutView` at runtime) and supply their navigation through the `top-menu` region using navbar/Bootstrap-dropdown markup. Full AdminFaces parity (e.g. automatic conversion of the sidebar `menu` region) is not provided.
 
 |Configurable via application properties
 ^| icon:check[font-color: green]
@@ -137,7 +137,6 @@ integration, and skin variants.
 The main missing areas are AdminFaces-specific UX features:
 
 * control sidebar customization
-* top-menu layout variant
 * menu search
 * ripple/material interactions
 * breadcrumb navigation behavior beyond basic rendering

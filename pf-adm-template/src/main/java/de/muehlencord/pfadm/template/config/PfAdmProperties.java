@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 
@@ -46,7 +45,7 @@ public class PfAdmProperties implements Serializable {
 //  private String ignoredResources;//comma separated resources (pages or urls) to be ignored in AdminFilter
 //  private String loadingImage;
 //  private boolean renderControlSidebar;
-//  private boolean leftMenuTemplate;
+  private boolean leftMenuTemplate = false;
   private boolean renderMenuSearch = false;
 //  private boolean renderFormAsterisks;
 //  private boolean closableLoading;
@@ -67,6 +66,8 @@ public class PfAdmProperties implements Serializable {
   private boolean renderSlideMenuToggle = true;
   private boolean supportBootstrapIcons = false;
   private boolean supportFontAwesome = false;
+
+  private String templateTopPath = "/admin-top.xhtml";
 
   @NestedConfigurationProperty
   private ErrorPageProperties error = new ErrorPageProperties();
