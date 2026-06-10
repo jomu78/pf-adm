@@ -34,7 +34,7 @@ The matrix focuses on property availability, not on full behavioral parity.
 |`templatePath`
 ^| icon:check[font-color: green]
 ^| icon:check[font-color: green]
-|Available in both templates.
+|Available in both templates. In `pf-adm-template` this is the template used for the left-menu layout; see `templateTopPath` for the top-menu counterpart.
 
 |`renderMessages`
 ^| icon:check[font-color: green]
@@ -55,6 +55,11 @@ The matrix focuses on property availability, not on full behavioral parity.
 ^| icon:check[font-color: green]
 ^| icon:check[font-color: green]
 |Available in both templates.
+
+|`leftMenuTemplate`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Available in both templates. Selects the left-menu layout (`templatePath`) when `true` and the top-menu layout (`templateTopPath`) when `false`.
 
 |`skin`
 ^| icon:check[font-color: green]
@@ -126,11 +131,6 @@ These properties exist in AdminFaces but are not currently implemented in
 |Not currently implemented.
 
 |`renderControlSidebar`
-^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|Not currently implemented.
-
-|`leftMenuTemplate`
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
 |Not currently implemented.
@@ -226,6 +226,11 @@ These properties are currently specific to `pf-adm-template`.
 
 |===
 |Property ^| AdminFaces `admin-template` ^| `pf-adm-template` ^| Notes
+
+|`templateTopPath`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|Path to the template used for the top-menu (sidebar-less) layout, the counterpart to `templatePath` for the left-menu layout. Defaults to `/admin-top.xhtml`. The active layout is selected via `leftMenuTemplate` (or at runtime through `LayoutView`).
 
 |`renderLogo`
 ^| icon:times[font-color: red]
