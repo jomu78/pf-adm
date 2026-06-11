@@ -1,0 +1,42 @@
+// Scroll-to-top button - rendered when pf-adm.render-scroll-to-top is enabled
+// (see admin-base.xhtml). Visibility is toggled by admintemplate.js
+// (bindScrollTop) via the .pfadm-scroll-top-visible class once the page is
+// scrolled past a threshold.
+.pfadm-scroll-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1030;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background-color: var(--pfadm-surface-card);
+  color: var(--pfadm-text-primary);
+  border: 1px solid var(--pfadm-border-color);
+  box-shadow: var(--pfadm-shadow-md);
+  text-decoration: none;
+  // Hidden until scrolled; kept in the DOM so the transition can animate.
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(.5rem);
+  transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+
+  &:hover {
+    background-color: var(--pfadm-hover-bg);
+    color: var(--pfadm-text-primary);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem var(--pfadm-focus-ring-color);
+  }
+
+  &.pfadm-scroll-top-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}

@@ -26,8 +26,8 @@ public class PfAdmConfig implements Serializable {
     return SpringContext.getBean(PfAdmProperties.class).getTemplatePath();
   }
 
-  public void setTemplatePath(String templatePath) {
-    SpringContext.getBean(PfAdmProperties.class).setTemplatePath(templatePath);
+  public String getTemplateTopPath() {
+    return SpringContext.getBean(PfAdmProperties.class).getTemplateTopPath();
   }
 
   public boolean isRenderMessages() {
@@ -50,6 +50,8 @@ public class PfAdmConfig implements Serializable {
     return SpringContext.getBean(PfAdmProperties.class).getSkin().getLabel();
   }
 
+  public boolean isLeftMenuTemplate() {return SpringContext.getBean(PfAdmProperties.class).isLeftMenuTemplate(); }
+
   public boolean isRenderMenuSearch() {
     return SpringContext.getBean(PfAdmProperties.class).isRenderMenuSearch();
   }
@@ -68,6 +70,14 @@ public class PfAdmConfig implements Serializable {
 
   public boolean isRenderSlideMenuToggle() {
     return SpringContext.getBean(PfAdmProperties.class).isRenderSlideMenuToggle();
+  }
+
+  public boolean isRenderScrollToTop() {
+    return SpringContext.getBean(PfAdmProperties.class).isRenderScrollToTop();
+  }
+
+  public boolean isSupportBootstrapIcons() {
+    return SpringContext.getBean(PfAdmProperties.class).isSupportBootstrapIcons();
   }
 
   public boolean isSupportFontAwesome() {

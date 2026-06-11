@@ -18,6 +18,8 @@ public class ErrorPageProperties {
   private String page403 = "/403.xhtml";
   private String page404 = "/404.xhtml";
   private String page500 = "/500.xhtml";
+  private boolean referenceIdEnabled = true;
+  private boolean logReferenceStacktrace = true;
 
 
 }

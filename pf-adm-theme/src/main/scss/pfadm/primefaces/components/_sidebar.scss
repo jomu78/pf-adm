@@ -45,10 +45,17 @@ body {
         padding-right: 0.5rem;
         color: var(--pfadm-text-secondary);
         align-items: center;
+        text-decoration: none;
 
         &:hover {
           color: var(--pfadm-text-primary);
           background-color: var(--pfadm-hover-bg);
+          text-decoration: none;
+        }
+
+        &:focus,
+        &:focus-visible {
+          text-decoration: none;
         }
 
         &:focus-visible {

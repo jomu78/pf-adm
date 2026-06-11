@@ -1,0 +1,25 @@
+// Sidebar menu search - rendered into the sidebar when
+// pf-adm.render-menu-search is enabled (see admin.xhtml / admin-base.xhtml).
+// The filtering itself lives in admintemplate.js (bindMenuSearch/filterMenu).
+.app-sidebar .sidebar-search {
+  .input-group-text {
+    background-color: var(--pfadm-surface-card);
+    border-color: var(--pfadm-border-color);
+    color: var(--pfadm-text-secondary);
+  }
+
+  .form-control {
+    background-color: var(--pfadm-surface-card);
+    border-color: var(--pfadm-border-color);
+    color: var(--pfadm-text-primary);
+
+    &::placeholder {
+      color: var(--pfadm-text-muted);
+    }
+
+    &:focus {
+      border-color: var(--pfadm-border-color-strong);
+      box-shadow: 0 0 0 .2rem var(--pfadm-focus-ring-color);
+    }
+  }
+}

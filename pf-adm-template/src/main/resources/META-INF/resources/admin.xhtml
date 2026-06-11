@@ -4,6 +4,9 @@
                 xmlns:ui="jakarta.faces.facelets"
                 template="/admin-base.xhtml">
 
+    <!-- sidebar layout: default AdminLTE body classes -->
+    <ui:param name="bodyLayoutClass" value="layout-fixed sidebar-expand-md sidebar-mini"/>
+
     <ui:define name="template-header">
         <nav class="app-header navbar navbar-expand navbar-#{skinView.skin}">
             <div class="container-fluid">
@@ -31,8 +34,8 @@
                     <ui:fragment rendered="#{pfAdmConfig.renderFullScreenToggle}">
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-lte-toggle="fullscreen">
-                                <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"/>
-                                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"/>
+                                <i data-lte-icon="maximize" class="pi pi-window-maximize"/>
+                                <i data-lte-icon="minimize" class="pi pi-window-minimize d-none"/>
                             </a>
                         </li>
                     </ui:fragment>
@@ -49,7 +52,7 @@
         <ui:fragment rendered="#{pfAdmConfig.enableSlideMenu}">
             <aside class="app-sidebar">
                 <div class="sidebar-brand">
-                    <p:link action="#{pfAdmConfig.indexPage}" styleClass="brand-link logo-switch">
+                    <p:link outcome="#{pfAdmConfig.indexPage}" styleClass="brand-link logo-switch">
                         <ui:fragment rendered="#{pfAdmConfig.renderLogo}">
                             <div class="brand-image-xl logo-xl">
                                 <ui:insert name="logo-lg">
@@ -67,6 +70,18 @@
                         </ui:fragment>
                     </p:link>
                 </div>
+                <ui:fragment rendered="#{pfAdmConfig.renderMenuSearch}">
+                    <div class="sidebar-search p-2">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text" aria-hidden="true">
+                                <i class="pi pi-search"/>
+                            </span>
+                            <input type="search" class="form-control pfadm-menu-search"
+                                   placeholder="#{admMessages.label_menu_search}"
+                                   aria-label="#{admMessages.label_menu_search}"/>
+                        </div>
+                    </div>
+                </ui:fragment>
                 <ui:insert name="menu-begin"/>
                 <div class="sidebar-wrapper">
                     <nav class="mt-2">

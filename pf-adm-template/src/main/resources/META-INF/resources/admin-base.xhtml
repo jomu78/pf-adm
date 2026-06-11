@@ -11,12 +11,13 @@
 <h:head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <h:outputStylesheet library="css" name="bootstrap-icons.min.css" rendered="#{pfAdmConfig.supportBootstrapIcons}"/>
   <h:outputStylesheet library="css" name="fa-all.min.css" rendered="#{pfAdmConfig.supportFontAwesome}"/>
   <ui:insert name="head"/>
   <ui:insert name="head-end"/>
 </h:head>
 
-<h:body class="layout-fixed sidebar-expand-md sidebar-mini bg-body-tertiary #{skinView.skin}">
+<h:body class="#{empty bodyLayoutClass ? 'layout-fixed sidebar-expand-md sidebar-mini' : bodyLayoutClass} bg-body-tertiary #{skinView.skin}">
   <ui:insert name="body-begin"/>
   <!--begin::App Wrapper-->
   <div class="app-wrapper">
@@ -47,8 +48,8 @@
             <ui:fragment rendered="#{pfAdmConfig.renderFullScreenToggle}">
               <li class="nav-item">
                 <a class="nav-link" href="#" data-lte-toggle="fullscreen">
-                  <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"/>
-                  <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"/>
+                  <i data-lte-icon="maximize" class="pi pi-window-maximize"/>
+                  <i data-lte-icon="minimize" class="pi pi-window-minimize d-none"/>
                 </a>
               </li>
             </ui:fragment>
@@ -69,7 +70,7 @@
 
           <!--begin::Sidebar Brand-->
           <div class="sidebar-brand">
-            <p:link action="#{pfAdmConfig.indexPage}" styleClass="brand-link logo-switch">
+            <p:link outcome="#{pfAdmConfig.indexPage}" styleClass="brand-link logo-switch">
               <ui:fragment rendered="#{pfAdmConfig.renderLogo}">
                 <div class="brand-image-xl logo-xl">
                   <ui:insert name="logo-lg"/>
@@ -86,6 +87,19 @@
             </p:link>
           </div>
           <!--end::Sidebar Brand-->
+
+          <ui:fragment rendered="#{pfAdmConfig.renderMenuSearch}">
+            <div class="sidebar-search p-2">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text" aria-hidden="true">
+                  <i class="pi pi-search"/>
+                </span>
+                <input type="search" class="form-control pfadm-menu-search"
+                       placeholder="#{admMessages.label_menu_search}"
+                       aria-label="#{admMessages.label_menu_search}"/>
+              </div>
+            </div>
+          </ui:fragment>
 
           <div class="sidebar-wrapper">
             <nav class="mt-2">
@@ -117,8 +131,12 @@
             <ui:fragment rendered="#{pfAdmConfig.renderBreadCrumb}">
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                  <li class="breadcrumb-item">
+                    <p:link outcome="#{pfAdmConfig.indexPage}" value="#{admMessages.label_home}"/>
+                  </li>
+                  <!-- Pages append their own trail here; mark the last item active, e.g.
+                       <li class="breadcrumb-item active" aria-current="page">#{title}</li> -->
+                  <ui:insert name="breadcrumb"/>
                 </ol>
               </div>
             </ui:fragment>
@@ -136,13 +154,13 @@
           <div class="row">
             <div class="col-sm-12">
               <p:messages id="messages" closable="true" globalOnly="true" autoUpdate="true"
-                          showDetail="true" severity="error,fatal" escape="false"
+                          showDetail="true" severity="error,fatal" escape="true"
                           skipDetailIfEqualsSummary="#{pfAdmConfig.skipMessageDetailIfEqualsSummary}">
                 <p:autoUpdate/>
               </p:messages>
               <!-- we need two messages because info-messages are automatically hidden via javascript  -->
               <p:messages id="info-messages" closable="true" showDetail="true" autoUpdate="true"
-                          severity="info,warn" escape="false"
+                          severity="info,warn" escape="true"
                           skipDetailIfEqualsSummary="#{pfAdmConfig.skipMessageDetailIfEqualsSummary}">
                 <p:autoUpdate/>
               </p:messages>
@@ -170,6 +188,12 @@
     <ui:insert name="after-controlsidebar-content"/>
   </div>
   <ui:insert name="after-wrapper"/>
+
+  <ui:fragment rendered="#{pfAdmConfig.renderScrollToTop}">
+    <a href="#" class="pfadm-scroll-top" role="button" aria-label="#{admMessages.label_scroll_top}">
+      <i class="pi pi-arrow-up" aria-hidden="true"/>
+    </a>
+  </ui:fragment>
 
 
   <h:outputScript library="js" name="bootstrap.bundle.min.js"/>

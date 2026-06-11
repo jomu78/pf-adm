@@ -1,5 +1,4 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:h="jakarta.faces.html"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:ui="jakarta.faces.facelets"
                 template="#{layoutView.template}">
@@ -19,9 +18,6 @@
                 </div>
             </div>
         </div>
-        <h:form>
-            <p:remoteCommand autoRun="true" process="@none" global="false" partialSubmit="true" update="@none" oncomplete="$('body').layout('fix');window.setTimeout(collapseSidebar, 100);"/>
-        </h:form>
     </ui:define>
 
 </ui:composition>

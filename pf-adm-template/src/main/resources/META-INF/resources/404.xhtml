@@ -14,22 +14,21 @@
           <div class="error-content" style="font-size: 1.1em">
             <h3><i class="pi pi-exclamation-triangle text-fatal"/>#{admMessages['error_404_message']}</h3>
 
-            <p>
-              #{admMessages['label_go_back']}
-              <p:link outcome="#{pfAdmConfig.indexPage}" value="#{admMessages['label_home']}" escape="false"/>
-              #{admMessages['label_or_to']}
-              <p:link outcome="#{pfAdminSessionView.requestRelativeURI}" value="#{admMessages['label_previous_page']}"
-                      escape="false"/>
-            </p>
+            <h:form id="linkForm">
+              <p>
+                <h:outputText value="#{admMessages['label_go_back']}&#160;"/>
+                <p:link outcome="#{pfAdmConfig.indexPage}" value="#{admMessages['label_home']}" escape="false"/>
+
+                <h:outputText value="&#160;#{admMessages['label_or_to']}&#160;"/>
+                <p:commandLink onclick="window.history.back();" value="#{admMessages['label_previous_page']}"
+                               escape="false"/>
+              </p>
+            </h:form>
 
           </div>
         </div>
       </div>
     </div>
-    <h:form>
-      <p:remoteCommand autoRun="true" process="@none" global="false" partialSubmit="true" update="@none"
-                       oncomplete="$('body').layout('fix');window.setTimeout(collapseSidebar, 100);"/>
-    </h:form>
   </ui:define>
 
 

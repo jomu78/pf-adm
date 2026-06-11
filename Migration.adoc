@@ -67,7 +67,8 @@ starter.
 |===
 
 If your project is based on JoinFaces, replace the AdminFaces JoinFaces starter
-with the PrimeFaces starter plus `pf-adm`.
+with the JoinFaces PrimeFaces starter plus `pf-adm`. A dedicated JoinFaces
+`pf-adm` starter does not exist yet.
 
 [cols="a,a"]
 |===
@@ -96,6 +97,21 @@ with the PrimeFaces starter plus `pf-adm`.
 ----
 |===
 
+Configure PrimeFaces through JoinFaces and configure the template through
+`pf-adm` properties:
+
+[source,yaml]
+----
+joinfaces:
+  primefaces:
+    theme: admin
+
+pf-adm:
+  index-page: /web/index.xhtml
+  template-path: /WEB-INF/template/template.xhtml
+  skin: skin-blue
+----
+
 == Configuration
 
 `pf-adm-template` uses Spring Boot configuration properties with the prefix
@@ -116,6 +132,7 @@ pf-adm:
   render-brand-text: false
   render-full-screen-toggle: false
   render-slide-menu-toggle: true
+  support-bootstrap-icons: false
   support-font-awesome: false
   error:
     page403: /403.xhtml
@@ -217,6 +234,57 @@ When migrating the upper-right corner, keep the conceptual content, but rewrite 
 ----
 |===
 
+=== Breadcrumbs
+
+The breadcrumb works very differently in the two projects, so it almost always
+needs attention during migration.
+
+AdminFaces builds the breadcrumb *automatically* from a session-scoped history
+model. Each visited page is appended to the trail at render time through the
+`adm:breadcrumb` composite, driven by the page `#{title}`. The model deduplicates
+entries, caps the trail at `breadCrumbMaxSize` (`admin.breadcrumbSize`, default
+`5`), and exposes a `Home` action via `breadCrumbMB.clearAndHome`. Pages do not
+write any breadcrumb markup themselves.
+
+`pf-adm` intentionally uses a simpler, *explicit and hierarchical* breadcrumb.
+This is a deliberate design choice, not a missing feature:
+
+* breadcrumb rendering is toggled with `pf-adm.render-bread-crumb`
+* a `Home` root link to `pf-adm.index-page` is always rendered (its label comes from the `label_home` message bundle key)
+* each page supplies its own trail by defining the `breadcrumb` template region; a page that does not define it shows only the `Home` root
+* there is no `breadCrumbMB`, no `clearAndHome`, no `breadCrumbMaxSize`, and no automatic visited-history model
+
+Migration steps:
+
+* remove `adm:breadcrumb` tags and any reliance on `breadCrumbMB` or `breadCrumbMaxSize`
+* for each page that should show a trail, add a `breadcrumb` define listing the trailing items and mark the last one active
+
+[cols="a,a"]
+|===
+^| AdminFaces ^| `pf-adm`
+
+|
+[source,xhtml]
+----
+<!-- automatic: the page only provides a title,
+     the trail is built from navigation history -->
+<ui:param name="title" value="Buttons"/>
+<adm:breadcrumb title="#{title}"/>
+----
+
+|
+[source,xhtml]
+----
+<ui:define name="title">Buttons</ui:define>
+
+<!-- Home is rendered by the template;
+     the page appends its own trail items -->
+<ui:define name="breadcrumb">
+  <li class="breadcrumb-item active" aria-current="page">Buttons</li>
+</ui:define>
+----
+|===
+
 == Bean Naming
 
 `pf-adm` prefers modern names such as `layoutView`, `skinView`, and
@@ -300,7 +368,7 @@ Most page migrations fall into these categories:
 
 Areas that usually need explicit review:
 
-* breadcrumb-heavy flows
+* breadcrumb-heavy flows (see <<_breadcrumbs,Breadcrumbs>> &#8212; the automatic AdminFaces trail must be re-expressed explicitly per page)
 * pages that relied on the control sidebar
 * pages that used AdminFaces ripple/material interactions
 * pages that rely on specialized AdminFaces component styling

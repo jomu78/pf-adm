@@ -2,6 +2,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+pom.xml.versionsBackup
 
 ### IntelliJ IDEA ###
 .idea
@@ -36,4 +37,4 @@ build/
 
 # other
 _dump
-*.css
+/pf-adm-theme/src/main/resources/META-INF/resources/primefaces-admin/theme.css

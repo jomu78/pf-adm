@@ -1,6 +1,5 @@
 // variables
-@import '../resources/static/adminlte/bootstrap-variables';
-@import 'pfadm/variables';
+@import 'pfadm/prelude';
 @import 'primefaces-theme/primefaces-admin/variables';
 
 // skins
@@ -10,9 +9,8 @@
 @import 'pfadm/styles/styles';
 
 // components
-// AdminLTE and BootStrap
+// AdminLTE includes Bootstrap.
 @import "../resources/static/adminlte/adminlte";
-@import "../resources/static/bootstrap/bootstrap";
 
  // components
 @import 'primefaces-theme/theme-base/_components';
@@ -22,6 +20,7 @@
 @import "pfadm/primefaces/components/containers";
 @import "pfadm/primefaces/components/inputs";
 @import "pfadm/primefaces/components/inputgroup";
+@import "pfadm/primefaces/components/checkbox";
 @import "pfadm/primefaces/components/accordion";
 @import "pfadm/primefaces/components/autocomplete";
 @import "pfadm/primefaces/components/datepicker";
@@ -44,3 +43,5 @@
 @import "pfadm/adminlte/components/error_pages";
 @import "pfadm/adminlte/components/layout";
 @import "pfadm/adminlte/components/boxes";
+@import "pfadm/adminlte/components/menu_search";
+@import "pfadm/adminlte/components/scroll_top";

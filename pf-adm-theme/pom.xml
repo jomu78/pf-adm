@@ -4,7 +4,7 @@
   <parent>
     <groupId>de.muehlencord.pf-adm</groupId>
     <artifactId>pf-adm</artifactId>
-    <version>0.2.1-SNAPSHOT</version>
+    <version>0.3.0-SNAPSHOT</version>
   </parent>
 
   <artifactId>pf-adm-theme</artifactId>
@@ -16,7 +16,25 @@
 
   <build>
 
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>static/**/*.scss</exclude>
+        </excludes>
+      </resource>
+    </resources>
+
     <plugins>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>static/**/*.scss</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+
       <plugin>
         <groupId>io.github.cleydyr</groupId>
         <artifactId>dart-sass-maven-plugin</artifactId>

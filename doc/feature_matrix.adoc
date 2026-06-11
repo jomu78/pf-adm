@@ -24,8 +24,8 @@ behavior, not just the existence of Facelets hook names.
 
 |jQuery dependency
 ^| icon:check[font-color: yellow] required
-^| icon:check[font-color: green] not required
-|`pf-adm-template` is based on a Bootstrap 5 / AdminLTE 4 stack and does not require jQuery as a core dependency.
+^| icon:check[font-color: green] provided by PrimeFaces
+|The Bootstrap 5 / AdminLTE 4 stack used by `pf-adm-template` no longer depends on jQuery, and `pf-adm-template` does not bundle its own copy. jQuery is nevertheless always available at runtime because PrimeFaces 15 bundles jQuery 4 and registers the global `$` / `jQuery`. `pf-adm-template`'s own `admintemplate.js` uses that PrimeFaces-provided jQuery, so jQuery is not an additional dependency to manage.
 
 |AdminLTE integration
 ^| icon:check[font-color: red] v2
@@ -64,13 +64,13 @@ behavior, not just the existence of Facelets hook names.
 
 |Scroll-to-top affordance
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|Currently not implemented in `pf-adm-template`.
+^| icon:check[font-color: green]
+|Enabled via `pf-adm.render-scroll-to-top`. A floating button appears once the page is scrolled past a threshold and smooth-scrolls back to the top (in `admintemplate.js`); available in both the sidebar and top-menu layouts.
 
 |Automatic active-menu highlighting
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|Currently not implemented in `pf-adm-template`.
+^| icon:check[font-color: green]
+|Both templates support active-menu highlighting
 
 |Custom error pages
 ^| icon:check[font-color: green]
@@ -84,8 +84,8 @@ behavior, not just the existence of Facelets hook names.
 
 |Top-based menu layout
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|AdminFaces provides `admin-top.xhtml`; `pf-adm-template` does currently not provide an equivalent layout.
+^| icon:check[font-color: yellow]
+|`pf-adm-template` provides `admin-top.xhtml`, a sidebar-less layout that renders the primary navigation horizontally in the navbar. Pages opt in by setting `pf-adm.template-path=/admin-top.xhtml` (or by switching `LayoutView` at runtime) and supply their navigation through the `top-menu` region using navbar/Bootstrap-dropdown markup. Full AdminFaces parity (e.g. automatic conversion of the sidebar `menu` region) is not provided.
 
 |Configurable via application properties
 ^| icon:check[font-color: green]
@@ -95,7 +95,7 @@ behavior, not just the existence of Facelets hook names.
 |Breadcrumb-based navigation
 ^| icon:check[font-color: green]
 ^| icon:check[font-color: yellow]
-|`pf-adm-template` renders breadcrumb UI, but does currently not provide the full AdminFaces breadcrumb navigation model.
+|`pf-adm-template` uses an explicit, hierarchical breadcrumb by design: a `Home` root link to the configured index page plus a `breadcrumb` template region where each page supplies its own trail. This intentionally differs from the AdminFaces approach of a session-scoped, automatically-built visited-history model (with `breadCrumbMaxSize`); replicating that model is a deliberate non-goal.
 
 |Sticky datatable headers
 ^| icon:check[font-color: green]
@@ -119,8 +119,8 @@ behavior, not just the existence of Facelets hook names.
 
 |Menu item search
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|A configuration flag exists in `pf-adm-template`, but the AdminFaces-style menu search feature is currently not implemented.
+^| icon:check[font-color: green]
+|Enabled via `pf-adm.render-menu-search`. Renders a search input into the sidebar that client-side-filters the menu items as you type (in `admintemplate.js`): matching items are shown, parents of a match are expanded, and a matched parent reveals its whole subtree.
 
 |Built-in dark and light skin variants
 ^| icon:check[font-color: green]
@@ -137,7 +137,6 @@ integration, and skin variants.
 The main missing areas are AdminFaces-specific UX features:
 
 * control sidebar customization
-* top-menu layout variant
 * menu search
 * ripple/material interactions
 * breadcrumb navigation behavior beyond basic rendering

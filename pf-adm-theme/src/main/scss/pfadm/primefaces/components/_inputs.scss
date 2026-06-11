@@ -121,18 +121,30 @@ body {
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, background-color .15s ease-in-out;
 
     &:hover {
-      border-color: $pfadm-color-primary;
+      border-color: var(--pfadm-skin-accent, #{$pfadm-color-primary});
     }
 
     &.ui-state-focus {
-      border-color: $pfadm-color-primary;
+      border-color: var(--pfadm-skin-accent, #{$pfadm-color-primary});
       box-shadow: 0 0 0 .2rem var(--pfadm-focus-ring-color);
     }
 
     &.ui-state-active {
-      color: $pfadm-text-inverse;
-      background-color: $pfadm-color-primary;
-      border-color: $pfadm-color-primary;
+      color: var(--pfadm-skin-accent-contrast, #{$pfadm-text-inverse});
+      background-color: var(--pfadm-skin-accent, #{$pfadm-color-primary});
+      border-color: var(--pfadm-skin-accent, #{$pfadm-color-primary});
     }
   }
+
+}
+
+body .ui-chkbox .ui-chkbox-box.ui-state-active,
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active,
+body.ui-input-filled .ui-chkbox .ui-chkbox-box.ui-state-active,
+body .ui-input-filled .ui-chkbox .ui-chkbox-box.ui-state-active,
+body.ui-input-filled .ui-radiobutton .ui-radiobutton-box.ui-state-active,
+body .ui-input-filled .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+  color: var(--pfadm-skin-accent-contrast, #{$pfadm-text-inverse}) !important;
+  background-color: var(--pfadm-skin-accent, #{$pfadm-color-primary}) !important;
+  border-color: var(--pfadm-skin-accent, #{$pfadm-color-primary}) !important;
 }
