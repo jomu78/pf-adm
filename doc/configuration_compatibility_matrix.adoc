@@ -90,11 +90,6 @@ These properties exist in AdminFaces but are not currently implemented in
 ^| icon:times[font-color: red]
 |Not currently exposed by `PfAdmProperties`.
 
-|`breadCrumbMaxSize`
-^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|Not currently exposed by `PfAdmProperties`.
-
 |`renderAjaxStatus`
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
@@ -218,6 +213,26 @@ in `pf-adm-template`.
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
 |Not currently implemented.
+|===
+
+== Intentionally Not Supported (Non-goals)
+
+These AdminFaces properties are not a temporary gap; replicating the behavior
+they control conflicts with a deliberate `pf-adm` design decision and is not
+planned.
+
+|===
+|Property ^| AdminFaces `admin-template` ^| `pf-adm-template` ^| Notes
+
+|`breadCrumbMaxSize`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Caps the trail length of AdminFaces' automatic, session-scoped visited-history
+breadcrumb. `pf-adm` uses an explicit, hierarchical breadcrumb where each page
+supplies its own trail, so there is no auto-collected history to bound.
+Replicating the history model (and therefore this property) is a deliberate
+non-goal. See link:../Migration.adoc[Migration] and
+link:feature_matrix.adoc[Feature Matrix].
 |===
 
 == `pf-adm-template` Specific Properties

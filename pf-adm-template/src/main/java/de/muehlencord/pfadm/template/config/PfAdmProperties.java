@@ -30,6 +30,9 @@ public class PfAdmProperties implements Serializable {
   private String dateFormat;
   // path to template in use */
   private String templatePath = "/admin.xhtml";
+  // breadCrumbMaxSize: intentionally NOT implemented - it caps AdminFaces'
+  // automatic visited-history breadcrumb, which pf-adm replaces with an
+  // explicit, hierarchical breadcrumb (deliberate non-goal). Do not wire up.
   //  private Integer breadCrumbMaxSize;
   private boolean renderMessages = true;
   private boolean skipMessageDetailIfEqualsSummary = true;
