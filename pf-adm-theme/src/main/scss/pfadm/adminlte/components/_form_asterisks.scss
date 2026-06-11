@@ -1,0 +1,17 @@
+// Required-field asterisks — rendered when pf-adm.render-form-asterisks is
+// enabled (body gets the .pfadm-form-asterisks class). The indicator spans are
+// appended to labels of required inputs by admintemplate.js (applyFormAsterisks).
+.pfadm-form-asterisks {
+  .pfadm-required-indicator {
+    margin-left: .2rem;
+    color: var(--bs-danger);
+    font-weight: 600;
+  }
+
+  // Keep PrimeFaces' own outputLabel required indicator visually consistent
+  // with ours when the feature is enabled.
+  .ui-outputlabel-rfi {
+    color: var(--bs-danger);
+    font-weight: 600;
+  }
+}
