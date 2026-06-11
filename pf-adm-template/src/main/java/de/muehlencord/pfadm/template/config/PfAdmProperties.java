@@ -45,7 +45,7 @@ public class PfAdmProperties implements Serializable {
 //  private String ignoredResources;//comma separated resources (pages or urls) to be ignored in AdminFilter
 //  private String loadingImage;
 //  private boolean renderControlSidebar;
-  private boolean leftMenuTemplate = false;
+private boolean leftMenuTemplate = true;
   private boolean renderMenuSearch = false;
 //  private boolean renderFormAsterisks;
 //  private boolean closableLoading;

@@ -1,5 +1,9 @@
 = pf-adm History
 
+== 0.4.0 - unreleased
+
+* change: make leftMenuTemplate=true default
+
 == 0.3.0 - 2026-06-11
 
 * new: top-menu layout (`admin-top.xhtml`) rendering the primary navigation
