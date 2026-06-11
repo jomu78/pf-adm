@@ -33,7 +33,7 @@
   }
 
   // Fixes #6020: when only `fixed-header` is used (without `layout-fixed`),
-  // the sidebar — including its branding — used to scroll with the page
+  // the sidebar - including its branding - used to scroll with the page
   // because nothing made it sticky. Pin the sidebar so the brand and menu
   // stay visible while the page content scrolls beneath the fixed header.
   // Only applied on `sidebar-expand-*` breakpoints, since the mobile sidebar

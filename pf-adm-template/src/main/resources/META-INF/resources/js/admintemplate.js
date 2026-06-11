@@ -16,10 +16,17 @@ const MENU_SEARCH_ACTIVE_CLASS = 'pfadm-menu-search-active';
 // clear without disturbing the active-path expansion (OPEN_ITEM_MARKER).
 const SEARCH_OPEN_MARKER = 'pfadm-menu-search-open';
 
+// Scroll-to-top: '.pfadm-scroll-top' is the floating button rendered when
+// pf-adm.render-scroll-to-top is enabled.
+const SCROLL_TOP_SELECTOR = '.pfadm-scroll-top';
+const SCROLL_TOP_VISIBLE_CLASS = 'pfadm-scroll-top-visible';
+const SCROLL_TOP_THRESHOLD = 200;
+
 $(document).ready(function() {
   setActiveNavLink();
   bindAjaxMenuRefresh();
   bindMenuSearch();
+  bindScrollTop();
 });
 
 function bindAjaxMenuRefresh() {
@@ -227,5 +234,30 @@ function filterMenu($menu, query) {
         $ancestor.addClass(MENU_OPEN_CLASS + ' ' + SEARCH_OPEN_MARKER);
       }
     });
+  });
+}
+
+function bindScrollTop() {
+  const $btn = $(SCROLL_TOP_SELECTOR);
+
+  if ($btn.length === 0) {
+    return;
+  }
+
+  // In the AdminLTE fixed layout the page content scrolls with the window.
+  const currentScroll = function() {
+    return window.pageYOffset || document.documentElement.scrollTop || 0;
+  };
+
+  const toggle = function() {
+    $btn.toggleClass(SCROLL_TOP_VISIBLE_CLASS, currentScroll() > SCROLL_TOP_THRESHOLD);
+  };
+
+  $(window).on('scroll', toggle);
+  toggle();
+
+  $btn.on('click', function(event) {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }

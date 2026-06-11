@@ -252,6 +252,11 @@ These properties are currently specific to `pf-adm-template`.
 ^| icon:check[font-color: green]
 |Controls whether the sidebar toggle button is rendered.
 
+|`renderScrollToTop`
+^| icon:times[font-color: red]
+^| icon:check[font-color: green]
+|Controls whether the floating scroll-to-top button is rendered (defaults to `false`).
+
 |`supportBootstrapIcons`
 ^| icon:times[font-color: red]
 ^| icon:check[font-color: green]

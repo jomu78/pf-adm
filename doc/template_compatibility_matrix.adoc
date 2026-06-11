@@ -26,9 +26,9 @@ feature set or all legacy AdminFaces backing-bean APIs.
 `pf-adm-template` ships two page templates that both extend the shared
 `admin-base.xhtml` layout:
 
-* `admin.xhtml` — the default left-sidebar layout. The primary navigation is
+* `admin.xhtml` - the default left-sidebar layout. The primary navigation is
   supplied through the `menu` region and rendered vertically in the sidebar.
-* `admin-top.xhtml` — a sidebar-less top-menu layout (AdminFaces parity for
+* `admin-top.xhtml` - a sidebar-less top-menu layout (AdminFaces parity for
   `admin-top.xhtml`). The primary navigation is supplied through the `top-menu`
   region and rendered horizontally in the navbar; the brand block moves into the
   navbar because there is no sidebar. Pages opt in by setting

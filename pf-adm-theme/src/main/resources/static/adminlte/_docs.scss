@@ -23,7 +23,7 @@
   }
 
   //
-  // Card body — breathing room + prose typography.
+  // Card body - breathing room + prose typography.
   // Only applied inside docs content cards so demo-page card content
   // stays unchanged.
   //
@@ -146,7 +146,7 @@
     }
 
     //
-    // Inline code — pill style that complements MDX's syntax-highlighted blocks.
+    // Inline code - pill style that complements MDX's syntax-highlighted blocks.
     //
     p code,
     li code,
@@ -186,7 +186,7 @@
     }
 
     //
-    // Tables — reference-doc styling with hairline borders.
+    // Tables - reference-doc styling with hairline borders.
     //
     table {
       width: 100%;
@@ -242,7 +242,7 @@
     }
 
     //
-    // Prose links — stand out more than Bootstrap defaults.
+    // Prose links - stand out more than Bootstrap defaults.
     //
     a:not(.btn):not(.nav-link) {
       color: var(--#{$prefix}primary);
@@ -256,7 +256,7 @@
     }
 
     //
-    // Horizontal rule — used as additional section separator.
+    // Horizontal rule - used as additional section separator.
     //
     hr {
       margin: 2.5rem 0;
@@ -266,7 +266,7 @@
     }
 
     //
-    // Lead paragraph — the first paragraph in any doc is a summary.
+    // Lead paragraph - the first paragraph in any doc is a summary.
     // Visually heavier so it functions as a deck.
     //
     > p:first-child,
@@ -278,7 +278,7 @@
     }
 
     //
-    // FAQ / disclosure accordion — uses native <details>/<summary>.
+    // FAQ / disclosure accordion - uses native <details>/<summary>.
     // Add `.faq-item` to <details> to opt in.
     //
     details.faq-item {
@@ -400,7 +400,7 @@
 }
 
 //
-// FAQ page — custom layout that breaks out of the standard docs card
+// FAQ page - custom layout that breaks out of the standard docs card
 // to give the FAQ a more distinctive visual identity. Opt in via
 // body.faq-page (set in pages/docs/faq.astro).
 //

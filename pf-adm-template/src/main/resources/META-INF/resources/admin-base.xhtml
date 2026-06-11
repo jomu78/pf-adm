@@ -189,6 +189,12 @@
   </div>
   <ui:insert name="after-wrapper"/>
 
+  <ui:fragment rendered="#{pfAdmConfig.renderScrollToTop}">
+    <a href="#" class="pfadm-scroll-top" role="button" aria-label="#{admMessages.label_scroll_top}">
+      <i class="pi pi-arrow-up" aria-hidden="true"/>
+    </a>
+  </ui:fragment>
+
 
   <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
   <h:outputScript library="js" name="adminlte.min.js"/>

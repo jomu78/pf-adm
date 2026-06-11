@@ -64,8 +64,8 @@ behavior, not just the existence of Facelets hook names.
 
 |Scroll-to-top affordance
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|Currently not implemented in `pf-adm-template`.
+^| icon:check[font-color: green]
+|Enabled via `pf-adm.render-scroll-to-top`. A floating button appears once the page is scrolled past a threshold and smooth-scrolls back to the top (in `admintemplate.js`); available in both the sidebar and top-menu layouts.
 
 |Automatic active-menu highlighting
 ^| icon:check[font-color: green]
