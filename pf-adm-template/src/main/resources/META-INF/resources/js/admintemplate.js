@@ -22,11 +22,24 @@ const SCROLL_TOP_SELECTOR = '.pfadm-scroll-top';
 const SCROLL_TOP_VISIBLE_CLASS = 'pfadm-scroll-top-visible';
 const SCROLL_TOP_THRESHOLD = 200;
 
+// Form asterisks: when pf-adm.render-form-asterisks is enabled the body carries
+// this class, and a '*' indicator is appended to the label of every required
+// input (see applyFormAsterisks).
+const FORM_ASTERISKS_BODY_CLASS = 'pfadm-form-asterisks';
+const REQUIRED_INDICATOR_CLASS = 'pfadm-required-indicator';
+// Required form controls expose aria-required="true" (PrimeFaces) or the native
+// required attribute. A label is matched to its control via for=<control id>.
+const REQUIRED_CONTROL_SELECTOR = '[aria-required="true"], [required]';
+// PrimeFaces' own outputLabel required indicator — skip labels that already
+// carry one so we never render a double asterisk.
+const EXISTING_INDICATOR_SELECTOR = '.ui-outputlabel-rfi, .' + REQUIRED_INDICATOR_CLASS;
+
 $(document).ready(function() {
   setActiveNavLink();
   bindAjaxMenuRefresh();
   bindMenuSearch();
   bindScrollTop();
+  applyFormAsterisks();
 });
 
 function bindAjaxMenuRefresh() {
@@ -34,6 +47,7 @@ function bindAjaxMenuRefresh() {
   // Faces AJAX API. It dispatches this jQuery event on document instead.
   $(document).on('pfAjaxComplete', function() {
     setActiveNavLink();
+    applyFormAsterisks();
   });
 
   // Standard Jakarta Faces AJAX (f:ajax). Faces 4 exposes the 'faces' namespace;
@@ -42,6 +56,7 @@ function bindAjaxMenuRefresh() {
     window.faces.ajax.addOnEvent(function(event) {
       if (event && event.status === 'success') {
         setActiveNavLink();
+        applyFormAsterisks();
       }
     });
   }
@@ -259,5 +274,30 @@ function bindScrollTop() {
   $btn.on('click', function(event) {
     event.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+function applyFormAsterisks() {
+  // Self-guarding: only runs when pf-adm.render-form-asterisks set the body
+  // class, so it is safe to call unconditionally (e.g. from AJAX handlers).
+  if (!document.body || !document.body.classList.contains(FORM_ASTERISKS_BODY_CLASS)) {
+    return;
+  }
+
+  $(REQUIRED_CONTROL_SELECTOR).each(function() {
+    const id = this.id;
+    if (!id) {
+      return;
+    }
+
+    // A control is "labelled" when an outputLabel/label targets it via for=id.
+    const $label = $('label[for="' + $.escapeSelector(id) + '"]');
+    if ($label.length === 0 || $label.find(EXISTING_INDICATOR_SELECTOR).length > 0) {
+      return;
+    }
+
+    $label.append(
+      $('<span>', { 'class': REQUIRED_INDICATOR_CLASS, 'aria-hidden': 'true', text: '*' })
+    );
   });
 }

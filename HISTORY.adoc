@@ -2,6 +2,7 @@
 
 == 0.4.0 - unreleased
 
+* new: form asterisks (`pf-adm.render-form-asterisks`) - appends a `*` indicator to the label of every required input
 * change: make leftMenuTemplate=true default
 
 == 0.3.0 - 2026-06-11

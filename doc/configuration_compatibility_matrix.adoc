@@ -70,6 +70,11 @@ The matrix focuses on property availability, not on full behavioral parity.
 ^| icon:check[font-color: green]
 ^| icon:check[font-color: green]
 |When enabled, renders a sidebar search input that client-side-filters the menu items as you type.
+
+|`renderFormAsterisks`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|When enabled, appends a `*` indicator to the label of every required input (input with `required`/`aria-required`). Labels that already carry PrimeFaces' own outputLabel indicator are left untouched.
 |===
 
 == Not Currently Supported from AdminFaces
@@ -131,11 +136,6 @@ These properties exist in AdminFaces but are not currently implemented in
 |Not currently implemented.
 
 |`renderControlSidebar`
-^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|Not currently implemented.
-
-|`renderFormAsterisks`
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
 |Not currently implemented.

@@ -56,6 +56,10 @@ public class PfAdmConfig implements Serializable {
     return SpringContext.getBean(PfAdmProperties.class).isRenderMenuSearch();
   }
 
+  public boolean isRenderFormAsterisks() {
+    return SpringContext.getBean(PfAdmProperties.class).isRenderFormAsterisks();
+  }
+
   public boolean isRenderLogo() {
     return SpringContext.getBean(PfAdmProperties.class).isRenderLogo();
   }
