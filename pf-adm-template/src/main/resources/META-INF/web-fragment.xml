@@ -18,10 +18,6 @@
     <error-code>403</error-code>
     <location>/403.xhtml</location>
   </error-page>
-  <error-page>
-    <exception-type>jakarta.ejb.AccessLocalException</exception-type>
-    <location>/403.xhtml</location>
-  </error-page>
 
   <error-page>
     <error-code>404</error-code>
