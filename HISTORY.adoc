@@ -3,6 +3,7 @@
 == 0.4.0 - unreleased
 
 * new: form asterisks (`pf-adm.render-form-asterisks`) - appends a `*` indicator to the label of every required input
+* new: support renderAjaxStatus
 * change: make leftMenuTemplate=true default
 * bugfix: fix error pages and error handling
 

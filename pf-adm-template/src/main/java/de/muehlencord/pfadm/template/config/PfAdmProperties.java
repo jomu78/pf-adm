@@ -36,7 +36,12 @@ public class PfAdmProperties implements Serializable {
   //  private Integer breadCrumbMaxSize;
   private boolean renderMessages = true;
   private boolean skipMessageDetailIfEqualsSummary = true;
-  //  private boolean renderAjaxStatus;
+  // renders a global overlay during AJAX requests (PrimeFaces p:ajaxStatus)
+  private boolean renderAjaxStatus = false;
+  // image shown in the AJAX overlay; used verbatim as the img src. when empty,
+  // the bundled images/ajaxloadingbar.gif is used as the default. only relevant
+  // when renderAjaxStatus is true.
+  private String loadingImage;
 //  private boolean disableFilter;
 //  private boolean enableRipple;
   private boolean renderBreadCrumb = true;
@@ -46,7 +51,6 @@ public class PfAdmProperties implements Serializable {
   private SkinEnum skin = SkinEnum.SKIN_BLUE;
   //  private boolean autoShowNavbar;
 //  private String ignoredResources;//comma separated resources (pages or urls) to be ignored in AdminFilter
-//  private String loadingImage;
 //  private boolean renderControlSidebar;
   private boolean leftMenuTemplate = true;
   private boolean renderMenuSearch = false;
