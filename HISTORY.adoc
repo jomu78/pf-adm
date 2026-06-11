@@ -4,6 +4,7 @@
 
 * new: form asterisks (`pf-adm.render-form-asterisks`) - appends a `*` indicator to the label of every required input
 * change: make leftMenuTemplate=true default
+* bugfix: fix error pages and error handling
 
 == 0.3.0 - 2026-06-11
 
@@ -18,9 +19,9 @@
   that appears on scroll and smooth-scrolls back to the top
 * new: support bootstrap icons
 * removed: moved pf-adm-showcase into own project
-* fixed: error pages and error handling
-* fixed: icon handling
-* fixed: scss not bundled
+* bugfix: fix error pages and error handling
+* bugfix: fix icon handling
+* bugfix: do not bundle scss
 * improved: documentation
 * improved: scss handling
 * chore(deps): Update to AdminLte 4.0.0
