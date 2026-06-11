@@ -68,8 +68,8 @@ The matrix focuses on property availability, not on full behavioral parity.
 
 |`renderMenuSearch`
 ^| icon:check[font-color: green]
-^| icon:check[font-color: yellow]
-|Property exists in `pf-adm-template`, but the full AdminFaces menu-search feature is not implemented yet.
+^| icon:check[font-color: green]
+|When enabled, renders a sidebar search input that client-side-filters the menu items as you type.
 |===
 
 == Not Currently Supported from AdminFaces

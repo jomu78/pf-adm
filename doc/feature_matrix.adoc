@@ -119,8 +119,8 @@ behavior, not just the existence of Facelets hook names.
 
 |Menu item search
 ^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|A configuration flag exists in `pf-adm-template`, but the AdminFaces-style menu search feature is currently not implemented.
+^| icon:check[font-color: green]
+|Enabled via `pf-adm.render-menu-search`. Renders a search input into the sidebar that client-side-filters the menu items as you type (in `admintemplate.js`): matching items are shown, parents of a match are expanded, and a matched parent reveals its whole subtree.
 
 |Built-in dark and light skin variants
 ^| icon:check[font-color: green]

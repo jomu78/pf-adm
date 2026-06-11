@@ -8,9 +8,18 @@ const ACTIVE_LINK_MARKER = 'pfadm-nav-link-active';
 const OPEN_ITEM_MARKER = 'pfadm-nav-path-open';
 const PARENT_LINK_MARKER = 'pfadm-nav-path-parent';
 
+// Menu search: '.pfadm-menu-search' is the search input rendered into the
+// sidebar when pf-adm.render-menu-search is enabled.
+const MENU_SEARCH_SELECTOR = '.pfadm-menu-search';
+const MENU_SEARCH_ACTIVE_CLASS = 'pfadm-menu-search-active';
+// Marks nav-items expanded by the search so they can be collapsed again on
+// clear without disturbing the active-path expansion (OPEN_ITEM_MARKER).
+const SEARCH_OPEN_MARKER = 'pfadm-menu-search-open';
+
 $(document).ready(function() {
   setActiveNavLink();
   bindAjaxMenuRefresh();
+  bindMenuSearch();
 });
 
 function bindAjaxMenuRefresh() {
@@ -156,5 +165,67 @@ function activateNavLink($link) {
 
     $parentItem.addClass(MENU_OPEN_CLASS + ' ' + OPEN_ITEM_MARKER);
     $parentLink.addClass(PARENT_LINK_MARKER).attr('aria-expanded', 'true');
+  });
+}
+
+function bindMenuSearch() {
+  $(MENU_SEARCH_SELECTOR).each(function() {
+    const $input = $(this);
+    const $menu = $input.closest('.app-sidebar').find(SIDEBAR_SELECTOR).first();
+
+    if ($menu.length === 0) {
+      return;
+    }
+
+    $input.on('input', function() {
+      filterMenu($menu, ($input.val() || '').trim().toLowerCase());
+    });
+  });
+}
+
+function filterMenu($menu, query) {
+  // Undo any expansion a previous query introduced, but keep the active path
+  // (OPEN_ITEM_MARKER) expanded.
+  $menu.find('.' + SEARCH_OPEN_MARKER).each(function() {
+    const $item = $(this);
+    $item.removeClass(SEARCH_OPEN_MARKER);
+    if (!$item.hasClass(OPEN_ITEM_MARKER)) {
+      $item.removeClass(MENU_OPEN_CLASS);
+    }
+  });
+
+  const $items = $menu.find('.nav-item');
+
+  if (!query) {
+    $items.css('display', '');
+    $menu.removeClass(MENU_SEARCH_ACTIVE_CLASS);
+    return;
+  }
+
+  $menu.addClass(MENU_SEARCH_ACTIVE_CLASS);
+  $items.css('display', 'none');
+
+  $menu.find(SIDEBAR_LINK_SELECTOR).each(function() {
+    const $link = $(this);
+    // A treeview parent keeps its children in a sibling .nav-treeview, so the
+    // link's own text is just its label and never includes child labels.
+    const text = ($link.text() || '').trim().toLowerCase();
+
+    if (!text || text.indexOf(query) === -1) {
+      return;
+    }
+
+    const $item = $link.closest('.nav-item');
+    // Reveal the match, all of its descendants (a matched parent shows its
+    // whole subtree), and all of its ancestors (expanding them on the way up).
+    $item.css('display', '');
+    $item.find('.nav-item').css('display', '');
+    $item.parents('.nav-item').each(function() {
+      const $ancestor = $(this);
+      $ancestor.css('display', '');
+      if (!$ancestor.hasClass(MENU_OPEN_CLASS)) {
+        $ancestor.addClass(MENU_OPEN_CLASS + ' ' + SEARCH_OPEN_MARKER);
+      }
+    });
   });
 }

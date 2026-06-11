@@ -70,6 +70,18 @@
                         </ui:fragment>
                     </p:link>
                 </div>
+                <ui:fragment rendered="#{pfAdmConfig.renderMenuSearch}">
+                    <div class="sidebar-search p-2">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text" aria-hidden="true">
+                                <i class="pi pi-search"/>
+                            </span>
+                            <input type="search" class="form-control pfadm-menu-search"
+                                   placeholder="#{admMessages.label_menu_search}"
+                                   aria-label="#{admMessages.label_menu_search}"/>
+                        </div>
+                    </div>
+                </ui:fragment>
                 <ui:insert name="menu-begin"/>
                 <div class="sidebar-wrapper">
                     <nav class="mt-2">

@@ -7,6 +7,8 @@
 * new: `pf-adm.template-top-path` property to configure the template used for
   the top-menu layout (defaults to `/admin-top.xhtml`)
 * new: breadcrumb support
+* new: menu item search (`pf-adm.render-menu-search`) — sidebar search input
+  that client-side-filters the menu items
 * new: support bootstrap icons
 * removed: moved pf-adm-showcase into own project
 * fixed: error pages and error handling
