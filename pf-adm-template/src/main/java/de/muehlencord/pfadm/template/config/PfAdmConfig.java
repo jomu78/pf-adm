@@ -26,10 +26,6 @@ public class PfAdmConfig implements Serializable {
     return SpringContext.getBean(PfAdmProperties.class).getTemplatePath();
   }
 
-//  public void setTemplatePath(String templatePath) {
-//    SpringContext.getBean(PfAdmProperties.class).setTemplatePath(templatePath);
-//  }
-
   public String getTemplateTopPath() {
     return SpringContext.getBean(PfAdmProperties.class).getTemplateTopPath();
   }

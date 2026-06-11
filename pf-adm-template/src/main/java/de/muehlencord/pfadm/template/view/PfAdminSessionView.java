@@ -4,6 +4,7 @@ import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
 import jakarta.servlet.http.HttpServletRequest;
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -16,7 +17,8 @@ import java.io.Serializable;
 @SessionScoped
 public class PfAdminSessionView implements Serializable {
 
-  private static final long serialVersionUID = 1L;
+  @Serial
+  private static final long serialVersionUID = -234708329686659755L;
 
   public String getRequestRelativeURI() {
     var request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();

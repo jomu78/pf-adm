@@ -1,6 +1,6 @@
 = pf-adm History
 
-== 0.3.0 - unreleased
+== 0.3.0 - 2026-06-11
 
 * new: top-menu layout (`admin-top.xhtml`) rendering the primary navigation
   horizontally in the navbar, selectable via `pf-adm.template-path`
