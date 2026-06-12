@@ -10,7 +10,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>4.0.6</version>
+    <version>4.0.7</version>
   </parent>
 
   <name>pf-adm</name>
@@ -76,8 +76,8 @@
     <omnifaces.version>5.3.3</omnifaces.version>
 
     <!-- dependency versions -->
-    <spring-boot.version>4.0.6</spring-boot.version>
-    <primefaces.version>15.0.14</primefaces.version>
+    <spring-boot.version>4.0.7</spring-boot.version>
+    <primefaces.version>15.0.16</primefaces.version>
 
     <!-- plugin versions -->
     <dart-sass-maven-plugin.version>1.5.0</dart-sass-maven-plugin.version>
