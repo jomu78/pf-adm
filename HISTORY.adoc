@@ -1,10 +1,10 @@
 = pf-adm History
 
-== 0.4.0 - unreleased
+== 0.3.1 - 2026-06-12
 
-* new: form asterisks (`pf-adm.render-form-asterisks`) - appends a `*` indicator to the label of every required input
-* change: make leftMenuTemplate=true default
 * bugfix: fix error pages and error handling
+* chore(deps): Update to SpringBoot 4.0.7
+* chore(deps): Update to Primefaces 15.0.16
 
 == 0.3.0 - 2026-06-11
 
