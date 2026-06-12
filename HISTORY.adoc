@@ -7,6 +7,12 @@
 * change: make leftMenuTemplate=true default
 * bugfix: fix error pages and error handling
 
+== 0.3.1 - 2026-06-12
+
+* bugfix: fix error pages and error handling
+* chore(deps): Update to SpringBoot 4.0.7
+* chore(deps): Update to Primefaces 15.0.16
+
 == 0.3.0 - 2026-06-11
 
 * new: top-menu layout (`admin-top.xhtml`) rendering the primary navigation
