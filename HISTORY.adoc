@@ -1,5 +1,11 @@
 = pf-adm History
 
+== 0.3.1 - 2026-06-12
+
+* bugfix: fix error pages and error handling
+* chore(deps): Update to SpringBoot 4.0.7
+* chore(deps): Update to Primefaces 15.0.16
+
 == 0.3.0 - 2026-06-11
 
 * new: top-menu layout (`admin-top.xhtml`) rendering the primary navigation
@@ -13,9 +19,9 @@
   that appears on scroll and smooth-scrolls back to the top
 * new: support bootstrap icons
 * removed: moved pf-adm-showcase into own project
-* fixed: error pages and error handling
-* fixed: icon handling
-* fixed: scss not bundled
+* bugfix: fix error pages and error handling
+* bugfix: fix icon handling
+* bugfix: do not bundle scss
 * improved: documentation
 * improved: scss handling
 * chore(deps): Update to AdminLte 4.0.0
