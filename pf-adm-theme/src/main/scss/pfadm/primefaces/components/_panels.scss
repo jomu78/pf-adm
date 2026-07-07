@@ -144,6 +144,42 @@ body .ui-panel {
 }
 
 
+/* PanelGrid */
+// Tighten cell padding vs. the shared $panelContentPadding (1rem) inherited from
+// the PrimeFaces theme-base, which is too loose for form-style p:panelGrid layouts.
+body .ui-panelgrid .ui-panelgrid-cell {
+  padding: $panelgrid-cell-padding-y $panelgrid-cell-padding-x;
+
+  &.ui-widget-header {
+    padding: $panelgrid-cell-padding-y $panelgrid-cell-padding-x;
+  }
+
+  // Stretch form fields to fill their grid cell. Scoped to panelgrid cells on
+  // purpose: a global width:100% on .ui-inputfield would also blow up spinners,
+  // numeric fields and inline inputs. selectOneMenu is already full-width globally.
+  .ui-inputfield,
+  .ui-inputtextarea {
+    width: 100%;
+  }
+
+  // p:calendar wraps its input in an inline-block .ui-calendar that _datepicker
+  // caps at 14rem; flip it to block/full-width (same treatment as .ui-fluid) so
+  // it fills the cell like the other fields. Trigger button stays pinned right.
+  .ui-calendar {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+
+    input,
+    input.hasDatepicker {
+      width: 100%;
+      min-width: 0;
+      max-width: none;
+    }
+  }
+}
+
+
 /* ScrollPanel */
 .ui-scrollpanel .ui-scrollpanel-drag {
   background-color: #dcdcdc;

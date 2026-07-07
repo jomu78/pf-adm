@@ -4,8 +4,10 @@
 
 * new: form asterisks (`pf-adm.render-form-asterisks`) - appends a `*` indicator to the label of every required input
 * new: support renderAjaxStatus
+* new: p:panelGrid column width control using pfadm-col-x (10,20,25,30,50,70,75)
 * change: make leftMenuTemplate=true default
 * bugfix: fix error pages and error handling
+* bugfix: dialog width and z-index issues
 
 == 0.3.1 - 2026-06-12
 

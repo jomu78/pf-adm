@@ -34,6 +34,18 @@ const REQUIRED_CONTROL_SELECTOR = '[aria-required="true"], [required]';
 // carry one so we never render a double asterisk.
 const EXISTING_INDICATOR_SELECTOR = '.ui-outputlabel-rfi, .' + REQUIRED_INDICATOR_CLASS;
 
+// Lift PrimeFaces overlays above the AdminLTE chrome. PrimeFaces assigns overlay
+// z-indexes dynamically from PrimeFaces.zindex (default base 1000), but the
+// AdminLTE 4 sidebar sits at 1038 and header at 1034, so a default dialog would
+// render behind them. Raising the base clears the chrome while staying just below
+// Bootstrap's modal layer (1055), and preserves PrimeFaces' per-overlay increments
+// (stacked dialogs, overlaypanel-over-dialog keep their relative order). Set at
+// script-execution time (PrimeFaces core is loaded as a head resource, so it is
+// already defined here) so it applies before any auto-opened dialog is shown.
+if (window.PrimeFaces) {
+    PrimeFaces.zindex = 1100;
+}
+
 $(document).ready(function() {
   setActiveNavLink();
   bindAjaxMenuRefresh();
