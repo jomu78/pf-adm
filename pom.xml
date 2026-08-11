@@ -73,11 +73,9 @@
     <jakarta.jakartaee-web-api.version>11.0.0</jakarta.jakartaee-web-api.version>
     <jakarta.ejb-api.version>4.0.1</jakarta.ejb-api.version>
     <jakarta.faces-api.version>4.1.2</jakarta.faces-api.version>
-    <omnifaces.version>5.3.3</omnifaces.version>
-
-    <!-- dependency versions -->
+    <omnifaces.version>5.3.4</omnifaces.version>
     <spring-boot.version>4.0.7</spring-boot.version>
-    <primefaces.version>15.0.16</primefaces.version>
+    <primefaces.version>15.0.17</primefaces.version>
 
     <!-- plugin versions -->
     <dart-sass-maven-plugin.version>1.5.0</dart-sass-maven-plugin.version>
@@ -86,7 +84,7 @@
     <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
     <central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
     <docker-maven-plugin.version>0.48.1</docker-maven-plugin.version>
-    <jacoco-maven-plugin.version>0.8.14</jacoco-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.8.15</jacoco-maven-plugin.version>
   </properties>
 
 
