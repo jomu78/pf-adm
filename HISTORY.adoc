@@ -1,6 +1,6 @@
 = pf-adm History
 
-== 0.4.0 - unreleased
+== 0.4.0 - 2026-08-16
 
 * new: form asterisks (`pf-adm.render-form-asterisks`) - appends a `*` indicator to the label of every required input
 * new: support renderAjaxStatus
