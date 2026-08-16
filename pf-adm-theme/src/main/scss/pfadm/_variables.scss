@@ -218,6 +218,16 @@ $btn-border-radius-lg: $border-radius-lg !default;
 $datatable-border-color: $gray-800 !default;
 $datatable-row-border-color: $gray-800 !default;
 $datatable-row-hover-color: $pfadm-surface-card !default;
+
+// DataTable cell padding. Overrides the PrimeFaces theme-base default of
+// `1rem 1rem`, which is too loose for admin tables. Defined here (pfadm vars
+// load before the theme-base vars via prelude) so the theme-base `!default`
+// picks up these values, keeping body, header, footer and the sm/lg scale
+// variants consistent. Two-value list (y x) — list.nth() relies on it.
+$pfadm-datatable-cell-padding: 0.5rem 0.75rem !default;
+$datatableBodyCellPadding: $pfadm-datatable-cell-padding !default;
+$datatableHeaderCellPadding: $pfadm-datatable-cell-padding !default;
+$datatableFooterCellPadding: $pfadm-datatable-cell-padding !default;
 $glyphicon-icon-size: 10px;
 
 $admin-text-color: $pfadm-text-secondary !default;
@@ -273,6 +283,12 @@ $accordion-content-padding: 1rem !default;
 $accordion-header-bg: $pfadm-surface-muted !default;
 $accordion-content-bg: $pfadm-surface-card !default;
 $accordion-border-color: $pfadm-border-color !default;
+
+// PanelGrid cell padding. Denser than the shared $panelContentPadding (1rem)
+// so p:panelGrid form layouts read tightly, in the spirit of AdminFaces'
+// 4px/10px cells but calibrated for the roomier Bootstrap 5 / AdminLTE 4 baseline.
+$panelgrid-cell-padding-y: 0.25rem !default;
+$panelgrid-cell-padding-x: 0.75rem !default;
 
 $tree-node-padding-y: 0.2rem !default;
 $tree-node-padding-x: 0 !default;

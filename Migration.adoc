@@ -372,9 +372,104 @@ Areas that usually need explicit review:
 * pages that relied on the control sidebar
 * pages that used AdminFaces ripple/material interactions
 * pages that rely on specialized AdminFaces component styling
+* pages that use Bootstrap 3 responsive visibility classes (see <<_responsive_visibility,Responsive Visibility>>)
+* form pages built with `p:panelGrid` that need explicit column widths (see <<_panelgrid_column_widths,PanelGrid Column Widths>>)
+* pages with `p:dialog` that need an explicit width and `appendTo="@(body)"` to centre correctly (see <<_dialog_sizing_and_centering,Dialog Sizing and Centering>>)
 
 For the current high-level feature status, see
 link:doc/feature_matrix.adoc[Feature Matrix] and link:doc/uicomponents.adoc[UI Components].
+
+=== Responsive Visibility
+
+AdminFaces (Bootstrap 3) toggled per-breakpoint visibility with the
+`visible-xs`/`visible-sm`/`visible-md`/`visible-lg` and
+`hidden-xs`/`hidden-sm`/`hidden-md`/`hidden-lg` classes.
+Bootstrap 5 removed these; `pf-adm` no longer ships the compatibility shims for them either.
+
+Use the Bootstrap 5 responsive display utilities instead.
+The pattern is
+`d-{breakpoint}-none` combined with `d-{breakpoint}-block` (or another display value), where the Bootstrap 5 breakpoints are `sm` (&#8805;576px), `md`
+(&#8805;768px), `lg` (&#8805;992px), and `xl` (&#8805;1200px).
+See the
+https://getbootstrap.com/docs/5.3/utilities/display/[Bootstrap 5 display
+utilities] for the full set.
+
+Common replacements:
+
+[cols="a,a"]
+|===
+^| Bootstrap 3 (AdminFaces) ^| Bootstrap 5 (`pf-adm`)
+
+|`visible-sm visible-xs` (show only on small screens)
+|`d-lg-none`
+
+|`hidden-xs` (hide on extra-small screens)
+|`d-none d-sm-block`
+
+|`hidden-lg` (hide on large screens and up)
+|`d-lg-none` &#8212; wrap smaller-screen content, or use `d-none d-lg-block` to invert
+|===
+
+=== PanelGrid Column Widths
+
+`pf-adm` tightens `p:panelGrid` cell padding (`0.25rem 0.75rem`) and stretches
+`inputText`, `inputTextarea`, `selectOneMenu`, and `calendar` fields to fill their cell, so form-style panel grids read compactly out of the box.
+
+To control the relative width of columns, apply the `pfadm-col-*` utility classes per column through the standard PrimeFaces `columnClasses` attribute (the classes are assigned cyclically, one per column):
+
+[source,xml]
+----
+<p:panelGrid id="panelgrid" columns="3"
+             columnClasses="pfadm-col-25,pfadm-col-50,pfadm-col-25">
+----
+
+Available widths: `pfadm-col-10`, `pfadm-col-20`, `pfadm-col-25`,
+`pfadm-col-30`, `pfadm-col-50`, `pfadm-col-70`, and `pfadm-col-75`
+(10/20/25/30/50/70/75%).
+The example above makes the middle column twice as wide as the outer two.
+The classes are scoped to
+`.ui-panelgrid-cell`, so they set the column width without affecting other elements.
+Aim for a set of widths that sums to 100% when you want exact control; any remainder is distributed by the browser based on content.
+
+=== DataTable Cell Padding
+
+The PrimeFaces theme-base pads `p:dataTable` / `p:treeTable` cells with
+`1rem 1rem`, which is too loose for admin tables. `pf-adm` narrows this to
+`0.5rem 0.75rem` for body, header, and footer cells (the `sm` and `lg` scale variants derive from it proportionally).
+
+The value is controlled by a single design token in
+`pfadm/_variables.scss`:
+
+[source,scss]
+----
+$pfadm-datatable-cell-padding: 0.5rem 0.75rem !default;
+----
+
+Retune it in one place if you want denser or roomier tables; it feeds the theme-base `$datatableBodyCellPadding`, `$datatableHeaderCellPadding`, and
+`$datatableFooterCellPadding` variables.
+For a one-off extra-compact table, the existing `extra-compact` style class on `p:dataTable` still applies.
+
+=== Dialog Sizing and Centering
+
+Give every `p:dialog` an explicit `width` and append it to the body:
+
+[source,xhtml]
+----
+<p:dialog id="editDialog" appendTo="@(body)" width="900" modal="true">
+----
+
+Two reasons, both specific to the AdminLTE 4 fixed-sidebar layout:
+
+* `appendTo="@(body)"` makes the dialog's coordinate origin the viewport.
+A dialog left inside the content area is positioned relative to `.app-main`
+(which is `position: relative` and offset right by the sidebar), so it renders off-centre to the right.
+* An explicit `width` keeps the dialog centred.
+Width-less dialogs are auto-sized to their content, and `pf-adm` stretches `inputText`,
+`inputTextarea`, `selectOneMenu`, and `calendar` to full width inside a
+`p:panelGrid` (see <<_panelgrid_column_widths,PanelGrid Column Widths>>) — in an auto-width dialog those `100%` fields size unpredictably and can push the box past the right edge.
+
+As a backstop, `pf-adm` caps every dialog at `max-width: 95vw`, so a dialog can never overflow the viewport horizontally even if it has no explicit width.
+This is a safety net, not a substitute for setting a sensible `width`.
 
 == Validation Checklist
 

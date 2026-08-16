@@ -1,0 +1,22 @@
+// Global AJAX status overlay - rendered when pf-adm.render-ajax-status is
+// enabled (see admin-base.xhtml). PrimeFaces' p:ajaxStatus shows the .start
+// facet during AJAX requests and hides it on complete; that facet holds the
+// fixed full-screen backdrop below. The image is pf-adm.loading-image when set,
+// otherwise the bundled images/ajaxloadingbar.gif.
+.pfadm-ajax-status {
+  .pfadm-ajax-status-overlay {
+    position: fixed;
+    inset: 0;
+    // Above PrimeFaces dialogs/masks so the busy indicator is never hidden.
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .35);
+  }
+
+  .pfadm-ajax-status-image {
+    max-width: 25vw;
+    max-height: 25vh;
+  }
+}

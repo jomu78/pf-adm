@@ -42,6 +42,11 @@ behavior, not just the existence of Facelets hook names.
 ^| icon:times[font-color: red]
 |Currently not implemented in `pf-adm-template`.
 
+|AJAX busy / loading overlay
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|Enabled via `pf-adm.render-ajax-status`. A full-screen overlay (PrimeFaces `p:ajaxStatus`) is shown while an AJAX request is in flight. `pf-adm.loading-image` selects an image to display; when unset the bundled `images/ajaxloadingbar.gif` is used. A user-dismissable variant (AdminFaces `closableLoading`) is not implemented.
+
 |Material-style flat buttons
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]

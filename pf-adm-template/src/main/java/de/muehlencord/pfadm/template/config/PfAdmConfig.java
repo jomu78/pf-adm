@@ -42,6 +42,14 @@ public class PfAdmConfig implements Serializable {
     return SpringContext.getBean(PfAdmProperties.class).isRenderBreadCrumb();
   }
 
+  public boolean isRenderAjaxStatus() {
+    return SpringContext.getBean(PfAdmProperties.class).isRenderAjaxStatus();
+  }
+
+  public String getLoadingImage() {
+    return SpringContext.getBean(PfAdmProperties.class).getLoadingImage();
+  }
+
   public boolean isEnableSlideMenu() {
     return SpringContext.getBean(PfAdmProperties.class).isEnableSlideMenu();
   }
@@ -54,6 +62,10 @@ public class PfAdmConfig implements Serializable {
 
   public boolean isRenderMenuSearch() {
     return SpringContext.getBean(PfAdmProperties.class).isRenderMenuSearch();
+  }
+
+  public boolean isRenderFormAsterisks() {
+    return SpringContext.getBean(PfAdmProperties.class).isRenderFormAsterisks();
   }
 
   public boolean isRenderLogo() {

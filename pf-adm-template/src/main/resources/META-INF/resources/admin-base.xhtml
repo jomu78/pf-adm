@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
       xmlns:ui="jakarta.faces.facelets"
       xmlns:p="http://primefaces.org/ui"
 >
@@ -17,7 +18,8 @@
   <ui:insert name="head-end"/>
 </h:head>
 
-<h:body class="#{empty bodyLayoutClass ? 'layout-fixed sidebar-expand-md sidebar-mini' : bodyLayoutClass} bg-body-tertiary #{skinView.skin}">
+<h:body
+    class="#{empty bodyLayoutClass ? 'layout-fixed sidebar-expand-md sidebar-mini' : bodyLayoutClass} bg-body-tertiary #{skinView.skin} #{pfAdmConfig.renderFormAsterisks ? 'pfadm-form-asterisks' : ''}">
   <ui:insert name="body-begin"/>
   <!--begin::App Wrapper-->
   <div class="app-wrapper">
@@ -193,6 +195,28 @@
     <a href="#" class="pfadm-scroll-top" role="button" aria-label="#{admMessages.label_scroll_top}">
       <i class="pi pi-arrow-up" aria-hidden="true"/>
     </a>
+  </ui:fragment>
+
+  <ui:fragment rendered="#{pfAdmConfig.renderAjaxStatus}">
+    <!-- Global AJAX overlay: p:ajaxStatus shows the 'start' facet while a
+         request is in flight and hides it on complete. Styling lives in
+         pfadm/adminlte/components/_ajax_status.scss. -->
+    <p:ajaxStatus styleClass="pfadm-ajax-status">
+      <f:facet name="start">
+        <div class="pfadm-ajax-status-overlay" role="status" aria-live="polite">
+          <span class="visually-hidden">#{admMessages.label_loading}</span>
+          <!-- pf-adm.loading-image, when set, is used verbatim; otherwise the
+               bundled ajaxloadingbar.gif (resolved as a JSF resource) is the
+               default. -->
+          <img
+              src="#{empty pfAdmConfig.loadingImage ? resource['images:ajaxloadingbar.gif'] : pfAdmConfig.loadingImage}"
+              alt="#{admMessages.label_loading}" class="pfadm-ajax-status-image"/>
+        </div>
+      </f:facet>
+      <f:facet name="complete">
+        <h:outputText value=""/>
+      </f:facet>
+    </p:ajaxStatus>
   </ui:fragment>
 
 

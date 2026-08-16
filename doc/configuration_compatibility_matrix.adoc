@@ -70,6 +70,21 @@ The matrix focuses on property availability, not on full behavioral parity.
 ^| icon:check[font-color: green]
 ^| icon:check[font-color: green]
 |When enabled, renders a sidebar search input that client-side-filters the menu items as you type.
+
+|`renderFormAsterisks`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|When enabled, appends a `*` indicator to the label of every required input (input with `required`/`aria-required`). Labels that already carry PrimeFaces' own outputLabel indicator are left untouched.
+
+|`renderAjaxStatus`
+^| icon:check[font-color: green]
+^| icon:check[font-color: green]
+|When enabled, renders a global overlay (PrimeFaces `p:ajaxStatus`) shown while an AJAX request is in flight.
+
+|`loadingImage`
+^| icon:check[font-color: green]
+^| icon:check[font-color: yellow]
+|Image shown in the AJAX overlay; used verbatim as the `img` `src`, so the consuming app supplies a resolvable URL. When empty, the bundled `images/ajaxloadingbar.gif` is used as the default. Only relevant when `renderAjaxStatus` is enabled.
 |===
 
 == Not Currently Supported from AdminFaces
@@ -84,16 +99,6 @@ These properties exist in AdminFaces but are not currently implemented in
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
 |Not currently exposed by `PfAdmProperties`.
-
-|`breadCrumbMaxSize`
-^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|Not currently exposed by `PfAdmProperties`.
-
-|`renderAjaxStatus`
-^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|Not currently implemented.
 
 |`disableFilter`
 ^| icon:check[font-color: green]
@@ -125,17 +130,7 @@ These properties exist in AdminFaces but are not currently implemented in
 ^| icon:times[font-color: red]
 |Not currently implemented.
 
-|`loadingImage`
-^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|Not currently implemented.
-
 |`renderControlSidebar`
-^| icon:check[font-color: green]
-^| icon:times[font-color: red]
-|Not currently implemented.
-
-|`renderFormAsterisks`
 ^| icon:check[font-color: green]
 ^| icon:times[font-color: red]
 |Not currently implemented.
@@ -220,6 +215,26 @@ in `pf-adm-template`.
 |Not currently implemented.
 |===
 
+== Intentionally Not Supported (Non-goals)
+
+These AdminFaces properties are not a temporary gap; replicating the behavior
+they control conflicts with a deliberate `pf-adm` design decision and is not
+planned.
+
+|===
+|Property ^| AdminFaces `admin-template` ^| `pf-adm-template` ^| Notes
+
+|`breadCrumbMaxSize`
+^| icon:check[font-color: green]
+^| icon:times[font-color: red]
+|Caps the trail length of AdminFaces' automatic, session-scoped visited-history
+breadcrumb. `pf-adm` uses an explicit, hierarchical breadcrumb where each page
+supplies its own trail, so there is no auto-collected history to bound.
+Replicating the history model (and therefore this property) is a deliberate
+non-goal. See link:../Migration.adoc[Migration] and
+link:feature_matrix.adoc[Feature Matrix].
+|===
+
 == `pf-adm-template` Specific Properties
 
 These properties are currently specific to `pf-adm-template`.
@@ -298,6 +313,5 @@ These properties are currently specific to `pf-adm-template`.
 `pf-adm-template` currently supports the core shared configuration needed for
 template selection, messaging, breadcrumbs, sidebar usage, and skin selection.
 
-The main AdminFaces compatibility gap is the larger behavioral configuration
-surface around ripple effects, ajax/loading UX, control sidebar behavior,
-top-menu layout, and other AdminFaces-specific interaction features.
+The main AdminFaces compatibility gap is the larger behavioral configuration surface around ripple effects, message auto-hide, control sidebar behavior, and other AdminFaces-specific interaction features.
+The global AJAX busy overlay (`renderAjaxStatus` / `loadingImage`) is supported; a user-dismissable loading overlay (`closableLoading`) is not.

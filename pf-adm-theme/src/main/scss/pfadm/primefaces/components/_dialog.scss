@@ -1,5 +1,13 @@
 body {
   .ui-dialog {
+    // Backstop against auto-width dialogs overflowing the viewport. PrimeFaces
+    // sizes width-less dialogs to their content and centers on the measured
+    // width; wide content (or full-width panelgrid fields) can push the box
+    // past the right edge. Capping the width keeps any dialog on-screen even
+    // when it has no explicit width. PrimeFaces sets `width` inline, not
+    // `max-width`, so this clamps without fighting the inline style.
+    max-width: 95vw;
+
     .ui-dialog-titlebar {
       padding: 1em;
     }

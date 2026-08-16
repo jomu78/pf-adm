@@ -30,24 +30,31 @@ public class PfAdmProperties implements Serializable {
   private String dateFormat;
   // path to template in use */
   private String templatePath = "/admin.xhtml";
-//  private Integer breadCrumbMaxSize;
+  // breadCrumbMaxSize: intentionally NOT implemented - it caps AdminFaces'
+  // automatic visited-history breadcrumb, which pf-adm replaces with an
+  // explicit, hierarchical breadcrumb (deliberate non-goal). Do not wire up.
+  //  private Integer breadCrumbMaxSize;
   private boolean renderMessages = true;
   private boolean skipMessageDetailIfEqualsSummary = true;
-//  private boolean renderAjaxStatus;
+  // renders a global overlay during AJAX requests (PrimeFaces p:ajaxStatus)
+  private boolean renderAjaxStatus = false;
+  // image shown in the AJAX overlay; used verbatim as the img src. when empty,
+  // the bundled images/ajaxloadingbar.gif is used as the default. only relevant
+  // when renderAjaxStatus is true.
+  private String loadingImage;
 //  private boolean disableFilter;
 //  private boolean enableRipple;
   private boolean renderBreadCrumb = true;
-//  private boolean extensionLessUrls;
+  //  private boolean extensionLessUrls;
   private boolean enableSlideMenu = true;
-//  private String rippleElements;
+  //  private String rippleElements;
   private SkinEnum skin = SkinEnum.SKIN_BLUE;
-//  private boolean autoShowNavbar;
+  //  private boolean autoShowNavbar;
 //  private String ignoredResources;//comma separated resources (pages or urls) to be ignored in AdminFilter
-//  private String loadingImage;
 //  private boolean renderControlSidebar;
-  private boolean leftMenuTemplate = false;
+  private boolean leftMenuTemplate = true;
   private boolean renderMenuSearch = false;
-//  private boolean renderFormAsterisks;
+  private boolean renderFormAsterisks = false;
 //  private boolean closableLoading;
 //  private boolean enableMobileHeader;
   //controlsidebar
@@ -76,7 +83,7 @@ public class PfAdmProperties implements Serializable {
 
   public PfAdmProperties() {
     if (!StringUtils.hasText(dateFormat)) {
-      dateFormat =  ((SimpleDateFormat) DateFormat.getDateTimeInstance()).toLocalizedPattern();
+      dateFormat = ((SimpleDateFormat) DateFormat.getDateTimeInstance()).toLocalizedPattern();
     }
   }
 }
