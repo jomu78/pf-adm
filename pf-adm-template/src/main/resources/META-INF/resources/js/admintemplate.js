@@ -35,7 +35,7 @@ const REQUIRED_INDICATOR_CLASS = 'pfadm-required-indicator';
 // Required form controls expose aria-required="true" (PrimeFaces) or the native
 // required attribute. A label is matched to its control via for=<control id>.
 const REQUIRED_CONTROL_SELECTOR = '[aria-required="true"], [required]';
-// PrimeFaces' own outputLabel required indicator -1 skip labels that already
+// PrimeFaces' own outputLabel required indicator - skip labels that already
 // carry one so we never render a double asterisk.
 const EXISTING_INDICATOR_SELECTOR = '.ui-outputlabel-rfi, .' + REQUIRED_INDICATOR_CLASS;
 
