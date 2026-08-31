@@ -375,6 +375,7 @@ Areas that usually need explicit review:
 * pages that use Bootstrap 3 responsive visibility classes (see <<_responsive_visibility,Responsive Visibility>>)
 * form pages built with `p:panelGrid` that need explicit column widths (see <<_panelgrid_column_widths,PanelGrid Column Widths>>)
 * pages with `p:dialog` that need an explicit width and `appendTo="@(body)"` to centre correctly (see <<_dialog_sizing_and_centering,Dialog Sizing and Centering>>)
+* pages that `update` a `p:dialog` by id, which duplicates the overlay panels of the inputs inside it (see <<_overlay_panels_inside_dialogs,Overlay Panels Inside Dialogs>>)
 
 For the current high-level feature status, see
 link:doc/feature_matrix.adoc[Feature Matrix] and link:doc/uicomponents.adoc[UI Components].
@@ -466,10 +467,95 @@ A dialog left inside the content area is positioned relative to `.app-main`
 * An explicit `width` keeps the dialog centred.
 Width-less dialogs are auto-sized to their content, and `pf-adm` stretches `inputText`,
 `inputTextarea`, `selectOneMenu`, and `calendar` to full width inside a
-`p:panelGrid` (see <<_panelgrid_column_widths,PanelGrid Column Widths>>) — in an auto-width dialog those `100%` fields size unpredictably and can push the box past the right edge.
+`p:panelGrid` (see <<_panelgrid_column_widths,PanelGrid Column Widths>>) - in an auto-width dialog those `100%` fields size unpredictably and can push the box past the right edge.
 
 As a backstop, `pf-adm` caps every dialog at `max-width: 95vw`, so a dialog can never overflow the viewport horizontally even if it has no explicit width.
 This is a safety net, not a substitute for setting a sensible `width`.
+
+=== Overlay Panels Inside Dialogs
+
+An overlay panel - the dropdown of a `selectOneMenu`, `autoComplete`, or `selectCheckboxMenu` - is rendered inside the component's own markup, and PrimeFaces normally aligns it with coordinates relative to that component.
+Inside a dialog it rewrites both at runtime.
+`PrimeFaces.utils.resolveAppendTo` sees that the component sits in a `.ui-dialog`, forces
+`appendTo="@(body)"` on it, and - because `.ui-dialog` is `position: fixed` - sets
+`position: fixed` on the panel.
+The panel is therefore moved out of the dialog and into `<body>`.
+
+That is fine until something re-renders the region the component lives in.
+The moved panel is no longer part of that region, so it survives, while the re-rendered markup brings a fresh panel carrying the *same* DOM id.
+From that point the component is unrecoverable:
+
+* PrimeFaces resolves its panel as `$('#form\:field_panel')`.
+The escaped colon stops jQuery from using `getElementById`, so it falls back to
+`querySelectorAll` and the widget's `panel` holds *both* elements.
+* `alignPanel()` tests `this.panel.parent().is(this.jq)`.
+One of the two parents *is* the component, so the test passes and PrimeFaces applies the relative branch - `left: 0; top: <component height>` - to both panels.
+On a `position: fixed` panel the browser reads those as viewport coordinates, and the dropdown opens in the top left corner of the screen, behind the fixed `.app-header`.
+* `PrimeFaces.utils.appendDynamicOverlay` bails out early because one panel already sits in
+`<body>`, so PrimeFaces never cleans up or re-moves anything.
+
+Setting `appendTo="@(body)"` on the field does not help - PrimeFaces has already set it.
+Neither does `positionType="absolute"` on the dialog: it suppresses the `position: fixed`, but the `appendTo` is forced regardless, so the duplicate still appears.
+The duplicate itself has to go.
+
+`pf-adm` ships a cleanup for this, but does not apply it on its own - the situation is rare enough that silently deleting DOM nodes on every request would be the worse trade.
+Call it from the `onstart` of the request that re-renders the region:
+
+[source,xhtml]
+----
+<p:commandButton action="#{view.edit}"
+                 onstart="PfAdm.dropOrphanOverlayPanels('editDialogForm')"
+                 update=":editDialogForm"
+                 oncomplete="PF('editDialogVar').show()"/>
+----
+
+`onstart` runs before the request, so the response arrives to a document holding exactly one element per panel id.
+The widget then resolves its panel unambiguously, PrimeFaces moves it to `<body>` as intended,
+`parent().is(jq)` is false, and the panel is aligned with document coordinates.
+
+`PfAdm.dropOrphanOverlayPanels` is defined in `admintemplate.js`, which `admin-base.xhtml`
+already loads - nothing has to be imported.
+It takes the client ids of the re-rendered region, as a space- or comma-separated string or an array, and returns the number of panels it removed.
+Pass the same ids the request updates: only panels whose owning component lies inside that region are touched, because removing others would detach the panels of widgets that are not being re-rendered.
+
+One caveat: the panels are gone once the request is sent.
+If it fails or is aborted, the old markup stays without its panels until the next successful update.
+
+Note the leading colon in `update=":editDialogForm"`.
+`p:dialog` is not a `NamingContainer`, so the form's client id does not contain the dialog id, and a button inside a `p:dataTable` (which *is* one) cannot reach the form relatively.
+
+A migrated application usually did not show this under AdminFaces, and the reason is worth knowing: the duplicate was there all along, it was simply invisible.
+AdminFaces overrode PrimeFaces' dialog CSS in its `admin-theme`:
+
+[source,css]
+----
+body .ui-dialog.ui-widget-content, body .ui-dialog {
+  position: absolute;   /* PrimeFaces default: fixed  */
+  overflow: visible;    /* PrimeFaces default: hidden */
+  ...
+}
+----
+
+With the dialog at `position: absolute`, the `"fixed" === $(dialog).css("position")` test in
+`resolveAppendTo` fails and the panel is never set to `position: fixed`.
+The forced `appendTo="@(body)"` still ran - it sits after the comma operator, independent of that test - so the hoisting, and with it the duplicate id, happened under AdminFaces too.
+It simply did no harm.
+The copy still inside the component was `position: absolute` against the component's own
+`position: relative`, so it rendered correctly under the field, while the copy in `<body>`
+resolved against the document and landed at the top left of the page - behind the AdminLTE 2 header and below PrimeFaces' z-index base.
+Nobody ever saw it.
+
+`pf-adm` does not override `.ui-dialog`, so PrimeFaces' own `position: fixed` applies, and the stray copy moves from "hidden behind the header" to "in the corner of the viewport".
+Neither override is carried over, on purpose.
+`overflow: visible` existed because PrimeFaces 6 to 8 kept panels inside the dialog, where they were clipped; since PrimeFaces 11 every overlay is hoisted out - `selectOneMenu`,
+`autoComplete`, `selectCheckboxMenu`, `datePicker`, and every `DynamicOverlayWidget` - so there is nothing left to clip, and giving up `overflow: hidden` would only let content overdraw the rounded corners and loosen `maximizable` and `resizable`.
+`position: absolute` would not fix the duplicate either, only hide it again, at the price of dialogs that scroll away with the content below the `md` breakpoint, where `.app-main` is not the scroll container.
+
+Two smaller hazards in the same area.
+Panel width is not bound to the input: PrimeFaces freezes the panel at its natural width and list items do not wrap, so one long item label can make it wider than the viewport, at which point jQuery UI's `flipfit` collision handling clamps it to the screen edge.
+`pf-adm` caps every overlay panel at `max-width: 95vw` as a backstop; a tighter per-field
+`panelStyle="max-width:…"` reads better in a narrow dialog.
+And give tall dialogs `fitViewport="true"` - PrimeFaces centers a dialog on its measured height, so a form taller than the viewport gets a negative `top` and its first rows end up behind the fixed `.app-header`.
 
 == Validation Checklist
 

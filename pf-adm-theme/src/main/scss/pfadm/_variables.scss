@@ -223,7 +223,7 @@ $datatable-row-hover-color: $pfadm-surface-card !default;
 // `1rem 1rem`, which is too loose for admin tables. Defined here (pfadm vars
 // load before the theme-base vars via prelude) so the theme-base `!default`
 // picks up these values, keeping body, header, footer and the sm/lg scale
-// variants consistent. Two-value list (y x) — list.nth() relies on it.
+// variants consistent. Two-value list (y x) - list.nth() relies on it.
 $pfadm-datatable-cell-padding: 0.5rem 0.75rem !default;
 $datatableBodyCellPadding: $pfadm-datatable-cell-padding !default;
 $datatableHeaderCellPadding: $pfadm-datatable-cell-padding !default;

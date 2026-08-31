@@ -93,6 +93,16 @@ body {
   .ui-selectonemenu-panel,
   .ui-selectcheckboxmenu-panel,
   .ui-autocomplete-panel {
+    // Backstop against overlay panels overflowing the viewport. PrimeFaces
+    // freezes the panel at its natural width (alignPanelWidth) and list items
+    // are `white-space: nowrap`, so a single long item can make the panel wider
+    // than the window. jQuery UI's `flipfit` collision then clamps it to
+    // `window.scrollLeft` - which is always 0 here, because `.app-main` and not
+    // the window is the scroll container - so the panel lands in the top left
+    // corner instead of below its input. Capping the width keeps the panel
+    // inside the viewport so the normal alignment applies; the item wrapper
+    // already scrolls (`.ui-selectonemenu-items-wrapper { overflow: auto }`).
+    max-width: 95vw;
     color: var(--pfadm-text-primary);
     background-color: var(--pfadm-surface-overlay);
     border: 1px solid var(--pfadm-border-color);

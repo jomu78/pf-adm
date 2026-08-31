@@ -16,6 +16,11 @@ const MENU_SEARCH_ACTIVE_CLASS = 'pfadm-menu-search-active';
 // clear without disturbing the active-path expansion (OPEN_ITEM_MARKER).
 const SEARCH_OPEN_MARKER = 'pfadm-menu-search-open';
 
+// Orphaned overlay panels: PrimeFaces suffixes an overlay panel's id with this
+// and hoists the panel to <body> when its component sits in a dialog (see
+// dropOrphanOverlayPanels).
+const OVERLAY_PANEL_ID_SUFFIX = '_panel';
+
 // Scroll-to-top: '.pfadm-scroll-top' is the floating button rendered when
 // pf-adm.render-scroll-to-top is enabled.
 const SCROLL_TOP_SELECTOR = '.pfadm-scroll-top';
@@ -30,7 +35,7 @@ const REQUIRED_INDICATOR_CLASS = 'pfadm-required-indicator';
 // Required form controls expose aria-required="true" (PrimeFaces) or the native
 // required attribute. A label is matched to its control via for=<control id>.
 const REQUIRED_CONTROL_SELECTOR = '[aria-required="true"], [required]';
-// PrimeFaces' own outputLabel required indicator — skip labels that already
+// PrimeFaces' own outputLabel required indicator - skip labels that already
 // carry one so we never render a double asterisk.
 const EXISTING_INDICATOR_SELECTOR = '.ui-outputlabel-rfi, .' + REQUIRED_INDICATOR_CLASS;
 
@@ -39,14 +44,27 @@ const EXISTING_INDICATOR_SELECTOR = '.ui-outputlabel-rfi, .' + REQUIRED_INDICATO
 // AdminLTE 4 sidebar sits at 1038 and header at 1034, so a default dialog would
 // render behind them. Raising the base clears the chrome while staying just below
 // Bootstrap's modal layer (1055), and preserves PrimeFaces' per-overlay increments
-// (stacked dialogs, overlaypanel-over-dialog keep their relative order). Set at
-// script-execution time (PrimeFaces core is loaded as a head resource, so it is
-// already defined here) so it applies before any auto-opened dialog is shown.
-if (window.PrimeFaces) {
-    PrimeFaces.zindex = 1100;
+// (stacked dialogs, overlaypanel-over-dialog keep their relative order).
+const PFADM_ZINDEX_BASE = 1100;
+
+// Applied more than once on purpose. A single assignment at script-execution time
+// is lost whenever PrimeFaces' own core script is evaluated after this one - it
+// declares the 1000 base itself, so it resets us. That ordering is not ours to
+// control: it happens with primefaces.MOVE_SCRIPTS_TO_BOTTOM and with hand-written
+// templates that pull the resources in a different order. Re-asserting on ready and
+// after every AJAX request is cheap and makes the base stick regardless.
+// Only ever raises: PrimeFaces increments the value per shown overlay, and lowering
+// it back to the base would drop stacked overlays behind the ones below them.
+function raisePrimeFacesZindex() {
+    if (window.PrimeFaces && PrimeFaces.zindex < PFADM_ZINDEX_BASE) {
+        PrimeFaces.zindex = PFADM_ZINDEX_BASE;
+    }
 }
 
+raisePrimeFacesZindex();
+
 $(document).ready(function() {
+    raisePrimeFacesZindex();
   setActiveNavLink();
   bindAjaxMenuRefresh();
   bindMenuSearch();
@@ -58,6 +76,7 @@ function bindAjaxMenuRefresh() {
   // PrimeFaces AJAX (p:ajax, p:commandButton, ...) does not use the standard
   // Faces AJAX API. It dispatches this jQuery event on document instead.
   $(document).on('pfAjaxComplete', function() {
+      raisePrimeFacesZindex();
     setActiveNavLink();
     applyFormAsterisks();
   });
@@ -313,3 +332,80 @@ function applyFormAsterisks() {
     );
   });
 }
+
+// ---------------------------------------------------------------------------
+// Orphaned overlay panels
+// ---------------------------------------------------------------------------
+
+// Removes overlay panels that PrimeFaces hoisted to <body> and that are about to
+// be re-rendered, identified by the client ids in `scope`.
+//
+// Opt-in on purpose: this is a rare situation, and it deletes DOM nodes. Call it
+// from the onstart of the request that re-renders the region - typically a button
+// that both refreshes a dialog's form and opens the dialog:
+//
+//   <p:commandButton action="#{view.edit}"
+//                    onstart="PfAdm.dropOrphanOverlayPanels('editDialogForm')"
+//                    update=":editDialogForm"
+//                    oncomplete="PF('editDialogVar').show()"/>
+//
+// Why it is needed: when a selectOneMenu, autoComplete, or selectCheckboxMenu sits
+// inside a dialog, PrimeFaces.utils.resolveAppendTo forces appendTo="@(body)" on it
+// and moves its panel out to <body>. The panel then no longer belongs to the region
+// it was declared in, so an AJAX update of that region re-renders a second panel
+// carrying the same DOM id while the hoisted one survives. From there the component
+// cannot recover: PrimeFaces resolves its panel as $('#form\:field_panel'), the
+// escaped colon makes jQuery fall back to querySelectorAll, and the widget ends up
+// holding BOTH elements. alignPanel() then sees one of the two parents match the
+// component, applies coordinates relative to it, and the browser resolves them
+// against the viewport because the panel is position: fixed - the dropdown opens in
+// the top left corner of the screen. appendDynamicOverlay bails out too, because one
+// panel already sits in <body>, so PrimeFaces never cleans up.
+//
+// Dropping the hoisted panel before the response arrives leaves exactly one element
+// per id, so the widget resolves it unambiguously and PrimeFaces moves it as
+// intended.
+//
+// Pass the client ids of the re-rendered region, as a space- or comma-separated
+// string or an array - the same ids the request's update targets. Only panels whose
+// owning component is inside that region are touched; removing others would detach
+// the panels of widgets that are not being re-rendered. Returns the number removed.
+//
+// Note that the panels are gone once the request is sent: if it fails or is aborted,
+// the old markup stays without its panels until the next successful update.
+function dropOrphanOverlayPanels(scope) {
+    const ids = Array.isArray(scope) ? scope : String(scope || '').split(/[\s,]+/);
+    const targets = ids.filter(Boolean);
+    if (targets.length === 0) {
+        return 0;
+    }
+
+    let removed = 0;
+
+    // Only direct children of <body>: that is where PrimeFaces hoists panels to. A
+    // panel still nested in its component is the freshly rendered one and must stay.
+    Array.prototype.slice.call(document.body.children).forEach(function (element) {
+        const id = element.id;
+        if (!id || !id.endsWith(OVERLAY_PANEL_ID_SUFFIX)) {
+            return;
+        }
+
+        const ownerId = id.slice(0, -OVERLAY_PANEL_ID_SUFFIX.length);
+        const inScope = targets.some(function (target) {
+            // The owner is re-rendered when it is the target itself, or a component
+            // below it - client ids of nested components carry the target as a prefix.
+            return ownerId === target || ownerId.startsWith(target + ':');
+        });
+
+        if (inScope) {
+            element.remove();
+            removed++;
+        }
+    });
+
+    return removed;
+}
+
+// Public API. Everything else in this file is internal to the template.
+window.PfAdm = window.PfAdm || {};
+window.PfAdm.dropOrphanOverlayPanels = dropOrphanOverlayPanels;

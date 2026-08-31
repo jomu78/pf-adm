@@ -1,5 +1,16 @@
 = pf-adm History
 
+== 0.4.1 - 2026-08-31
+
+* hardening: cap `selectOneMenu`, `autoComplete`, and `selectCheckboxMenu` overlay panels at
+`max-width: 95vw`.
+PrimeFaces freezes a panel at its natural width and list items do not wrap, so a very long item label can make the panel wider than the viewport - jQuery UI then clamps it to the screen edge instead of aligning it under its input
+* new: `PfAdm.dropOrphanOverlayPanels(clientIds)` - removes overlay panels PrimeFaces hoisted to `<body>` before the region they belong to is re-rendered.
+Without it the re-render leaves two elements sharing one DOM id, and the dropdown of a `selectOneMenu` in a dialog opens in the top left corner of the screen.
+Opt-in, called from the `onstart` of the request that re-renders the region
+* bugfix: re-assert the PrimeFaces overlay z-index base on ready and after every AJAX request.
+A single assignment at script-execution time is reset whenever PrimeFaces' own core script is evaluated after `admintemplate.js`, which left overlays below the AdminLTE header (1034) and sidebar (1038)
+
 == 0.4.0 - 2026-08-16
 
 * new: form asterisks (`pf-adm.render-form-asterisks`) - appends a `*` indicator to the label of every required input
