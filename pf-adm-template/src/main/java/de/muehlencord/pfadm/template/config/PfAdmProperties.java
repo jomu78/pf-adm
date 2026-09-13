@@ -26,7 +26,7 @@ public class PfAdmProperties implements Serializable {
 //  private Properties adminConfigFile;//default config
 //  private Properties userConfigFile;//user defined properties
 //  private String loginPage;
-  private String indexPage = "index.xhtml";
+  private String indexPage = Constants.DEFAULT_INDEX_PAGE;
   private String dateFormat;
   // path to template in use */
   private String templatePath = "/admin.xhtml";
