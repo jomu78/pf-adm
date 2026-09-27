@@ -14,4 +14,6 @@ public class Constants {
 
 
   public static final String DEFAULT_INDEX_PAGE = "/index.xhtml";
+  public static final String DEFAULT_TEMPLATE_PATH = "/admin.xhtml";
+  public static final String DEFAULT_TOP_TEMPLATE_PATH = "/admin-top.xhtml";
 }

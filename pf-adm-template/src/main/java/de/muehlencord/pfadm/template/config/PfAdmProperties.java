@@ -29,7 +29,8 @@ public class PfAdmProperties implements Serializable {
   private String indexPage = Constants.DEFAULT_INDEX_PAGE;
   private String dateFormat;
   // path to template in use */
-  private String templatePath = "/admin.xhtml";
+  private String templatePath = Constants.DEFAULT_TEMPLATE_PATH;
+  private String templateTopPath = Constants.DEFAULT_TOP_TEMPLATE_PATH;
   // breadCrumbMaxSize: intentionally NOT implemented - it caps AdminFaces'
   // automatic visited-history breadcrumb, which pf-adm replaces with an
   // explicit, hierarchical breadcrumb (deliberate non-goal). Do not wire up.
@@ -74,8 +75,6 @@ public class PfAdmProperties implements Serializable {
   private boolean renderScrollToTop = false;
   private boolean supportBootstrapIcons = false;
   private boolean supportFontAwesome = false;
-
-  private String templateTopPath = "/admin-top.xhtml";
 
   @NestedConfigurationProperty
   private ErrorPageProperties error = new ErrorPageProperties();
