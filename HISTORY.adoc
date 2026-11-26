@@ -1,9 +1,23 @@
 = pf-adm History
 
+== 0.5.1 - 2026-11-26
+
+* chore(deps): Update to SpringBoot 4.1.3
+* chore(deps): Update to Primefaces 15.0.20
+* chore(deps): Update to OmniFaces 5.5.8
+* chore(deps): take the Faces API from `jakarta.jakartaee-web-api` instead of declaring `jakarta.faces-api` and `jakarta.ejb-api` separately
+* chore(build): annotation processor versions are resolved from the Spring Boot parent
+
+== 0.5.0 - 2026-09-27
+
+* change: the default `pf-adm.index-page` is now `/index.xhtml` (was `index.xhtml`)
+* chore(deps): Update to SpringBoot 4.1.1
+* chore(deps): Update to Primefaces 15.0.18
+* chore(deps): Update to OmniFaces 5.5.2
+
 == 0.4.1 - 2026-08-31
 
-* hardening: cap `selectOneMenu`, `autoComplete`, and `selectCheckboxMenu` overlay panels at
-`max-width: 95vw`.
+* hardening: cap `selectOneMenu`, `autoComplete`, and `selectCheckboxMenu` overlay panels at `max-width: 95vw`.
 PrimeFaces freezes a panel at its natural width and list items do not wrap, so a very long item label can make the panel wider than the viewport - jQuery UI then clamps it to the screen edge instead of aligning it under its input
 * new: `PfAdm.dropOrphanOverlayPanels(clientIds)` - removes overlay panels PrimeFaces hoisted to `<body>` before the region they belong to is re-rendered.
 Without it the re-render leaves two elements sharing one DOM id, and the dropdown of a `selectOneMenu` in a dialog opens in the top left corner of the screen.
